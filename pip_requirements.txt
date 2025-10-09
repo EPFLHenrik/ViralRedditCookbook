@@ -8,4 +8,4 @@ python-louvain>=0.16
 tqdm>=4.67.0
 jupyter>=1.1.0
 jupyterlab>=4.4.0
-ipykernel>=6.30.0
+ipykernel>=6.29.5
