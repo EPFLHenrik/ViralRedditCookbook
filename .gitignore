@@ -168,8 +168,9 @@ cython_debug/
 .vscode/
 
 # Data
-data/
+/data/
 *.pkl
+*.csv
 
 # Macos specific
 .DS_Store
