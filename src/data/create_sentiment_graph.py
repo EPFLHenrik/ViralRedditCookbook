@@ -1,114 +1,116 @@
-import pandas as pd
 import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
 from collections import defaultdict
-import seaborn as sns
 import os
-import pickle
-from collections import Counter
 import csv
 
 from src.utils.data_utils import load_reddit_graph
 
 
-NEGATIVE_GRAPH_DIR = os.path.join(os.path.dirname(__file__), 'hate_graphs')
+SENTIMENT_GRAPH_DIR = os.path.join(os.path.dirname(__file__), 'sentiment_graphs')
 
 
-
-def create_negative_sentiment_graph(G, metric='negative_ratio'):
+def create_sentiment_graph(G, metric='sentiment_ratio', sentiment='neg'):
     """
-    Create a new directed weighted graph with different metrics to measure subreddit "hate".
+    Create a new directed weighted graph with different metrics to measure subreddit sentiment.
+    
+    Args:
+        G: NetworkX graph to analyze
+        metric: Metric to use for graph creation
+        sentiment: Sentiment type to analyze ('neg' for negative sentiment -1, 'neu_pos' for neutral/positive sentiment 1)
     
     Available metrics:
-    - 'negative_ratio': Ratio of negative posts to total posts between subreddits
-    - 'negative_frequency': Number of negative posts normalized by source subreddit activity
-    - 'relative_negative': Negative posts relative to the subreddit's average negative activity
-    - 'hate_intensity': Combination of negative ratio and absolute count
-    - 'negative_count': Raw negative post count
-    - 'source_total_negative': Total negative posts from source subreddit (to all targets)
+    - 'sentiment_ratio': Ratio of sentiment posts to total posts between subreddits
+    - 'sentiment_frequency': Number of sentiment posts normalized by source subreddit activity
+    - 'relative_sentiment': Sentiment posts relative to the subreddit's average sentiment activity
+    - 'sentiment_intensity': Combination of sentiment ratio and absolute count
+    - 'sentiment_count': Raw sentiment post count
+    - 'source_total_sentiment': Total sentiment posts from source subreddit (to all targets)
     - 'source_activity_weighted': Weighted by source subreddit activity
     - 'target_activity_weighted': Weighted by target subreddit activity
     - 'combined_activity': Combined activity (source * target)
     - 'subreddit_size_ratio': Ratio of source subreddit activity to target subreddit activity
     """
     
-    pair_counts = defaultdict(lambda: {'negative': 0, 'total': 0})
-    subreddit_activity = defaultdict(lambda: {'negative': 0, 'total': 0})
+    sentiment_value = -1 if sentiment == 'neg' else 1
+    
+    pair_counts = defaultdict(lambda: {'sentiment': 0, 'total': 0})
+    subreddit_activity = defaultdict(lambda: {'sentiment': 0, 'total': 0})
     
     for source, target, attrs in G.edges(data=True):
-        sentiment = attrs['sentiment']
+        edge_sentiment = attrs['sentiment']
         pair_counts[(source, target)]['total'] += 1
         subreddit_activity[source]['total'] += 1
         
-        if sentiment == -1:
-            pair_counts[(source, target)]['negative'] += 1
-            subreddit_activity[source]['negative'] += 1
+        if edge_sentiment == sentiment_value:
+            pair_counts[(source, target)]['sentiment'] += 1
+            subreddit_activity[source]['sentiment'] += 1
     
-    negative_G = nx.DiGraph()
+    sentiment_G = nx.DiGraph()
     
     for (source, target), counts in pair_counts.items():
-        negative_count = counts['negative']
+        sentiment_count = counts['sentiment']
         total_count = counts['total']
         
-        if negative_count > 0:
-            if metric == 'negative_ratio':
-                weight = negative_count / total_count
+        if sentiment_count > 0:
+            if metric == 'sentiment_ratio':
+                weight = sentiment_count / total_count
                 
-            elif metric == 'negative_frequency':
+            elif metric == 'sentiment_frequency':
                 source_total = subreddit_activity[source]['total']
-                weight = negative_count / source_total if source_total > 0 else 0
+                weight = sentiment_count / source_total if source_total > 0 else 0
                 
-            elif metric == 'relative_negative':
-                source_negative = subreddit_activity[source]['negative']
+            elif metric == 'relative_sentiment':
+                source_sentiment = subreddit_activity[source]['sentiment']
                 source_total = subreddit_activity[source]['total']
-                avg_negative_ratio = source_negative / source_total if source_total > 0 else 0
-                pair_negative_ratio = negative_count / total_count
-                weight = pair_negative_ratio / avg_negative_ratio if avg_negative_ratio > 0 else pair_negative_ratio
+                avg_sentiment_ratio = source_sentiment / source_total if source_total > 0 else 0
+                pair_sentiment_ratio = sentiment_count / total_count
+                weight = pair_sentiment_ratio / avg_sentiment_ratio if avg_sentiment_ratio > 0 else pair_sentiment_ratio
                 
-            elif metric == 'hate_intensity':
-                negative_ratio = negative_count / total_count
-                intensity = negative_ratio * np.log(1 + negative_count)
+            elif metric == 'sentiment_intensity':
+                sentiment_ratio = sentiment_count / total_count
+                intensity = sentiment_ratio * np.log(1 + sentiment_count)
                 weight = intensity
                 
-            elif metric == 'negative_count':
-                weight = negative_count
+            elif metric == 'sentiment_count':
+                weight = sentiment_count
                 
-            elif metric == 'source_total_negative':
-                source_negative = subreddit_activity[source]['negative']
-                weight = source_negative
+            elif metric == 'source_total_sentiment':
+                source_sentiment = subreddit_activity[source]['sentiment']
+                weight = source_sentiment
                 
-            elif metric == 'source_activity_weighted':
+            elif metric == 'source_sentiment_weighted':
                 source_total = subreddit_activity[source]['total']
-                weight = negative_count * np.log(1 + source_total)
+                weight = sentiment_count * np.log(1 + source_total)
                 
-            elif metric == 'target_activity_weighted':
+            elif metric == 'target_sentiment_weighted':
                 target_total = subreddit_activity[target]['total']
-                weight = negative_count * np.log(1 + target_total)
+                weight = sentiment_count * np.log(1 + target_total)
                 
             elif metric == 'combined_activity':
                 source_total = subreddit_activity[source]['total']
                 target_total = subreddit_activity[target]['total']
-                weight = negative_count * np.log(1 + source_total) * np.log(1 + target_total)
+                weight = sentiment_count * np.log(1 + source_total) * np.log(1 + target_total)
                 
             elif metric == 'subreddit_size_ratio':
                 source_total = subreddit_activity[source]['total']
                 target_total = subreddit_activity[target]['total']
                 if target_total > 0:
-                    weight = negative_count * (source_total / target_total)
+                    weight = sentiment_count * (source_total / target_total)
                 else:
-                    weight = negative_count * source_total
+                    weight = sentiment_count * source_total
                 
             else:
-                weight = negative_count
+                weight = sentiment_count
             
-            negative_G.add_edge(source, target, 
+            sentiment_G.add_edge(source, target, 
                               weight=weight, 
-                              negative_count=negative_count,
+                              sentiment_count=sentiment_count,
                               total_count=total_count,
-                              negative_ratio=negative_count/total_count)
+                              sentiment_ratio=sentiment_count/total_count)
     
-    return negative_G
+    return sentiment_G
 
 def filter_top_edges(G, n_edges=100):
     """
@@ -126,21 +128,23 @@ def filter_top_edges(G, n_edges=100):
         filtered_G.add_edge(u, v, weight=weight)
     return filtered_G
 
-def create_and_visualize_graph(G, metric, top_n=100, show=False):
+def create_and_visualize_graph(G, metric, sentiment='neg', top_n=100, show=False):
     """
-    Create and visualize a graph for a specific metric.
+    Create and visualize a graph for a specific metric and sentiment.
     
     Args:
         G: NetworkX graph to analyze
         metric: Metric to use for graph creation
+        sentiment: Sentiment type to analyze ('neg' for negative sentiment -1, 'neu_pos' for neutral/positive sentiment 1)
+        top_n: Number of top edges to keep for visualization
         show: If True, display the plot. If False, only save to file.
     """
-    negative_G = create_negative_sentiment_graph(G, metric=metric)
+    sentiment_G = create_sentiment_graph(G, metric=metric, sentiment=sentiment)
     
-    if negative_G.number_of_edges() == 0:
+    if sentiment_G.number_of_edges() == 0:
         return
     
-    filtered_G = filter_top_edges(negative_G, n_edges=top_n)
+    filtered_G = filter_top_edges(sentiment_G, n_edges=top_n)
     
     if filtered_G.number_of_edges() == 0:
         return
@@ -159,15 +163,22 @@ def create_and_visualize_graph(G, metric, top_n=100, show=False):
     else:
         normalized_weights = [0.5] * len(edges)
     
+    if sentiment == 'neg':
+        node_color = 'lightcoral'
+        edge_cmap = plt.cm.autumn
+    else:
+        node_color = 'lightgreen'
+        edge_cmap = plt.cm.summer
+    
     node_sizes = [filtered_G.degree(node) * 400 + 600 for node in filtered_G.nodes()]
     nx.draw_networkx_nodes(filtered_G, pos, 
                           node_size=node_sizes,
-                          node_color='lightcoral',
+                          node_color=node_color,
                           alpha=0.8)
     
     edges_drawn = nx.draw_networkx_edges(filtered_G, pos,
                                         edge_color=normalized_weights,
-                                        edge_cmap=plt.cm.rainbow,
+                                        edge_cmap=edge_cmap,
                                         width=3,
                                         alpha=0.8,
                                         arrows=True,
@@ -185,7 +196,7 @@ def create_and_visualize_graph(G, metric, top_n=100, show=False):
         edge_labels[(u, v)] = f"{weight:.2f}"
     
     if edges_drawn and weights:
-        sm = plt.cm.ScalarMappable(cmap=plt.cm.rainbow, 
+        sm = plt.cm.ScalarMappable(cmap=edge_cmap, 
                                  norm=plt.Normalize(vmin=min(weights), 
                                                    vmax=max(weights)))
         sm.set_array([])
@@ -193,23 +204,25 @@ def create_and_visualize_graph(G, metric, top_n=100, show=False):
         cbar.set_label(f'{metric.replace("_", " ").title()} Score', rotation=270, labelpad=20)
     
     metric_descriptions = {
-        'negative_ratio': 'weight = negative_count / total_count',
-        'negative_frequency': 'weight = negative_count / source_total',
-        'relative_negative': 'weight = negative_count / source_total / avg_negative_ratio',
-        'hate_intensity': 'weight = negative_ratio * np.log(1 + negative_count)',
-        'negative_count': 'weight = negative_count',
-        'source_total_negative': 'weight = source_negative',
-        'source_activity_weighted': 'weight = negative_count * np.log(1 + source_total)',
-        'target_activity_weighted': 'weight = negative_count * np.log(1 + target_total)',
-        'combined_activity': 'weight = negative_count * np.log(1 + source_total) * np.log(1 + target_total)',
-        'subreddit_size_ratio': 'weight = negative_count * (source_total / target_total)'
+        'sentiment_ratio': 'weight = sentiment_count / total_count',
+        'sentiment_frequency': 'weight = sentiment_count / source_total',
+        'relative_sentiment': 'weight = sentiment_count / source_total / avg_sentiment_ratio',
+        'sentiment_intensity': 'weight = sentiment_ratio * np.log(1 + sentiment_count)',
+        'sentiment_count': 'weight = sentiment_count',
+        'source_total_sentiment': 'weight = source_sentiment',
+        'source_activity_weighted': 'weight = sentiment_count * np.log(1 + source_total)',
+        'target_activity_weighted': 'weight = sentiment_count * np.log(1 + target_total)',
+        'combined_activity': 'weight = sentiment_count * np.log(1 + source_total) * np.log(1 + target_total)',
+        'subreddit_size_ratio': 'weight = sentiment_count * (source_total / target_total)'
     }
     
-    plt.title(f"Top {top_n} Negative ({metric_descriptions[metric]})", fontsize=16, fontweight='bold', pad=20)
+    sentiment_label = "Negative" if sentiment == 'neg' else "Neutral/Positive"
+    plt.title(f"Top {top_n} {sentiment_label} ({metric_descriptions[metric]})", fontsize=16, fontweight='bold', pad=20)
     plt.axis('off')
     plt.tight_layout()
     
-    output_file = os.path.join(NEGATIVE_GRAPH_DIR, f'strong_negative_sentiment_{metric}.png')
+    os.makedirs(SENTIMENT_GRAPH_DIR, exist_ok=True)
+    output_file = os.path.join(SENTIMENT_GRAPH_DIR, f'strong_{sentiment}_sentiment_{metric}.png')
     plt.savefig(output_file, bbox_inches='tight')
     
     if show:
@@ -217,7 +230,7 @@ def create_and_visualize_graph(G, metric, top_n=100, show=False):
     else:
         plt.close()
     
-    metric_folder = os.path.join(NEGATIVE_GRAPH_DIR, metric)
+    metric_folder = os.path.join(SENTIMENT_GRAPH_DIR, f"{sentiment}_{metric}")
     os.makedirs(metric_folder, exist_ok=True)
     
     edges_csv_path = os.path.join(metric_folder, 'edges.csv')
@@ -275,17 +288,19 @@ def export_node_degrees_to_csv(G, filename):
 
 
 if __name__ == "__main__":
-    os.makedirs(NEGATIVE_GRAPH_DIR, exist_ok=True)
+    os.makedirs(SENTIMENT_GRAPH_DIR, exist_ok=True)
     
     G = load_reddit_graph()
     
-    create_and_visualize_graph(G, 'negative_frequency', show=False)
-    create_and_visualize_graph(G, 'relative_negative', show=False)
-    create_and_visualize_graph(G, 'hate_intensity', show=False)
-    create_and_visualize_graph(G, 'negative_count', show=False)
-    create_and_visualize_graph(G, 'source_total_negative', show=False)
-    create_and_visualize_graph(G, 'source_activity_weighted', show=False)
-    create_and_visualize_graph(G, 'target_activity_weighted', show=False)
-    create_and_visualize_graph(G, 'combined_activity', show=False)
-    create_and_visualize_graph(G, 'subreddit_size_ratio', show=False)
-    create_and_visualize_graph(G, 'negative_ratio', show=False)
+    metrics = [
+        'sentiment_frequency', 'relative_sentiment', 'sentiment_intensity', 
+        'sentiment_count', 'source_total_sentiment', 'source_activity_weighted',
+        'target_activity_weighted', 'combined_activity', 'subreddit_size_ratio', 
+        'sentiment_ratio'
+    ]
+    
+    for metric in metrics:
+        create_and_visualize_graph(G, metric, sentiment='neg', show=False)
+    
+    for metric in metrics:
+        create_and_visualize_graph(G, metric, sentiment='neu_pos', show=False)
