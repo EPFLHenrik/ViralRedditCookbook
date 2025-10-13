@@ -93,6 +93,7 @@ def plot_degree_distribution(G, save_path=None, show=False):
     if show:
         plt.show()
     else:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
         plt.savefig(save_path)
         plt.close()
 
@@ -157,6 +158,7 @@ def plot_sentiment_analysis(G, save_path=None, show=False):
     if show:
         plt.show()
     else:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
         plt.savefig(save_path)
         plt.close()
 
@@ -254,6 +256,7 @@ def plot_temporal_analysis(G, save_path=None, show=False):
     if show:
         plt.show()
     else:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
         plt.savefig(save_path)
         plt.close()
 
@@ -394,6 +397,7 @@ def plot_property_vector_analysis(G, save_path=None, show=False):
     if show:
         plt.show()
     else:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
         plt.savefig(save_path)
         plt.close()
 
