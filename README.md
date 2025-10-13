@@ -7,7 +7,7 @@ Please use this structure for your project and document the installation, usage 
 
 First you have to export `PYTHONPATH` environment variable for the relative imports to work
 ```bash
-export $PYTHONPATH=$(pwd)
+export PYTHONPATH=$(pwd)
 ```
 
 ```bash
