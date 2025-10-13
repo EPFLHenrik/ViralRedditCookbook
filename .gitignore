@@ -171,6 +171,7 @@ cython_debug/
 /data/
 *.pkl
 *.csv
+*.tsv
 
 # Macos specific
 .DS_Store
