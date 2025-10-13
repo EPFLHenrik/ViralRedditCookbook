@@ -101,16 +101,16 @@ def create_sentiment_graph(G, metric='sentiment_ratio', sentiment='neg'):
         edge_sentiment = attrs['sentiment']
         post_label = attrs.get('post_label', 0)
         properties = attrs.get('properties', [])
-        
+
         pair_counts[(source, target)]['total'] += 1
         subreddit_activity[source]['total'] += 1
         pair_counts[(source, target)]['properties'].append(properties)
         subreddit_activity[source]['properties'].append(properties)
-        
+
         if edge_sentiment == sentiment_value:
             pair_counts[(source, target)]['sentiment'] += 1
             subreddit_activity[source]['sentiment'] += 1
-            
+
             hate_score = calculate_hate_score(post_label, properties)
             pair_counts[(source, target)]['hate_scores'].append(hate_score)
             subreddit_activity[source]['hate_scores'].append(hate_score)

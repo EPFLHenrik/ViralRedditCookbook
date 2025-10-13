@@ -165,8 +165,9 @@ cython_debug/
 .zshrc.local
 
 
-# Data
-/data/
+# Data (keep the folder but ignore the files)
+/data/*
+!/data/.gitkeep
 *.pkl
 *.csv
 *.tsv
