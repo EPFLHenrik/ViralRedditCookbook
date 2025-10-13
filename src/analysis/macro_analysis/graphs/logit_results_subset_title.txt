@@ -4,7 +4,7 @@ Dep. Variable:         LINK_SENTIMENT   No. Observations:               571927
 Model:                          Logit   Df Residuals:                   571921
 Method:                           MLE   Df Model:                            5
 Date:                Mon, 13 Oct 2025   Pseudo R-squ.:                  0.3353
-Time:                        13:51:14   Log-Likelihood:            -1.2926e+05
+Time:                        16:02:54   Log-Likelihood:            -1.2926e+05
 converged:                       True   LL-Null:                   -1.9445e+05
 Covariance Type:            nonrobust   LLR p-value:                     0.000
 ============================================================================================

@@ -4,20 +4,20 @@ Dep. Variable:         LINK_SENTIMENT   No. Observations:               571927
 Model:                          Logit   Df Residuals:                   571841
 Method:                           MLE   Df Model:                           85
 Date:                Mon, 13 Oct 2025   Pseudo R-squ.:                  0.4662
-Time:                        13:51:08   Log-Likelihood:            -1.0379e+05
+Time:                        16:02:50   Log-Likelihood:            -1.0379e+05
 converged:                      False   LL-Null:                   -1.9445e+05
 Covariance Type:            nonrobust   LLR p-value:                     0.000
 ===============================================================================================
                                   coef    std err          z      P>|z|      [0.025      0.975]
 -----------------------------------------------------------------------------------------------
-const                          19.3199   1.03e+05      0.000      1.000   -2.02e+05    2.02e+05
+const                          19.3208        nan        nan        nan         nan         nan
 Num_characters                  0.1207      0.008     14.230      0.000       0.104       0.137
 Num_characters_no_space        -0.1020      0.009    -11.937      0.000      -0.119      -0.085
-Frac_alpha                     -2.6931   1.03e+05  -2.61e-05      1.000   -2.02e+05    2.02e+05
-Frac_digits                    18.0060   1.03e+05      0.000      1.000   -2.02e+05    2.02e+05
+Frac_alpha                     -2.6939        nan        nan        nan         nan         nan
+Frac_digits                    18.0051        nan        nan        nan         nan         nan
 Frac_uppercase                  1.7280      0.099     17.389      0.000       1.533       1.923
-Frac_whitespace                 4.2587   1.03e+05   4.12e-05      1.000   -2.02e+05    2.02e+05
-Frac_special                   -0.2518   1.03e+05  -2.44e-06      1.000   -2.02e+05    2.02e+05
+Frac_whitespace                 4.2579        nan        nan        nan         nan         nan
+Frac_special                   -0.2526        nan        nan        nan         nan         nan
 Num_words                      -0.0527      0.011     -4.701      0.000      -0.075      -0.031
 Num_unique_words               -0.1960      0.005    -36.554      0.000      -0.206      -0.185
 Num_long_words                 -0.0621      0.005    -11.715      0.000      -0.073      -0.052
@@ -33,14 +33,14 @@ Sentiment_pos_vader            -3.6136      0.097    -37.306      0.000      -3.
 Sentiment_neg_vader            -2.5114      0.075    -33.591      0.000      -2.658      -2.365
 Sentiment_compound_vader        1.6916      0.028     61.110      0.000       1.637       1.746
 LIWC_Funct                     -1.9361      0.270     -7.181      0.000      -2.464      -1.408
-LIWC_Pronoun                    0.5990   9.73e+05   6.16e-07      1.000   -1.91e+06    1.91e+06
-LIWC_Ppron                      2.1197   9.73e+05   2.18e-06      1.000   -1.91e+06    1.91e+06
+LIWC_Pronoun                    0.5989        nan        nan        nan         nan         nan
+LIWC_Ppron                      2.1199        nan        nan        nan         nan         nan
 LIWC_I                          0.0494      0.689      0.072      0.943      -1.301       1.400
 LIWC_We                         2.7252      0.757      3.599      0.000       1.241       4.209
 LIWC_You                        4.4979      0.746      6.032      0.000       3.036       5.959
 LIWC_SheHe                     -3.1516      0.576     -5.474      0.000      -4.280      -2.023
 LIWC_They                       0.0790      0.737      0.107      0.915      -1.365       1.524
-LIWC_Ipron                     -1.5207   9.73e+05  -1.56e-06      1.000   -1.91e+06    1.91e+06
+LIWC_Ipron                     -1.5206        nan        nan        nan         nan         nan
 LIWC_Article                   -0.8874      0.282     -3.147      0.002      -1.440      -0.335
 LIWC_Verbs                     -5.0148      0.358    -14.015      0.000      -5.716      -4.313
 LIWC_AuxVb                      6.1738      0.320     19.306      0.000       5.547       6.801
