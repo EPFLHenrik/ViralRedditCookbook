@@ -43,12 +43,12 @@ def preprocess_dataframe(load_type='body', body_tsv_file='soc-redditHyperlinks-b
     properties_df = df['PROPERTIES'].str.split(',', expand=True)
     properties_df.columns = properties_names
     df = pd.concat([df.drop(columns=['PROPERTIES']), properties_df], axis=1)
-
+    df["POST_ID"] = df["POST_ID"].str[:6]
     df.to_pickle(pickle_file)
     return df
 
 if __name__ == "__main__":
-    df = preprocess_dataframe(load_type='title',
+    df = preprocess_dataframe(load_type='merged',
                             body_tsv_file='soc-redditHyperlinks-body.tsv',
                             title_tsv_file='soc-redditHyperlinks-title.tsv')
 
