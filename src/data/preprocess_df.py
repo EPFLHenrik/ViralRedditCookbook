@@ -48,7 +48,7 @@ def preprocess_dataframe(load_type='body', body_tsv_file='soc-redditHyperlinks-b
     return df
 
 if __name__ == "__main__":
-    df = preprocess_dataframe(load_type='title',
+    df = preprocess_dataframe(load_type='merged',
                             body_tsv_file='soc-redditHyperlinks-body.tsv',
                             title_tsv_file='soc-redditHyperlinks-title.tsv')
 
