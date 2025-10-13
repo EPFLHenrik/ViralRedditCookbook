@@ -171,6 +171,7 @@ cython_debug/
 *.pkl
 *.csv
 *.tsv
+src/analysis/sentiment_graphs
 
 # Macos specific
 .DS_Store
