@@ -1,21 +1,16 @@
 
-# Your project name
+# Project Temp: Navigating the difficult landscapes of Reddit
 This is a template repo for your project to help you organise and document your code better. 
 Please use this structure for your project and document the installation, usage and structure as below.
 
 ## Quickstart
 
+First you have to export `PYTHONPATH` environment variable for the relative imports to work
 ```bash
-# clone project
-git clone <project link>
-cd <project repo>
+export PYTHONPATH=$(pwd)
+```
 
-# [OPTIONAL] create conda environment
-conda create -n <env_name> python=3.11 or ...
-conda activate <env_name>
-
-
-# install requirements
+```bash
 pip install -r pip_requirements.txt
 ```
 

@@ -5,6 +5,9 @@ import os
 from tqdm import tqdm
 
 
+DATA_DIR = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
+
+
 def preprocess_reddit_graph(load_type='body', body_tsv_file='soc-redditHyperlinks-body.tsv', 
                      title_tsv_file='soc-redditHyperlinks-title.tsv', force_reload=False):
     """
@@ -29,9 +32,9 @@ def preprocess_reddit_graph(load_type='body', body_tsv_file='soc-redditHyperlink
     networkx.MultiDiGraph
         Directed multigraph where nodes are subreddits and edges are posts
     """
-    
-    data_folder = '../../data'
-    
+
+    data_folder = DATA_DIR
+
     if load_type == 'body':
         tsv_file = os.path.join(data_folder, body_tsv_file)
         pickle_file = os.path.join(data_folder, 'reddit_graph_body.pkl')
