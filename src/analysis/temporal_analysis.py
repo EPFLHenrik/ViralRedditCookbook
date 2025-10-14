@@ -4,15 +4,21 @@ import networkx as nx
 from typing import Union
 import os
 
-G = load_reddit_graph()
+# G = load_reddit_graph()
 
-for u, v, data in list(G.edges(data=True))[:10]:
-    print(f"{u} -> {v}, attributes = {data}")
+# for u, v, data in list(G.edges(data=True))[:10]:
+#     print(f"{u} -> {v}, attributes = {data}")
+
+CURRENT_DIR = os.path.dirname(__file__)
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
+ANALYSIS_DIR = os.path.join(PROJECT_ROOT, "src", "analysis")
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
+
 
 def edges_negative_by_quarter(G: nx.MultiDiGraph, 
                                quarter_end: str = "DEC", 
                                save_csv: bool = True, 
-                               output_dir: str = r"C:\Users\Aziz Hamza\Desktop\ADAMA1\ada-2025-project-standard-deviants-ada\src\analysis", 
+                               output_dir: str = ANALYSIS_DIR, 
                                filename: str = "reddit_negative_edges_by_quarter.csv") -> pd.DataFrame:
     """
     Extract edges with negative sentiment and index them by 3-month windows (calendar quarters),
@@ -77,7 +83,7 @@ def sources_by_quarter_matrix(
     count_distinct_targets: bool = True,  
     ignore_quarters: list = ["2013Q4"],   
     save_csv: bool = True,
-    output_path: str = r"C:\Users\Aziz Hamza\Desktop\ADAMA1\ada-2025-project-standard-deviants-ada\src\analysis\targets_num_sources_by_window.csv",
+    output_path: str = os.path.join(ANALYSIS_DIR, "targets_num_sources_by_window.csv"),
 ) -> pd.DataFrame:
     """
     Build a wide matrix with sources as rows and quarters as columns.
@@ -149,8 +155,7 @@ def sources_by_quarter_matrix(
     wide = wide[wide.gt(0).all(axis=1)]
 
     if save_csv:
-        if not output_path:
-            raise ValueError("Provide output_path when save_csv=True.")
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
         wide.to_csv(output_path, index=True)
 
     return wide
