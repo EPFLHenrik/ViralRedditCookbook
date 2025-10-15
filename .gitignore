@@ -164,13 +164,14 @@ cython_debug/
 # Local zshrc
 .zshrc.local
 
-# vscode files
-.vscode/
 
-# Data
-/data/
+# Data (keep the folder but ignore the files)
+/data/*
+!/data/.gitkeep
 *.pkl
 *.csv
+*.tsv
+src/analysis/sentiment_graphs
 
 # Macos specific
 .DS_Store
