@@ -9,7 +9,7 @@ import os
 
 from src.utils.data_utils import load_reddit_graph
 
-#
+
 LIWC_FEATURE_NAMES = [
     "LIWC_Funct", "LIWC_Pronoun", "LIWC_Ppron", "LIWC_I", "LIWC_We", "LIWC_You", 
     "LIWC_SheHe", "LIWC_They", "LIWC_Ipron", "LIWC_Article", "LIWC_Verbs", "LIWC_AuxVb", 
@@ -21,6 +21,18 @@ LIWC_FEATURE_NAMES = [
     "LIWC_See", "LIWC_Hear", "LIWC_Feel", "LIWC_Bio", "LIWC_Body", "LIWC_Health", 
     "LIWC_Sexual", "LIWC_Ingest", "LIWC_Relativ", "LIWC_Motion", "LIWC_Space", "LIWC_Time", 
     "LIWC_Work", "LIWC_Achiev", "LIWC_Leisure", "LIWC_Home", "LIWC_Money", "LIWC_Relig", 
+    "LIWC_Death", "LIWC_Assent", "LIWC_Dissent", "LIWC_Nonflu"
+]
+
+CONTEXTUAL_LIWC_FEATURES = [
+    "LIWC_Social", "LIWC_Family", "LIWC_Friends", "LIWC_Humans",
+    "LIWC_Affect", "LIWC_Posemo", "LIWC_Negemo", "LIWC_Anx", "LIWC_Anger", "LIWC_Sad",
+    "LIWC_CogMech", "LIWC_Insight", "LIWC_Cause", "LIWC_Discrep", "LIWC_Tentat", 
+    "LIWC_Certain", "LIWC_Inhib",
+    "LIWC_Percept", "LIWC_See", "LIWC_Hear", "LIWC_Feel",
+    "LIWC_Bio", "LIWC_Body", "LIWC_Health", "LIWC_Sexual", "LIWC_Ingest",
+    "LIWC_Relativ", "LIWC_Motion", "LIWC_Space", "LIWC_Time",
+    "LIWC_Work", "LIWC_Achiev", "LIWC_Leisure", "LIWC_Home", "LIWC_Money", "LIWC_Relig",
     "LIWC_Death", "LIWC_Assent", "LIWC_Dissent", "LIWC_Nonflu"
 ]
 
@@ -138,8 +150,8 @@ def calculate_liwc_covariance_matrix(liwc_df, output_dir):
     """
     os.makedirs(output_dir, exist_ok=True)
 
-    cov_mat = liwc_df[LIWC_FEATURE_NAMES].cov()
-    corr_mat = liwc_df[LIWC_FEATURE_NAMES].corr()
+    cov_mat = liwc_df[CONTEXTUAL_LIWC_FEATURES].cov()
+    corr_mat = liwc_df[CONTEXTUAL_LIWC_FEATURES].corr()
     
     fig, axes = plt.subplots(1, 2, figsize=(20, 8))
     
@@ -168,7 +180,7 @@ def calculate_subreddit_similarity_matrix(liwc_df, output_dir):
     """
     # Find 3-dimensional covariance and correlation matrices and export heatmaps
     os.makedirs(output_dir, exist_ok=True)
-    subreddit_features = liwc_df.set_index('subreddit')[LIWC_FEATURE_NAMES].fillna(0).T
+    subreddit_features = liwc_df.set_index('subreddit')[CONTEXTUAL_LIWC_FEATURES].fillna(0).T
 
     subreddit_corr = subreddit_features.corr()
     subreddit_cov = subreddit_features.cov()
@@ -202,7 +214,7 @@ def calculate_subreddit_similarity_matrix(liwc_df, output_dir):
             sub2_features = subreddit_features.loc[sub2]
             
             feature_similarities = []
-            for feature in LIWC_FEATURE_NAMES:
+            for feature in CONTEXTUAL_LIWC_FEATURES:
                 val1 = sub1_features[feature]
                 val2 = sub2_features[feature]
                 mean_val = (val1 + val2) / 2
@@ -236,22 +248,12 @@ def calculate_subreddit_similarity_matrix(liwc_df, output_dir):
 
 
 def main():
-    print("Loading Reddit graph...")
     G = load_reddit_graph()
-    print(f"Graph loaded with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges")
-    
-    # Find highest degree nodes (subreddits with most connections)
     top_in_degree, top_out_degree = find_highest_node_degrees(G)
-    
-    # Analyze edge patterns
     high_degree_edges, high_degree_edges_unique = analyze_edge_patterns(G)
-    
-    # Get top subreddits for analysis
     top_subreddits = [node for node, _ in top_in_degree[:20]] + [node for node, _ in top_out_degree[:20]]
     top_subreddits = list(set(top_subreddits))
-
     liwc_df = extract_liwc_features(G, top_subreddits)
-
     lwic_cov, lwic_corr = calculate_liwc_covariance_matrix(liwc_df, output_dir = "src/analysis/top_subreddits_analysis_charts")
     subreddit_cov, subreddit_cov, similar_pairs = calculate_subreddit_similarity_matrix(liwc_df, output_dir = "src/analysis/top_subreddits_analysis_charts")
 
