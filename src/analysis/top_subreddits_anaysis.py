@@ -5,9 +5,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 import seaborn as sns
+import os
 
 from src.utils.data_utils import load_reddit_graph
 
+#
 LIWC_FEATURE_NAMES = [
     "LIWC_Funct", "LIWC_Pronoun", "LIWC_Ppron", "LIWC_I", "LIWC_We", "LIWC_You", 
     "LIWC_SheHe", "LIWC_They", "LIWC_Ipron", "LIWC_Article", "LIWC_Verbs", "LIWC_AuxVb", 
@@ -130,13 +132,129 @@ def extract_liwc_features(G, top_subreddits=None):
     return pd.DataFrame(subreddit_liwc_data)
 
 
+def calculate_liwc_covariance_matrix(liwc_df, output_dir):
+    """
+    Calculate LIWC feature covariance matrix and export heatmaps
+    """
+    os.makedirs(output_dir, exist_ok=True)
+
+    cov_mat = liwc_df[LIWC_FEATURE_NAMES].cov()
+    corr_mat = liwc_df[LIWC_FEATURE_NAMES].corr()
+    
+    fig, axes = plt.subplots(1, 2, figsize=(20, 8))
+    
+    sns.heatmap(cov_mat, cmap='RdBu_r', center=0, 
+                ax=axes[0], cbar_kws={'label': 'Covariance'}, 
+                xticklabels=[f.replace('LIWC_', '') for f in cov_mat.columns],
+                yticklabels=[f.replace('LIWC_', '') for f in cov_mat.index])
+    sns.heatmap(corr_mat, cmap='RdBu_r', center=0, 
+                ax=axes[1], cbar_kws={'label': 'Correlation'},
+                xticklabels=[f.replace('LIWC_', '') for f in corr_mat.columns],
+                yticklabels=[f.replace('LIWC_', '') for f in corr_mat.index])
+    
+    axes[0].set_title('LIWC Feature Covariance Matrix')
+    axes[1].set_title('LIWC Feature Correlation Matrix')
+    
+    plt.tight_layout()
+    plt.savefig(f"{output_dir}/liwc_feature_cov.png", dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    return cov_mat, corr_mat
+
+
+def calculate_subreddit_similarity_matrix(liwc_df, output_dir):
+    """
+    Calculate similarity between subreddits based on LIWC features
+    """
+    # Find 3-dimensional covariance and correlation matrices and export heatmaps
+    os.makedirs(output_dir, exist_ok=True)
+    subreddit_features = liwc_df.set_index('subreddit')[LIWC_FEATURE_NAMES].fillna(0).T
+
+    subreddit_corr = subreddit_features.corr()
+    subreddit_cov = subreddit_features.cov()
+    
+    fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+    
+    sns.heatmap(subreddit_corr, annot=True, cmap='coolwarm', center=0,
+                ax=axes[0], cbar_kws={'label': 'Correlation'}, fmt='.2f')
+    axes[0].set_title('Subreddit Similarity Matrix (Correlation)')
+    sns.heatmap(subreddit_cov, cmap='RdBu_r', center=0,
+                ax=axes[1], cbar_kws={'label': 'Covariance'})
+    axes[1].set_title('Subreddit Similarity Matrix (Covariance)')
+    
+    plt.tight_layout()
+    plt.savefig(f"{output_dir}/subreddit_similarity_matrix.png", dpi=300, bbox_inches='tight')
+    plt.close()
+    
+
+    # Find most similar subreddit pairs and corresponding LIWC features that drive similarity
+    similar_pairs = []
+    n_subreddits = len(subreddit_corr)
+    subreddit_features = subreddit_features.T
+    
+    for i in range(n_subreddits):
+        for j in range(i+1, n_subreddits):
+            sub1 = subreddit_corr.index[i]
+            sub2 = subreddit_corr.index[j]
+            overall_corr = subreddit_corr.iloc[i, j]
+            
+            sub1_features = subreddit_features.loc[sub1]
+            sub2_features = subreddit_features.loc[sub2]
+            
+            feature_similarities = []
+            for feature in LIWC_FEATURE_NAMES:
+                val1 = sub1_features[feature]
+                val2 = sub2_features[feature]
+                mean_val = (val1 + val2) / 2
+                if mean_val != 0:
+                    # Similarity score: 1 - (normalized absolute difference)
+                    similarity = 1 - abs(val1 - val2) / (2 * abs(mean_val) + 1e-8)
+                else:
+                    similarity = 1 if val1 == val2 else 0
+                
+                feature_similarities.append({
+                    'feature': feature,
+                    'similarity': similarity,
+                    'sub1_value': val1,
+                    'sub2_value': val2
+                })
+            
+            feature_similarities.sort(key=lambda x: x['similarity'], reverse=True)
+            top_similar_features = feature_similarities[:5]  # Top 5 most similar features
+            
+            similar_pairs.append({
+                'subreddit1': sub1,
+                'subreddit2': sub2,
+                'correlation': overall_corr,
+                'top_similar_features': [f['feature'].replace('LIWC_', '') for f in top_similar_features],
+                'feature_similarities': top_similar_features
+            })
+    
+    similar_pairs.sort(key=lambda x: abs(x['correlation']), reverse=True)
+    
+    return subreddit_corr, subreddit_cov, similar_pairs
+
+
 def main():
+    print("Loading Reddit graph...")
     G = load_reddit_graph()
+    print(f"Graph loaded with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges")
+    
+    # Find highest degree nodes (subreddits with most connections)
     top_in_degree, top_out_degree = find_highest_node_degrees(G)
+    
+    # Analyze edge patterns
     high_degree_edges, high_degree_edges_unique = analyze_edge_patterns(G)
+    
+    # Get top subreddits for analysis
     top_subreddits = [node for node, _ in top_in_degree[:20]] + [node for node, _ in top_out_degree[:20]]
-    top_subreddits = list(set(top_subreddits)) 
+    top_subreddits = list(set(top_subreddits))
+
     liwc_df = extract_liwc_features(G, top_subreddits)
+
+    lwic_cov, lwic_corr = calculate_liwc_covariance_matrix(liwc_df, output_dir = "src/analysis/top_subreddits_analysis_charts")
+    subreddit_cov, subreddit_cov, similar_pairs = calculate_subreddit_similarity_matrix(liwc_df, output_dir = "src/analysis/top_subreddits_analysis_charts")
+
 
 if __name__ == "__main__":
     main()
