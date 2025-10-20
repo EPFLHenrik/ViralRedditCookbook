@@ -175,4 +175,4 @@ cython_debug/
 .DS_Store
 
 # Reddit credentials for scraping
-/src/analysis/macro_analysis/reddit_config.py
+/src/data/scraping/reddit_config.py

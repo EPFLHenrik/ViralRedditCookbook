@@ -22,10 +22,7 @@ def sanitize(s: str):
     s = s.replace('\t', ' ')
     s = s.replace(';', '')
     s = s.replace("'", "")
-    return s
-
-def do_request(url, headers):
-    return requests.get(url, headers=headers)
+    return s 
 
 def get_post_data(path, start_index=0):
 
@@ -39,17 +36,15 @@ def get_post_data(path, start_index=0):
     headers = {"Authorization": f"bearer {token}", "User-Agent": UA}
 
     df = load_reddit_df(path)
-    print(df.iloc[start_index])
-    print(df.iloc[start_index+1])
     df = df.iloc[start_index:].reset_index(drop=True)
     found_posts = []
-    batch_size = 100
+    batch_size = 2
     for i, post_id in enumerate(tqdm(df['POST_ID'])):
         url = f"https://oauth.reddit.com/api/info/?id=t3_{post_id}"
         attempt = 0
         while True:
             try:
-                r = do_request(url, headers=headers)
+                r = requests.get(url, headers=headers)
                 r.raise_for_status()
                 break
             except Exception as e:
