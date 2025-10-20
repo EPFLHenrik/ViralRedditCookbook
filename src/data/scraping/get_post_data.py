@@ -171,9 +171,6 @@ def get_post_data(path, start_index=0, batch_size=100):
             found_df = pd.DataFrame(found_posts)
             found_df.to_csv("data/enhanced.csv", mode='a', header=not os.path.exists("data/enhanced.csv"), index=False)
             found_posts = []
-        
-        if i == 301:
-            return
             
     if found_posts:
         found_df = pd.DataFrame(found_posts)
