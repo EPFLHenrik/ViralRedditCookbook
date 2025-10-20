@@ -24,7 +24,7 @@ def sanitize(s: str):
     s = s.replace("'", "")
     return s 
 
-def get_post_data(path, start_index=0):
+def get_post_data(path, start_index=0, batch_size=100):
 
     auth = requests.auth.HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
     data = {"grant_type": "password", "username": USERNAME, "password": PASSWORD, "scope": "read"}
@@ -38,7 +38,6 @@ def get_post_data(path, start_index=0):
     df = load_reddit_df(path)
     df = df.iloc[start_index:].reset_index(drop=True)
     found_posts = []
-    batch_size = 2
     for i, post_id in enumerate(tqdm(df['POST_ID'])):
         url = f"https://oauth.reddit.com/api/info/?id=t3_{post_id}"
         attempt = 0
