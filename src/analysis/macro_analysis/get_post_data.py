@@ -27,7 +27,7 @@ def sanitize(s: str):
 def do_request(url, headers):
     return requests.get(url, headers=headers)
 
-def get_post_data(path):
+def get_post_data(path, start_index=0):
 
     auth = requests.auth.HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
     data = {"grant_type": "password", "username": USERNAME, "password": PASSWORD, "scope": "read"}
@@ -39,16 +39,17 @@ def get_post_data(path):
     headers = {"Authorization": f"bearer {token}", "User-Agent": UA}
 
     df = load_reddit_df(path)
+    print(df.iloc[start_index])
+    print(df.iloc[start_index+1])
+    df = df.iloc[start_index:].reset_index(drop=True)
     found_posts = []
     batch_size = 100
     for i, post_id in enumerate(tqdm(df['POST_ID'])):
         url = f"https://oauth.reddit.com/api/info/?id=t3_{post_id}"
-        # retry until success (exponential backoff, capped)
         attempt = 0
         while True:
             try:
                 r = do_request(url, headers=headers)
-                # raise for HTTP error codes to trigger retry as well
                 r.raise_for_status()
                 break
             except Exception as e:
@@ -62,8 +63,6 @@ def get_post_data(path):
         children = data.get('data', {}).get('children', [])
         if children:
             d = children[0]['data']
-            # append requested fields (use .get to avoid KeyError)
-            # retrieve a flat dict for the matching row (iloc[0].to_dict())
             old_df_dict = df.iloc[i].to_dict()
             new_df_dict = {
                 "POST_ID": post_id,
@@ -175,7 +174,6 @@ def get_post_data(path):
         found_posts.append(old_df_dict)
         
         if (i + 1) % batch_size == 0 and found_posts:
-            # found_posts is a list of dicts with the requested fields
             found_df = pd.DataFrame(found_posts)
             found_df.to_csv("data/enhanced.csv", mode='a', header=not os.path.exists("data/enhanced.csv"), index=False)
             found_posts = []
