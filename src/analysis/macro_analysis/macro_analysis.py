@@ -1,47 +1,12 @@
 import seaborn as sns
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
-from collections import Counter
 import os
-from tqdm import tqdm
-
-import requests
 
 from src.utils.data_utils import load_reddit_df
 
 DATA_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data')
-
-def get_post_data(path):
-    df = pd.read_csv(path, sep="\t", header=0)
-    properties_names = [
-        "Num_characters", "Num_characters_no_space", "Frac_alpha", "Frac_digits", "Frac_uppercase", "Frac_whitespace", "Frac_special", "Num_words", "Num_unique_words", "Num_long_words", "Avg_word_length", "Num_unique_stopwords", "Frac_stopwords", "Num_sentences", "Num_long_sentences", "Avg_chars_per_sentence", "Avg_words_per_sentence", "Automated_readability_index", "Sentiment_pos_vader", "Sentiment_neg_vader", "Sentiment_compound_vader", "LIWC_Funct", "LIWC_Pronoun", "LIWC_Ppron", "LIWC_I", "LIWC_We", "LIWC_You", "LIWC_SheHe", "LIWC_They", "LIWC_Ipron", "LIWC_Article", "LIWC_Verbs", "LIWC_AuxVb", "LIWC_Past", "LIWC_Present", "LIWC_Future", "LIWC_Adverbs", "LIWC_Prep", "LIWC_Conj", "LIWC_Negate", "LIWC_Quant", "LIWC_Numbers", "LIWC_Swear", "LIWC_Social", "LIWC_Family", "LIWC_Friends", "LIWC_Humans", "LIWC_Affect", "LIWC_Posemo", "LIWC_Negemo", "LIWC_Anx", "LIWC_Anger", "LIWC_Sad", "LIWC_CogMech", "LIWC_Insight", "LIWC_Cause", "LIWC_Discrep", "LIWC_Tentat", "LIWC_Certain", "LIWC_Inhib", "LIWC_Incl", "LIWC_Excl", "LIWC_Percept", "LIWC_See", "LIWC_Hear", "LIWC_Feel", "LIWC_Bio", "LIWC_Body", "LIWC_Health", "LIWC_Sexual", "LIWC_Ingest", "LIWC_Relativ", "LIWC_Motion", "LIWC_Space", "LIWC_Time", "LIWC_Work", "LIWC_Achiev", "LIWC_Leisure", "LIWC_Home", "LIWC_Money", "LIWC_Relig", "LIWC_Death", "LIWC_Assent", "LIWC_Dissent", "LIWC_Nonflu", "LIWC_Filler"
-    ]
-    if 'properties' in df.columns:
-        properties_df = df['properties'].str.split(',', expand=True)
-        properties_df.columns = properties_names
-        df = pd.concat([df.drop(columns=['properties']), properties_df], axis=1)
-    import time
-    found_posts = []
-    batch_size = 10
-    for i, post_id in enumerate(tqdm(df['POST_ID'])):
-        url = f"https://www.reddit.com/api/info.json?id=t3_{post_id}"
-        response = requests.get(url, headers={'User-agent': 'Mozilla/5.0'})
-        data = response.json()
-        children = data.get('data', {}).get('children', [])
-        if children:
-            found_posts.append([post_id, children[0]['data']['selftext']])
-        time.sleep(1)
-        
-        if (i + 1) % batch_size == 0 and found_posts:
-            found_df = pd.DataFrame(found_posts, columns=["POST_ID", "POST_TEXT"])
-            found_df.to_csv("found_posts.csv", mode='a', header=not os.path.exists("found_posts.csv"), index=False)
-            found_posts = []
-            
-    if found_posts:
-        found_df = pd.DataFrame(found_posts, columns=["POST_ID", "POST_TEXT"])
-        found_df.to_csv("found_posts.csv", mode='a', header=not os.path.exists("found_posts.csv"), index=False)
 
 def prepare_data(path):
     return load_reddit_df(path)
