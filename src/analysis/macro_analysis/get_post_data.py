@@ -4,15 +4,13 @@ import pandas as pd
 import os
 from tqdm import tqdm
 import time
+import sys
+sys.path.append(os.path.join(os.getcwd(), '..', '..', '..'))
 
 from src.utils.data_utils import load_reddit_df
 
 DATA_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data')
-UA = "windows:ada-project:v1.0 (by /u/***REMOVED***)" 
-CLIENT_ID = "***REMOVED***"
-CLIENT_SECRET = "***REMOVED***"
-USERNAME = "***REMOVED***"
-PASSWORD = "***REMOVED***"
+from reddit_config import UA, CLIENT_ID, CLIENT_SECRET, USERNAME, PASSWORD
 
 def sanitize(s: str):
     if not isinstance(s, str):
@@ -171,7 +169,7 @@ def get_post_data(path):
                 "selftext": sanitize(d.get("selftext")),
             }
 
-        time.sleep(0.3)
+        time.sleep(0.4)
         old_df_dict.update(new_df_dict)
         
         found_posts.append(old_df_dict)
