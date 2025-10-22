@@ -37,6 +37,8 @@ def analyze_pair_matrices(csv_path, metric_name, output_dir, low_threshold=FEATU
     print(f"Insignificant features (max abs < {LOW_CORR_THRESHOLD}): {insignificant_features['feature1'].unique()}")
     
     interesting_pairs = stats[(stats['max'] - stats['min']) > INTERESTING_RANGE_THRESHOLD]
+    interesting_pairs['range'] = interesting_pairs['max'] - interesting_pairs['min']
+    interesting_pairs = interesting_pairs.sort_values('range', ascending=False)
     interesting_pairs.to_csv(f"{output_dir}/interesting_varying_pairs_{metric_name}.csv", index=False)
     print(f"Interesting varying pairs (max - min > {INTERESTING_RANGE_THRESHOLD}): {len(interesting_pairs)}")
     
