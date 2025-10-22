@@ -171,6 +171,8 @@ def calculate_subreddit_similarity_matrix(liwc_df, output_dir, show=False):
     subs = liwc_df['subreddit'].unique()
     cov_dict = {}
     corr_dict = {}
+    cov_rows = []
+    corr_rows = []
     for i in range(len(subs)):
         for j in range(i + 1, len(subs)):
             sub1, sub2 = subs[i], subs[j]
@@ -183,6 +185,10 @@ def calculate_subreddit_similarity_matrix(liwc_df, output_dir, show=False):
             corr_mat = combined.corr()
             cov_dict[(sub1, sub2)] = cov_mat
             corr_dict[(sub1, sub2)] = corr_mat
+            for fi in CONTEXTUAL_LIWC_FEATURES:
+                for fj in CONTEXTUAL_LIWC_FEATURES:
+                    cov_rows.append([sub1, sub2, fi, fj, cov_mat.loc[fi, fj]])
+                    corr_rows.append([sub1, sub2, fi, fj, corr_mat.loc[fi, fj]])
             fig, axes = plt.subplots(1, 2, figsize=(20, 8))
             sns.heatmap(cov_mat, cmap='RdBu_r', center=0, ax=axes[0], cbar_kws={'label': 'Covariance'},
                         xticklabels=[f.replace('LIWC_', '') for f in cov_mat.columns],
@@ -195,6 +201,10 @@ def calculate_subreddit_similarity_matrix(liwc_df, output_dir, show=False):
             plt.tight_layout()
             plt.savefig(f"{output_dir}/liwc_corr_cov/cov_corr_{sub1}_{sub2}.png", dpi=300, bbox_inches='tight')
             plt.close()
+    df_cov = pd.DataFrame(cov_rows, columns=['sub1', 'sub2', 'feature1', 'feature2', 'value'])
+    df_corr = pd.DataFrame(corr_rows, columns=['sub1', 'sub2', 'feature1', 'feature2', 'value'])
+    df_cov.to_csv(f"{output_dir}/liwc_corr_cov/all_cov.csv", index=False)
+    df_corr.to_csv(f"{output_dir}/liwc_corr_cov/all_corr.csv", index=False)
     return cov_dict, corr_dict
 
 
