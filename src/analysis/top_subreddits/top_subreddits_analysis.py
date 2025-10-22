@@ -117,7 +117,7 @@ def analyze_edge_patterns(G, percentile=90):
     return high_degree_edges, high_degree_edges_unique
 
 
-def extract_liwc_features(G, top_subreddits=None):
+def extract_liwc_features(G, top_subreddits=None, features=CONTEXTUAL_LIWC_FEATURES):
     top_set = set(top_subreddits) if top_subreddits is not None else None
     rows = []
     for src, dst, edge_data in G.edges(data=True):
@@ -131,17 +131,17 @@ def extract_liwc_features(G, top_subreddits=None):
         row.update(dict(zip(LIWC_FEATURE_NAMES, liwc_vals)))
         rows.append(row)
     df = pd.DataFrame(rows)
-    return df[['subreddit'] + CONTEXTUAL_LIWC_FEATURES]
+    return df[['subreddit'] + features]
 
 
-def calculate_liwc_covariance_matrix(liwc_df, output_dir, show=False):
+def calculate_liwc_covariance_matrix(liwc_df, output_dir, features=CONTEXTUAL_LIWC_FEATURES, show=False):
     """
     Calculate LIWC feature covariance matrix and export heatmaps
     """
     os.makedirs(output_dir, exist_ok=True)
 
-    cov_mat = liwc_df[CONTEXTUAL_LIWC_FEATURES].cov()
-    corr_mat = liwc_df[CONTEXTUAL_LIWC_FEATURES].corr()
+    cov_mat = liwc_df[features].cov()
+    corr_mat = liwc_df[features].corr()
     
     fig, axes = plt.subplots(1, 2, figsize=(20, 8))
     
@@ -166,7 +166,7 @@ def calculate_liwc_covariance_matrix(liwc_df, output_dir, show=False):
     return cov_mat, corr_mat
 
 
-def calculate_subreddit_similarity_matrix(liwc_df, output_dir, show=False):
+def calculate_subreddit_similarity_matrix(liwc_df, output_dir, features=CONTEXTUAL_LIWC_FEATURES, show=False):
     os.makedirs(f"{output_dir}/liwc_corr_cov", exist_ok=True)
     subs = liwc_df['subreddit'].unique()
     cov_dict = {}
@@ -176,8 +176,8 @@ def calculate_subreddit_similarity_matrix(liwc_df, output_dir, show=False):
     for i in range(len(subs)):
         for j in range(i + 1, len(subs)):
             sub1, sub2 = subs[i], subs[j]
-            df1 = liwc_df[liwc_df['subreddit'] == sub1][CONTEXTUAL_LIWC_FEATURES]
-            df2 = liwc_df[liwc_df['subreddit'] == sub2][CONTEXTUAL_LIWC_FEATURES]
+            df1 = liwc_df[liwc_df['subreddit'] == sub1][features]
+            df2 = liwc_df[liwc_df['subreddit'] == sub2][features]
             combined = pd.concat([df1, df2], ignore_index=True).dropna()
             if combined.shape[0] < 2:
                 continue
@@ -185,8 +185,8 @@ def calculate_subreddit_similarity_matrix(liwc_df, output_dir, show=False):
             corr_mat = combined.corr()
             cov_dict[(sub1, sub2)] = cov_mat
             corr_dict[(sub1, sub2)] = corr_mat
-            for fi in CONTEXTUAL_LIWC_FEATURES:
-                for fj in CONTEXTUAL_LIWC_FEATURES:
+            for fi in features:
+                for fj in features:
                     cov_rows.append([sub1, sub2, fi, fj, cov_mat.loc[fi, fj]])
                     corr_rows.append([sub1, sub2, fi, fj, corr_mat.loc[fi, fj]])
             fig, axes = plt.subplots(1, 2, figsize=(20, 8))
@@ -208,15 +208,15 @@ def calculate_subreddit_similarity_matrix(liwc_df, output_dir, show=False):
     return cov_dict, corr_dict
 
 
-def main():
+def main(features=CONTEXTUAL_LIWC_FEATURES, output_dir="charts"):
     G = load_reddit_graph()
     top_in_degree, top_out_degree = find_highest_node_degrees(G)
     high_degree_edges, high_degree_edges_unique = analyze_edge_patterns(G)
     top_subreddits = [node for node, _ in top_in_degree[:20]] + [node for node, _ in top_out_degree[:20]]
     top_subreddits = list(set(top_subreddits))
-    liwc_df = extract_liwc_features(G, top_subreddits)
-    lwic_cov, lwic_corr = calculate_liwc_covariance_matrix(liwc_df, output_dir = "src/analysis/top_subreddits_analysis_charts")
-    cov_dict, corr_dict = calculate_subreddit_similarity_matrix(liwc_df, output_dir = "src/analysis/top_subreddits_analysis_charts")
+    liwc_df = extract_liwc_features(G, top_subreddits, features)
+    lwic_cov, lwic_corr = calculate_liwc_covariance_matrix(liwc_df, output_dir, features)
+    cov_dict, corr_dict = calculate_subreddit_similarity_matrix(liwc_df, output_dir, features)
 
 
 if __name__ == "__main__":
