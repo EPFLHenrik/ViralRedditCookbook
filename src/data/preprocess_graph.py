@@ -9,9 +9,9 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
 
 
 def preprocess_reddit_graph(load_type='body', body_tsv_file='soc-redditHyperlinks-body.tsv', 
-                     title_tsv_file='soc-redditHyperlinks-title.tsv', force_reload=False):
+                     title_tsv_file='soc-redditHyperlinks-title.tsv', embeddings_file='web-redditEmbeddings-subreddits.csv', force_reload=False):
     """
-    Load Reddit hyperlink data as a NetworkX graph.
+    Load Reddit hyperlink data as a NetworkX graph with embeddings.
     
     Parameters:
     -----------
@@ -24,13 +24,15 @@ def preprocess_reddit_graph(load_type='body', body_tsv_file='soc-redditHyperlink
         Filename for body hyperlinks TSV file (will be read from data folder)
     title_tsv_file : str
         Filename for title hyperlinks TSV file (will be read from data folder)
+    embeddings_file : str
+        Filename for subreddit embeddings CSV file (will be read from data folder)
     force_reload : bool
         If True, force reload from TSV even if pickle exists
     
     Returns:
     --------
     networkx.MultiDiGraph
-        Directed multigraph where nodes are subreddits and edges are posts
+        Directed multigraph where nodes are subreddits with embeddings and edges are posts
     """
 
     data_folder = DATA_DIR
@@ -66,20 +68,37 @@ def preprocess_reddit_graph(load_type='body', body_tsv_file='soc-redditHyperlink
     G = nx.MultiDiGraph()
     
     all_subreddits = set(df['SOURCE_SUBREDDIT'].unique()) | set(df['TARGET_SUBREDDIT'].unique())
-    G.add_nodes_from(all_subreddits)
+    
+    embeddings_path = os.path.join(data_folder, embeddings_file)
+    embeddings_df = pd.read_csv(embeddings_path, header=None)
+    
+    embeddings_dict = {}
+    for _, row in tqdm(embeddings_df.iterrows(), total=len(embeddings_df), desc="Loading embeddings"):
+        subreddit_name = row[0]
+        embedding_vector = row[1:].values.astype(float)
+        embeddings_dict[subreddit_name] = embedding_vector
+    
+    subreddits_with_embeddings = set(embeddings_dict.keys())
+    filtered_subreddits = all_subreddits.intersection(subreddits_with_embeddings)
+    
+    for subreddit in filtered_subreddits:
+        G.add_node(subreddit, embedding=embeddings_dict[subreddit])
     
     for _, row in tqdm(df.iterrows(), total=len(df), desc="Processing hyperlinks"):
         source = row['SOURCE_SUBREDDIT']
         target = row['TARGET_SUBREDDIT']
         
+        if source not in filtered_subreddits or target not in filtered_subreddits:
+            continue
+        
         properties = []
         if pd.notna(row['PROPERTIES']):
-            properties = [float(x) if x != '' else 0.0 for x in str(row['PROPERTIES']).split(',')]
+            properties = [float(x) for x in str(row['PROPERTIES']).split(',')]
         else:
             raise ValueError("PROPERTIES column is missing")
         
         edge_attrs = {
-            'post_id': row['POST_ID'],
+            'post_id': row['POST_ID'][:6],
             'timestamp': row['TIMESTAMP'],
             'sentiment': row['LINK_SENTIMENT'],
             'properties': properties
@@ -99,6 +118,8 @@ def preprocess_reddit_graph(load_type='body', body_tsv_file='soc-redditHyperlink
 if __name__ == "__main__":
     G_merged = preprocess_reddit_graph(load_type='merged',
                             body_tsv_file='soc-redditHyperlinks-body.tsv',
-                            title_tsv_file='soc-redditHyperlinks-title.tsv')
+                            title_tsv_file='soc-redditHyperlinks-title.tsv',
+                            embeddings_file='web-redditEmbeddings-subreddits.csv',
+                            force_reload=True)
 
     print("Graph loaded successfully, number of nodes: ", G_merged.number_of_nodes(), "number of edges: ", G_merged.number_of_edges())
