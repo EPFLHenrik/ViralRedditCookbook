@@ -88,7 +88,7 @@ def plot_post_histograms(df):
     """
     title_lengths = df['title'].fillna('').apply(len)
     body_lengths = df['selftext'].fillna('').apply(len)
-    upvotes = df['upvote'].fillna(0)
+    upvotes = df['ups'].fillna(0)
 
     fig, axs = plt.subplots(1, 3, figsize=(15, 4))
     axs[0].hist(title_lengths, bins=30, color='skyblue')
