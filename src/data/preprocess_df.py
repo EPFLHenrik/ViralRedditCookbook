@@ -138,7 +138,7 @@ def preprocess_dataframe(
     df = pd.concat([df.drop(columns=["PROPERTIES"]), properties_df], axis=1)
 
     df = attach_cluster_names_to_df(df)
-
+    df["POST_ID"] = df["POST_ID"].str[:6]
     df.to_pickle(pickle_file)
     return df
 

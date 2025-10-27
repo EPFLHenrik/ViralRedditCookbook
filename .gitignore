@@ -178,3 +178,6 @@ src/analysis/sentiment_graphs
 
 # Documentation
 CLUSTER_NAMING_WORKFLOW.md
+
+# Reddit credentials for scraping
+/src/data/scraping/reddit_config.py
