@@ -130,7 +130,7 @@ def create_enhanced_dataset_overview_plot(enhanced_df, save_path=None, show=Fals
     if save_path is None:
         save_path = os.path.join(CHARTS_DIR, 'enhanced_dataset_overview.png')
     
-    fig, axes = plt.subplots(1, 3, figsize=(18, 6))
+    fig, axes = plt.subplots(1, 4, figsize=(24, 6))
     fig.suptitle('Enhanced Dataset Overview', fontsize=16, fontweight='bold')
     
     upvotes = enhanced_df['ups']
@@ -139,10 +139,12 @@ def create_enhanced_dataset_overview_plot(enhanced_df, save_path=None, show=Fals
     total_votes = upvotes / upvote_ratio
     total_votes = total_votes.replace([np.inf, -np.inf], 0)
     downvotes = total_votes - upvotes
+    num_comments = enhanced_df['num_comments']
     
     create_log_histogram(axes[0], upvotes, 'Upvotes Distribution', 'Upvotes', 'lightgreen')
     create_log_histogram(axes[1], downvotes, 'Downvotes Distribution', 'Downvotes', 'lightcoral')
     create_log_histogram(axes[2], total_votes, 'Total Votes Distribution', 'Total Votes', 'lightblue')
+    create_log_histogram(axes[3], num_comments, 'Comments Distribution', 'Number of Comments', 'lightyellow')
     
     plt.tight_layout()
     if show:
@@ -171,15 +173,7 @@ def create_all_enhanced_analysis_plots(show=False):
                           'Dataset ID Comparison', show=show)
     create_enhanced_dataset_overview_plot(enhanced_df, show=show)
     
-    reddit_enhanced_path = os.path.join(DATA_FOLDER, 'reddit_enhanced.csv')
-    if os.path.exists(reddit_enhanced_path):
-        reddit_enhanced_df = load_dataset(reddit_enhanced_path)
-        reddit_enhanced_matching_ids, reddit_enhanced_ids, _ = get_id_sets(reddit_df, reddit_enhanced_df)
-        create_comparison_plot(reddit_ids, reddit_enhanced_ids, reddit_enhanced_matching_ids,
-                              'Reddit Enhanced Dataset ID Comparison', show=show)
-        return enhanced_df, reddit_df, reddit_enhanced_df, matching_ids, reddit_enhanced_matching_ids
-    else:
-        return enhanced_df, reddit_df, None, matching_ids, None
+    return enhanced_df, reddit_df, matching_ids
 
 if __name__ == "__main__":
     create_all_enhanced_analysis_plots(show=True)
