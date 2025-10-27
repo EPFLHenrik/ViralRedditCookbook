@@ -3,54 +3,35 @@ import numpy as np
 import pandas as pd
 import os
 
-from src.utils.data_utils import load_reddit_df
+from src.utils.data_utils import load_reddit_df, load_enhanced_df
 
 DATA_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data')
 CHARTS_DIR = os.path.join(os.path.dirname(__file__), 'enhanced_analysis_charts')
 
-def load_dataset(file_path, strip_ids=True):
-    """
-    Load a dataset and optionally strip POST_ID to 6 characters.
-    
-    Args:
-        file_path: Path to the dataset file
-        strip_ids: Whether to strip POST_ID to 6 characters
-    
-    Returns:
-        DataFrame with optionally stripped POST_ID
-    """
-    if file_path.endswith('.csv'):
-        df = pd.read_csv(file_path, dtype={162: 'object'}) # Cast column 162 (mod_reason_by) to object
-    else:
-        df = load_reddit_df(file_path)
-    
-    if strip_ids and 'POST_ID' in df.columns:
-        df['POST_ID'] = df['POST_ID'].astype(str).str[:6]
-    
-    return df
 
-def get_id_sets(df1, df2):
+def get_id_sets(reddit_df, enhanced_df):
     """
     Get ID sets and their intersection from two datasets.
     
     Args:
-        df1, df2: DataFrames with POST_ID columns
+        reddit_df, enhanced_df: DataFrames with POST_ID columns
     
     Returns:
-        Tuple of (matching_ids, ids1, ids2)
+        Tuple of (matching_ids, reddit_ids, enhanced_ids)
     """
-    ids1 = set(df1['POST_ID'].astype(str))
-    ids2 = set(df2['POST_ID'].astype(str))
-    matching_ids = ids1.intersection(ids2)
-    return matching_ids, ids1, ids2
+    reddit_ids = set(reddit_df['POST_ID'].astype(str))
+    enhanced_ids = set(enhanced_df['POST_ID'].astype(str))
+    matching_ids = reddit_ids.intersection(enhanced_ids)
+    return matching_ids, reddit_ids, enhanced_ids
 
-def create_comparison_plot(ids1, ids2, matching_ids, title, save_path=None, show=False):
+def create_comparison_plot(reddit_ids, cleaned_ids, matching_ids, title, save_path=None, show=False):
     """
     Create a comparison plot with pie chart and bar chart.
     
     Args:
-        ids1, ids2: Sets of IDs from two datasets
-        matching_ids: Set of matching IDs
+        reddit_ids: Set of IDs from original dataset
+        cleaned_ids: Set of IDs from cleaned dataset
+        matching_ids: Set of matching IDs between original and cleaned datasets
         title: Plot title
         save_path: Path to save the plot
         show: Whether to display the plot
@@ -61,15 +42,15 @@ def create_comparison_plot(ids1, ids2, matching_ids, title, save_path=None, show
     fig, axes = plt.subplots(1, 2, figsize=(15, 6))
     fig.suptitle(title, fontsize=16, fontweight='bold')
     
-    labels = ['Overlap', 'Original Dataset Only']
-    sizes = [len(matching_ids), len(ids2 - ids1)]
-    colors = ['lightgreen', 'lightblue']
+    labels = ['In Cleaned Dataset', 'Not in Cleaned Dataset']
+    sizes = [len(matching_ids), len(reddit_ids - cleaned_ids)]
+    colors = ['lightgreen', 'lightcoral']
     
     axes[0].pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
-    axes[0].set_title('ID Overlap Distribution')
+    axes[0].set_title('Original Dataset Coverage')
     
-    categories = ['Original Dataset', 'Enhanced Dataset', 'Overlap']
-    values = [len(ids1), len(ids2), len(matching_ids)]
+    categories = ['Original Dataset', 'Cleaned Dataset', 'Overlap']
+    values = [len(reddit_ids), len(cleaned_ids), len(matching_ids)]
     colors_bar = ['skyblue', 'lightcoral', 'lightgreen']
     
     bars = axes[1].bar(categories, values, color=colors_bar, alpha=0.7, edgecolor='black')
@@ -118,12 +99,12 @@ def create_log_histogram(ax, data, title, xlabel, color):
                 ha='center', va='center', transform=ax.transAxes)
         ax.set_title(title)
 
-def create_enhanced_dataset_overview_plot(enhanced_df, save_path=None, show=False):
+def create_enhanced_dataset_overview_plot(cleaned_df, save_path=None, show=False):
     """
-    Create overview plots for the enhanced dataset showing voting distributions.
+    Create overview plots for the cleaned dataset showing voting distributions.
     
     Args:
-        enhanced_df: Enhanced dataset DataFrame
+        cleaned_df: Cleaned dataset DataFrame
         save_path: Path to save the plot
         show: Whether to display the plot
     """
@@ -131,15 +112,15 @@ def create_enhanced_dataset_overview_plot(enhanced_df, save_path=None, show=Fals
         save_path = os.path.join(CHARTS_DIR, 'enhanced_dataset_overview.png')
     
     fig, axes = plt.subplots(1, 4, figsize=(24, 6))
-    fig.suptitle('Enhanced Dataset Overview', fontsize=16, fontweight='bold')
+    fig.suptitle('Cleaned Dataset Overview', fontsize=16, fontweight='bold')
     
-    upvotes = enhanced_df['ups']
-    upvote_ratio = enhanced_df['upvote_ratio']
+    upvotes = cleaned_df['ups']
+    upvote_ratio = cleaned_df['upvote_ratio']
     
     total_votes = upvotes / upvote_ratio
     total_votes = total_votes.replace([np.inf, -np.inf], 0)
     downvotes = total_votes - upvotes
-    num_comments = enhanced_df['num_comments']
+    num_comments = cleaned_df['num_comments']
     
     create_log_histogram(axes[0], upvotes, 'Upvotes Distribution', 'Upvotes', 'lightgreen')
     create_log_histogram(axes[1], downvotes, 'Downvotes Distribution', 'Downvotes', 'lightcoral')
@@ -164,16 +145,22 @@ def create_all_enhanced_analysis_plots(show=False):
     Returns:
         Tuple of datasets and matching IDs
     """
-    enhanced_df = load_dataset(os.path.join(DATA_FOLDER, 'enhanced_dataset.csv'))
-    reddit_df = load_dataset(os.path.join(DATA_FOLDER, 'reddit_df_merged.pkl'))
+    enhanced_df = load_enhanced_df()
+    reddit_df = load_reddit_df()
     
-    matching_ids, enhanced_ids, reddit_ids = get_id_sets(enhanced_df, reddit_df)
+    enhanced_df_cleaned = enhanced_df.dropna(subset=['ups', 'downs', 'num_comments'])
     
-    create_comparison_plot(enhanced_ids, reddit_ids, matching_ids, 
-                          'Dataset ID Comparison', show=show)
-    create_enhanced_dataset_overview_plot(enhanced_df, show=show)
+    matching_ids, reddit_ids, enhanced_ids = get_id_sets(reddit_df, enhanced_df)
     
-    return enhanced_df, reddit_df, matching_ids
+    cleaned_ids = set(enhanced_df_cleaned['POST_ID'].astype(str))
+    reddit_cleaned_matching_ids = reddit_ids.intersection(cleaned_ids)
+    
+    create_comparison_plot(reddit_ids, cleaned_ids, reddit_cleaned_matching_ids, 'Reddit vs Cleaned Dataset Comparison', show=show)
+    
+    create_enhanced_dataset_overview_plot(enhanced_df_cleaned, show=show)
+    
+    return enhanced_df, reddit_df, enhanced_df_cleaned, reddit_ids, enhanced_ids, matching_ids, reddit_cleaned_matching_ids
+
 
 if __name__ == "__main__":
     create_all_enhanced_analysis_plots(show=True)
