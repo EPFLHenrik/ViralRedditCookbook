@@ -175,3 +175,6 @@ src/analysis/sentiment_graphs
 
 # Macos specific
 .DS_Store
+
+# Documentation
+CLUSTER_NAMING_WORKFLOW.md
