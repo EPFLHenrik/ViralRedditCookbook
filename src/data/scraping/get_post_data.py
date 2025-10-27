@@ -1,4 +1,3 @@
- 
 import requests
 import pandas as pd
 import os
@@ -165,7 +164,7 @@ def get_post_data(path, start_index=0, batch_size=100):
         else:
             print(f"No data found for POST_ID: {post_id}")
 
-        time.sleep(0.4)
+        time.sleep(0.1)
         old_df_dict.update(new_df_dict)
         found_posts.append(old_df_dict)
         old_df_dict = {}
@@ -181,4 +180,4 @@ def get_post_data(path, start_index=0, batch_size=100):
         found_df.to_csv("data/reddit_enhanced.csv", mode='a', header=not os.path.exists("data/reddit_enhanced.csv"), index=False)
 
 if __name__ == "__main__":
-    get_post_data(os.path.join(DATA_FOLDER, 'reddit_df_merged.pkl'), start_index=0, batch_size=100)
+    get_post_data(os.path.join(DATA_FOLDER, 'reddit_df_merged.pkl'), start_index=424700, batch_size=100)
