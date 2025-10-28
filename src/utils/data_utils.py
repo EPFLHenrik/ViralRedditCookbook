@@ -19,3 +19,11 @@ def load_reddit_df(pickle_file=os.path.join(DATA_FOLDER, 'reddit_df_merged.pkl')
         df = pd.read_pickle(f)
     
     return df
+
+def load_enhanced_df(pickle_file=os.path.join(DATA_FOLDER, 'enhanced_reddit_df_finalized.pkl')):
+    """Load the enhanced dataframe from csv file."""
+    
+    with open(pickle_file, 'rb') as f:
+        df = pd.read_pickle(f)
+    
+    return df
