@@ -14,8 +14,8 @@ from sklearn.preprocessing import normalize
 
 from src.utils.data_utils import load_reddit_graph
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
-RESULTS_DIR = os.path.join(os.path.dirname(__file__), 'clustering_results')
+DATA_DIR = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data')
+RESULTS_DIR = os.path.join(os.path.dirname(__file__), '..', 'clustering_results')
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 MAX_DEPTH = 4

@@ -7,7 +7,7 @@ from collections import defaultdict
 
 from src.utils.data_utils import load_reddit_graph
 
-RESULTS_DIR = r"src/analysis/clustering_results"
+RESULTS_DIR = os.path.join(os.path.dirname(__file__), '..', 'clustering_results')
 PKL_IN  = os.path.join(RESULTS_DIR, "labels_per_level.pkl")
 PKL_OUT = os.path.join(RESULTS_DIR, "labels_per_level_named.pkl")
 CSV_OUT = os.path.join(RESULTS_DIR, "subreddit_cluster_assignments_named.csv")

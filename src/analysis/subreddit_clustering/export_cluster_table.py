@@ -6,8 +6,8 @@ import numpy as np
 
 from src.utils.data_utils import load_reddit_graph
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
-RESULTS_DIR = os.path.join(os.path.dirname(__file__), 'clustering_results')
+DATA_DIR = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data')
+RESULTS_DIR = os.path.join(os.path.dirname(__file__), '..', 'clustering_results')
 
 print("Reading Reddit graph…")
 G = load_reddit_graph()
