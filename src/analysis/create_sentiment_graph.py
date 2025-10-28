@@ -436,12 +436,14 @@ def create_combined_graph(G, metric_pos='sentiment_ratio', metric_neg='sentiment
     neg_graph = create_sentiment_graph(G, metric=metric_neg, sentiment='neg')
     pos_graph = create_sentiment_graph(G, metric=metric_pos, sentiment='neu_pos')
     
-    filtered_neg = filter_top_edges(neg_graph, n_edges=top_n_neg)
-    filtered_pos = filter_top_edges(pos_graph, n_edges=top_n_pos)
+    if top_n_neg is not None:
+        neg_graph = filter_top_edges(neg_graph, n_edges=top_n_neg) 
+    if top_n_pos is not None:
+        pos_graph = filter_top_edges(pos_graph, n_edges=top_n_pos)
     
     combined_G = nx.DiGraph()
     
-    for u, v, data in filtered_neg.edges(data=True):
+    for u, v, data in neg_graph.edges(data=True):
         combined_G.add_edge(u, v, 
                           weight=data['weight'],
                           sentiment='negative',
@@ -449,7 +451,7 @@ def create_combined_graph(G, metric_pos='sentiment_ratio', metric_neg='sentiment
                           total_count=data.get('total_count', 0),
                           sentiment_ratio=data.get('sentiment_ratio', 0))
     
-    for u, v, data in filtered_pos.edges(data=True):
+    for u, v, data in pos_graph.edges(data=True):
         combined_G.add_edge(u, v, 
                           weight=data['weight'],
                           sentiment='positive',

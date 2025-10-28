@@ -1,26 +1,36 @@
+# Toxicstew: a cookbook on how to go viral on Reddit
 
-# Longest path of shortest hate: Navigating the difficult landscapes of Reddit
+TODO: add stuff we considered but dropped (eg all of the metrics in `create_sentiment_graph.py`)
 
 ## Abstract
 
 TODO: Improve
-*When using the Reddit we are often faced with the criticism from other users. In this project we set out to create a cheatsheet of rules you can apply to your behaviour on Reddit in order to either receive constructive criticism or just have fun browsing*
+
+*Virality on Reddit is often seen as luck, but patterns of language, timing, and community interaction shape what captures attention. ToxicStew: A Cookbook on How to Go Viral on Reddit will explore the underlying “recipe” for success by analyzing over 800k crosslinking posts, enriched with engagement metrics such as upvotes, downvotes, and comment counts. The project will aim to uncover which combinations of factors (what subreddits to post in, which communities to crosslink, what tone or sentiment to adopt, and when to post) most strongly predict viral outcomes. By modeling these relationships and extracting interpretable patterns, it will reveal not only how virality emerges, but also how toxicity and controversy may serve as hidden ingredients in Reddit’s attention economy. Ultimately, the project will tell the story of how popularity can be engineered in online communities—and the social costs that may come with it.*
+
 
 ## Research questions
 
 TODO: Improve
-- Can posting the same type of post in two different subreddits receive substantially different reactions from other subreddits
-- Are there subreddits who act as "hate path blockers" and tend to stay positive even when faced with negative crosslinks
+- Which factors most strongly predict virality on Reddit?
+- How does sentiment and tone influence engagement?
+- What role do subreddit interactions play in spreading content?
+- When is the optimal time to post or crosslink for maximum visibility?
+- Is virality associated with toxicity or polarization?
+
 
 ## Proposed additional datasets
 
-TODO: Henrik
+TODO: Henrik & Gal
+- Reddit embeddings dataset [link](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
+
 
 ## Methods
 
 TODO: Add
 - Clustering
 - Rolling averages
+- Correlation coefficients
 - Statistical tests ?
 - Linear regression ?
 - Logistic regression ?
@@ -30,9 +40,9 @@ TODO: Add
 
 **October 2025**
 - Proposals, literature review
-- Exploratory data analysis (distributions)
+- Exploratory data analysis (distributions, missing values)
 - Data loading (NetworkX, Pandas)
-- Graph data preprocessing (`MultiDiGraph` with all posts -> `DiGraph` with sentiments)
+- Graph data preprocessing (`MultiDiGraph` with all posts -> `DiGraph` with aggregated sentiments)
 - Dataset enrichment (TODO: Henrik)
 - Clustering of nodes (TODO: Jack)
 - Top 10 subreddits analysis (TODO: Jane)
@@ -54,12 +64,13 @@ TODO: Add
 ## Internal milestones
 - [x] Graph Data preprocessing (Gal)
 - [x] Data loading (Gal, Henrik)
-- [ ] Enriching data with torrent dataset (Henrik)
+- [ ] Enriching data by scraping reddit (Henrik, Gal)
 - [ ] Temporal analysis (Aziz)
 - [ ] Clustering of embeddings (Jack)
-- [ ] Top 10 subreddits analysis (Jane)
+- [ ] Top 10 subreddits analysis with hypothesis testing (Jane)
 - [ ] Sentiment graph structure analysis (Gal)
-
+- [ ] Analyze correlations in the data with personr and stuff we did at the tutorials (Somebody)
+- [ ] Perform a bunch of T-tests, k_tests, ...
 
 ## How to use
 
