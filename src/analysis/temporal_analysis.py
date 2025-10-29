@@ -1,4 +1,4 @@
-from src.utils.data_utils import load_reddit_graph
+from src.utils.data_utils import load_enhanced_df
 import pandas as pd
 import networkx as nx
 from typing import Union
@@ -6,12 +6,7 @@ import os
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np 
-from scipy.stats import spearmanr, kendalltau
-
-# G = load_reddit_graph()
-
-# for u, v, data in list(G.edges(data=True))[:10]:
-#     print(f"{u} -> {v}, attributes = {data}")
+from scipy.stats import spearmanr, pearsonr
 
 CURRENT_DIR = os.path.dirname(__file__)
 PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
@@ -24,6 +19,7 @@ def edges_negative_by_quarter(G: nx.MultiDiGraph,
                                save_csv: bool = True, 
                                output_dir: str = ANALYSIS_DIR, 
                                filename: str = "reddit_negative_edges_by_quarter.csv") -> pd.DataFrame:
+    
     """
     Extract edges with negative sentiment and index them by 3-month windows (calendar quarters),
     then optionally save to a CSV.
@@ -50,7 +46,7 @@ def edges_negative_by_quarter(G: nx.MultiDiGraph,
     rows = []
     for u, v, k, d in G.edges(keys=True, data=True):
         if d.get("sentiment") == -1:
-            ts = pd.to_datetime(d.get("timestamp"), errors="coerce", utc=True)
+            ts = pd.to_datetime(d.get("timestamp"),format='mixed')
             if pd.notna(ts):
                 rows.append({"source": u, "target": v, "timestamp": ts})
 
@@ -67,7 +63,6 @@ def edges_negative_by_quarter(G: nx.MultiDiGraph,
     df["window"] = df["timestamp"].dt.to_period(f"Q-{quarter_end}")
     out = (df.set_index(["window", "target","source"])
              .sort_index()[["timestamp"]])
-
    
     if save_csv:
         if output_dir is None:
@@ -89,6 +84,7 @@ def sources_by_quarter_matrix(
     save_csv: bool = True,
     output_path: str = os.path.join(ANALYSIS_DIR, "targets_num_sources_by_window.csv"),
 ) -> pd.DataFrame:
+    
     """
     Build a wide matrix with sources as rows and quarters as columns.
     Keep only sources that appear in *every* quarter (after ignoring specified ones).
@@ -118,13 +114,12 @@ def sources_by_quarter_matrix(
         Columns: quarters (YYYYQn)
         Values: per-quarter counts
     """
-    # --- Load ---
     if isinstance(data, str):
         df = pd.read_csv(data, parse_dates=["timestamp"])
     else:
         df = data.copy()
         if not pd.api.types.is_datetime64_any_dtype(df["timestamp"]):
-            df["timestamp"] = pd.to_datetime(df["timestamp"], utc=True, errors="coerce")
+            df["timestamp"] = pd.to_datetime(df["timestamp"],format='mixed')
 
     if not isinstance(df["window"].dtype, pd.PeriodDtype):
         df["window"] = pd.PeriodIndex(df["window"].astype(str), freq=f"Q-{quarter_end}")
@@ -164,72 +159,139 @@ def sources_by_quarter_matrix(
 
     return wide
 
-def plotupvotes(): 
-    file_path = os.path.join(DATA_DIR, "reddit_enhanced_backup_3.csv")
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"File not found: {file_path}")
-    df = pd.read_csv(file_path,usecols=['SOURCE_SUBREDDIT', 'TARGET_SUBREDDIT','TIMESTAMP', 'ups'],parse_dates=["TIMESTAMP"],        # <- important
-        low_memory=False)
-    df = df.dropna()
-    df.loc[:, 'ups'] = df['ups'].astype(int)
-    df.loc[:, 'TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'], errors='coerce')
-    df.loc[:, 'year_month'] = df['TIMESTAMP'].dt.to_period('M')
-    df.loc[:, 'hour'] = df['TIMESTAMP'].dt.hour
-    df.loc[:,'dayofweek'] = df['TIMESTAMP'].dt.day_name()
-    monthly_mean = df.groupby('year_month')['ups'].mean().reset_index()
-    plt.figure(figsize=(10,5))
-    plt.plot(monthly_mean['year_month'].astype(str), monthly_mean['ups'])
-    plt.xticks(monthly_mean['year_month'].astype(str)[::3], rotation=45)
+def plotupvotes():
+
+    """Analyze and visualize Reddit upvote patterns across time —
+      showing trends by month, hour, weekday, and calendar month.
+      """
+    
+    df = load_enhanced_df()
+  
+    df = df.dropna(subset=["TIMESTAMP", "ups"])
+    df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"], format='mixed')
+    df = df.dropna(subset=["TIMESTAMP"])
+    df["ups"] = pd.to_numeric(df["ups"], errors="coerce")
+    df = df.dropna(subset=["ups"])
+
+  
+    df["year_month"] = df["TIMESTAMP"].dt.to_period("M")
+    df["hour"] = df["TIMESTAMP"].dt.hour
+    df["dayofweek"] = df["TIMESTAMP"].dt.day_name()
+    df["month"] = df["TIMESTAMP"].dt.month
+
+   
+    monthly_mean = df.groupby("year_month", as_index=False)["ups"].mean()
+    x_labels = monthly_mean["year_month"].astype(str).tolist()
+    y = monthly_mean["ups"].to_numpy()
+    x = np.arange(len(x_labels))
+
+    plt.figure(figsize=(10, 5))
+    plt.plot(x, y)
+    plt.xticks(x[::3], x_labels[::3], rotation=45, ha="right")
     plt.xlabel("Month")
     plt.ylabel("Average upvotes")
     plt.title("Evolution of average upvotes over time")
+    plt.tight_layout()
     plt.show()
 
-    hourly_mean = df.groupby('hour')['ups'].mean()
-    plt.figure(figsize=(10,5))
-    hourly_mean.plot(kind='bar')
+  
+    hourly_mean = df.groupby("hour")["ups"].mean()
+    plt.figure(figsize=(10, 5))
+    hourly_mean.plot(kind="bar")
     plt.title("Average Upvotes by Hour of Day")
     plt.xlabel("Hour (0–23)")
     plt.ylabel("Mean Upvotes")
+    plt.tight_layout()
     plt.show()
 
-    dow_mean = df.groupby('dayofweek')['ups'].mean().reindex(
-    ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'])
-    plt.figure(figsize=(10,5))
-    dow_mean.plot(kind='bar', color='skyblue')
+   
+    dow_order = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    dow_mean = df.groupby("dayofweek")["ups"].mean().reindex(dow_order)
+    plt.figure(figsize=(10, 5))
+    dow_mean.plot(kind="bar")
     plt.title("Average Upvotes by Day of Week")
     plt.xlabel("Day of Week")
     plt.ylabel("Mean Upvotes")
+    plt.tight_layout()
     plt.show()
-    df['month'] = df['TIMESTAMP'].dt.month
-    month_mean = df.groupby('month')['ups'].mean()
-    plt.figure(figsize=(10,5))
-    month_mean.plot(kind='bar')
+
+   
+    month_mean = df.groupby("month")["ups"].mean().reindex(range(1,13))
+    plt.figure(figsize=(10, 5))
+    month_mean.plot(kind="bar")
     plt.title("Average Upvotes by Month")
     plt.xlabel("Month (1–12)")
     plt.ylabel("Mean Upvotes")
+    plt.tight_layout()
     plt.show()
 
+
+def corr_liwc_anger_vs_ups():
+
+    """Calculate and display Pearson and Spearman correlations between post anger (LIWC_Anger) and upvotes."""
+
+    df = load_enhanced_df()
+
+    df['LIWC_Anger'] = pd.to_numeric(df['LIWC_Anger'], errors='coerce')
+    df['ups'] = pd.to_numeric(df['ups'], errors='coerce')
+
+    df = df.dropna(subset=['LIWC_Anger', 'ups']).copy()
+
+    anger = df['LIWC_Anger'].values
+    ups = df['ups'].values
+
+    rho_spear, p_spear = spearmanr(anger, ups)
+
+    rho_pear, p_pear = pearsonr(anger, ups)
+
+    print("Correlation between LIWC_Anger and Upvotes:")
+    print(f"  Spearman  ρ = {rho_spear:.3f}, p = {p_spear:.3e}")
+    print(f"  Pearson   r = {rho_pear:.3f}, p = {p_pear:.3e}")
+
+def corr_vader_neg_vs_ups():
+    
+    """Calculate and display Pearson and Spearman correlations between VADER negative sentiment and upvotes."""
+
+    df = load_enhanced_df()
+
+    df['Sentiment_neg_vader'] = pd.to_numeric(df['Sentiment_neg_vader'], errors='coerce')
+    df['ups'] = pd.to_numeric(df['ups'], errors='coerce')
+
+    df = df.dropna(subset=['Sentiment_neg_vader', 'ups']).copy()
+    
+    anger = df['Sentiment_neg_vader'].values
+    ups = df['ups'].values
+
+    rho_spear, p_spear = spearmanr(anger, ups)
+
+    rho_pear, p_pear = pearsonr(anger, ups)
+
+    print("Correlation between Sentiment_neg_vader and Upvotes:")
+    print(f"  Spearman  ρ = {rho_spear:.3f}, p = {p_spear:.3e}")
+    print(f"  Pearson   r = {rho_pear:.3f}, p = {p_pear:.3e}")
+   
 def corr_time_vs_ups(): 
-    file_path = os.path.join(DATA_DIR, "reddit_enhanced_backup_3.csv")
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"File not found: {file_path}")
-    df = pd.read_csv(file_path,usecols=['TIMESTAMP', 'ups'],parse_dates=["TIMESTAMP"], low_memory=False)
-    df = df.dropna(subset=['TIMESTAMP', 'ups']).copy()
+
+    """Spearman correlations between time and upvotes (post-level and monthly means)."""
+
+    df=load_enhanced_df()
+
+    df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"], format='mixed')
+    df = df.dropna(subset=['TIMESTAMP', 'ups'])
+
     df['ups'] = pd.to_numeric(df['ups'], errors='coerce')
     df = df.dropna(subset=['ups']).copy()
+
     t_numeric = df['TIMESTAMP'].astype('int64') // 10**9
     ups = df['ups'].values
-    # post level corr
+
     rho_post, p_post = spearmanr(t_numeric, ups)
     
-
-    # Monthly-aggregated correlation ---
     df['year_month'] = df['TIMESTAMP'].dt.to_period('M')
     monthly = (df.groupby('year_month')['ups']
                  .mean()
                  .reset_index())
-    # Use month index as numeric time
+
     month_index = np.arange(len(monthly))
     rho_month, p_month = spearmanr(month_index, monthly['ups'].values)
     
@@ -241,11 +303,96 @@ def corr_time_vs_ups():
     print("\nMonthly-mean correlation (time ↔ avg ups):")
     print(f"  Spearman  ρ = {rho_month:.3f}, p = {p_month:.3e}")
 
+
+def edges_all_by_quarter(
+    quarter_end: str = "DEC",
+    save_csv: bool = True,
+    output_dir: str = ANALYSIS_DIR, 
+    ) -> pd.DataFrame:
+
+    """Aggregate upvotes by quarter and source subreddit,
+      split by link sentiment (+1/−1), and optionally save CSVs."""
+    
+    df=load_enhanced_df()
+    
+    df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"], format='mixed')
+
+    df["WINDOW"] = df["TIMESTAMP"].dt.to_period(f"Q-{quarter_end}")
+
+    df = df.dropna(subset=["TIMESTAMP", "ups"])
+
+    df_pos = df[df["LINK_SENTIMENT"] == 1]
+    df_neg = df[df["LINK_SENTIMENT"] == -1]
+
+    out_pos = (df_pos.set_index(["WINDOW", "SOURCE_SUBREDDIT"])
+             .sort_index()[['ups']])
+    out_neg=(df_neg.set_index(["WINDOW", "SOURCE_SUBREDDIT"])
+             .sort_index()[['ups']])
+
+    if save_csv:
+        if output_dir is None:
+            output_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
+        os.makedirs(output_dir, exist_ok=True)
+
+        csv_path_pos = os.path.join(output_dir, "reddit_pos_edges_by_quarter.csv")
+        csv_path_neg = os.path.join(output_dir,"reddit_neg_edges_by_quarter.csv")
+       
+        out_pos.reset_index().to_csv(csv_path_pos, index=False)
+        out_neg.reset_index().to_csv(csv_path_neg, index=False)
+
+
+        print(f"Saved all positive edges CSV to: {csv_path_pos}")
+        print(f"Saved all negative edges CSV to: {csv_path_neg}")
+
+
+
+def mean_ups_matrix_by_quarter(
+    csv_path: str = os.path.join(ANALYSIS_DIR, "reddit_pos_edges_by_quarter.csv"),
+    fill_missing: float = 0.0,
+    save_csv: bool = True,
+    output_dir: str = ANALYSIS_DIR,
+    filename: str = "mean_pos_ups_by_quarter.csv"
+) -> pd.DataFrame:
+    """Build a subreddit × quarter matrix of mean upvotes,
+      fill missing cells, and optionally save as CSV."""
+    
+    df = pd.read_csv(csv_path)
+
+    df["ups"] = pd.to_numeric(df["ups"], errors="coerce")
+    df = df.dropna(subset=["WINDOW", "SOURCE_SUBREDDIT", "ups"])
+
+    grp = df.groupby(["SOURCE_SUBREDDIT", "WINDOW"], as_index=False)["ups"].mean()
+
+    mat = grp.pivot(index="SOURCE_SUBREDDIT", columns="WINDOW", values="ups")
+
+    try:
+        periods = pd.PeriodIndex(mat.columns, freq="Q-DEC")
+        mat = mat.reindex(columns=periods.sort_values().astype(str))
+    except Exception:
+        mat = mat.reindex(sorted(mat.columns), axis=1)
+
+    mat = mat.fillna(fill_missing)
+
+    if save_csv:
+        if output_dir is None:
+            output_dir = os.path.dirname(csv_path)
+        os.makedirs(output_dir, exist_ok=True)
+
+        output_path = os.path.join(output_dir, filename)
+        mat.to_csv(output_path)
+        print(f"Saved mean ups matrix to: {output_path}")
+
+    return mat
     
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # G = load_reddit_graph()
-    # sources_by_quarter_matrix(r"C:\Users\Aziz Hamza\Desktop\ADAMA1\ada-2025-project-standard-deviants-ada\src\analysis\reddit_negative_edges_by_quarter.csv")
+    # sources_by_quarter_matrix(r"reddit_negative_edges_by_quarter.csv")
     # plotupvotes()
-    corr_time_vs_ups()
+    # corr_time_vs_ups()
+    # corr_liwc_anger_vs_ups()
+    # corr_vader_neg_vs_ups()
+    # edges_all_by_quarter()
+    # mean_ups_matrix_by_quarter()
+    # corr_time_vs_ups()
     
