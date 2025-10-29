@@ -35,7 +35,7 @@ TODO: Henrik & Gal
 - **Format**: CSV with subreddit names and embedding vectors
 - **Preprocesing**: Merge with primary dataset, perform clustering
 
-## Reddit API Post Data Enrichment
+### Reddit API Data
 - **Source**: Reddit API scraping of all 860k posts from hyperlinks dataset
 - **Size**: Metadata of 860k posts obtained from Reddit API
 - **Format**: Key metrics obtained 
@@ -53,6 +53,18 @@ TODO: improve
 Raw data is uploaded to `/data` folder, the main preprocessing is done in `/src/data`, clustering of embeddings happens in `/src/analysis`.
 
 ## Methods
+
+TODO: improve
+
+#### Linear Regression
+- **Purpose**: Fit a linear model to the data
+- **Formula**: We find best $\beta_0, \ldots, \beta_N$ such that the error $\epsilon$ is the smallest possible with $Y = \beta_0 + \beta_1X_1 + ... + \beta_kX_k + \epsilon$
+- **Implementation**: `smf.ols()`
+
+#### Logistic Regression
+- **Purpose**: Fit a linear regression to the data to predict the probability for the datapoint corresponding to class 1
+- **Formula**: Find best $\beta_0, \ldots, \beta_N$ such that the $P(Y=1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1X_1 + ... + \beta_kX_k)}}$ gives the most accurate predictions
+- **Implementation**: `smf.logit()`
 
 TODO: Add
 - Clustering (Leiden clustering)
