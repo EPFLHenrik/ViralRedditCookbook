@@ -49,7 +49,7 @@ def create_comparison_plot(reddit_ids, cleaned_ids, matching_ids, title, save_pa
     axes[0].pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
     axes[0].set_title('Original Dataset Coverage')
     
-    categories = ['Original Dataset', 'Cleaned Dataset', 'Overlap']
+    categories = ['Original Dataset', 'Scrapped data', 'Overlap']
     values = [len(reddit_ids), len(cleaned_ids), len(matching_ids)]
     colors_bar = ['skyblue', 'lightcoral', 'lightgreen']
     
@@ -155,7 +155,7 @@ def create_all_enhanced_analysis_plots(show=False):
     cleaned_ids = set(enhanced_df_cleaned['POST_ID'].astype(str))
     reddit_cleaned_matching_ids = reddit_ids.intersection(cleaned_ids)
     
-    create_comparison_plot(reddit_ids, cleaned_ids, reddit_cleaned_matching_ids, 'Reddit vs Cleaned Dataset Comparison', show=show)
+    create_comparison_plot(reddit_ids, cleaned_ids, reddit_cleaned_matching_ids, 'Scrapped data vs original data comparison', show=show)
     
     create_enhanced_dataset_overview_plot(enhanced_df_cleaned, show=show)
     
