@@ -311,7 +311,17 @@ def edges_all_by_quarter(
     ) -> pd.DataFrame:
 
     """Aggregate upvotes by quarter and source subreddit,
-      split by link sentiment (+1/−1), and optionally save CSVs."""
+      split by link sentiment (+1/−1), and optionally save CSVs.
+
+      Parameters
+    ----------
+    quarter_end : str, optional
+        The anchor month for the quarter-end period. 
+    save_csv : bool, optional
+        If True, saves two CSV files:
+    output_dir : str, optional
+        Directory where the CSV files will be saved.
+        """
     
     df=load_enhanced_df()
     
@@ -354,7 +364,20 @@ def mean_ups_matrix_by_quarter(
     filename: str = "mean_pos_ups_by_quarter.csv"
 ) -> pd.DataFrame:
     """Build a subreddit × quarter matrix of mean upvotes,
-      fill missing cells, and optionally save as CSV."""
+      fill missing cells, and optionally save as CSV.
+      
+        Parameters
+    ----------
+    csv_path : str, optional
+        Path to the input CSV file.
+    fill_missing : float, optional
+        Value used to fill missing entries (e.g., when a subreddit has no data for a quarter).
+    save_csv : bool, optional
+        If True, saves the resulting subreddit × quarter matrix to CSV.
+    output_dir : str, optional
+        Directory in which to save the output CSV. 
+    filename : str, optional
+        Output CSV filename."""
     
     df = pd.read_csv(csv_path)
 
