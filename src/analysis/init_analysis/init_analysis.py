@@ -61,7 +61,7 @@ def plot_degree_distribution(G, save_path=None, show=False):
     log_bins_in = np.logspace(np.log10(in_degrees_nonzero.min()), 
                                 np.log10(in_degrees_nonzero.max()), 50)
     axes[0].hist(in_degrees_nonzero, bins=log_bins_in, alpha=0.7, color='skyblue', edgecolor='black')
-    axes[0].set_title('In-Degree Distribution (Log Scale)')
+    axes[0].set_title('In-Degree Distribution (Log Log Scale)')
     axes[0].set_xlabel('In-Degree')
     axes[0].set_ylabel('Frequency')
     axes[0].set_xscale('log')
@@ -72,7 +72,7 @@ def plot_degree_distribution(G, save_path=None, show=False):
     log_bins_out = np.logspace(np.log10(out_degrees_nonzero.min()), 
                                 np.log10(out_degrees_nonzero.max()), 50)
     axes[1].hist(out_degrees_nonzero, bins=log_bins_out, alpha=0.7, color='lightcoral', edgecolor='black')
-    axes[1].set_title('Out-Degree Distribution (Log Scale)')
+    axes[1].set_title('Out-Degree Distribution (Log Log Scale)')
     axes[1].set_xlabel('Out-Degree')
     axes[1].set_ylabel('Frequency')
     axes[1].set_xscale('log')
