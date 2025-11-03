@@ -1,3 +1,5 @@
+TODO: perhaps move all figures to `/figures`
+
 # Toxicstew: a cookbook on how to go viral on Reddit
 
 ## Abstract
