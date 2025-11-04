@@ -8,10 +8,8 @@ import csv
 from src.utils.data_utils import load_reddit_graph
 
 
-SENTIMENT_GRAPH_DIR = os.path.join(os.path.dirname(__file__), 'sentiment_graphs')
+SENTIMENT_GRAPH_DIR = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'figures', 'sentiment_graphs')
 
-
-# TODO: Review calculation of positive and negative metrics
 
 METRIC_DESCRIPTIONS = {
     # Basic Sentiment Metrics
@@ -479,7 +477,7 @@ def filter_top_edges(G, n_edges=100):
     return filtered_G
 
 
-def create_and_visualize_combined_graph(G, metric_pos='sentiment_ratio', metric_neg='sentiment_ratio', top_n_neg=50, top_n_pos=50, show=False):
+def create_and_visualize_combined_graph(G, metric_pos='sentiment_ratio', metric_neg='sentiment_ratio', top_n_neg=50, top_n_pos=50, show=False, export_csv=False):
     """
     Create and visualize a combined graph with both negative and positive sentiment edges.
     
@@ -497,7 +495,7 @@ def create_and_visualize_combined_graph(G, metric_pos='sentiment_ratio', metric_
         top_n_neg: Number of top negative edges to keep for visualization (ranked by weight)
         top_n_pos: Number of top positive edges to keep for visualization (ranked by weight)
         show: If True, display the plot. If False, only save to file.
-    
+        export_csv: If True, export the graph to CSV files.
     Output:
         - Saves PNG file to sentiment_graphs/ directory
         - Exports CSV files with edge and node data
@@ -624,14 +622,15 @@ def create_and_visualize_combined_graph(G, metric_pos='sentiment_ratio', metric_
     metric_folder = os.path.join(SENTIMENT_GRAPH_DIR, f"combined_{metric_pos}_{metric_neg}")
     os.makedirs(metric_folder, exist_ok=True)
     
-    edges_csv_path = os.path.join(metric_folder, 'edges.csv')
-    nodes_csv_path = os.path.join(metric_folder, 'nodes.csv')
-    
-    export_graph_to_csv(combined_G, edges_csv_path)
-    export_node_degrees_to_csv(combined_G, nodes_csv_path)
+    if export_csv:
+        edges_csv_path = os.path.join(metric_folder, 'edges.csv')
+        nodes_csv_path = os.path.join(metric_folder, 'nodes.csv')
+        
+        export_graph_to_csv(combined_G, edges_csv_path)
+        export_node_degrees_to_csv(combined_G, nodes_csv_path)
 
 
-def create_and_visualize_graph(G, metric, sentiment='neg', top_n=100, show=False):
+def create_and_visualize_graph(G, metric, sentiment='neg', top_n=100, show=False, export_csv=False):
     """
     Create and visualize a graph for a specific metric and sentiment.
     
@@ -641,6 +640,7 @@ def create_and_visualize_graph(G, metric, sentiment='neg', top_n=100, show=False
         sentiment: Sentiment type to analyze ('neg' for negative sentiment -1, 'neu_pos' for neutral/positive sentiment 1)
         top_n: Number of top edges to keep for visualization
         show: If True, display the plot. If False, only save to file.
+        export_csv: If True, export the graph to CSV files.
     """
     sentiment_G = create_sentiment_graph(G, metric=metric, sentiment=sentiment)
     
@@ -725,11 +725,12 @@ def create_and_visualize_graph(G, metric, sentiment='neg', top_n=100, show=False
     metric_folder = os.path.join(SENTIMENT_GRAPH_DIR, f"{sentiment}_{metric}")
     os.makedirs(metric_folder, exist_ok=True)
     
-    edges_csv_path = os.path.join(metric_folder, 'edges.csv')
-    nodes_csv_path = os.path.join(metric_folder, 'nodes.csv')
-    
-    export_graph_to_csv(filtered_G, edges_csv_path)
-    export_node_degrees_to_csv(filtered_G, nodes_csv_path)
+    if export_csv:
+        edges_csv_path = os.path.join(metric_folder, 'edges.csv')
+        nodes_csv_path = os.path.join(metric_folder, 'nodes.csv')
+        
+        export_graph_to_csv(filtered_G, edges_csv_path)
+        export_node_degrees_to_csv(filtered_G, nodes_csv_path)
 
 def export_graph_to_csv(G, filename):
     """
