@@ -11,6 +11,7 @@ def preprocess_dataframe(
     body_tsv_file="soc-redditHyperlinks-body.tsv",
     title_tsv_file="soc-redditHyperlinks-title.tsv",
     force_reload=False,
+    ignore_clustering=True,
 ):
     data_folder = DATA_DIR
 
@@ -137,7 +138,9 @@ def preprocess_dataframe(
     properties_df.columns = properties_names
     df = pd.concat([df.drop(columns=["PROPERTIES"]), properties_df], axis=1)
 
-    df = attach_cluster_names_to_df(df)
+    if ignore_clustering:
+        df = attach_cluster_names_to_df(df)
+    
     df['POST_ID'] = df['POST_ID'].astype(str).str[:6]
     df.to_pickle(pickle_file)
     return df
@@ -185,4 +188,4 @@ if __name__ == "__main__":
         body_tsv_file="soc-redditHyperlinks-body.tsv",
         title_tsv_file="soc-redditHyperlinks-title.tsv",
     )
-    print(f"Loaded {df.shape[0]:,} rows × {df.shape[1]:,} columns.")
+    print(f"Loaded {df.shape[0]:,} rows x {df.shape[1]:,} columns.")
