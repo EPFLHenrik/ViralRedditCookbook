@@ -103,11 +103,24 @@ def upvote_distribution_by_subreddit_one_range():
 
     random_ones = l_subs.sample(n=min(20, l_subs.shape[0]), random_state=42) if l_subs.shape[0] > 0 else l_subs
     for i, row in enumerate(random_ones.itertuples()):
-        plt.plot([row.q25, row.q75], [i, i], color='steelblue', linewidth=(np.log2(row.count)+1)*2, solid_capstyle='round')
-        plt.scatter(row.mean, i, color='yellow', zorder=3, s=200, label='Mean' if i == 0 else '')
-        plt.scatter(row.minimum, i, color='red', zorder=3, s=200, label='Min' if i == 0 else '')
-        plt.scatter(row.maximum, i, color='green', zorder=3, s=200, label='Max' if i == 0 else '')
-        plt.scatter(row.median, i, color='black', zorder=3, s=200, label='Median' if i == 0 else '')
+        boxplot_stats = [{
+            'whislo': row.minimum,
+            'q1': row.q25,
+            'med': row.median,
+            'q3': row.q75,
+            'whishi': row.maximum,
+            'fliers': [],
+            'mean': row.mean,
+        }]
+        plt.bxp(boxplot_stats,
+            positions=[i],
+            vert=False,
+            patch_artist=True,
+            showfliers=False,
+            boxprops={'facecolor': '#B3C3F3', 'edgecolor': 'black'},
+            widths=0.6,
+            medianprops={'color': 'red', 'linewidth': 2}
+        )
     plt.yticks(range(len(random_ones)), random_ones['SOURCE_SUBREDDIT'], fontsize=30)
     plt.xlabel('Upvotes', fontsize=25)
     plt.tick_params(axis='x', labelsize=30)
@@ -266,11 +279,24 @@ def cluster_upvote_distribution():
     for i, percentiles in enumerate(percentiles_lst):
         ax = axes[i // 1][i % 1]
         for i, row in enumerate(percentiles.itertuples()):
-            ax.plot([row.q25, row.q75], [i, i], color='steelblue', linewidth=(np.log2(row.count)+1), solid_capstyle='round')
-            ax.scatter(row.mean, i, color='yellow', zorder=3, s=200, label='Mean' if i == 0 else '')
-            ax.scatter(row.minimum, i, color='red', zorder=3, s=200, label='Min' if i == 0 else '')
-            ax.scatter(row.maximum, i, color='green', zorder=3, s=200, label='Max' if i == 0 else '')
-            ax.scatter(row.median, i, color='black', zorder=3, s=200, label='Median' if i == 0 else '')
+            boxplot_stats = [{
+                'whislo': row.minimum,
+                'q1': row.q25,
+                'med': row.median,
+                'q3': row.q75,
+                'whishi': row.maximum,
+                'fliers': [],
+                'mean': row.mean,
+            }]
+            ax.bxp(boxplot_stats,
+                positions=[i],
+                vert=False,
+                patch_artist=True,
+                showfliers=False,
+                boxprops={'facecolor': '#B3C3F3', 'edgecolor': 'black'},
+                widths=0.6,
+                medianprops={'color': 'red', 'linewidth': 2}
+            )
         ax.set_yticks(range(len(percentiles)))
         ax.set_yticklabels(percentiles.iloc[: ,0], fontsize=20)
         ax.set_xlabel('Upvotes', fontsize=25)
@@ -278,7 +304,6 @@ def cluster_upvote_distribution():
         ax.set_title(f'Upvote Distribution (25th–75th Percentile) \nfor {percentiles.columns[0]}', fontsize=40)
         ax.set_xscale('log')
         ax.grid(True, linestyle='--', alpha=0.4)
-        ax.legend(fontsize=25)
     plt.show()
 
 def cluster_percentiles_distribution():
@@ -329,11 +354,24 @@ def cluster_percentiles_distribution():
             if isinstance(col_data[0], str):
                 continue
             used_cols.append(col_name)
-            ax.plot([col_data.quantile(0.25), col_data.quantile(0.75)], [cnt, cnt], color='steelblue', linewidth=3, solid_capstyle='round')
-            ax.scatter(col_data.mean(), cnt, color='yellow', zorder=3, s=200, label='Mean' if cnt == 0 else '')
-            ax.scatter(col_data.min(), cnt, color='red', zorder=3, s=200, label='Min' if cnt == 0 else '')
-            ax.scatter(col_data.max(), cnt, color='green', zorder=3, s=200, label='Max' if cnt == 0 else '')
-            ax.scatter(col_data.median(), cnt, color='black', zorder=3, s=200, label='Median' if cnt == 0 else '')
+            boxplot_stats = [{
+                'whislo': col_data.min(),
+                'q1': col_data.quantile(0.25),
+                'med': col_data.median(),
+                'q3': col_data.quantile(0.75),
+                'whishi': col_data.max(),
+                'fliers': [],
+                'mean': col_data.mean(),
+            }]
+            ax.bxp(boxplot_stats,
+                positions=[cnt],
+                vert=False,
+                patch_artist=True,
+                showfliers=False,
+                boxprops={'facecolor': '#B3C3F3', 'edgecolor': 'black'},
+                widths=0.6,
+                medianprops={'color': 'red', 'linewidth': 2}
+            )
             cnt += 1
 
         ax.set_xlabel('Upvotes', fontsize=25)
