@@ -167,48 +167,80 @@ def calculate_liwc_covariance_matrix(liwc_df, output_dir, features=CONTEXTUAL_LI
 
 
 def calculate_subreddit_similarity_matrix(liwc_df, output_dir, features=CONTEXTUAL_LIWC_FEATURES, show=False):
+    import os
     os.makedirs(f"{output_dir}/liwc_corr_cov", exist_ok=True)
-    subs = liwc_df['subreddit'].unique()
+    
+    subreddits = liwc_df['subreddit'].unique()
     cov_dict = {}
     corr_dict = {}
-    cov_rows = []
-    corr_rows = []
-    for i in range(len(subs)):
-        for j in range(i + 1, len(subs)):
-            sub1, sub2 = subs[i], subs[j]
-            df1 = liwc_df[liwc_df['subreddit'] == sub1][features]
-            df2 = liwc_df[liwc_df['subreddit'] == sub2][features]
-            combined = pd.concat([df1, df2], ignore_index=True).dropna()
-            if combined.shape[0] < 2:
+    
+    all_cov_rows = []
+    all_corr_rows = []
+
+    for i, sub1 in enumerate(subreddits):
+        for j, sub2 in enumerate(subreddits):
+            if i >= j:
                 continue
+            
+            sub1_data = liwc_df[liwc_df['subreddit'] == sub1][features]
+            sub2_data = liwc_df[liwc_df['subreddit'] == sub2][features]
+            
+            combined = pd.concat([sub1_data, sub2_data])
+            
+            if len(combined) < 2:
+                continue
+            
             cov_mat = combined.cov()
             corr_mat = combined.corr()
+            
             cov_dict[(sub1, sub2)] = cov_mat
             corr_dict[(sub1, sub2)] = corr_mat
-            for fi in features:
-                for fj in features:
-                    cov_rows.append([sub1, sub2, fi, fj, cov_mat.loc[fi, fj]])
-                    corr_rows.append([sub1, sub2, fi, fj, corr_mat.loc[fi, fj]])
-            fig, axes = plt.subplots(1, 2, figsize=(20, 8))
-            sns.heatmap(cov_mat, cmap='RdBu_r', center=0, ax=axes[0], cbar_kws={'label': 'Covariance'},
-                        xticklabels=[f.replace('LIWC_', '') for f in cov_mat.columns],
-                        yticklabels=[f.replace('LIWC_', '') for f in cov_mat.index])
+            
+            fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+            
+            sns.heatmap(cov_mat, cmap='RdBu_r', center=0, ax=axes[0],
+                       xticklabels=[f.replace('LIWC_', '') for f in features],
+                       yticklabels=[f.replace('LIWC_', '') for f in features])
             axes[0].set_title(f'Covariance: {sub1} vs {sub2}')
-            sns.heatmap(corr_mat, cmap='RdBu_r', center=0, ax=axes[1], cbar_kws={'label': 'Correlation'},
-                        xticklabels=[f.replace('LIWC_', '') for f in corr_mat.columns],
-                        yticklabels=[f.replace('LIWC_', '') for f in corr_mat.index])
+            
+            sns.heatmap(corr_mat, cmap='RdBu_r', center=0, vmin=-1, vmax=1, ax=axes[1],
+                       xticklabels=[f.replace('LIWC_', '') for f in features],
+                       yticklabels=[f.replace('LIWC_', '') for f in features])
             axes[1].set_title(f'Correlation: {sub1} vs {sub2}')
+            
             plt.tight_layout()
             plt.savefig(f"{output_dir}/liwc_corr_cov/cov_corr_{sub1}_{sub2}.png", dpi=300, bbox_inches='tight')
+            if show:
+                plt.show()
             plt.close()
-    df_cov = pd.DataFrame(cov_rows, columns=['sub1', 'sub2', 'feature1', 'feature2', 'value'])
-    df_corr = pd.DataFrame(corr_rows, columns=['sub1', 'sub2', 'feature1', 'feature2', 'value'])
-    df_cov.to_csv(f"{output_dir}/liwc_corr_cov/all_cov.csv", index=False)
-    df_corr.to_csv(f"{output_dir}/liwc_corr_cov/all_corr.csv", index=False)
+            
+            for feat1_idx, feat1 in enumerate(features):
+                for feat2_idx, feat2 in enumerate(features):
+                    all_cov_rows.append({
+                        'sub1': sub1,
+                        'sub2': sub2,
+                        'feature1': feat1,
+                        'feature2': feat2,
+                        'value': cov_mat.iloc[feat1_idx, feat2_idx]
+                    })
+                    all_corr_rows.append({
+                        'sub1': sub1,
+                        'sub2': sub2,
+                        'feature1': feat1,
+                        'feature2': feat2,
+                        'value': corr_mat.iloc[feat1_idx, feat2_idx]
+                    })
+    
+    all_cov_df = pd.DataFrame(all_cov_rows)
+    all_corr_df = pd.DataFrame(all_corr_rows)
+    
+    all_cov_df.to_csv(f"{output_dir}/liwc_corr_cov/all_cov.csv", index=False)
+    all_corr_df.to_csv(f"{output_dir}/liwc_corr_cov/all_corr.csv", index=False)
+    
     return cov_dict, corr_dict
 
 
-def main(features=CONTEXTUAL_LIWC_FEATURES, output_dir="charts"):
+def main(features=CONTEXTUAL_LIWC_FEATURES, output_dir="figures/top_subreddits_analysis_charts"):
     G = load_reddit_graph()
     top_in_degree, top_out_degree = find_highest_node_degrees(G)
     high_degree_edges, high_degree_edges_unique = analyze_edge_patterns(G)

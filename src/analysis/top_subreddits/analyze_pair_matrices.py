@@ -9,7 +9,10 @@ HIGH_CORR_PAIR_THRESHOLD = 0.7  # Threshold for prop of high correlation subredd
 LOW_CORR_THRESHOLD = 0.1  # Threshold for prop of low feature correlations between subreddit pairs
 INTERESTING_RANGE_THRESHOLD = 0.5  # Range threshold for 'interesting' feature pairs (i.e. if max - min > threshold across occurrences)
 
-def analyze_pair_matrices(csv_path, metric_name, output_dir, low_threshold=FEATURE_KEEP_PROPORTION_THRESHOLD, high_threshold=SIGNIFICANT_CORR_THRESHOLD):
+def analyze_pair_matrices(csv_path, metric_name='corr', output_dir='src/analysis/top_subreddits/results', 
+                          low_threshold=FEATURE_KEEP_PROPORTION_THRESHOLD, 
+                          high_threshold=SIGNIFICANT_CORR_THRESHOLD):
+    
     os.makedirs(output_dir, exist_ok=True)
     df = pd.read_csv(csv_path)
     
@@ -65,8 +68,8 @@ def analyze_pair_matrices(csv_path, metric_name, output_dir, low_threshold=FEATU
 
 if __name__ == "__main__":
     metric = 'corr'
-    output_dir = 'src/analysis/top_subreddits_analysis_charts/liwc_corr_cov/analysis'
-    base_dir = 'src/analysis/top_subreddits_analysis_charts/liwc_corr_cov'
+    output_dir = "figures/top_subreddits_analysis_charts'/liwc_corr_cov/"
+    base_dir = 'src/analysis/top_subreddits/liwc_corr_cov'
     csv_path = f"{base_dir}/all_{metric}.csv"
     
     features_to_keep, interesting_pairs = analyze_pair_matrices(csv_path, metric, output_dir)

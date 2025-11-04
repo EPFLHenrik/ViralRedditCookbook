@@ -1,5 +1,3 @@
-TODO: perhaps move all figures to `/figures`
-
 # Toxicstew: a cookbook on how to go viral on Reddit
 
 ## Abstract
@@ -10,11 +8,11 @@ TODO: Improve
 
 ## Research questions
 
-- **Primary**: Which combinations of linguistic, temporal, and network factors most suggest predict viral success (top 1% engagement) on Reddit?
+- **Primary**: Which combinations of linguistic, temporal, and network factors have the most evidence of leading to success on Reddit?
 - **Sentiment Analysis**: How do sentiment intensity, emotional toxicity, writing styles and aggressive communication patterns correlate with engagement metrics?
-- **Network Effects**: What role do subreddit crosslinking patterns and community interactions play in content propagation?
-- **Temporal Dynamics**: When is the optimal time to post or crosslink for maximum visibility and interactons across different subreddit communities?
-- **Toxicity-Virality Relationship**: Is there a systematic relationship between controversial content and viral success, and what are the ethical implications?
+- **Network Effects**: What role do subreddit crosslinking patterns and community interactions play in content propagation? How do crosslinking posts within or across clusters of similar subreddits (by users) perform compared to others?
+- **Temporal Dynamics**: What is the optimal timing to post or crosslink for maximum visibility and interactons across different subreddit communities?
+- **Toxicity-Virality Relationship**: Is there a systematic relationship between controversial content and viral success, and what are the ethical implications? Do supportive or hate comments engage more people?
 - **Community-Specific Patterns**: How do viral patterns differ across subreddit communities with varying toxicity levels?
 
 ## Proposed Additional Datasets
@@ -45,13 +43,10 @@ TODO: Improve
 
 ## Data handling pipelines
 
-TODO: improve
-
-Raw data is uploaded to `/data` folder, the main preprocessing is done in `/src/data`, clustering of embeddings happens in `/src/analysis`.
+Raw data is uploaded to `/data` folder, the data preprocessing and initial data graphing can be found in `/src/data`, enhancing of the data is in `/src/data/scraping`, clustering of embeddings happens in `/src/analysis`. Further analysis can be found in `/src/analysis` and functions which provide basic functions for further analysis are in `/src/utils`.
 
 ## Methods
 
-TODO: improve
 ### Regression
 
 #### Linear Regression
@@ -125,9 +120,12 @@ TODO: improve
 - Clustering of nodes (TODO: Jack)
 - Top 10 subreddits analysis (TODO: Jane)
 - Temporal analysis (TODO: Aziz)
-- Finising the `results.ipynb` notebook
+- Finalising the `results.ipynb` notebook
 
 **November 2025**
+
+TODO: Fix
+
 - In depth analysis of timing
 - LLM analysis of enriched posts
 - Hypothesis tests for all the proposed actions for more informative browsing
@@ -142,13 +140,13 @@ TODO: improve
 ## Internal milestones
 - [x] Graph Data preprocessing (Gal)
 - [x] Data loading (Gal, Henrik)
-- [ ] Enriching data by scraping reddit (Henrik, Gal)
-- [ ] Temporal analysis (Aziz)
-- [ ] Clustering of embeddings (Jack)
-- [ ] Top 10 subreddits analysis with hypothesis testing (Jane)
-- [ ] Sentiment graph structure analysis (Gal)
-- [ ] Analyze correlations in the data with personr and stuff we did at the tutorials (Somebody)
-- [ ] Perform a bunch of T-tests, k_tests, ...
+- [x] Enriching data by scraping reddit (Henrik, Gal)
+- [x] Temporal analysis (Aziz)
+- [x] Clustering of embeddings (Jack)
+- [x] Top 10 subreddits analysis with hypothesis testing (Jane)
+- [x] Sentiment graph structure analysis (Gal)
+- [x] Analyze correlations in the data with pearsonr and methods we learned at the tutorials (Somebody)
+- [x] Further t-tests and analyses
 
 ## How to use
 
@@ -156,6 +154,8 @@ Install packages
 
 ```bash
 pip install -r pip_requirements.txt
+python src/data/preprocess_df.py
+python src/data/preprocess_graph.py
 ```
 
 If you don't use vscode you have to export `PYTHONPATH` environment variable to the root of the project for the relative imports to work
@@ -163,9 +163,8 @@ If you don't use vscode you have to export `PYTHONPATH` environment variable to 
 export PYTHONPATH=$(pwd)
 ```
 
-Download the data
-
-# TODO: our data is available on the Google drive
+### Preprocessed datasets
+Since the scraping process has taken several days across several devices and clustering required a large pipeline, we have made the used datasets available on Google Drive. They are required in order to reproduce the results.ipynb notebook. The two datasets are available on our google drive at [Dataset with clusters](https://drive.google.com/file/d/1zsww69--3KvZTzpohDfCLU15HBMIqDdj/view?usp=drive_link) and [Enhanced Scraping Dataset](https://drive.google.com/file/d/12SAFinVcxSoniVVvr1bB94gKccXn8uBg/view?usp=drive_link).
 
 ## Project Structure
 
@@ -178,15 +177,15 @@ The directory structure of the project looks like this:
 │
 ├── src/
 │   ├── analysis/
-│   │   ├── init_analysis/      <- Initial exploratory analysis
+│   │   ├── init_analysis/          <- Initial exploratory analysis
 │   │   ├── init_analysis_enhanced/ <- Initial analysis with API enhanced data
-│   │   ├── macro_analysis/     <- Macro-level analysis
-│   │   ├── sentiment_analysis/ <- Sentiment-specific analysis
-│   │   ├── sentiment_graphs/  <- Sentiment graph creation and metrics
-│   │   ├── subreddit_clustering/ <- Subreddit clustering
-│   │   ├── temporal_analysis.py <- Temporal patterns analysis
-│   │   ├── top_subreddits/     <- Analysis of most popular subreddits
-│   │   └── upvote_analysis/    <- Upvote/engagement analysis
+│   │   ├── macro_analysis/         <- Macro-level analysis
+│   │   ├── sentiment_analysis/     <- Sentiment-specific analysis
+│   │   ├── sentiment_graphs/       <- Sentiment graph creation and metrics
+│   │   ├── subreddit_clustering/   <- Subreddit clustering
+│   │   ├── temporal_analysis.py    <- Temporal patterns analysis
+│   │   ├── top_subreddits/         <- Analysis of most popular subreddits
+│   │   └── upvote_analysis/        <- Upvote/engagement analysis
 │   │
 │   ├── data/                   <- Data and scrapping utils
 │   │
