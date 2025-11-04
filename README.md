@@ -131,22 +131,29 @@ Download the data
 
 ## Project Structure
 
-The directory structure of new project looks like this:
+The directory structure of the project looks like this:
 
 ```
-├── data                        <- Project data files
+├── data/                       <- Raw and preprocessed data files
 │
-├── src                         <- Source code
-│   ├── data                            <- Data directory
-│   ├── models                          <- Model directory
-│   ├── utils                           <- Utility directory
+├── figures/                    <- Generated figures and visualizations
 │
-├── tests                       <- Tests of any kind
+├── src/
+│   ├── analysis/
+│   │   ├── init_analysis/      <- Initial exploratory analysis
+│   │   ├── init_analysis_enhanced/ <- Initial analysis with API enhanced data
+│   │   ├── macro_analysis/     <- Macro-level analysis
+│   │   ├── sentiment_analysis/ <- Sentiment-specific analysis
+│   │   ├── sentiment_graphs/  <- Sentiment graph creation and metrics
+│   │   ├── subreddit_clustering/ <- Subreddit clustering
+│   │   ├── temporal_analysis.py <- Temporal patterns analysis
+│   │   ├── top_subreddits/     <- Analysis of most popular subreddits
+│   │   └── upvote_analysis/    <- Upvote/engagement analysis
+│   │
+│   ├── data/                   <- Data and scrapping utils
+│   │
+│   └── utils/                   <- Utility functions
 │
-├── results.ipynb               <- a well-structured notebook showing the results
-│
-├── .gitignore                  <- List of files ignored by git
-├── pip_requirements.txt        <- File for installing python dependencies
-└── README.md
+└── results.ipynb               <- Main results notebook
 ```
 
