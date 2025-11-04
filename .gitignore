@@ -182,3 +182,8 @@ CLUSTER_NAMING_WORKFLOW.md
 
 # Reddit credentials for scraping
 /src/data/scraping/reddit_config.py
+
+# Corr figures
+figures/top_subreddits_analysis_charts/old/liwc_corr_cov
+figures/top_subreddits_analysis_charts/liwc_corr_cov
+src/analysis/top_subreddits/results
