@@ -293,7 +293,7 @@ def plot_temporal_analysis(G, save_path=None, show=False):
 
 def plot_property_vector_analysis(G, save_path=None, show=False):
     """
-    Analyze and visualize the 86-element property vector from posts
+    Analyze and visualize the 86-element property vector from Reddit cross-linking posts
     
     Args:
         G: Directed graph with edges containing property vectors (86 features)
@@ -338,96 +338,79 @@ def plot_property_vector_analysis(G, save_path=None, show=False):
     fig, axes = plt.subplots(3, 3, figsize=(20, 16))
     fig.suptitle('Property Vector Analysis (86 Features)', fontsize=16, fontweight='bold')
     
-    basic_props = property_array[:, :18]
-    basic_means = np.mean(basic_props, axis=0)
-    axes[0, 0].bar(range(len(basic_means)), basic_means, alpha=0.7, color='skyblue')
-    axes[0, 0].set_title('Mean Values: Basic Text Properties (Log Scale)')
-    axes[0, 0].set_xlabel('Property Index')
-    axes[0, 0].set_ylabel('Mean Value')
-    axes[0, 0].set_yscale('log')
-    axes[0, 0].tick_params(axis='x', rotation=45)
-    axes[0, 0].grid(True, alpha=0.3)
-    
     vader_props = property_array[:, 18:21]
     vader_names = property_names[18:21]
     vader_means = np.mean(vader_props, axis=0)
     
-    axes[0, 1].bar(vader_names, vader_means, alpha=0.7, color=['green', 'red', 'blue'])
-    axes[0, 1].set_title('VADER Sentiment Analysis')
-    axes[0, 1].set_ylabel('Mean Value')
-    axes[0, 1].tick_params(axis='x', rotation=45)
-    axes[0, 1].grid(True, alpha=0.3)
-    
-    liwc_linguistic = property_array[:, 21:41]
-    liwc_linguistic_means = np.mean(liwc_linguistic, axis=0)
-    
-    axes[0, 2].bar(range(len(liwc_linguistic_means)), liwc_linguistic_means, alpha=0.7, color='orange')
-    axes[0, 2].set_title('Mean Values: LIWC Linguistic Features (Log Scale)')
-    axes[0, 2].set_xlabel('Feature Index (22-41)')
-    axes[0, 2].set_ylabel('Mean Value')
-    axes[0, 2].set_yscale('log')
-    axes[0, 2].grid(True, alpha=0.3)
+    axes[0, 0].bar(vader_names, vader_means, alpha=0.7, color=['green', 'red', 'blue'])
+    axes[0, 0].set_title('VADER Sentiment Analysis')
+    axes[0, 0].set_ylabel('Mean Value')
+    axes[0, 0].tick_params(axis='x', rotation=45)
+    axes[0, 0].grid(True, alpha=0.3)
     
     liwc_emotional = property_array[:, 47:53]
     liwc_emotional_names = property_names[47:53]
     liwc_emotional_means = np.mean(liwc_emotional, axis=0)
     
-    axes[1, 0].bar(liwc_emotional_names, liwc_emotional_means, alpha=0.7, color='purple')
-    axes[1, 0].set_title('LIWC Emotional Features')
-    axes[1, 0].set_ylabel('Mean Value')
-    axes[1, 0].tick_params(axis='x', rotation=45)
-    axes[1, 0].grid(True, alpha=0.3)
+    axes[0, 1].bar(liwc_emotional_names, liwc_emotional_means, alpha=0.7, color='purple')
+    axes[0, 1].set_title('LIWC Emotional Features')
+    axes[0, 1].set_ylabel('Mean Value')
+    axes[0, 1].tick_params(axis='x', rotation=45)
+    axes[0, 1].grid(True, alpha=0.3)
     
     liwc_social = property_array[:, 43:46]
     liwc_social_names = property_names[43:46]
     liwc_social_means = np.mean(liwc_social, axis=0)
     
-    axes[1, 1].bar(liwc_social_names, liwc_social_means, alpha=0.7, color='brown')
-    axes[1, 1].set_title('LIWC Social Features (Log Scale)')
-    axes[1, 1].set_yscale('log')
-    axes[1, 1].set_ylabel('Mean Value')
-    axes[1, 1].tick_params(axis='x', rotation=45)
-    axes[1, 1].grid(True, alpha=0.3)
+    axes[0, 2].bar(liwc_social_names, liwc_social_means, alpha=0.7, color='brown')
+    axes[0, 2].set_title('LIWC Social Features (Log Scale)')
+    axes[0, 2].set_yscale('log')
+    axes[0, 2].set_ylabel('Mean Value')
+    axes[0, 2].tick_params(axis='x', rotation=45)
+    axes[0, 2].grid(True, alpha=0.3)
     
     liwc_perceptual = property_array[:, 62:66]
     liwc_perceptual_names = property_names[62:66]
     liwc_perceptual_means = np.mean(liwc_perceptual, axis=0)
     
-    axes[1, 2].bar(liwc_perceptual_names, liwc_perceptual_means, alpha=0.7, color='pink')
-    axes[1, 2].set_title('LIWC Perceptual Features')
-    axes[1, 2].set_ylabel('Mean Value')
-    axes[1, 2].tick_params(axis='x', rotation=45)
-    axes[1, 2].grid(True, alpha=0.3)
+    axes[1, 0].bar(liwc_perceptual_names, liwc_perceptual_means, alpha=0.7, color='pink')
+    axes[1, 0].set_title('LIWC Perceptual Features')
+    axes[1, 0].set_ylabel('Mean Value')
+    axes[1, 0].tick_params(axis='x', rotation=45)
+    axes[1, 0].grid(True, alpha=0.3)
     
     liwc_biological = property_array[:, 66:71]
     liwc_biological_names = property_names[66:71]
     liwc_biological_means = np.mean(liwc_biological, axis=0)
     
-    axes[2, 0].bar(liwc_biological_names, liwc_biological_means, alpha=0.7, color='cyan')
-    axes[2, 0].set_title('LIWC Biological Features')
-    axes[2, 0].set_ylabel('Mean Value')
-    axes[2, 0].tick_params(axis='x', rotation=45)
-    axes[2, 0].grid(True, alpha=0.3)
+    axes[1, 1].bar(liwc_biological_names, liwc_biological_means, alpha=0.7, color='cyan')
+    axes[1, 1].set_title('LIWC Biological Features')
+    axes[1, 1].set_ylabel('Mean Value')
+    axes[1, 1].tick_params(axis='x', rotation=45)
+    axes[1, 1].grid(True, alpha=0.3)
     
     liwc_temporal = property_array[:, 71:75]
     liwc_temporal_names = property_names[71:75]
     liwc_temporal_means = np.mean(liwc_temporal, axis=0)
     
-    axes[2, 1].bar(liwc_temporal_names, liwc_temporal_means, alpha=0.7, color='yellow')
-    axes[2, 1].set_title('LIWC Temporal/Spatial Features')
-    axes[2, 1].set_ylabel('Mean Value')
-    axes[2, 1].tick_params(axis='x', rotation=45)
-    axes[2, 1].grid(True, alpha=0.3)
+    axes[1, 2].bar(liwc_temporal_names, liwc_temporal_means, alpha=0.7, color='yellow')
+    axes[1, 2].set_title('LIWC Temporal/Spatial Features')
+    axes[1, 2].set_ylabel('Mean Value')
+    axes[1, 2].tick_params(axis='x', rotation=45)
+    axes[1, 2].grid(True, alpha=0.3)
     
     liwc_work = property_array[:, 75:78]
     liwc_work_names = property_names[75:78]
     liwc_work_means = np.mean(liwc_work, axis=0)
     
-    axes[2, 2].bar(liwc_work_names, liwc_work_means, alpha=0.7, color='gray')
-    axes[2, 2].set_title('LIWC Work/Achievement Features')
-    axes[2, 2].set_ylabel('Mean Value')
-    axes[2, 2].tick_params(axis='x', rotation=45)
-    axes[2, 2].grid(True, alpha=0.3)
+    axes[2, 0].bar(liwc_work_names, liwc_work_means, alpha=0.7, color='gray')
+    axes[2, 0].set_title('LIWC Work/Achievement Features')
+    axes[2, 0].set_ylabel('Mean Value')
+    axes[2, 0].tick_params(axis='x', rotation=45)
+    axes[2, 0].grid(True, alpha=0.3)
+    
+    axes[2, 1].axis('off')
+    axes[2, 2].axis('off')
     
     plt.tight_layout()
     if show:
@@ -435,6 +418,107 @@ def plot_property_vector_analysis(G, save_path=None, show=False):
     else:
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
         plt.savefig(save_path)
+        plt.close()
+
+
+def plot_basic_text_properties(G, save_path=None, show=False):
+    """
+    Plot basic text properties with feature names on x-axis
+    
+    Args:
+        G: Directed graph with edges containing property vectors (86 features)
+        save_path: Path to save the plot. If None, saves to default location CHARTS_DIR
+        show: If True, displays the plot. If False, saves it to file
+    """
+    if save_path is None:
+        save_path = os.path.join(CHARTS_DIR, 'basic_text_properties.png')
+    
+    property_names = [
+        "Characters", "Characters (no spaces)", "Fraction alphabetical", "Fraction digits", 
+        "Fraction uppercase", "Fraction whitespace", "Fraction special chars", "Word count",
+        "Unique words", "Long words (6+ chars)", "Avg word length", "Stopwords count",
+        "Fraction stopwords", "Sentence count", "Long sentences (10+ words)", 
+        "Avg chars per sentence", "Avg words per sentence", "Readability index"
+    ]
+    
+    property_vectors = []
+    
+    for u, v, data in G.edges(data=True):
+        if 'properties' in data and data['properties']:
+            props = data['properties']
+            if isinstance(props, list) and len(props) == 86:
+                property_vectors.append(props[:18])
+    
+    property_array = np.array(property_vectors)
+    basic_means = np.mean(property_array, axis=0)
+    
+    fig, ax = plt.subplots(1, 1, figsize=(14, 6))
+    fig.suptitle('Mean Values: Basic Text Properties (Log Scale)', fontsize=14, fontweight='bold')
+    
+    ax.bar(range(len(basic_means)), basic_means, alpha=0.7, color='skyblue')
+    ax.set_xlabel('Property Name', fontsize=11)
+    ax.set_ylabel('Mean Value (Log Scale)', fontsize=11)
+    ax.set_yscale('log')
+    ax.set_xticks(range(len(property_names)))
+    ax.set_xticklabels(property_names, rotation=45, ha='right', fontsize=9)
+    ax.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    if show:
+        plt.show()
+    else:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, bbox_inches='tight')
+        plt.close()
+
+
+def plot_linguistic_features(G, save_path=None, show=False):
+    """
+    Plot LIWC linguistic features with feature names on x-axis
+    
+    Args:
+        G: Directed graph with edges containing property vectors (86 features)
+        save_path: Path to save the plot. If None, saves to default location CHARTS_DIR
+        show: If True, displays the plot. If False, saves it to file
+    """
+    if save_path is None:
+        save_path = os.path.join(CHARTS_DIR, 'linguistic_features.png')
+    
+    property_names = [
+        "LIWC_Funct", "LIWC_Pronoun", "LIWC_Ppron", "LIWC_I", "LIWC_We", "LIWC_You", 
+        "LIWC_SheHe", "LIWC_They", "LIWC_Ipron", "LIWC_Article", "LIWC_Verbs", "LIWC_AuxVb", 
+        "LIWC_Past", "LIWC_Present", "LIWC_Future", "LIWC_Adverbs", "LIWC_Prep", "LIWC_Conj", 
+        "LIWC_Negate", "LIWC_Quant", "LIWC_Numbers"
+    ]
+    
+    property_vectors = []
+    
+    for u, v, data in G.edges(data=True):
+        if 'properties' in data and data['properties']:
+            props = data['properties']
+            if isinstance(props, list) and len(props) == 86:
+                property_vectors.append(props[21:42])
+    
+    property_array = np.array(property_vectors)
+    linguistic_means = np.mean(property_array, axis=0)
+    
+    fig, ax = plt.subplots(1, 1, figsize=(16, 6))
+    fig.suptitle('Mean Values: LIWC Linguistic Features (Log Scale)', fontsize=14, fontweight='bold')
+    
+    ax.bar(range(len(linguistic_means)), linguistic_means, alpha=0.7, color='orange')
+    ax.set_xlabel('Feature Name', fontsize=11)
+    ax.set_ylabel('Mean Value (Log Scale)', fontsize=11)
+    ax.set_yscale('log')
+    ax.set_xticks(range(len(property_names)))
+    ax.set_xticklabels(property_names, rotation=45, ha='right', fontsize=9)
+    ax.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    if show:
+        plt.show()
+    else:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, bbox_inches='tight')
         plt.close()
 
 
