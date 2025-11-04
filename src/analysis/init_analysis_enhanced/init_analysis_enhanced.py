@@ -6,7 +6,7 @@ import os
 from src.utils.data_utils import load_reddit_df, load_enhanced_df
 
 DATA_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data')
-CHARTS_DIR = os.path.join(os.path.dirname(__file__), 'enhanced_analysis_charts')
+CHARTS_DIR = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'figures', 'init_analysis_enhanced_charts')
 
 
 def get_id_sets(reddit_df, enhanced_df):

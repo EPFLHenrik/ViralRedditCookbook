@@ -6,14 +6,20 @@ import os
 
 from src.utils.data_utils import load_reddit_graph
 
-CHARTS_DIR = os.path.join(os.path.dirname(__file__), 'init_analysis_charts')
+CHARTS_DIR = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'figures', 'init_analysis_charts')
 
-# TODO: fix color scheme
 
 
 def moving_average(data, window_size):
     """
     Calculate moving average for smoothing time series data
+    
+    Args:
+        data: Time series data to be smoothed
+        window_size: Size of the moving average window
+    
+    Returns:
+        Smoothed time series data with moving average applied
     """
     if window_size <= 1 or len(data) < window_size:
         return data
@@ -30,7 +36,16 @@ def moving_average(data, window_size):
 
 
 def compute_ccdf(degrees):
-        """Helper function to compute CCDF"""
+        """
+        Helper function to compute CCDF (Complementary Cumulative Distribution Function)
+        
+        Args:
+            degrees: Array of degree values to compute CCDF for
+        
+        Returns:
+            sorted_degrees: Sorted degree values
+            ccdf: Complementary cumulative distribution function values
+        """
         
         sorted_degrees = np.sort(degrees)
         n = len(sorted_degrees)
@@ -41,7 +56,13 @@ def compute_ccdf(degrees):
 def plot_degree_distribution(G, save_path=None, show=False):
     """
     Plot in-degree and out-degree distributions including log-log scale and CCDF
+    
+    Args:
+        G: Directed graph to analyze degree distributions for
+        save_path: Path to save the plot. If None, saves to default location CHARTS_DIR
+        show: If True, displays the plot. If False, saves it to file
     """
+
     if save_path is None:
         save_path = os.path.join(CHARTS_DIR, 'degree_distribution.png')
     
@@ -101,6 +122,11 @@ def plot_degree_distribution(G, save_path=None, show=False):
 def plot_sentiment_analysis(G, save_path=None, show=False):
     """
     Analyze and visualize sentiment patterns
+    
+    Args:
+        G: Directed graph with edges containing sentiment data
+        save_path: Path to save the plot. If None, saves to default location CHARTS_DIR
+        show: If True, displays the plot. If False, saves it to file
     """
 
     if save_path is None:
@@ -165,6 +191,11 @@ def plot_sentiment_analysis(G, save_path=None, show=False):
 def plot_temporal_analysis(G, save_path=None, show=False):
     """
     Analyze temporal patterns in the data
+    
+    Args:
+        G: Directed graph with edges containing timestamp and sentiment data
+        save_path: Path to save the plot. If None, saves to default location CHARTS_DIR
+        show: If True, displays the plot. If False, saves it to file
     """
     if save_path is None:
         save_path = os.path.join(CHARTS_DIR, 'temporal_analysis.png')
@@ -263,6 +294,11 @@ def plot_temporal_analysis(G, save_path=None, show=False):
 def plot_property_vector_analysis(G, save_path=None, show=False):
     """
     Analyze and visualize the 86-element property vector from posts
+    
+    Args:
+        G: Directed graph with edges containing property vectors (86 features)
+        save_path: Path to save the plot. If None, saves to default location CHARTS_DIR
+        show: If True, displays the plot. If False, saves it to file
     """
     if save_path is None:
         save_path = os.path.join(CHARTS_DIR, 'property_vector_analysis.png')
