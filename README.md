@@ -98,7 +98,7 @@ TODO: improve
 
 #### KS Test for Normality
 - **Purpose**: Test whether a sample follows a specified continuous distribution (commonly the normal distribution)
-- **Formula**: $D = \sup_x \, | F_n(x) - F(x) |$ where $F_n(x)$ is the empirical cumulative distribution function (ECDF) and $F(x)$ is the theoretical CDF
+- **Formula**: $D = \sup_x \ | F_n(x) - F(x) |$ where $F_n(x)$ is the empirical cumulative distribution function (ECDF) and $F(x)$ is the theoretical CDF
 - **Implementation**: `scipy.stats.kstest()`
 - **Application in dataset**: Comparing engagement / toxicity distributions between clusters
 
@@ -109,7 +109,7 @@ TODO: improve
 - **Formula**: 
   1. Estimate propensity scores: $e(X_i) = P(T_i=1|X_i)$ using logistic regression
   2. Match treated units to control units with similar $e(X)$ using nearest neighbor
-  3. Estimate treatment effect: $\hat{\tau}_{ATT} = \frac{1}{n_1}\sum_{i:T_i=1}[Y_i - Y_{j(i)}]$ where $j(i)$ is the matched control for treated unit $i$
+  3. Estimate treatment effect: $\hat{\tau}_{ATT} = \frac{1}{n_1}\sum_{i \mid T_i=1}[Y_i - Y_{j(i)}]$ where $j(i)$ is the matched control for treated unit $i$
 - **Implementation**: `sklearn.linear_model.LogisticRegression(), sklearn.neighbors.NearestNeighbors()`
 - **Application in dataset**: Comparing virality of toxic vs. non-toxic posts with similar baseline characteristics (LIWC features, subreddit, timing), isolate causal effect of toxicity on engagement by controlling for confounders (e.g. post length, readability, timestamp)
 

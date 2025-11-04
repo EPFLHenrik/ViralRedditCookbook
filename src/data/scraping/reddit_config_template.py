@@ -1,4 +1,4 @@
-# TODO: copy this file to reddit_config.py and fill in the credentials
+# To start scrapping reddit, copy this file to reddit_config.py and fill in the credentials
 
 UA = "YOUR_USER_AGENT"
 CLIENT_ID = "YOUR_CLIENT_ID"
