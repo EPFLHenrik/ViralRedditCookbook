@@ -30,12 +30,19 @@ def find_zeros(df):
     plt.title('Percentage of Zero Values for Each Feature')
     plt.xticks(range(len(feature_names)), feature_names, rotation=45, ha='right')
     plt.tight_layout()
+    
+    import os
+    output_dir = 'figures/init_analysis_charts'
+    os.makedirs(output_dir, exist_ok=True)
+    plt.savefig(f'{output_dir}/zero_percentages.png', dpi=300, bbox_inches='tight')
+    
     plt.show()
     
     return dict(zip(feature_names, zero_percentages))
 
 def main():
     df = load_reddit_df()
+    
     print(f"DataFrame shape: {df.shape}")
     print(f"DataFrame columns: {list(df.columns)}")
     print(f"Sample of first few rows:")
