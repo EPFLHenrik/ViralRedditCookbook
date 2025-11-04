@@ -62,6 +62,57 @@ def upvote_distribution_by_subreddit():
     plt.tight_layout()
     plt.show()
 
+def upvote_distribution_by_subreddit_one_range():
+    df = load_enhanced_df()
+
+    df.loc[df["LINK_SENTIMENT"] == -1, "LINK_SENTIMENT"] = 0
+    df["LINK_SENTIMENT"] = df["LINK_SENTIMENT"].astype(int)
+    df = df.dropna(subset=['ups'])
+
+    percentiles = (
+        df.groupby('SOURCE_SUBREDDIT')['ups']
+        .agg(
+            minimum='min',
+            q25=lambda x: np.percentile(x, 25),
+            mean='mean',
+            median='median',
+            q75=lambda x: np.percentile(x, 75),
+            count='count',
+            maximum='max'
+        )
+        .reset_index()
+    )
+
+    percentiles = percentiles[percentiles["count"] > 5]
+
+    max_val = percentiles['mean'].max()
+    bins = 10 ** np.arange(0, np.ceil(np.log10(max_val)) + 1)
+    labels = [f"{int(bins[i]):,}–{int(bins[i+1]):,}" for i in range(len(bins)-1)]
+
+    percentiles['mean_ups_group'] = pd.cut(percentiles['mean'], bins=bins, labels=labels, right=False)
+    plt.figure(figsize=(40, 30))
+    
+    l = labels[2]
+    l_subs = percentiles[percentiles['mean_ups_group'] == l]
+
+    random_ones = l_subs.sample(n=min(20, l_subs.shape[0]), random_state=42) if l_subs.shape[0] > 0 else l_subs
+    for i, row in enumerate(random_ones.itertuples()):
+        plt.plot([row.q25, row.q75], [i, i], color='steelblue', linewidth=(np.log2(row.count)+1)*2, solid_capstyle='round')
+        plt.scatter(row.mean, i, color='yellow', zorder=3, s=200, label='Mean' if i == 0 else '')
+        plt.scatter(row.minimum, i, color='red', zorder=3, s=200, label='Min' if i == 0 else '')
+        plt.scatter(row.maximum, i, color='green', zorder=3, s=200, label='Max' if i == 0 else '')
+        plt.scatter(row.median, i, color='black', zorder=3, s=200, label='Median' if i == 0 else '')
+    plt.yticks(range(len(random_ones)), random_ones['SOURCE_SUBREDDIT'], fontsize=30)
+    plt.xlabel('Upvotes', fontsize=25)
+    plt.tick_params(axis='x', labelsize=30)
+    plt.title(f'Upvote Distribution (25th–75th Percentile) \nfor Subreddits with mean {l}', fontsize=40)
+    plt.xscale('log')
+    plt.grid(True, linestyle='--', alpha=0.4)
+    plt.legend(fontsize=25)
+    
+    plt.tight_layout()
+    plt.show()
+
 def upvote_distribution():
     df = load_enhanced_df()
 
@@ -85,8 +136,8 @@ def upvote_distribution():
 
     ncols = 3
     nrows = 2
-    _, axes = plt.subplots(nrows, ncols, figsize=(ncols * 6, nrows * 4), squeeze=False)
-    for idx, l in enumerate(labels):
+    fig, axes = plt.subplots(nrows, ncols, figsize=(ncols * 6, nrows * 4), squeeze=False)
+    for idx, l in enumerate(labels[:5]):
         ax = axes[idx // ncols][idx % ncols]
         data = df[df['mean_ups_group'] == l]
         if data.shape[0] == 0:
@@ -101,6 +152,7 @@ def upvote_distribution():
         ax.tick_params(axis='y', labelsize=10)
         ax.tick_params(axis='x', labelsize=10)
         ax.legend(fontsize=9)
+    fig.delaxes(axes[1][2])
     plt.tight_layout()
     plt.show()
 
