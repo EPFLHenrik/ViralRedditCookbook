@@ -13,6 +13,19 @@ def preprocess_dataframe(
     force_reload=False,
     ignore_clustering=True,
 ):
+    """
+    Preprocess Reddit hyperlink data into a pandas DataFrame with expanded property columns.
+    
+    Args:
+        load_type: Type of data to load. Options: 'body' (body hyperlinks only), 'title' (title hyperlinks only), 'merged' (both)
+        body_tsv_file: Filename for body hyperlinks TSV file (will be read from data folder)
+        title_tsv_file: Filename for title hyperlinks TSV file (will be read from data folder)
+        force_reload: If True, force reload from TSV even if pickle exists
+        ignore_clustering: If True, attach cluster names to the dataframe
+    
+    Returns:
+        pandas.DataFrame: Preprocessed dataframe with properties expanded into individual columns
+    """
     data_folder = DATA_DIR
 
     if load_type == "body":
@@ -147,6 +160,15 @@ def preprocess_dataframe(
 
 
 def attach_cluster_names_to_df(df):
+    """
+    Attach cluster names to dataframe based on subreddit clustering results.
+    
+    Args:
+        df: DataFrame with SOURCE_SUBREDDIT and TARGET_SUBREDDIT columns
+    
+    Returns:
+        pandas.DataFrame: DataFrame with added cluster columns for source and target subreddits at each level
+    """
     results_dir = os.path.join(os.path.dirname(__file__), "..", "analysis", "clustering_results")
     labels_named_pkl = os.path.join(results_dir, "labels_per_level_named.pkl")
     embeddings_file = os.path.join(results_dir, "processed_embeddings.npz")

@@ -3,7 +3,10 @@ import seaborn as sns
 from src.utils.data_utils import load_enhanced_df
 import pandas as pd
 
-def draw_violin_plots():    
+def draw_violin_plots():
+    """
+    Create violin plots comparing VADER compound sentiment scores by link sentiment for body and title posts.
+    """
     df = load_enhanced_df()
 
     df.loc[df["LINK_SENTIMENT"] == -1, "LINK_SENTIMENT"] = 0

@@ -13,26 +13,15 @@ def preprocess_reddit_graph(load_type='body', body_tsv_file='soc-redditHyperlink
     """
     Load Reddit hyperlink data as a NetworkX graph with embeddings.
     
-    Parameters:
-    -----------
-    load_type : str
-        Type of data to load:
-        - 'body': Load only body hyperlinks
-        - 'title': Load only title hyperlinks  
-        - 'merged': Load and merge both body and title hyperlinks
-    body_tsv_file : str
-        Filename for body hyperlinks TSV file (will be read from data folder)
-    title_tsv_file : str
-        Filename for title hyperlinks TSV file (will be read from data folder)
-    embeddings_file : str
-        Filename for subreddit embeddings CSV file (will be read from data folder)
-    force_reload : bool
-        If True, force reload from TSV even if pickle exists
+    Args:
+        load_type: Type of data to load. Options: 'body' (body hyperlinks only), 'title' (title hyperlinks only), 'merged' (both body and title hyperlinks)
+        body_tsv_file: Filename for body hyperlinks TSV file (will be read from data folder)
+        title_tsv_file: Filename for title hyperlinks TSV file (will be read from data folder)
+        embeddings_file: Filename for subreddit embeddings CSV file (will be read from data folder)
+        force_reload: If True, force reload from TSV even if pickle exists
     
     Returns:
-    --------
-    networkx.MultiDiGraph
-        Directed multigraph where nodes are subreddits with embeddings and edges are posts
+        networkx.MultiDiGraph: Directed multigraph where nodes are subreddits with embeddings and edges are posts
     """
 
     data_folder = DATA_DIR

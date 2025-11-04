@@ -12,6 +12,15 @@ DATA_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data')
 from reddit_config import UA, CLIENT_ID, CLIENT_SECRET, USERNAME, PASSWORD
 
 def sanitize(s: str):
+    """
+    Sanitize string by removing problematic characters for CSV storage.
+    
+    Args:
+        s: Input string to sanitize
+    
+    Returns:
+        str or None: Sanitized string with quotes, commas, newlines, and special characters removed, or None if input is not a string
+    """
     if not isinstance(s, str):
         return None
     s = s.replace('"', "'")
@@ -24,6 +33,14 @@ def sanitize(s: str):
     return s 
 
 def get_post_data(path, start_index=0, batch_size=100):
+    """
+    Fetch post data from Reddit API for posts in the dataframe and save to CSV.
+    
+    Args:
+        path: Path to the pickle file containing the Reddit dataframe
+        start_index: Starting index in the dataframe to begin fetching from
+        batch_size: Number of posts to process before saving to CSV
+    """
 
     auth = requests.auth.HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
     data = {"grant_type": "password", "username": USERNAME, "password": PASSWORD, "scope": "read"}

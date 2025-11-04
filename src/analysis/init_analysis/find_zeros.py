@@ -6,6 +6,15 @@ import networkx as nx
 from src.utils.data_utils import load_reddit_graph, load_reddit_df
 
 def find_zeros(df):
+    """
+    Calculate and visualize the percentage of zero values for each feature in the dataframe.
+    
+    Args:
+        df: DataFrame to analyze for zero values
+    
+    Returns:
+        dict: Dictionary mapping feature names to their zero percentage values
+    """
     feature_columns = [col for col in df.columns if col not in ['SOURCE_SUBREDDIT', 'TARGET_SUBREDDIT', 'POST_ID', 'TIMESTAMP']]
     
     for col in feature_columns:
@@ -35,6 +44,9 @@ def find_zeros(df):
     return dict(zip(feature_names, zero_percentages))
 
 def main():
+    """
+    Main function to load dataframe and analyze zero value percentages.
+    """
     df = load_reddit_df()
     print(f"DataFrame shape: {df.shape}")
     print(f"DataFrame columns: {list(df.columns)}")

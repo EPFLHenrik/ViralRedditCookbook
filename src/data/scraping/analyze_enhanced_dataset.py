@@ -12,6 +12,15 @@ DATA_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data')
 from reddit_config import UA, CLIENT_ID, CLIENT_SECRET, USERNAME, PASSWORD
 
 def sanitize(s: str):
+    """
+    Sanitize string by removing problematic characters for CSV storage.
+    
+    Args:
+        s: Input string to sanitize
+    
+    Returns:
+        str or None: Sanitized string with quotes, commas, newlines, and special characters removed, or None if input is not a string
+    """
     if not isinstance(s, str):
         return None
     s = s.replace('"', "'")
@@ -23,7 +32,18 @@ def sanitize(s: str):
     s = s.replace("'", "")
     return s 
 
-def compare_post_ids(enhanced_df, old_df, token):    
+def compare_post_ids(enhanced_df, old_df, token):
+    """
+    Compare post IDs between enhanced and old dataframes, filling in missing posts from Reddit API.
+    
+    Args:
+        enhanced_df: Enhanced dataframe with additional Reddit API data
+        old_df: Original dataframe to compare against
+        token: Reddit API access token
+    
+    Returns:
+        pandas.DataFrame: Enhanced dataframe with missing posts filled in from API
+    """    
     defining_columns = ['SOURCE_SUBREDDIT', 'TARGET_SUBREDDIT', 'POST_ID', 'LINK_SENTIMENT']
     enhanced_sub = enhanced_df[defining_columns]
     old_sub = old_df[defining_columns]
@@ -64,6 +84,16 @@ def compare_post_ids(enhanced_df, old_df, token):
     return enhanced_df
 
 def check_missing_post(post_id, token):
+    """
+    Fetch post data from Reddit API for a missing post ID.
+    
+    Args:
+        post_id: Reddit post ID to fetch
+        token: Reddit API access token
+    
+    Returns:
+        dict: Dictionary containing post data fields, empty dict if post not found
+    """
     headers = {"Authorization": f"bearer {token}", "User-Agent": UA}
     url = f"https://oauth.reddit.com/api/info/?id=t3_{post_id}"
     attempt = 0
@@ -193,6 +223,12 @@ def check_missing_post(post_id, token):
     return new_df_dict
 
 def get_token():
+    """
+    Get Reddit API access token using OAuth credentials.
+    
+    Returns:
+        str: Reddit API access token
+    """
     auth = requests.auth.HTTPBasicAuth(CLIENT_ID, CLIENT_SECRET)
     data = {"grant_type": "password", "username": USERNAME, "password": PASSWORD, "scope": "read"}
     headers = {"User-Agent": UA}
@@ -201,6 +237,13 @@ def get_token():
     return r.json()["access_token"]
 
 def compare_rows(old_df, enhanced_df):
+    """
+    Compare rows between old and enhanced dataframes to detect inconsistencies.
+    
+    Args:
+        old_df: Original dataframe
+        enhanced_df: Enhanced dataframe to compare
+    """
     cnt = 0
     for i in tqdm(range(min(len(old_df), len(enhanced_df)))):
         old_row = old_df.iloc[i]
@@ -213,6 +256,15 @@ def compare_rows(old_df, enhanced_df):
                 break
         
 def char_key(s: str):
+    """
+    Generate a sortable key for natural sorting of strings with mixed characters and numbers.
+    
+    Args:
+        s: Input string to generate key for
+    
+    Returns:
+        tuple: Tuple of tuples, where each inner tuple is (type, value) - type 0 for digits, 1 for letters, 2 for other
+    """
     s = str(s)
     key = []
     for ch in s:
