@@ -58,11 +58,13 @@ TODO: improve
 - **Purpose**: Fit a linear model to the data
 - **Formula**: We find best $\beta_0, \ldots, \beta_N$ such that the error $\epsilon$ is the smallest possible with $Y = \beta_0 + \beta_1X_1 + ... + \beta_kX_k + \epsilon$
 - **Implementation**: `smf.ols()`
+- **Application in dataset**: Predict similarity between subreddits, number of posts overtime, post virality
 
 #### Logistic Regression
 - **Purpose**: Fit a linear regression to the data to predict the probability for the datapoint corresponding to class 1
 - **Formula**: Find best $\beta_0, \ldots, \beta_N$ such that the $P(Y=1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1X_1 + ... + \beta_kX_k)}}$ gives the most accurate predictions
 - **Implementation**: `smf.logit()`
+- **Application in dataset**: Predict post sentiment
 
 ### Clustering
 
@@ -70,6 +72,7 @@ TODO: improve
 - **Purpose**: Detect communities in a similarity graph (e.g., subreddit or user embeddings) by maximizing a quality function (typically modularity)
 - **Formula**: Partition $G = (V, E)$ to maximize modularity $Q = \frac{1}{2m} \sum_{i,j} \bigg( A_{i,j} - \frac{k_ik_j}{2m} \bigg) \delta(c_i,c_j)$
 - **Implementation**: `igraph.community_leiden()`
+- **Application in dataset**: Identify clusters of subreddits with similar user bases and interaction patterns
 
 ### Correlation Coefficients
 
@@ -77,11 +80,13 @@ TODO: improve
 - **Purpose**: Measure the strength and direction of the linear relationship between two continuous variables
 - **Formula**: $r = \frac{\sum_i (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2} \sqrt{\sum_i (y_i - \bar{y})^2}}$ where $r \in [-1,1]$ with 1 = perfect positive linear correlation, -1 = perfect negative, 0 = no linear correlation
 - **Implementation**: `scipy.stats.pearsonr()`
+- **Application in dataset**: Calculating covariance between LIWC features among top subreddits, calculating pairwise covariance between subreddits' LIWC profiles
 
 #### Spearman Correlation Coefficient
 - **Purpose**: Assess the monotonic relationship between two ranked variables; captures nonlinear but monotonic associations
 - **Formula**: $\rho = 1 - \frac{6\sum_i d_i^2}{n(n^2 - 1)}$ where $d_i$ is the rank difference for observation $i$, and $\rho \in [-1,1]$
 - **Implementation**: `scipy.stats.spearmanr()`
+- **Application in dataset**: Studying correlation between toxicity and virality, engagement and LIWC features, and temporal analysis
 
 ### Hypothesis Testing
 
@@ -89,18 +94,25 @@ TODO: improve
 - **Purpose**: Test whether the means of two groups are significantly different
 - **Formula**: (independent samples) $t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$ where $\bar{X}_1, \bar{X}_2$ are sample means, $s_1,s_2$ are standard deviations, and $n_1,n_2$ are sample sizes
 - **Implementation**: `scipy.stats.ttest_ind()`
+- **Application in dataset**: Determining whether posts are viral, whether controversy/negativity drives engagement
 
 #### KS Test for Normality
 - **Purpose**: Test whether a sample follows a specified continuous distribution (commonly the normal distribution)
-- **Formula**: $D = \sup_x \, | F_n(x) - F(x) |$ where $F_n(x)$ is the empirical cumulative distribution function (ECDF) and $F(x)$ is the theoretical CDF.
+- **Formula**: $D = \sup_x \, | F_n(x) - F(x) |$ where $F_n(x)$ is the empirical cumulative distribution function (ECDF) and $F(x)$ is the theoretical CDF
 - **Implementation**: `scipy.stats.kstest()`
+- **Application in dataset**: Comparing engagement / toxicity distributions between clusters
 
-TODO: Add
-- Hypothesis testing
-    - t-test
-    - KS test for normality (ktest_normal)
-    - ...
-- Matching (Propensity score matching)
+### Matching
+
+#### Propensity Score Matching
+- **Purpose**: Create balanced treatment and control groups by matching units with similar probabilities of receiving treatment, reducing selection bias in observational studies
+- **Formula**: 
+  1. Estimate propensity scores: $e(X_i) = P(T_i=1|X_i)$ using logistic regression
+  2. Match treated units to control units with similar $e(X)$ using nearest neighbor
+  3. Estimate treatment effect: $\hat{\tau}_{ATT} = \frac{1}{n_1}\sum_{i:T_i=1}[Y_i - Y_{j(i)}]$ where $j(i)$ is the matched control for treated unit $i$
+- **Implementation**: `sklearn.linear_model.LogisticRegression(), sklearn.neighbors.NearestNeighbors()`
+- **Application in dataset**: Comparing virality of toxic vs. non-toxic posts with similar baseline characteristics (LIWC features, subreddit, timing), isolate causal effect of toxicity on engagement by controlling for confounders (e.g. post length, readability, timestamp)
+
 
 ## Proposed timeline
 
