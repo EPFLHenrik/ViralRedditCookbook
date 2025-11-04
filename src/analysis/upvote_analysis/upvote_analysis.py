@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 from src.utils.data_utils import load_enhanced_df, load_reddit_df
 
 def upvote_distribution_by_subreddit():
+    """
+    Analyze and visualize upvote distributions by subreddit, grouping subreddits by mean upvote ranges.
+    """
     df = load_enhanced_df()
 
     df.loc[df["LINK_SENTIMENT"] == -1, "LINK_SENTIMENT"] = 0
@@ -61,6 +64,9 @@ def upvote_distribution_by_subreddit():
     plt.show()
 
 def upvote_distribution_by_subreddit_one_range():
+    """
+    Analyze and visualize upvote distributions for subreddits in a specific mean upvote range.
+    """
     df = load_enhanced_df()
 
     df.loc[df["LINK_SENTIMENT"] == -1, "LINK_SENTIMENT"] = 0
@@ -124,6 +130,9 @@ def upvote_distribution_by_subreddit_one_range():
     plt.show()
 
 def upvote_distribution():
+    """
+    Analyze and visualize relative upvote distributions grouped by subreddit mean upvote ranges.
+    """
     df = load_enhanced_df()
 
     df.loc[df["LINK_SENTIMENT"] == -1, "LINK_SENTIMENT"] = 0
@@ -167,6 +176,9 @@ def upvote_distribution():
     plt.show()
 
 def see_average_upvotes():
+    """
+    Visualize the distribution of average upvotes per subreddit on a log scale.
+    """
     df = load_enhanced_df()
 
     df.loc[df["LINK_SENTIMENT"] == -1, "LINK_SENTIMENT"] = 0
@@ -218,6 +230,9 @@ def see_average_upvotes():
 
 
 def cluster_upvote_distribution():
+    """
+    Analyze and visualize upvote distributions by source and target cluster levels.
+    """
     DATA_FOLDER = os.path.join(os.getcwd(), 'data')
     df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged_jack.pkl"))
 
@@ -289,6 +304,9 @@ def cluster_upvote_distribution():
     plt.show()
 
 def cluster_percentiles_distribution():
+    """
+    Analyze and visualize upvote percentile distributions across multiple cluster levels (source and target, levels 1-4).
+    """
     DATA_FOLDER = os.path.join(os.getcwd(), 'data')
     df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged_jack.pkl"))
 
