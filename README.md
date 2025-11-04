@@ -23,7 +23,7 @@ TODO: Improve
 - **Source**: [Stanford SNAP Reddit Hyperlinks Dataset](https://snap.stanford.edu/data/soc-RedditHyperlinks.html)
 - **Size**: 860k hyperlinks between 51k subreddits
 - **Format**: TSV files with source/target subreddits, timestamps, link sentiments and post metadata
-- **Processing**: NetworkX MultiDiGraph -> aggregated sentiment DiGraph
+- **Preprocessing**: NetworkX MultiDiGraph -> aggregated sentiment DiGraph
 
 ### Enrichment Dataset: Reddit Embeddings
 - **Source**: [Stanford SNAP Reddit Embeddings](https://snap.stanford.edu/data/web-RedditEmbeddings.html)
@@ -125,6 +125,9 @@ If you don't use vscode you have to export `PYTHONPATH` environment variable to 
 export PYTHONPATH=$(pwd)
 ```
 
+Download the data
+
+# TODO: our data is available on the Google drive
 
 ## Project Structure
 
