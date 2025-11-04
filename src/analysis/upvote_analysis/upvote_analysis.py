@@ -57,8 +57,6 @@ def upvote_distribution_by_subreddit():
         ax.set_title(f'Upvote Distribution (25th–75th Percentile) \nfor Subreddits with mean {l}', fontsize=40)
         ax.set_xscale('log')
         ax.grid(True, linestyle='--', alpha=0.4)
-        if random_ones.shape[0] > 0:
-            ax.legend(fontsize=25)
     plt.tight_layout()
     plt.show()
 
@@ -121,7 +119,6 @@ def upvote_distribution_by_subreddit_one_range():
     plt.title(f'Upvote Distribution (25th–75th Percentile) \nfor Subreddits with mean {l}', fontsize=40)
     plt.xscale('log')
     plt.grid(True, linestyle='--', alpha=0.4)
-    plt.legend(fontsize=25)
     
     plt.tight_layout()
     plt.show()
@@ -363,5 +360,4 @@ def cluster_percentiles_distribution():
         ax.set_title(f'Upvote Distribution (25th–75th Percentile) \nfor {group}', fontsize=40)
         ax.set_xscale('log')
         ax.grid(True, linestyle='--', alpha=0.4)
-        ax.legend(fontsize=25)
     plt.show()
