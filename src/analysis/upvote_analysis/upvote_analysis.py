@@ -156,7 +156,7 @@ def see_average_upvotes():
 
 
 def cluster_upvote_distribution():
-    DATA_FOLDER = os.path.join(os.getcwd(), '..', '..', '..', 'data')
+    DATA_FOLDER = os.path.join(os.getcwd(), 'data')
     df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged_jack.pkl"))
 
     df_enh = load_enhanced_df()
@@ -215,7 +215,7 @@ def cluster_upvote_distribution():
     plt.show()
 
 def cluster_percentiles_distribution():
-    DATA_FOLDER = os.path.join(os.getcwd(), '..', '..', '..', 'data')
+    DATA_FOLDER = os.path.join(os.getcwd(), 'data')
     df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged_jack.pkl"))
 
     df_enh = load_enhanced_df()
