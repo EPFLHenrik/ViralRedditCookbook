@@ -25,7 +25,7 @@ def edges_negative_by_quarter(G: nx.MultiDiGraph,
     then optionally save to a CSV.
 
     Parameters
-    ----------
+    
     G : nx.MultiDiGraph
         Graph produced by preprocess_reddit_graph.
     quarter_end : {"DEC","JAN","FEB",...}
@@ -38,7 +38,7 @@ def edges_negative_by_quarter(G: nx.MultiDiGraph,
         CSV file name.
 
     Returns
-    -------
+    
     pandas.DataFrame
         Columns: ['timestamp']
         Index: MultiIndex [window, source, target]
@@ -93,7 +93,7 @@ def sources_by_quarter_matrix(
     'window' can be strings like '2014Q1' and will be coerced to Periods (Q-<quarter_end>).
 
     Parameters
-    ----------
+    
     data : str | pd.DataFrame
         CSV path or DataFrame with window/target/source/timestamp
     quarter_end : str
@@ -108,7 +108,7 @@ def sources_by_quarter_matrix(
         CSV destination path
 
     Returns
-    -------
+    
     pd.DataFrame
         Index: source
         Columns: quarters (YYYYQn)
@@ -158,73 +158,6 @@ def sources_by_quarter_matrix(
         wide.to_csv(output_path, index=True)
 
     return wide
-
-def plotupvotes():
-
-    """Analyze and visualize Reddit upvote patterns across time —
-      showing trends by month, hour, weekday, and calendar month.
-      """
-    
-    df = load_enhanced_df()
-  
-    df = df.dropna(subset=["TIMESTAMP", "ups"])
-    df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"], format='mixed')
-    df = df.dropna(subset=["TIMESTAMP"])
-    df["ups"] = pd.to_numeric(df["ups"], errors="coerce")
-    df = df.dropna(subset=["ups"])
-
-  
-    df["year_month"] = df["TIMESTAMP"].dt.to_period("M")
-    df["hour"] = df["TIMESTAMP"].dt.hour
-    df["dayofweek"] = df["TIMESTAMP"].dt.day_name()
-    df["month"] = df["TIMESTAMP"].dt.month
-
-   
-    monthly_mean = df.groupby("year_month", as_index=False)["ups"].mean()
-    x_labels = monthly_mean["year_month"].astype(str).tolist()
-    y = monthly_mean["ups"].to_numpy()
-    x = np.arange(len(x_labels))
-
-    plt.figure(figsize=(10, 5))
-    plt.plot(x, y)
-    plt.xticks(x[::3], x_labels[::3], rotation=45, ha="right")
-    plt.xlabel("Month")
-    plt.ylabel("Average upvotes")
-    plt.title("Evolution of average upvotes over time")
-    plt.tight_layout()
-    plt.show()
-
-  
-    hourly_mean = df.groupby("hour")["ups"].mean()
-    plt.figure(figsize=(10, 5))
-    hourly_mean.plot(kind="bar")
-    plt.title("Average Upvotes by Hour of Day")
-    plt.xlabel("Hour (0–23)")
-    plt.ylabel("Mean Upvotes")
-    plt.tight_layout()
-    plt.show()
-
-   
-    dow_order = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-    dow_mean = df.groupby("dayofweek")["ups"].mean().reindex(dow_order)
-    plt.figure(figsize=(10, 5))
-    dow_mean.plot(kind="bar")
-    plt.title("Average Upvotes by Day of Week")
-    plt.xlabel("Day of Week")
-    plt.ylabel("Mean Upvotes")
-    plt.tight_layout()
-    plt.show()
-
-   
-    month_mean = df.groupby("month")["ups"].mean().reindex(range(1,13))
-    plt.figure(figsize=(10, 5))
-    month_mean.plot(kind="bar")
-    plt.title("Average Upvotes by Month")
-    plt.xlabel("Month (1–12)")
-    plt.ylabel("Mean Upvotes")
-    plt.tight_layout()
-    plt.show()
-
 
 def corr_liwc_anger_vs_ups():
 
@@ -314,7 +247,7 @@ def edges_all_by_quarter(
       split by link sentiment (+1/−1), and optionally save CSVs.
 
       Parameters
-    ----------
+    
     quarter_end : str, optional
         The anchor month for the quarter-end period. 
     save_csv : bool, optional
@@ -367,7 +300,7 @@ def mean_ups_matrix_by_quarter(
       fill missing cells, and optionally save as CSV.
       
         Parameters
-    ----------
+    
     csv_path : str, optional
         Path to the input CSV file.
     fill_missing : float, optional
@@ -377,7 +310,9 @@ def mean_ups_matrix_by_quarter(
     output_dir : str, optional
         Directory in which to save the output CSV. 
     filename : str, optional
-        Output CSV filename."""
+        Output CSV filename.
+        
+    """
     
     df = pd.read_csv(csv_path)
 
@@ -406,12 +341,80 @@ def mean_ups_matrix_by_quarter(
         print(f"Saved mean ups matrix to: {output_path}")
 
     return mat
+
+def load_and_prepare_upvotes():
+    """
+    Load Reddit data and extract relevant temporal features for upvote analysis.
+    
+    """
+    df = load_enhanced_df()
+
+    df = df.dropna(subset=["TIMESTAMP", "ups"])
+    df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"], format='mixed')
+    df["ups"] = pd.to_numeric(df["ups"], errors="coerce")
+    df = df.dropna(subset=["TIMESTAMP", "ups"])
+
+    df["year_month"] = df["TIMESTAMP"].dt.to_period("M")
+    df["hour"] = df["TIMESTAMP"].dt.hour
+    df["dayofweek"] = df["TIMESTAMP"].dt.day_name()
+    df["month"] = df["TIMESTAMP"].dt.month
+
+    return df
+
+def plot_monthlymean_upvotes(df):
+    """
+    Plot the evolution of average upvotes over time (by month).
+
+    """
+    monthly_mean = df.groupby("year_month", as_index=False)["ups"].mean()
+    x_labels = monthly_mean["year_month"].astype(str).tolist()
+    y = monthly_mean["ups"].to_numpy()
+    x = np.arange(len(x_labels))
+
+    plt.figure(figsize=(10, 5))
+    plt.plot(x, y, marker='o')
+    plt.xticks(x[::3], x_labels[::3], rotation=45, ha="right")
+    plt.xlabel("Month")
+    plt.ylabel("Average upvotes")
+    plt.title("Evolution of Average Upvotes Over Time")
+    plt.tight_layout()
+    plt.show()
+
+def plot_weekday_upvotes(df):
+    """
+    Plot average upvotes by day of the week.
+    
+    """
+    dow_order = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    dow_mean = df.groupby("dayofweek")["ups"].mean().reindex(dow_order)
+    plt.figure(figsize=(10, 5))
+    dow_mean.plot(kind="bar", color="lightgreen")
+    plt.title("Average Upvotes by Day of Week")
+    plt.xlabel("Day of Week")
+    plt.ylabel("Mean Upvotes")
+    plt.tight_layout()
+    plt.show()
+
+def plot_monthly_upvotes(df):
+    """
+    Plot average upvotes by calendar month across all years.
+    
+    """
+    month_mean = df.groupby("month")["ups"].mean().reindex(range(1,13))
+    plt.figure(figsize=(10, 5))
+    month_mean.plot(kind="bar", color="salmon")
+    plt.title("Average Upvotes by Month (Across Years)")
+    plt.xlabel("Month (1–12)")
+    plt.ylabel("Mean Upvotes")
+    plt.tight_layout()
+    plt.show()
+
+
     
 
 # if __name__ == "__main__":
     # G = load_reddit_graph()
     # sources_by_quarter_matrix(r"reddit_negative_edges_by_quarter.csv")
-    # plotupvotes()
     # corr_time_vs_ups()
     # corr_liwc_anger_vs_ups()
     # corr_vader_neg_vs_ups()
