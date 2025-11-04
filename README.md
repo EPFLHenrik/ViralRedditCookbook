@@ -53,13 +53,13 @@ Raw data is uploaded to `/data` folder, the data preprocessing and initial data 
 - **Purpose**: Fit a linear model to the data
 - **Formula**: We find best $\beta_0, \ldots, \beta_N$ such that the error $\epsilon$ is the smallest possible with $Y = \beta_0 + \beta_1X_1 + ... + \beta_kX_k + \epsilon$
 - **Implementation**: `smf.ols()`
-- **Application in dataset**: Predict similarity between subreddits, number of posts overtime, post virality
+- **Application in dataset**: Predict similarity between subreddits, number of posts overtime, post virality; we can also use weights of the linear regression for explainability and analyzing relationships between features and outcomes.
 
 #### Logistic Regression
 - **Purpose**: Fit a linear regression to the data to predict the probability for the datapoint corresponding to class 1
 - **Formula**: Find best $\beta_0, \ldots, \beta_N$ such that the $P(Y=1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1X_1 + ... + \beta_kX_k)}}$ gives the most accurate predictions
 - **Implementation**: `smf.logit()`
-- **Application in dataset**: Predict post sentiment
+- **Application in dataset**: Predict post sentiment; logistic regression can also be used for statistical interpretation of relations between post features.
 
 ### Clustering
 
@@ -183,7 +183,7 @@ The directory structure of the project looks like this:
 │   │   ├── sentiment_analysis/     <- Sentiment-specific analysis
 │   │   ├── sentiment_graphs/       <- Sentiment graph creation and metrics
 │   │   ├── subreddit_clustering/   <- Subreddit clustering
-│   │   ├── temporal_analysis.py    <- Temporal patterns analysis
+│   │   ├── temporal_analysis/      <- Temporal patterns analysis
 │   │   ├── top_subreddits/         <- Analysis of most popular subreddits
 │   │   └── upvote_analysis/        <- Upvote/engagement analysis
 │   │
