@@ -1,8 +1,9 @@
 import pandas as pd 
+import sys, os
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-from src.utils.data_utils import load_enhanced_df
+from src.utils.data_utils import load_enhanced_df, load_reddit_df
 
 def upvote_distribution_by_subreddit():
     df = load_enhanced_df()
@@ -151,4 +152,126 @@ def see_average_upvotes():
     plt.legend()
 
     plt.tight_layout()
+    plt.show()
+
+
+def cluster_upvote_distribution():
+    DATA_FOLDER = os.path.join(os.getcwd(), '..', '..', '..', 'data')
+    df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged_jack.pkl"))
+
+    df_enh = load_enhanced_df()
+
+    df["ups"] = df_enh["ups"]
+    df = df.dropna(subset=['ups'])
+
+    percentiles_src = (
+        df.groupby('source_cluster_level_1')['ups']
+        .agg(
+            minimum='min',
+            q25=lambda x: np.percentile(x, 25),
+            mean='mean',
+            median='median',
+            q75=lambda x: np.percentile(x, 75),
+            count='count',
+            maximum='max'
+        )
+        .reset_index()
+    )
+
+    percentiles_tgt = (
+        df.groupby('target_cluster_level_1')['ups']
+        .agg(
+            minimum='min',
+            q25=lambda x: np.percentile(x, 25),
+            mean='mean',
+            median='median',
+            q75=lambda x: np.percentile(x, 75),
+            count='count',
+            maximum='max'
+        )
+        .reset_index()
+    )
+
+    percentiles_lst = [percentiles_src, percentiles_tgt]
+
+    _, axes = plt.subplots(2, 1, figsize=(30, 40), squeeze=False)
+
+    for i, percentiles in enumerate(percentiles_lst):
+        ax = axes[i // 1][i % 1]
+        for i, row in enumerate(percentiles.itertuples()):
+            ax.plot([row.q25, row.q75], [i, i], color='steelblue', linewidth=(np.log2(row.count)+1), solid_capstyle='round')
+            ax.scatter(row.mean, i, color='yellow', zorder=3, s=200, label='Mean' if i == 0 else '')
+            ax.scatter(row.minimum, i, color='red', zorder=3, s=200, label='Min' if i == 0 else '')
+            ax.scatter(row.maximum, i, color='green', zorder=3, s=200, label='Max' if i == 0 else '')
+            ax.scatter(row.median, i, color='black', zorder=3, s=200, label='Median' if i == 0 else '')
+        ax.set_yticks(range(len(percentiles)))
+        ax.set_yticklabels(percentiles.iloc[: ,0], fontsize=20)
+        ax.set_xlabel('Upvotes', fontsize=25)
+        ax.tick_params(axis='x', labelsize=30)
+        ax.set_title(f'Upvote Distribution (25th–75th Percentile) \nfor {percentiles.columns[0]}', fontsize=40)
+        ax.set_xscale('log')
+        ax.grid(True, linestyle='--', alpha=0.4)
+        ax.legend(fontsize=25)
+    plt.show()
+
+def cluster_percentiles_distribution():
+    DATA_FOLDER = os.path.join(os.getcwd(), '..', '..', '..', 'data')
+    df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged_jack.pkl"))
+
+    df_enh = load_enhanced_df()
+
+    df["ups"] = df_enh["ups"]
+    df = df.dropna(subset=['ups'])
+
+    cluster_groups = ["source_cluster_level_1", "target_cluster_level_1", 
+                  "source_cluster_level_2", "target_cluster_level_2",
+                  "source_cluster_level_3", "target_cluster_level_3",
+                  "source_cluster_level_4", "target_cluster_level_4"]
+                  
+
+    ncols = 2
+    nrows = 4
+    _, axes = plt.subplots(nrows, ncols, figsize=(ncols * 25, nrows * 20), squeeze=False)
+
+    for i, group in enumerate(cluster_groups):
+        ax = axes[i // ncols][i % ncols]
+        percentiles = (
+            df.groupby(group)['ups']
+            .agg(
+                minimum='min',
+                q10=lambda x: np.percentile(x, 10),
+                q20=lambda x: np.percentile(x, 20),
+                q30=lambda x: np.percentile(x, 30),
+                q40=lambda x: np.percentile(x, 40),
+                q50=lambda x: np.percentile(x, 50),
+                q60=lambda x: np.percentile(x, 60),
+                q70=lambda x: np.percentile(x, 70),
+                q80=lambda x: np.percentile(x, 80),
+                q90=lambda x: np.percentile(x, 90),
+                maximum='max'
+            )
+            .reset_index()
+        )
+
+        cnt = 0
+        used_cols = []
+        for col_name, col_data in percentiles.items():
+            if isinstance(col_data[0], str):
+                continue
+            used_cols.append(col_name)
+            ax.plot([col_data.quantile(0.25), col_data.quantile(0.75)], [cnt, cnt], color='steelblue', linewidth=3, solid_capstyle='round')
+            ax.scatter(col_data.mean(), cnt, color='yellow', zorder=3, s=200, label='Mean' if cnt == 0 else '')
+            ax.scatter(col_data.min(), cnt, color='red', zorder=3, s=200, label='Min' if cnt == 0 else '')
+            ax.scatter(col_data.max(), cnt, color='green', zorder=3, s=200, label='Max' if cnt == 0 else '')
+            ax.scatter(col_data.median(), cnt, color='black', zorder=3, s=200, label='Median' if cnt == 0 else '')
+            cnt += 1
+
+        ax.set_xlabel('Upvotes', fontsize=25)
+        ax.set_yticks(range(len(used_cols)))
+        ax.set_yticklabels(used_cols, fontsize=20)
+        ax.tick_params(axis='x', labelsize=30)
+        ax.set_title(f'Upvote Distribution (25th–75th Percentile) \nfor {group}', fontsize=40)
+        ax.set_xscale('log')
+        ax.grid(True, linestyle='--', alpha=0.4)
+        ax.legend(fontsize=25)
     plt.show()
