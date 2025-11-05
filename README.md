@@ -127,17 +127,20 @@ Raw data is uploaded to `/data` folder, the data preprocessing can be found in `
 - Experiment with different indicators of virality (`ups`, `downs`, `num_comments`)
 - Extensive statistical analysis (t-tests) for the impact of different properties on the upvotes
 - In depth analysis of the effect timing
-- Per cluster analysis - are there any patterens to virality that are only expressed in certains communities 
+- Per cluster analysis - are there any patterens to virality that are only expressed in certain communities 
 - Hypothesis tests for all the proposed actions for more informative browsing
 - Matching to verify effect of certain features on the upvotes
 - Website creation
 - Extract the handbook of rules for virality from our experiments
 
 **December 2025**
-- Polishing website
+- Utilizing LLMs to analyze post contents and titles
+- Matching to verify effect of certain features on the upvotes
+- Website creation
 - Finalization of the experiments
 - Interactive Flourish visualizations for the experiments
 - Finishing up with all the experiments
+- Polishing website
 
 
 ## Internal milestones
