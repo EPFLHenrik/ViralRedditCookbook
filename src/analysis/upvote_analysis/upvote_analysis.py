@@ -94,12 +94,13 @@ def upvote_distribution_by_subreddit_one_range():
     labels = [f"{int(bins[i]):,}–{int(bins[i+1]):,}" for i in range(len(bins)-1)]
 
     percentiles['mean_ups_group'] = pd.cut(percentiles['mean'], bins=bins, labels=labels, right=False)
-    plt.figure(figsize=(40, 30))
+    _, axes = plt.subplots(1, 1, figsize=(40, 30), squeeze=False)
     
     l = labels[2]
     l_subs = percentiles[percentiles['mean_ups_group'] == l]
 
     random_ones = l_subs.sample(n=min(20, l_subs.shape[0]), random_state=42) if l_subs.shape[0] > 0 else l_subs
+    ax = axes[0][0]
     for i, row in enumerate(random_ones.itertuples()):
         boxplot_stats = [{
             'whislo': row.minimum,
@@ -110,7 +111,7 @@ def upvote_distribution_by_subreddit_one_range():
             'fliers': [],
             'mean': row.mean,
         }]
-        plt.bxp(boxplot_stats,
+        ax.bxp(boxplot_stats,
             positions=[i],
             vert=False,
             patch_artist=True,
@@ -119,12 +120,13 @@ def upvote_distribution_by_subreddit_one_range():
             widths=0.6,
             medianprops={'color': 'red', 'linewidth': 2}
         )
-    plt.yticks(range(len(random_ones)), random_ones['SOURCE_SUBREDDIT'], fontsize=30)
-    plt.xlabel('Upvotes', fontsize=25)
-    plt.tick_params(axis='x', labelsize=30)
-    plt.title(f'Upvote Distribution (25th–75th Percentile) \nfor Subreddits with mean {l}', fontsize=40)
-    plt.xscale('log')
-    plt.grid(True, linestyle='--', alpha=0.4)
+    ax.set_yticks(range(len(random_ones)))
+    ax.set_yticklabels(random_ones['SOURCE_SUBREDDIT'], fontsize=30)
+    ax.set_xlabel('Upvotes', fontsize=25)
+    ax.tick_params(axis='x', labelsize=30)
+    ax.set_title(f'Upvote Distribution (25th–75th Percentile) \nfor Subreddits with mean {l}', fontsize=40)
+    ax.set_xscale('log')
+    ax.grid(True, linestyle='--', alpha=0.4)
     
     plt.tight_layout()
     plt.show()
