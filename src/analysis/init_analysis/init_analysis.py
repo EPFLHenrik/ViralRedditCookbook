@@ -226,8 +226,9 @@ def plot_temporal_analysis(G, save_path=None, show=False):
     window_size = 50  # 50-day window
     smoothed_values = moving_average(posts_per_day.values, window_size)
     
-    axes[0, 0].plot(posts_per_day.index, posts_per_day.values, alpha=0.8, linewidth=1, color='lightblue', label='Original')
-    axes[0, 0].plot(posts_per_day.index, smoothed_values, alpha=1, linewidth=2, color='darkblue', label='Smoothed')
+    dates = list(posts_per_day.index)
+    axes[0, 0].plot(dates, posts_per_day.values, alpha=0.8, linewidth=1, color='lightblue', label='Original')
+    axes[0, 0].plot(dates, smoothed_values, alpha=1, linewidth=2, color='darkblue', label='Smoothed')
     axes[0, 0].set_title('Posts Over Time (Smoothed)')
     axes[0, 0].set_xlabel('Date')
     axes[0, 0].set_ylabel('Number of Posts')
@@ -237,7 +238,8 @@ def plot_temporal_analysis(G, save_path=None, show=False):
     df_time['hour'] = df_time['timestamp'].dt.hour
     posts_per_hour = df_time.groupby('hour').size()
     
-    axes[0, 1].bar(posts_per_hour.index, posts_per_hour.values, alpha=0.7, color='orange')
+    hours = list(posts_per_hour.index)
+    axes[0, 1].bar(hours, posts_per_hour.values, alpha=0.7, color='orange')
     axes[0, 1].set_title('Posts by Hour of Day')
     axes[0, 1].set_xlabel('Hour')
     axes[0, 1].set_ylabel('Number of Posts')
@@ -263,14 +265,18 @@ def plot_temporal_analysis(G, save_path=None, show=False):
     positive_smoothed = moving_average(sentiment_over_time[1].values, window_size)
     negative_smoothed = moving_average(sentiment_over_time[-1].values, window_size)
     
-    axes[1, 1].plot(sentiment_over_time.index.astype(str), sentiment_over_time[1], 
+    month_labels = [str(x) for x in sentiment_over_time.index]
+    positive_values = sentiment_over_time[1].values
+    negative_values = sentiment_over_time[-1].values
+    
+    axes[1, 1].plot(month_labels, positive_values, 
                     alpha=0.8, linewidth=1, color='lightgreen', marker='o', markersize=3, label='Positive (Original)')
-    axes[1, 1].plot(sentiment_over_time.index.astype(str), positive_smoothed, 
+    axes[1, 1].plot(month_labels, positive_smoothed, 
                     alpha=0.8, linewidth=2, color='darkgreen', marker='o', label='Positive (Smoothed)')
     
-    axes[1, 1].plot(sentiment_over_time.index.astype(str), sentiment_over_time[-1], 
+    axes[1, 1].plot(month_labels, negative_values, 
                     alpha=0.8, linewidth=1, color='lightcoral', marker='s', markersize=3, label='Negative (Original)')
-    axes[1, 1].plot(sentiment_over_time.index.astype(str), negative_smoothed, 
+    axes[1, 1].plot(month_labels, negative_smoothed, 
                     alpha=0.8, linewidth=2, color='darkred', marker='s', label='Negative (Smoothed)')
     
     axes[1, 1].set_title('Sentiment Over Time (Monthly, Smoothed)')
@@ -278,7 +284,6 @@ def plot_temporal_analysis(G, save_path=None, show=False):
     axes[1, 1].set_ylabel('Number of Posts')
     axes[1, 1].legend()
     axes[1, 1].tick_params(axis='x', rotation=45)
-    month_labels = sentiment_over_time.index.astype(str)
     tick_positions = range(0, len(month_labels), 3)  # Every 3rd month
     axes[1, 1].set_xticks(tick_positions)
     axes[1, 1].set_xticklabels([month_labels[i] for i in tick_positions], rotation=45)
