@@ -15,7 +15,7 @@ def find_zeros(df):
     Returns:
         dict: Dictionary mapping feature names to their zero percentage values
     """
-    feature_columns = [col for col in df.columns if col not in ['SOURCE_SUBREDDIT', 'TARGET_SUBREDDIT', 'POST_ID', 'TIMESTAMP']]
+    feature_columns = [col for col in df.columns if col not in ['SOURCE_SUBREDDIT', 'TARGET_SUBREDDIT', 'POST_ID', 'TIMESTAMP'] and 'cluster_level' not in col.lower()]
     
     for col in feature_columns:
         if df[col].dtype == 'object':
@@ -32,12 +32,12 @@ def find_zeros(df):
             zero_percentages.append(zero_percentage)
             feature_names.append(col)
     
-    plt.figure(figsize=(20, 8))
-    bars = plt.bar(range(len(feature_names)), zero_percentages)
-    plt.xlabel('Features')
-    plt.ylabel('Percentage of Zero Values')
+    plt.figure(figsize=(10, 20))
+    bars = plt.barh(range(len(feature_names)), zero_percentages)
+    plt.ylabel('Features')
+    plt.xlabel('Percentage of Zero Values')
     plt.title('Percentage of Zero Values for Each Feature')
-    plt.xticks(range(len(feature_names)), feature_names, rotation=45, ha='right')
+    plt.yticks(range(len(feature_names)), feature_names)
     plt.tight_layout()
     
     import os

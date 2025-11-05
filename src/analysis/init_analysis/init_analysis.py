@@ -138,7 +138,7 @@ def plot_sentiment_analysis(G, save_path=None, show=False):
     
     sentiment_counts = Counter(sentiments)
     
-    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
+    fig, axes = plt.subplots(3, 2, figsize=(15, 18))
     fig.suptitle('Sentiment Analysis', fontsize=16, fontweight='bold')
     
     labels = ['Neutral/Positive (1)', 'Negative (-1)']
@@ -179,6 +179,40 @@ def plot_sentiment_analysis(G, save_path=None, show=False):
     axes[1, 1].set_title('Top 10 Subreddits by Negative Links')
     axes[1, 1].set_xlabel('Number of Negative Links')
     axes[1, 1].grid(True, alpha=0.3)
+    
+    pos_percentage_by_source = {}
+    for subreddit in set(list(pos_sentiment_by_source.keys()) + list(neg_sentiment_by_source.keys())):
+        pos_count = pos_sentiment_by_source.get(subreddit, 0)
+        neg_count = neg_sentiment_by_source.get(subreddit, 0)
+        total_count = pos_count + neg_count
+        if total_count > 1000:
+            pos_percentage_by_source[subreddit] = (pos_count / total_count) * 100
+    
+    top_pos_pct = sorted(pos_percentage_by_source.items(), key=lambda x: x[1], reverse=True)[:10]
+    subreddits_pos_pct, percentages_pos = zip(*top_pos_pct)
+    axes[2, 0].barh(range(len(subreddits_pos_pct)), percentages_pos, color='lightgreen', alpha=0.7)
+    axes[2, 0].set_yticks(range(len(subreddits_pos_pct)))
+    axes[2, 0].set_yticklabels(subreddits_pos_pct, fontsize=8)
+    axes[2, 0].set_title('Top 10 Subreddits by Percentage of Neutral/Positive Links (exclude subreddits w/ <1000 posts)')
+    axes[2, 0].set_xlabel('Percentage of Links with Neutral/Positive Sentiment (%)')
+    axes[2, 0].grid(True, alpha=0.3)
+    
+    neg_percentage_by_source = {}
+    for subreddit in set(list(pos_sentiment_by_source.keys()) + list(neg_sentiment_by_source.keys())):
+        pos_count = pos_sentiment_by_source.get(subreddit, 0)
+        neg_count = neg_sentiment_by_source.get(subreddit, 0)
+        total_count = pos_count + neg_count
+        if total_count > 1000:
+            neg_percentage_by_source[subreddit] = (neg_count / total_count) * 100
+    
+    top_neg_pct = sorted(neg_percentage_by_source.items(), key=lambda x: x[1], reverse=True)[:10]
+    subreddits_neg_pct, percentages_neg = zip(*top_neg_pct)
+    axes[2, 1].barh(range(len(subreddits_neg_pct)), percentages_neg, color='lightcoral', alpha=0.7)
+    axes[2, 1].set_yticks(range(len(subreddits_neg_pct)))
+    axes[2, 1].set_yticklabels(subreddits_neg_pct, fontsize=8)
+    axes[2, 1].set_title('Top 10 Subreddits by Percentage of Negative Links (exclude subreddits w/ <1000 posts)')
+    axes[2, 1].set_xlabel('Percentage of Links with Negative Sentiment (%)')
+    axes[2, 1].grid(True, alpha=0.3)
     
     plt.tight_layout()
     if show:
