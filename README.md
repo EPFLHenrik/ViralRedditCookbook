@@ -104,7 +104,7 @@ Raw data is uploaded to `/data` folder, the data preprocessing can be found in `
 - **Formula**: 
   1. Estimate propensity scores: $e(X_i) = P(T_i=1|X_i)$ using logistic regression
   2. Match treated units to control units with similar $e(X)$ using max weight matching in graphs
-  3. Estimate treatment effect: $ \tau = \frac{1}{n_1}\sum_{i : T_i=1}[Y_i - Y_{j(i)}]$ where $j(i)$ is the matched control for treated unit $i$
+  3. Estimate treatment effect: $\tau = \frac{1}{n_1}\sum_{T_i=1} (Y_i - Y_{j(i)})$ where $j(i)$ is the matched control for treated unit $i$
 - **Implementation**: `smf.logit()`, `nx.max_weight_matching()`
 - **Application in dataset**: Comparing virality of toxic vs. non-toxic posts with similar baseline characteristics (LIWC features, subreddit, timing), isolate causal effect of toxicity on engagement by controlling for confounders (e.g. post length, readability, timestamp).
 
@@ -204,7 +204,7 @@ The directory structure of the project looks like this:
 │   │   ├── top_subreddits/         <- Analysis of most popular subreddits
 │   │   └── upvote_analysis/        <- Upvote/engagement analysis
 │   │
-│   ├── data/                   <- Data and scrapping utils
+│   ├── data/                   <- Data and scraping utils
 │   │
 │   └── utils/                   <- Utility functions
 │
