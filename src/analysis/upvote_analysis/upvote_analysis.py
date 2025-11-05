@@ -145,11 +145,15 @@ def upvote_distribution():
 
 
     df['rel_ups'] = df['ups'] / df['mean_ups']
-
+    valid_mask = (df['rel_ups'] > 0) & np.isfinite(df['rel_ups'])
+    df = df[valid_mask].copy()
     df['log_rel'] = np.log10(df['rel_ups'])
 
     max_val = df['mean_ups'].max()
-    bins = 10 ** np.arange(0, np.ceil(np.log10(max_val)) + 1)
+    if max_val > 0:
+        bins = 10 ** np.arange(0, np.ceil(np.log10(max_val)) + 1)
+    else:
+        bins = np.array([1, 10, 100, 1000])
     labels = [f"{int(bins[i]):,}–{int(bins[i+1]):,}" for i in range(len(bins)-1)]
 
     df['mean_ups_group'] = pd.cut(df['mean_ups'], bins=bins, labels=labels, right=False)
