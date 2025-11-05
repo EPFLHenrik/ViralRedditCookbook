@@ -124,12 +124,14 @@ Raw data is uploaded to `/data` folder, the data preprocessing can be found in `
 
 **November 2025**
 
+- Experiment with different indicators of virality (`ups`, `downs`, `num_comments`)
 - Extensive statistical analysis (t-tests) for the impact of different properties on the upvotes
 - In depth analysis of the effect timing
 - Per cluster analysis - are there any patterens to virality that are only expressed in certains communities 
 - Hypothesis tests for all the proposed actions for more informative browsing
 - Matching to verify effect of certain features on the upvotes
 - Website creation
+- Extract the handbook of rules for virality from our experiments
 
 **December 2025**
 - Polishing website
@@ -171,13 +173,12 @@ Download files `soc-redditHyperlinks-body.tsv` and `soc-redditHyperlinks-title.t
 
 Then run preprocessing with:
 ```bash
-python src/data/preprocess_df.py
 python src/data/preprocess_graph.py
 ```
 
 ### Download preprocessed datasets
 
-Since the scraping process has taken several days across several devices and clustering required a large pipeline, we have made the used datasets available on Google Drive. They are required in order to reproduce the `results.ipynb` notebook. The two datasets are available on our google drive at [Dataset with clusters](https://drive.google.com/file/d/1zsww69--3KvZTzpohDfCLU15HBMIqDdj/view?usp=drive_link) and [Enhanced Scraping Dataset](https://drive.google.com/file/d/12SAFinVcxSoniVVvr1bB94gKccXn8uBg/view?usp=drive_link). Before running the pipeline download both datasets and put them in `/data`. If you are interested in how the datasets have been obtained, check `/src/analysis/subreddit_clusters` (clustering script) and `/src/data/scraping` (scraping script).
+Since the scraping process has taken several days across several devices and clustering required a large pipeline, we have made the used datasets available on Google Drive. They are required in order to reproduce the `results.ipynb` notebook. The two datasets are available as pickle files on our google drive at [Dataset with clusters](https://drive.google.com/file/d/1zsww69--3KvZTzpohDfCLU15HBMIqDdj/view?usp=drive_link) and [Enhanced Scraping Dataset](https://drive.google.com/file/d/12SAFinVcxSoniVVvr1bB94gKccXn8uBg/view?usp=drive_link). Before running the pipeline download both datasets and put them in `/data`. If you are interested in how the datasets have been obtained, check `/src/analysis/subreddit_clusters` (clustering script) and `/src/data/scraping` (scraping script).
 
 ## Project Structure
 

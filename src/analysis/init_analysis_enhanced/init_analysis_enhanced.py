@@ -42,16 +42,16 @@ def create_comparison_plot(reddit_ids, cleaned_ids, matching_ids, title, save_pa
     fig, axes = plt.subplots(1, 2, figsize=(15, 6))
     fig.suptitle(title, fontsize=16, fontweight='bold')
     
-    labels = ['In Cleaned Dataset', 'Not in Cleaned Dataset']
-    sizes = [len(matching_ids), len(reddit_ids - cleaned_ids)]
+    labels = ['Found in API', 'Not found in API']
+    sizes = [len(reddit_ids - cleaned_ids), len(matching_ids)]
     colors = ['lightgreen', 'lightcoral']
     
     axes[0].pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
     axes[0].set_title('Original Dataset Coverage')
     
-    categories = ['Original Dataset', 'Scrapped data', 'Overlap']
+    categories = ['Original Dataset', 'API Scraped data', 'Missing in API']
     values = [len(reddit_ids), len(cleaned_ids), len(matching_ids)]
-    colors_bar = ['skyblue', 'lightcoral', 'lightgreen']
+    colors_bar = ['skyblue', 'lightgreen', 'lightcoral']
     
     bars = axes[1].bar(categories, values, color=colors_bar, alpha=0.7, edgecolor='black')
     axes[1].set_title('Dataset Size Comparison')
