@@ -2,8 +2,6 @@
 
 ## Abstract
 
-TODO: Improve
-
 *Virality on Reddit is often seen as luck-based, but patterns of language, timing, and community interaction shape what captures attention. <ins>ToxicStew: A Cookbook on How to Go Viral on Reddit</ins> will explore the underlying “recipe” for success by analyzing over 850k crosslinking posts, enriched with engagement metrics such as upvotes, downvotes, and comment counts. The project will aim to uncover which combinations of factors (what subreddits to post in, which communities to crosslink, what tone or sentiment to adopt, and when to post) most strongly suggest viral outcomes. By modeling these relationships and extracting interpretable patterns, it will reveal not only how virality emerges, but also how toxicity and controversy may serve as hidden ingredients in Reddit’s attention economy. Additionally, through new language processing possibilities like LLMs, an analysis on  patterns hidden to the human eye can be performed. Ultimately, the project will tell the story of how popularity can be engineered in online communities.*
 
 ## Research questions
@@ -154,8 +152,6 @@ Install packages
 
 ```bash
 pip install -r pip_requirements.txt
-python src/data/preprocess_df.py
-python src/data/preprocess_graph.py
 ```
 
 If you don't use vscode you have to export `PYTHONPATH` environment variable to the root of the project for the relative imports to work
@@ -163,8 +159,19 @@ If you don't use vscode you have to export `PYTHONPATH` environment variable to 
 export PYTHONPATH=$(pwd)
 ```
 
-### Preprocessed datasets
-Since the scraping process has taken several days across several devices and clustering required a large pipeline, we have made the used datasets available on Google Drive. They are required in order to reproduce the results.ipynb notebook. The two datasets are available on our google drive at [Dataset with clusters](https://drive.google.com/file/d/1zsww69--3KvZTzpohDfCLU15HBMIqDdj/view?usp=drive_link) and [Enhanced Scraping Dataset](https://drive.google.com/file/d/12SAFinVcxSoniVVvr1bB94gKccXn8uBg/view?usp=drive_link).
+### Download original datasets
+
+Download files `soc-redditHyperlinks-body.tsv` and `soc-redditHyperlinks-title.tsv` form [Stanford SNAP Reddit Hyperlinks Dataset](https://snap.stanford.edu/data/soc-RedditHyperlinks.html) and put them into `/data`. Then also download the file `web-redditEmbeddings-subreddits.csv` from [Stanford SNAP Reddit Embeddings](https://snap.stanford.edu/data/web-RedditEmbeddings.html) and put them into `/data`.
+
+Then run preprocessing with:
+```bash
+python src/data/preprocess_df.py
+python src/data/preprocess_graph.py
+```
+
+### Download preprocessed datasets
+
+Since the scraping process has taken several days across several devices and clustering required a large pipeline, we have made the used datasets available on Google Drive. They are required in order to reproduce the `results.ipynb` notebook. The two datasets are available on our google drive at [Dataset with clusters](https://drive.google.com/file/d/1zsww69--3KvZTzpohDfCLU15HBMIqDdj/view?usp=drive_link) and [Enhanced Scraping Dataset](https://drive.google.com/file/d/12SAFinVcxSoniVVvr1bB94gKccXn8uBg/view?usp=drive_link). Before running the pipeline download both datasets and put them in `/data`. If you are interested in how the datasets have been obtained, check `/src/analysis/subreddit_clusters` (clustering script) and `/src/data/scraping` (scraping script).
 
 ## Project Structure
 
