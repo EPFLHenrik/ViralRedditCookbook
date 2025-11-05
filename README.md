@@ -41,7 +41,9 @@
 
 ## Data handling pipelines
 
-Raw data is uploaded to `/data` folder, the data preprocessing and initial data graphing can be found in `/src/data`, enhancing of the data is in `/src/data/scraping`, clustering of embeddings happens in `/src/analysis`. Further analysis can be found in `/src/analysis` and functions which provide basic functions for further analysis are in `/src/utils`.
+Raw data is uploaded to `/data` folder, the data preprocessing can be found in `/src/data`, enhancing of the data is in `/src/data/scraping`, clustering of embeddings happens in `/src/analysis/subreddit_clustering`. Further analysis can be found in `/src/analysis` and functions which provide basic functions for further analysis are in `/src/utils`.
+
+> **Note**: If you want to fully reproduce the entire pipeline in `results.ipynb`, see the [How to use](#how-to-use) section below.
 
 ## Methods
 
@@ -49,23 +51,23 @@ Raw data is uploaded to `/data` folder, the data preprocessing and initial data 
 
 #### Linear Regression
 - **Purpose**: Fit a linear model to the data
-- **Formula**: We find best $\beta_0, \ldots, \beta_N$ such that the error $\epsilon$ is the smallest possible with $Y = \beta_0 + \beta_1X_1 + ... + \beta_kX_k + \epsilon$
+- **Formula**: We find best $\beta_0, \ldots, \beta_K$ such that the mean squared error (MSE) of individual errors $\epsilon_i$ is the smallest possible with $Y_i = \beta_0 + \beta_1X_{i1} + ... + \beta_KX_{iK} + \epsilon_i$
 - **Implementation**: `smf.ols()`
-- **Application in dataset**: Predict similarity between subreddits, number of posts overtime, post virality; we can also use weights of the linear regression for explainability and analyzing relationships between features and outcomes.
+- **Application in dataset**: Predict similarity between subreddits, number of posts overtime and post virality. We can also use weights of the linear regression for explainability and analyzing relationships between features and outcomes.
 
 #### Logistic Regression
-- **Purpose**: Fit a linear regression to the data to predict the probability for the datapoint corresponding to class 1
-- **Formula**: Find best $\beta_0, \ldots, \beta_N$ such that the $P(Y=1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1X_1 + ... + \beta_kX_k)}}$ gives the most accurate predictions
+- **Purpose**: Fit a logistic regression model to the data to predict the probability for the datapoint corresponding to class 1
+- **Formula**: Find best $\beta_0, \ldots, \beta_K$ such that the $P(Y_i=1|X_i) = \frac{1}{1 + e^{-(\beta_0 + \beta_1X_{i1} + ... + \beta_K X_{ik})}}$ minimizes binary cross entropy loss.
 - **Implementation**: `smf.logit()`
-- **Application in dataset**: Predict post sentiment; logistic regression can also be used for statistical interpretation of relations between post features.
+- **Application in dataset**: Predict post sentiment, interpret relationships between features. Logistic regression is also a key ingredient in calculating the propensity score for matching.
 
 ### Clustering
 
 #### Leiden Clustering
-- **Purpose**: Detect communities in a similarity graph (e.g., subreddit or user embeddings) by maximizing a quality function (typically modularity)
+- **Purpose**: Unsupervised algorithm for detecting communities among the vectors.
 - **Formula**: Partition $G = (V, E)$ to maximize modularity $Q = \frac{1}{2m} \sum_{i,j} \bigg( A_{i,j} - \frac{k_ik_j}{2m} \bigg) \delta(c_i,c_j)$
 - **Implementation**: `igraph.community_leiden()`
-- **Application in dataset**: Identify clusters of subreddits with similar user bases and interaction patterns
+- **Application in dataset**: Identify clusters of subreddits with similar user bases and interaction patterns.
 
 ### Correlation Coefficients
 
@@ -73,13 +75,13 @@ Raw data is uploaded to `/data` folder, the data preprocessing and initial data 
 - **Purpose**: Measure the strength and direction of the linear relationship between two continuous variables
 - **Formula**: $r = \frac{\sum_i (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_i (x_i - \bar{x})^2} \sqrt{\sum_i (y_i - \bar{y})^2}}$ where $r \in [-1,1]$ with 1 = perfect positive linear correlation, -1 = perfect negative, 0 = no linear correlation
 - **Implementation**: `scipy.stats.pearsonr()`
-- **Application in dataset**: Calculating covariance between LIWC features among top subreddits, calculating pairwise covariance between subreddits' LIWC profiles
+- **Application in dataset**: Calculating covariance between LIWC features among subreddits, calculating pairwise covariance between subreddits' LIWC profiles
 
 #### Spearman Correlation Coefficient
 - **Purpose**: Assess the monotonic relationship between two ranked variables; captures nonlinear but monotonic associations
 - **Formula**: $\rho = 1 - \frac{6\sum_i d_i^2}{n(n^2 - 1)}$ where $d_i$ is the rank difference for observation $i$, and $\rho \in [-1,1]$
 - **Implementation**: `scipy.stats.spearmanr()`
-- **Application in dataset**: Studying correlation between toxicity and virality, engagement and LIWC features, and temporal analysis
+- **Application in dataset**: Studying correlation between toxicity and virality, engagement and LIWC features, and temporal analysis.
 
 ### Hypothesis Testing
 
@@ -87,7 +89,7 @@ Raw data is uploaded to `/data` folder, the data preprocessing and initial data 
 - **Purpose**: Test whether the means of two groups are significantly different
 - **Formula**: (independent samples) $t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$ where $\bar{X}_1, \bar{X}_2$ are sample means, $s_1,s_2$ are standard deviations, and $n_1,n_2$ are sample sizes
 - **Implementation**: `scipy.stats.ttest_ind()`
-- **Application in dataset**: Determining whether posts are viral, whether controversy/negativity drives engagement
+- **Application in dataset**: Determining whether posts are viral with statistical significance, whether controversy/negativity drives engagement
 
 #### KS Test for Normality
 - **Purpose**: Test whether a sample follows a specified continuous distribution (commonly the normal distribution)
@@ -101,9 +103,9 @@ Raw data is uploaded to `/data` folder, the data preprocessing and initial data 
 - **Purpose**: Create balanced treatment and control groups by matching units with similar probabilities of receiving treatment, reducing selection bias in observational studies
 - **Formula**: 
   1. Estimate propensity scores: $e(X_i) = P(T_i=1|X_i)$ using logistic regression
-  2. Match treated units to control units with similar $e(X)$ using nearest neighbor
+  2. Match treated units to control units with similar $e(X)$ using max weight matching in graphs
   3. Estimate treatment effect: $\hat{\tau}_{ATT} = \frac{1}{n_1}\sum_{i \mid T_i=1}[Y_i - Y_{j(i)}]$ where $j(i)$ is the matched control for treated unit $i$
-- **Implementation**: `sklearn.linear_model.LogisticRegression(), sklearn.neighbors.NearestNeighbors()`
+- **Implementation**: `smf.logit()`, `nx.max_weight_matching()`
 - **Application in dataset**: Comparing virality of toxic vs. non-toxic posts with similar baseline characteristics (LIWC features, subreddit, timing), isolate causal effect of toxicity on engagement by controlling for confounders (e.g. post length, readability, timestamp)
 
 
@@ -112,26 +114,27 @@ Raw data is uploaded to `/data` folder, the data preprocessing and initial data 
 **October 2025**
 - Proposals, literature review
 - Exploratory data analysis (distributions, missing values)
-- Data loading (NetworkX, Pandas)
+- Data loading (`NetworkX`, `Pandas`)
 - Graph data preprocessing (`MultiDiGraph` with all posts -> `DiGraph` with aggregated sentiments)
-- Dataset enrichment (TODO: Henrik)
-- Clustering of nodes (TODO: Jack)
-- Top 10 subreddits analysis (TODO: Jane)
-- Temporal analysis (TODO: Aziz)
+- Dataset enrichment with Reddit API
+- Dataset enrichment wiht embeddings and clustering of subreddits 
+- Top 10 most active subreddits analysis
+- Temporal analysis or negative sentiment and upvotes
 - Finalising the `results.ipynb` notebook
 
 **November 2025**
 
-TODO: Fix
-
-- In depth analysis of timing
-- LLM analysis of enriched posts
+- Extensive statistical analysis (t-tests) for the impact of different properties on the upvotes
+- In depth analysis of the effect timing
+- Per cluster analysis - are there any patterens to virality that are only expressed in certains communities 
 - Hypothesis tests for all the proposed actions for more informative browsing
-- Website
-- Interactive Flourish visualizations
+- Matching to verify effect of certain features on the upvotes
+- Website creation
 
 **December 2025**
 - Polishing website
+- Finalization of the experiments
+- Interactive Flourish visualizations for the experiments
 - Finishing up with all the experiments
 
 
@@ -141,10 +144,13 @@ TODO: Fix
 - [x] Enriching data by scraping reddit (Henrik, Gal)
 - [x] Temporal analysis (Aziz)
 - [x] Clustering of embeddings (Jack)
-- [x] Top 10 subreddits analysis with hypothesis testing (Jane)
+- [x] Top 10 most active subreddits analysis with hypothesis testing (Jane)
 - [x] Sentiment graph structure analysis (Gal)
-- [x] Analyze correlations in the data with pearsonr and methods we learned at the tutorials (Somebody)
+- [x] Analyze correlations in the data with pearsonr and methods we learned at the tutorials
 - [x] Further t-tests and analyses
+- [ ] Matching to test the effect on the number of upvotes (Jack)
+- [ ] Per cluster correlations analysis (analyze if there are some cluster specific virality patterens)
+
 
 ## How to use
 
