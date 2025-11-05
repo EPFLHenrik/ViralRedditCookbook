@@ -236,7 +236,7 @@ def cluster_upvote_distribution():
     Analyze and visualize upvote distributions by source and target cluster levels.
     """
     DATA_FOLDER = os.path.join(os.getcwd(), 'data')
-    df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged_jack.pkl"))
+    df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged.pkl"))
 
     df_enh = load_enhanced_df()
 
@@ -310,7 +310,7 @@ def cluster_percentiles_distribution():
     Analyze and visualize upvote percentile distributions across multiple cluster levels (source and target, levels 1-4).
     """
     DATA_FOLDER = os.path.join(os.getcwd(), 'data')
-    df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged_jack.pkl"))
+    df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged.pkl"))
 
     df_enh = load_enhanced_df()
 
