@@ -51,3 +51,18 @@ def load_enhanced_df(pickle_file=os.path.join(DATA_FOLDER, 'enhanced_reddit_df_f
         df = pd.read_pickle(f)
     
     return df
+
+def load_final_df(pickle_file=os.path.join(DATA_FOLDER, 'reddit_df_final.pkl')):
+    """
+    Load the final dataframe from pickle file. Containing both upvotes, downvotes and cluster data.
+    
+    Args:
+        pickle_file: Path to the pickle file containing the final dataframe. Defaults to final dataframe.
+    
+    Returns:
+        pandas.DataFrame: The loaded final dataframe with post properties and metadata.
+    """
+    with open(pickle_file, 'rb') as f:
+        df = pd.read_pickle(f)
+
+    return df
