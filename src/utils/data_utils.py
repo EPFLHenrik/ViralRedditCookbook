@@ -52,7 +52,7 @@ def load_enhanced_df(pickle_file=os.path.join(DATA_FOLDER, 'enhanced_reddit_df_f
     
     return df
 
-def load_final_df(pickle_file=os.path.join(DATA_FOLDER, 'reddit_df_final.pkl')):
+def load_final_df(pickle_file=os.path.join(DATA_FOLDER, 'reddit_df_final.pkl'), drop_nan_upvotes=True):
     """
     Load the final dataframe from pickle file. Containing both upvotes, downvotes and cluster data.
     
@@ -64,5 +64,8 @@ def load_final_df(pickle_file=os.path.join(DATA_FOLDER, 'reddit_df_final.pkl')):
     """
     with open(pickle_file, 'rb') as f:
         df = pd.read_pickle(f)
+
+    if drop_nan_upvotes:
+        df = df.dropna(subset=['ups'])
 
     return df

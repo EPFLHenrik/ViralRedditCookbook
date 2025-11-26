@@ -1,5 +1,6 @@
 import os
 import sys
+import pandas as pd
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 DATA_FOLDER = os.path.join(PROJECT_ROOT, 'data')
@@ -24,9 +25,9 @@ def merge_dataframes(reddit_df_merged_path='reddit_df_merged.pkl', enhanced_df_p
     df = load_reddit_df(os.path.join(DATA_FOLDER, reddit_df_merged_path))
     df_enh = load_enhanced_df(os.path.join(DATA_FOLDER, enhanced_df_path))
 
-    df["ups"] = df_enh["ups"]
-    df = df.dropna(subset=['ups'])
+    temp = pd.concat([df, df_enh], axis=1)
+    temp = temp.loc[:, ~temp.columns.duplicated()]
 
     output_file = os.path.join(DATA_FOLDER, final_df_path)
     with open(output_file, "wb") as f:
-        df.to_pickle(f)
+        temp.to_pickle(f)
