@@ -42,16 +42,16 @@ def create_comparison_plot(reddit_ids, cleaned_ids, matching_ids, title, save_pa
     fig, axes = plt.subplots(1, 2, figsize=(15, 6))
     fig.suptitle(title, fontsize=16, fontweight='bold')
     
-    labels = ['In Cleaned Dataset', 'Not in Cleaned Dataset']
-    sizes = [len(matching_ids), len(reddit_ids - cleaned_ids)]
+    labels = ['Found in API', 'Not found in API']
+    sizes = [len(reddit_ids - cleaned_ids), len(matching_ids)]
     colors = ['lightgreen', 'lightcoral']
     
     axes[0].pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
     axes[0].set_title('Original Dataset Coverage')
     
-    categories = ['Original Dataset', 'Scrapped data', 'Overlap']
+    categories = ['Original Dataset', 'API Scraped data', 'Missing in API']
     values = [len(reddit_ids), len(cleaned_ids), len(matching_ids)]
-    colors_bar = ['skyblue', 'lightcoral', 'lightgreen']
+    colors_bar = ['skyblue', 'lightgreen', 'lightcoral']
     
     bars = axes[1].bar(categories, values, color=colors_bar, alpha=0.7, edgecolor='black')
     axes[1].set_title('Dataset Size Comparison')
@@ -111,7 +111,7 @@ def create_enhanced_dataset_overview_plot(cleaned_df, save_path=None, show=False
     if save_path is None:
         save_path = os.path.join(CHARTS_DIR, 'enhanced_dataset_overview.png')
     
-    fig, axes = plt.subplots(1, 4, figsize=(24, 6))
+    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
     fig.suptitle('Cleaned Dataset Overview', fontsize=16, fontweight='bold')
     
     upvotes = cleaned_df['ups']
@@ -122,10 +122,10 @@ def create_enhanced_dataset_overview_plot(cleaned_df, save_path=None, show=False
     downvotes = total_votes - upvotes
     num_comments = cleaned_df['num_comments']
     
-    create_log_histogram(axes[0], upvotes, 'Upvotes Distribution', 'Upvotes', 'lightgreen')
-    create_log_histogram(axes[1], downvotes, 'Downvotes Distribution', 'Downvotes', 'lightcoral')
-    create_log_histogram(axes[2], total_votes, 'Total Votes Distribution', 'Total Votes', 'lightblue')
-    create_log_histogram(axes[3], num_comments, 'Comments Distribution', 'Number of Comments', 'lightyellow')
+    create_log_histogram(axes[0, 0], upvotes, 'Upvotes Distribution', 'Upvotes', 'lightgreen')
+    create_log_histogram(axes[0, 1], downvotes, 'Downvotes Distribution', 'Downvotes', 'lightcoral')
+    create_log_histogram(axes[1, 0], total_votes, 'Total Votes Distribution', 'Total Votes', 'lightblue')
+    create_log_histogram(axes[1, 1], num_comments, 'Comments Distribution', 'Number of Comments', 'lightyellow')
     
     plt.tight_layout()
     if show:
@@ -155,7 +155,7 @@ def create_all_enhanced_analysis_plots(show=False):
     cleaned_ids = set(enhanced_df_cleaned['POST_ID'].astype(str))
     reddit_cleaned_matching_ids = reddit_ids.intersection(cleaned_ids)
     
-    create_comparison_plot(reddit_ids, cleaned_ids, reddit_cleaned_matching_ids, 'Scrapped data vs original data comparison', show=show)
+    create_comparison_plot(reddit_ids, cleaned_ids, reddit_cleaned_matching_ids, 'Scraped data vs original data comparison', show=show)
     
     create_enhanced_dataset_overview_plot(enhanced_df_cleaned, show=show)
     

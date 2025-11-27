@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 from src.utils.data_utils import load_enhanced_df, load_reddit_df
 
 def upvote_distribution_by_subreddit():
+    """
+    Analyze and visualize upvote distributions by subreddit, grouping subreddits by mean upvote ranges.
+    """
     df = load_enhanced_df()
 
     df.loc[df["LINK_SENTIMENT"] == -1, "LINK_SENTIMENT"] = 0
@@ -57,12 +60,81 @@ def upvote_distribution_by_subreddit():
         ax.set_title(f'Upvote Distribution (25th–75th Percentile) \nfor Subreddits with mean {l}', fontsize=40)
         ax.set_xscale('log')
         ax.grid(True, linestyle='--', alpha=0.4)
-        if random_ones.shape[0] > 0:
-            ax.legend(fontsize=25)
+    plt.tight_layout()
+    plt.show()
+
+def upvote_distribution_by_subreddit_one_range():
+    """
+    Analyze and visualize upvote distributions for subreddits in a specific mean upvote range.
+    """
+    df = load_enhanced_df()
+
+    df.loc[df["LINK_SENTIMENT"] == -1, "LINK_SENTIMENT"] = 0
+    df["LINK_SENTIMENT"] = df["LINK_SENTIMENT"].astype(int)
+    df = df.dropna(subset=['ups'])
+
+    percentiles = (
+        df.groupby('SOURCE_SUBREDDIT')['ups']
+        .agg(
+            minimum='min',
+            q25=lambda x: np.percentile(x, 25),
+            mean='mean',
+            median='median',
+            q75=lambda x: np.percentile(x, 75),
+            count='count',
+            maximum='max'
+        )
+        .reset_index()
+    )
+
+    percentiles = percentiles[percentiles["count"] > 5]
+
+    max_val = percentiles['mean'].max()
+    bins = 10 ** np.arange(0, np.ceil(np.log10(max_val)) + 1)
+    labels = [f"{int(bins[i]):,}–{int(bins[i+1]):,}" for i in range(len(bins)-1)]
+
+    percentiles['mean_ups_group'] = pd.cut(percentiles['mean'], bins=bins, labels=labels, right=False)
+    _, axes = plt.subplots(1, 1, figsize=(40, 30), squeeze=False)
+    
+    l = labels[2]
+    l_subs = percentiles[percentiles['mean_ups_group'] == l]
+
+    random_ones = l_subs.sample(n=min(20, l_subs.shape[0]), random_state=42) if l_subs.shape[0] > 0 else l_subs
+    ax = axes[0][0]
+    for i, row in enumerate(random_ones.itertuples()):
+        boxplot_stats = [{
+            'whislo': row.minimum,
+            'q1': row.q25,
+            'med': row.median,
+            'q3': row.q75,
+            'whishi': row.maximum,
+            'fliers': [],
+            'mean': row.mean,
+        }]
+        ax.bxp(boxplot_stats,
+            positions=[i],
+            vert=False,
+            patch_artist=True,
+            showfliers=False,
+            boxprops={'facecolor': '#B3C3F3', 'edgecolor': 'black'},
+            widths=0.6,
+            medianprops={'color': 'red', 'linewidth': 2}
+        )
+    ax.set_yticks(range(len(random_ones)))
+    ax.set_yticklabels(random_ones['SOURCE_SUBREDDIT'], fontsize=30)
+    ax.set_xlabel('Upvotes', fontsize=25)
+    ax.tick_params(axis='x', labelsize=30)
+    ax.set_title(f'Upvote Distribution (25th–75th Percentile) \nfor Subreddits with mean {l}', fontsize=40)
+    ax.set_xscale('log')
+    ax.grid(True, linestyle='--', alpha=0.4)
+    
     plt.tight_layout()
     plt.show()
 
 def upvote_distribution():
+    """
+    Analyze and visualize relative upvote distributions grouped by subreddit mean upvote ranges.
+    """
     df = load_enhanced_df()
 
     df.loc[df["LINK_SENTIMENT"] == -1, "LINK_SENTIMENT"] = 0
@@ -73,11 +145,15 @@ def upvote_distribution():
 
 
     df['rel_ups'] = df['ups'] / df['mean_ups']
-
+    valid_mask = (df['rel_ups'] > 0) & np.isfinite(df['rel_ups'])
+    df = df[valid_mask].copy()
     df['log_rel'] = np.log10(df['rel_ups'])
 
     max_val = df['mean_ups'].max()
-    bins = 10 ** np.arange(0, np.ceil(np.log10(max_val)) + 1)
+    if max_val > 0:
+        bins = 10 ** np.arange(0, np.ceil(np.log10(max_val)) + 1)
+    else:
+        bins = np.array([1, 10, 100, 1000])
     labels = [f"{int(bins[i]):,}–{int(bins[i+1]):,}" for i in range(len(bins)-1)]
 
     df['mean_ups_group'] = pd.cut(df['mean_ups'], bins=bins, labels=labels, right=False)
@@ -85,8 +161,8 @@ def upvote_distribution():
 
     ncols = 3
     nrows = 2
-    _, axes = plt.subplots(nrows, ncols, figsize=(ncols * 6, nrows * 4), squeeze=False)
-    for idx, l in enumerate(labels):
+    fig, axes = plt.subplots(nrows, ncols, figsize=(ncols * 6, nrows * 4), squeeze=False)
+    for idx, l in enumerate(labels[:5]):
         ax = axes[idx // ncols][idx % ncols]
         data = df[df['mean_ups_group'] == l]
         if data.shape[0] == 0:
@@ -101,10 +177,14 @@ def upvote_distribution():
         ax.tick_params(axis='y', labelsize=10)
         ax.tick_params(axis='x', labelsize=10)
         ax.legend(fontsize=9)
+    fig.delaxes(axes[1][2])
     plt.tight_layout()
     plt.show()
 
 def see_average_upvotes():
+    """
+    Visualize the distribution of average upvotes per subreddit on a log scale.
+    """
     df = load_enhanced_df()
 
     df.loc[df["LINK_SENTIMENT"] == -1, "LINK_SENTIMENT"] = 0
@@ -156,8 +236,11 @@ def see_average_upvotes():
 
 
 def cluster_upvote_distribution():
-    DATA_FOLDER = os.path.join(os.getcwd(), '..', '..', '..', 'data')
-    df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged_jack.pkl"))
+    """
+    Analyze and visualize upvote distributions by source and target cluster levels.
+    """
+    DATA_FOLDER = os.path.join(os.getcwd(), 'data')
+    df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged.pkl"))
 
     df_enh = load_enhanced_df()
 
@@ -199,11 +282,24 @@ def cluster_upvote_distribution():
     for i, percentiles in enumerate(percentiles_lst):
         ax = axes[i // 1][i % 1]
         for i, row in enumerate(percentiles.itertuples()):
-            ax.plot([row.q25, row.q75], [i, i], color='steelblue', linewidth=(np.log2(row.count)+1), solid_capstyle='round')
-            ax.scatter(row.mean, i, color='yellow', zorder=3, s=200, label='Mean' if i == 0 else '')
-            ax.scatter(row.minimum, i, color='red', zorder=3, s=200, label='Min' if i == 0 else '')
-            ax.scatter(row.maximum, i, color='green', zorder=3, s=200, label='Max' if i == 0 else '')
-            ax.scatter(row.median, i, color='black', zorder=3, s=200, label='Median' if i == 0 else '')
+            boxplot_stats = [{
+                'whislo': row.minimum,
+                'q1': row.q25,
+                'med': row.median,
+                'q3': row.q75,
+                'whishi': row.maximum,
+                'fliers': [],
+                'mean': row.mean,
+            }]
+            ax.bxp(boxplot_stats,
+                positions=[i],
+                vert=False,
+                patch_artist=True,
+                showfliers=False,
+                boxprops={'facecolor': '#B3C3F3', 'edgecolor': 'black'},
+                widths=0.6,
+                medianprops={'color': 'red', 'linewidth': 2}
+            )
         ax.set_yticks(range(len(percentiles)))
         ax.set_yticklabels(percentiles.iloc[: ,0], fontsize=20)
         ax.set_xlabel('Upvotes', fontsize=25)
@@ -211,12 +307,14 @@ def cluster_upvote_distribution():
         ax.set_title(f'Upvote Distribution (25th–75th Percentile) \nfor {percentiles.columns[0]}', fontsize=40)
         ax.set_xscale('log')
         ax.grid(True, linestyle='--', alpha=0.4)
-        ax.legend(fontsize=25)
     plt.show()
 
 def cluster_percentiles_distribution():
-    DATA_FOLDER = os.path.join(os.getcwd(), '..', '..', '..', 'data')
-    df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged_jack.pkl"))
+    """
+    Analyze and visualize upvote percentile distributions across multiple cluster levels (source and target, levels 1-4).
+    """
+    DATA_FOLDER = os.path.join(os.getcwd(), 'data')
+    df = load_reddit_df(os.path.join(DATA_FOLDER, "reddit_df_merged.pkl"))
 
     df_enh = load_enhanced_df()
 
@@ -259,11 +357,24 @@ def cluster_percentiles_distribution():
             if isinstance(col_data[0], str):
                 continue
             used_cols.append(col_name)
-            ax.plot([col_data.quantile(0.25), col_data.quantile(0.75)], [cnt, cnt], color='steelblue', linewidth=3, solid_capstyle='round')
-            ax.scatter(col_data.mean(), cnt, color='yellow', zorder=3, s=200, label='Mean' if cnt == 0 else '')
-            ax.scatter(col_data.min(), cnt, color='red', zorder=3, s=200, label='Min' if cnt == 0 else '')
-            ax.scatter(col_data.max(), cnt, color='green', zorder=3, s=200, label='Max' if cnt == 0 else '')
-            ax.scatter(col_data.median(), cnt, color='black', zorder=3, s=200, label='Median' if cnt == 0 else '')
+            boxplot_stats = [{
+                'whislo': col_data.min(),
+                'q1': col_data.quantile(0.25),
+                'med': col_data.median(),
+                'q3': col_data.quantile(0.75),
+                'whishi': col_data.max(),
+                'fliers': [],
+                'mean': col_data.mean(),
+            }]
+            ax.bxp(boxplot_stats,
+                positions=[cnt],
+                vert=False,
+                patch_artist=True,
+                showfliers=False,
+                boxprops={'facecolor': '#B3C3F3', 'edgecolor': 'black'},
+                widths=0.6,
+                medianprops={'color': 'red', 'linewidth': 2}
+            )
             cnt += 1
 
         ax.set_xlabel('Upvotes', fontsize=25)
@@ -273,5 +384,4 @@ def cluster_percentiles_distribution():
         ax.set_title(f'Upvote Distribution (25th–75th Percentile) \nfor {group}', fontsize=40)
         ax.set_xscale('log')
         ax.grid(True, linestyle='--', alpha=0.4)
-        ax.legend(fontsize=25)
     plt.show()

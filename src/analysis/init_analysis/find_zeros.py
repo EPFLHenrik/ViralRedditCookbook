@@ -6,7 +6,16 @@ import networkx as nx
 from src.utils.data_utils import load_reddit_graph, load_reddit_df
 
 def find_zeros(df):
-    feature_columns = [col for col in df.columns if col not in ['SOURCE_SUBREDDIT', 'TARGET_SUBREDDIT', 'POST_ID', 'TIMESTAMP']]
+    """
+    Calculate and visualize the percentage of zero values for each feature in the dataframe.
+    
+    Args:
+        df: DataFrame to analyze for zero values
+    
+    Returns:
+        dict: Dictionary mapping feature names to their zero percentage values
+    """
+    feature_columns = [col for col in df.columns if col not in ['SOURCE_SUBREDDIT', 'TARGET_SUBREDDIT', 'POST_ID', 'TIMESTAMP'] and 'cluster_level' not in col.lower()]
     
     for col in feature_columns:
         if df[col].dtype == 'object':
@@ -23,19 +32,29 @@ def find_zeros(df):
             zero_percentages.append(zero_percentage)
             feature_names.append(col)
     
-    plt.figure(figsize=(20, 8))
-    bars = plt.bar(range(len(feature_names)), zero_percentages)
-    plt.xlabel('Features')
-    plt.ylabel('Percentage of Zero Values')
+    plt.figure(figsize=(10, 20))
+    bars = plt.barh(range(len(feature_names)), zero_percentages)
+    plt.ylabel('Features')
+    plt.xlabel('Percentage of Zero Values')
     plt.title('Percentage of Zero Values for Each Feature')
-    plt.xticks(range(len(feature_names)), feature_names, rotation=45, ha='right')
+    plt.yticks(range(len(feature_names)), feature_names)
     plt.tight_layout()
+    
+    import os
+    output_dir = 'figures/init_analysis_charts'
+    os.makedirs(output_dir, exist_ok=True)
+    plt.savefig(f'{output_dir}/zero_percentages.png', dpi=300, bbox_inches='tight')
+    
     plt.show()
     
     return dict(zip(feature_names, zero_percentages))
 
 def main():
+    """
+    Main function to load dataframe and analyze zero value percentages.
+    """
     df = load_reddit_df()
+    
     print(f"DataFrame shape: {df.shape}")
     print(f"DataFrame columns: {list(df.columns)}")
     print(f"Sample of first few rows:")
