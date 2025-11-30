@@ -477,6 +477,50 @@ def filter_top_edges(G, n_edges=100):
     return filtered_G
 
 
+def filter_top_edges_connected(G, n_edges=100):
+    """
+    Filter the graph to keep top N edges while ensuring the subgraph is connected.
+    Uses BFS starting from the highest weight edge.
+    
+    Args:
+        G: NetworkX graph to filter
+        n_edges: Number of edges to keep in the connected subgraph
+    
+    Returns:
+        A connected subgraph with at most n_edges edges
+    """
+    if G.number_of_edges() == 0:
+        return nx.DiGraph()
+    
+    edges_with_weights = [(u, v, data['weight']) for u, v, data in G.edges(data=True)]
+    edges_with_weights.sort(key=lambda x: x[2], reverse=True)
+    
+    if not edges_with_weights:
+        return nx.DiGraph()
+    
+    filtered_G = nx.DiGraph()
+    start_u, start_v, start_weight = edges_with_weights[0]
+    filtered_G.add_node(start_u)
+    filtered_G.add_node(start_v)
+    filtered_G.add_edge(start_u, start_v, weight=start_weight)
+    
+    used_edges = {(start_u, start_v)}
+    
+    for u, v, weight in edges_with_weights[1:]:
+        if len(filtered_G.edges()) >= n_edges:
+            break
+        
+        if (u in filtered_G.nodes() or v in filtered_G.nodes()) and (u, v) not in used_edges:
+            if u not in filtered_G.nodes():
+                filtered_G.add_node(u)
+            if v not in filtered_G.nodes():
+                filtered_G.add_node(v)
+            filtered_G.add_edge(u, v, weight=weight)
+            used_edges.add((u, v))
+    
+    return filtered_G
+
+
 def create_and_visualize_combined_graph(G, metric_pos='sentiment_ratio', metric_neg='sentiment_ratio', top_n_neg=50, top_n_pos=50, show=False, export_csv=False):
     """
     Create and visualize a combined graph with both negative and positive sentiment edges.
@@ -630,7 +674,7 @@ def create_and_visualize_combined_graph(G, metric_pos='sentiment_ratio', metric_
         export_node_degrees_to_csv(combined_G, nodes_csv_path)
 
 
-def create_and_visualize_graph(G, metric, sentiment='neg', top_n=100, show=False, export_csv=False):
+def create_and_visualize_graph(G, metric, sentiment='neg', top_n=100, show=False, export_csv=False, connected=False):
     """
     Create and visualize a graph for a specific metric and sentiment.
     
@@ -641,13 +685,17 @@ def create_and_visualize_graph(G, metric, sentiment='neg', top_n=100, show=False
         top_n: Number of top edges to keep for visualization
         show: If True, display the plot. If False, only save to file.
         export_csv: If True, export the graph to CSV files.
+        connected: If True, ensures the filtered graph is connected using BFS from highest weight edge
     """
     sentiment_G = create_sentiment_graph(G, metric=metric, sentiment=sentiment)
     
     if sentiment_G.number_of_edges() == 0:
         return
     
-    filtered_G = filter_top_edges(sentiment_G, n_edges=top_n)
+    if connected:
+        filtered_G = filter_top_edges_connected(sentiment_G, n_edges=top_n)
+    else:
+        filtered_G = filter_top_edges(sentiment_G, n_edges=top_n)
     
     if filtered_G.number_of_edges() == 0:
         return
@@ -709,12 +757,14 @@ def create_and_visualize_graph(G, metric, sentiment='neg', top_n=100, show=False
     metric_descriptions = METRIC_DESCRIPTIONS
     
     sentiment_label = "Negative" if sentiment == 'neg' else "Neutral/Positive"
-    plt.title(f"Top {top_n} {sentiment_label} ({metric_descriptions[metric]})", fontsize=16, fontweight='bold', pad=20)
+    connected_label = " (Connected)" if connected else ""
+    plt.title(f"Top {top_n} {sentiment_label} {connected_label}({metric_descriptions[metric]})", fontsize=16, fontweight='bold', pad=20)
     plt.axis('off')
     plt.tight_layout()
     
     os.makedirs(SENTIMENT_GRAPH_DIR, exist_ok=True)
-    output_file = os.path.join(SENTIMENT_GRAPH_DIR, f'strong_{sentiment}_sentiment_{metric}.png')
+    connected_suffix = "_connected" if connected else ""
+    output_file = os.path.join(SENTIMENT_GRAPH_DIR, f'strong_{sentiment}_sentiment_{metric}{connected_suffix}.png')
     plt.savefig(output_file, bbox_inches='tight')
     
     if show:
@@ -722,7 +772,8 @@ def create_and_visualize_graph(G, metric, sentiment='neg', top_n=100, show=False
     else:
         plt.close()
     
-    metric_folder = os.path.join(SENTIMENT_GRAPH_DIR, f"{sentiment}_{metric}")
+    connected_suffix = "_connected" if connected else ""
+    metric_folder = os.path.join(SENTIMENT_GRAPH_DIR, f"{sentiment}_{metric}{connected_suffix}")
     os.makedirs(metric_folder, exist_ok=True)
     
     if export_csv:
