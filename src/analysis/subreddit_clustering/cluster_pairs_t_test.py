@@ -69,13 +69,63 @@ def export_results(results_df, output_dir, metrics):
                 print(f"  {i}. {r['cluster1']} vs {r['cluster2']}")
                 print(f"     Means: {r['mean1']:.2f} vs {r['mean2']:.2f}, p={r['p_value']:.4e}")
 
+def export_cluster_means(df, cluster_col, cluster_names, metric, output_dir):
+    cluster_stats = []
+    
+    for cluster in sorted(df[cluster_col].dropna().unique()):
+        cluster_data = df[df[cluster_col] == cluster][metric].dropna()
+        
+        if len(cluster_data) > 0:
+            cluster_stats.append({
+                'cluster': cluster_names.get(cluster, str(cluster)),
+                'mean': cluster_data.mean(),
+                'median': cluster_data.median(),
+                'std': cluster_data.std(),
+                'n': len(cluster_data)
+            })
+    
+    stats_df = pd.DataFrame(cluster_stats).sort_values('mean', ascending=True)
+    stats_df.to_csv(os.path.join(output_dir, f'{metric}_by_cluster.csv'), index=False)
+    
+    print(f"\n\nCLUSTERS RANKED BY {metric.upper()}:")
+    for i, row in stats_df.iterrows():
+        print(f"{row['cluster']}: mean={row['mean']:.4f}, median={row['median']:.4f}, n={row['n']}")
+    
+    return stats_df
+
+def export_pvalue_matrix(df, cluster_col, cluster_names, metric, output_dir):
+    clusters = sorted(df[cluster_col].dropna().unique())
+    cluster_labels = [cluster_names.get(c, str(c)) for c in clusters]
+    
+    pvalue_matrix = pd.DataFrame(index=cluster_labels, columns=cluster_labels, dtype=float)
+    
+    for c1 in clusters:
+        for c2 in clusters:
+            if c1 == c2:
+                pvalue_matrix.loc[cluster_names.get(c1, str(c1)), cluster_names.get(c2, str(c2))] = 1.0
+            else:
+                d1 = df[df[cluster_col] == c1][metric].dropna()
+                d2 = df[df[cluster_col] == c2][metric].dropna()
+                
+                if len(d1) > 1 and len(d2) > 1:
+                    _, p = stats.ttest_ind(d1, d2)
+                    pvalue_matrix.loc[cluster_names.get(c1, str(c1)), cluster_names.get(c2, str(c2))] = p
+                else:
+                    pvalue_matrix.loc[cluster_names.get(c1, str(c1)), cluster_names.get(c2, str(c2))] = np.nan
+    
+    pvalue_matrix.to_csv(os.path.join(output_dir, f'{metric}_pvalue_matrix.csv'), float_format='%.10f')
+    
+    print(f"\n\nP-VALUE MATRIX exported to {metric}_pvalue_matrix.csv")
+    
+    return pvalue_matrix
+
 def main():
     df = load_final_df()
     df["subreddit_subscribers"] = pd.Series(np.maximum(df["subreddit_subscribers"], 0), index=df.index)
     df["virality_rss"] = df["score"] / (df["subreddit_subscribers"]+1)
 
     
-    output_dir = 'src/analysis/subreddit_clustering/results'
+    output_dir = 'figures/cluster_analysis'
     os.makedirs(output_dir, exist_ok=True)
     cluster_col = 'source_supercluster'
     
@@ -92,6 +142,10 @@ def main():
     
     results = calculate_cluster_correlations(df, cluster_col, cluster_names, metrics)
     export_results(results, output_dir, metrics)
+    
+    for metric in metrics:
+        export_cluster_means(df, cluster_col, cluster_names, metric, output_dir)
+        export_pvalue_matrix(df, cluster_col, cluster_names, metric, output_dir)
 
 if __name__ == "__main__":
     main()
