@@ -34,6 +34,7 @@ def get_viral_posts(df, virality_percentile=0.95, window_size='60D'):
     df['z_score'] = np.nan
     df['is_viral'] = False
     
+    indices_to_drop = []
     
     for cluster in df['source_supercluster'].unique():
         cluster_mask = df['source_supercluster'] == cluster
@@ -49,10 +50,14 @@ def get_viral_posts(df, virality_percentile=0.95, window_size='60D'):
             window=window_size, min_periods=1
         ).mean()
         cluster_indexed['moving_std_virality'] = cluster_indexed['virality_rss'].rolling(
-            window=window_size, min_periods=1
+            window=window_size, min_periods=2
         ).std()
         
         cluster_df = cluster_indexed.reset_index()
+        
+        first_datapoint_index = cluster_df.iloc[0]['original_index']
+        indices_to_drop.append(first_datapoint_index) # remove the first datapoint because it has NaN std
+        cluster_df = cluster_df.iloc[1:].reset_index(drop=True)
         
         cluster_original_indices = cluster_df['original_index'].values
         
@@ -75,6 +80,9 @@ def get_viral_posts(df, virality_percentile=0.95, window_size='60D'):
         
         viral_indices = cluster_original_indices[viral_mask]
         df.loc[viral_indices, 'is_viral'] = True
+    
+    if len(indices_to_drop) > 0:
+        df = df.drop(index=indices_to_drop)
     
     return df
 
@@ -100,7 +108,7 @@ def plot_viral_posts(df, virality_percentile=0.95, window_size='60D', show=False
     fig, axes = plt.subplots(n_rows, n_cols, figsize=(6*n_cols, 5*n_rows))
     fig.suptitle(f'Viral Posts Over Time by Cluster (Moving Average with {virality_percentile*100:.1f}% Threshold) {window_size} window', fontsize=16, fontweight='bold')
     
-    axes = axes.flatten() if hasattr(axes, 'flatten') else [axes]
+    axes = axes.flatten()
     
     for idx, cluster in enumerate(clusters):
         ax = axes[idx]
