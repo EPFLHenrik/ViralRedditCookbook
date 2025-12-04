@@ -71,6 +71,8 @@ def load_final_df(
     with open(pickle_file, 'rb') as f:
         df = pd.read_pickle(f)
 
+    df['TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'], format='mixed')
+
     if drop_nan_upvotes:
         df = df.dropna(subset=['ups'])
     
