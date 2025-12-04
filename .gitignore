@@ -186,4 +186,5 @@ CLUSTER_NAMING_WORKFLOW.md
 # Corr figures
 figures/top_subreddits_analysis_charts/old/liwc_corr_cov
 figures/top_subreddits_analysis_charts/liwc_corr_cov
+figures/virality_analysis/**.png
 src/analysis/top_subreddits/results
