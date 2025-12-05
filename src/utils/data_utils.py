@@ -5,6 +5,116 @@ import numpy as np
 
 DATA_FOLDER = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
 
+NUMERIC_FEATURES = [
+    'Num_characters',
+    'Num_characters_no_space',
+    'Frac_alpha',
+    'Frac_digits',
+    'Frac_uppercase',
+    'Frac_whitespace',
+    'Frac_special',
+    'Num_words',
+    'Num_unique_words',
+    'Num_long_words',
+    'Avg_word_length',
+    'Num_unique_stopwords',
+    'Frac_stopwords',
+    'Num_sentences',
+    'Num_long_sentences',
+    'Avg_chars_per_sentence',
+    'Avg_words_per_sentence',
+    'Automated_readability_index',
+    
+    'Sentiment_pos_vader',
+    'Sentiment_neg_vader',
+    'Sentiment_compound_vader',
+    
+    'LIWC_Funct',
+    'LIWC_Pronoun',
+    'LIWC_Ppron',
+    'LIWC_I',
+    'LIWC_We',
+    'LIWC_You',
+    'LIWC_SheHe',
+    'LIWC_They',
+    'LIWC_Ipron',
+    'LIWC_Article',
+    'LIWC_Verbs',
+    'LIWC_AuxVb',
+    'LIWC_Past',
+    'LIWC_Present',
+    'LIWC_Future',
+    'LIWC_Adverbs',
+    'LIWC_Prep',
+    'LIWC_Conj',
+    'LIWC_Negate',
+    'LIWC_Quant',
+    'LIWC_Numbers',
+    'LIWC_Swear',
+    'LIWC_Social',
+    'LIWC_Family',
+    'LIWC_Friends',
+    'LIWC_Humans',
+    'LIWC_Affect',
+    'LIWC_Posemo',
+    'LIWC_Negemo',
+    'LIWC_Anx',
+    'LIWC_Anger',
+    'LIWC_Sad',
+    'LIWC_CogMech',
+    'LIWC_Insight',
+    'LIWC_Cause',
+    'LIWC_Discrep',
+    'LIWC_Tentat',
+    'LIWC_Certain',
+    'LIWC_Inhib',
+    'LIWC_Incl',
+    'LIWC_Excl',
+    'LIWC_Percept',
+    'LIWC_See',
+    'LIWC_Hear',
+    'LIWC_Feel',
+    'LIWC_Bio',
+    'LIWC_Body',
+    'LIWC_Health',
+    'LIWC_Sexual',
+    'LIWC_Ingest',
+    'LIWC_Relativ',
+    'LIWC_Motion',
+    'LIWC_Space',
+    'LIWC_Time',
+    'LIWC_Work',
+    'LIWC_Achiev',
+    'LIWC_Leisure',
+    'LIWC_Home',
+    'LIWC_Money',
+    'LIWC_Relig',
+    'LIWC_Death',
+    'LIWC_Assent',
+    'LIWC_Dissent',
+    'LIWC_Nonflu',
+    'LIWC_Filler',
+    
+    'LINK_SENTIMENT',
+    
+    'upvote_ratio',
+    'ups',
+    'downs',
+    'score',
+    'num_comments',
+    'num_crossposts',
+    'subreddit_subscribers',
+    'total_awards_received',
+    'view_count',
+    'num_reports',
+    'num_duplicates',
+    'gilded',
+    'likes',
+    'pwls',
+    'wls',
+]
+
+
 def load_reddit_graph(pickle_file=os.path.join(DATA_FOLDER, 'reddit_graph_merged.pkl')):
     """
     Load the pre-built Reddit combined graph from pickle file.
@@ -73,6 +183,10 @@ def load_final_df(
 
     df['TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'], format='mixed')
 
+    numeric_cols_to_convert = [col for col in NUMERIC_FEATURES if col in df.columns]
+    if numeric_cols_to_convert:
+        df[numeric_cols_to_convert] = df[numeric_cols_to_convert].apply(pd.to_numeric)
+
     if drop_nan_upvotes:
         df = df.dropna(subset=['ups'])
     
@@ -81,7 +195,10 @@ def load_final_df(
         df = df.dropna(subset=['target_cluster_level_1'])
 
     if calculate_rss:
-        df["subreddit_subscribers"] = pd.Series(np.maximum(df["subreddit_subscribers"], 0), index=df.index)
-        df["virality_rss"] = (df["score"] / (df["subreddit_subscribers"]+1)) * 10000
+        subreddit_subscribers = np.maximum(df["subreddit_subscribers"], 0)
+        df = df.assign(
+            subreddit_subscribers=subreddit_subscribers,
+            virality_rss=(df["score"] / (subreddit_subscribers + 1)) * 10000
+        )
 
     return df
