@@ -1,4 +1,5 @@
-from src.utils.data_utils import load_enhanced_df
+from src.utils.data_utils import load_enhanced_df,load_final_df
+from src.analysis.virality_analysis.get_viral_posts import get_viral_posts, plot_viral_posts
 import pandas as pd
 import networkx as nx
 from typing import Union
@@ -7,6 +8,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np 
 from scipy.stats import spearmanr, pearsonr
+
 
 CURRENT_DIR = os.path.dirname(__file__)
 PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
@@ -408,6 +410,82 @@ def plot_monthly_upvotes(df):
     plt.ylabel("Mean Upvotes")
     plt.tight_layout()
     plt.show()
+    
+def getviralpoststemplate(virality_percentile=0.9999): 
+    final_by_supercluster = {}
+    dfs_by_supercluster = {}
+    subsampledict={"Gaming & Interactive Entertainment": 500, 
+               "Lifestyle & Niche Interests": 200, 
+               "Politics & Society": 500 ,
+               "Pop Culture & Media": 500, 
+               "Reddit Meta & Community":1000 ,
+               "Sports & Athletics" : 200 , 
+               "Technology & Digital Culture": 300}
+    df = load_final_df(calculate_rss=True)
+    df = get_viral_posts(df, virality_percentile=virality_percentile, window_size='60D')
+
+    for supercluster, df_sc in df.groupby("source_supercluster"):
+        df_sc = df_sc.copy()
+        df_sc = df_sc.sort_values("TIMESTAMP")
+        dfs_by_supercluster[supercluster] = df_sc
+        df_v = df_sc[df_sc["is_viral"]].copy()
+        df_v["Info"] = df_v.apply(
+        lambda row: (
+            f"<b>Source Subreddit :</b> {row['SOURCE_SUBREDDIT']}<br>"
+            f"<b>Target Subreddit :</b> {row['TARGET_SUBREDDIT']}<br>"
+            f"<b>Title :</b> {row['title']}<br>"
+            # f"<b>Text :</b> {row['selftext']}<br>"
+            f"<b>Virality_rss :</b> {row['virality_rss']:.3f}<br>"
+            f"<b>Timestamp :</b> {row['TIMESTAMP']}"
+        ) ,
+        axis=1 )
+
+        df_v["color"]=df_v["SOURCE_SUBREDDIT"]
+        df_v["connect"]=""
+        df_v["size"]=20
+        df_v["name"]="Viral Post"
+        df_v=df_v[["TIMESTAMP","virality_rss","color","size","connect","Info","name"]]
+        
+        df_avg = df_sc[["TIMESTAMP", "moving_avg_virality"]].copy()
+
+        df_avg = df_avg.iloc[::subsampledict[supercluster]]    
+        df_avg = df_avg.iloc[5:]
+        df_avg["Info"]=df_avg.apply( lambda row : (f"<b>Virality_rss MA :</b> {row['moving_avg_virality']:.3f}<br>"
+                                                f"<b>Timestamp :</b> {row['TIMESTAMP']}"
+                                                    ), axis=1 )
+        df_avg["color"]="same color"
+        df_avg["connect"]="connect line"
+        df_avg["size"]=2
+        df_avg["name"]="Moving Average"
+        df_avg = df_avg.rename(columns={"moving_avg_virality": "virality_rss"})
+        
+        df_final_cluster = pd.concat([df_avg, df_v], ignore_index=True)
+
+        final_by_supercluster[supercluster] = df_final_cluster
+    for supercluster, df_sc in dfs_by_supercluster.items():
+        n_true = df_sc["is_viral"].sum()   
+        print(supercluster, n_true)
+
+    for supercluster, df_final_cluster in final_by_supercluster.items():
+        df_final_cluster["TIMESTAMP"] = pd.to_datetime(df_final_cluster["TIMESTAMP"]).dt.date
+        filename = f"final_supercluster_{supercluster}.csv" 
+        df_final_cluster.to_csv(os.path.join(DATA_DIR, filename), index=False)
+def getmeanupsracetemplate(month="DEC"):
+    df = load_final_df(calculate_rss=False)
+    df=df[["source_supercluster","TIMESTAMP","ups"]] 
+    df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"], format='mixed')
+    df["WINDOW"] = df["TIMESTAMP"].dt.to_period(f"Q-{month}")
+    df = df.dropna(subset=["TIMESTAMP", "ups"]) 
+    df=df.groupby(["source_supercluster","WINDOW"])["ups"].mean().reset_index()
+    mat = df.pivot(index="source_supercluster", columns="WINDOW", values="ups")
+    try:
+        periods = pd.PeriodIndex(mat.columns, freq="Q-DEC")
+        mat = mat.reindex(columns=periods.sort_values().astype(str))
+    except Exception:
+        mat = mat.reindex(sorted(mat.columns), axis=1)
+        mat = mat.fillna(0)
+    filename="ClustersMeanUpsRace.csv"
+    mat.to_csv(os.path.join(DATA_DIR, filename), index=True)
 
 
     
@@ -421,4 +499,5 @@ def plot_monthly_upvotes(df):
     # edges_all_by_quarter()
     # mean_ups_matrix_by_quarter()
     # corr_time_vs_ups()
-    
+    # getmeanupsracetemplate()
+    # getviralpoststemplate()
