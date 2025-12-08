@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 from scipy import stats
 from itertools import combinations
 from src.utils.data_utils import load_final_df
@@ -119,6 +121,38 @@ def export_pvalue_matrix(df, cluster_col, cluster_names, metric, output_dir):
     
     return pvalue_matrix
 
+def plot_pvalue_heatmap(pvalue_matrix, metric, output_dir):
+    plt.figure(figsize=(10, 8))
+    
+    log_pvalues = -np.log10(pvalue_matrix.replace(0, 1e-300))
+    
+    mask = pvalue_matrix.isna()
+    
+    annot_matrix = pvalue_matrix.applymap(lambda x: f'{x:.2e}' if pd.notna(x) else '')
+    
+    sns.heatmap(log_pvalues, 
+                annot=annot_matrix, 
+                fmt='',
+                cmap='viridis',
+                cbar_kws={'label': '-log10(p-value)'},
+                mask=mask,
+                square=True,
+                linewidths=0.5,
+                annot_kws={'fontsize': 8})
+    
+    plt.title(f'P-value Matrix for {metric}\n(T-tests between clusters, log scale)', fontsize=14, pad=20)
+    plt.xlabel('Cluster', fontsize=12)
+    plt.ylabel('Cluster', fontsize=12)
+    plt.xticks(rotation=45, ha='right')
+    plt.yticks(rotation=0)
+    plt.tight_layout()
+    
+    plt.savefig(os.path.join(output_dir, f'{metric}_pvalue_heatmap.png'), dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    print(f"P-VALUE HEATMAP exported to {metric}_pvalue_heatmap.png")
+
+
 def main():
     df = load_final_df()
     df["subreddit_subscribers"] = pd.Series(np.maximum(df["subreddit_subscribers"], 0), index=df.index)
@@ -145,7 +179,8 @@ def main():
     
     for metric in metrics:
         export_cluster_means(df, cluster_col, cluster_names, metric, output_dir)
-        export_pvalue_matrix(df, cluster_col, cluster_names, metric, output_dir)
+        pvalue_matrix = export_pvalue_matrix(df, cluster_col, cluster_names, metric, output_dir)
+        plot_pvalue_heatmap(pvalue_matrix, metric, output_dir)
 
 if __name__ == "__main__":
     main()
