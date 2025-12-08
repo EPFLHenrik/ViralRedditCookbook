@@ -1,0 +1,90 @@
+{
+  "q_1": {
+    "question": "Should the fraction of whitespace characters be higher or lower than  12.76%",
+    "option_A": "Lower",
+    "path_A": "result_2",
+    "option_B": "Higher",
+    "path_B": "q_3",
+    "clusters": "false"
+  },
+  "result_2": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_3": {
+    "question": "Should the number of non-space characters be higher or lower than  110.0000",
+    "option_A": "Lower",
+    "path_A": "q_4",
+    "option_B": "Higher",
+    "path_B": "q_9",
+    "clusters": "false"
+  },
+  "q_4": {
+    "question": "Should the fraction of alphabetic characters be higher or lower than  78.29%",
+    "option_A": "Lower",
+    "path_A": "q_5",
+    "option_B": "Higher",
+    "path_B": "result_8",
+    "clusters": "false"
+  },
+  "q_5": {
+    "question": "Should the total number of words in the post be higher or lower than  15.5000",
+    "option_A": "Lower",
+    "path_A": "result_6",
+    "option_B": "Higher",
+    "path_B": "result_7",
+    "clusters": "false"
+  },
+  "result_6": {
+    "question": "Your chance to go viral is 2.73%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_7": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_8": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_9": {
+    "question": "Should the proportion of socially oriented words be more or less than  3.9%",
+    "option_A": "Lower",
+    "path_A": "q_10",
+    "option_B": "Higher",
+    "path_B": "result_13",
+    "clusters": "false"
+  },
+  "q_10": {
+    "question": "Should the proportion of personal pronouns be more or less than  2.12%",
+    "option_A": "Lower",
+    "path_A": "result_11",
+    "option_B": "Higher",
+    "path_B": "result_12",
+    "clusters": "false"
+  },
+  "result_11": {
+    "question": "Your chance to go viral is 20.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_12": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_13": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_14": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_start": {
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower than  0.2681",
+    "option_A": "Lower",
+    "path_A": "q_1",
+    "option_B": "Higher",
+    "path_B": "result_14",
+    "clusters": "false"
+  }
+}
