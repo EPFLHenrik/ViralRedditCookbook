@@ -188,17 +188,27 @@ def load_final_df(
         df[numeric_cols_to_convert] = df[numeric_cols_to_convert].apply(pd.to_numeric)
 
     if drop_nan_upvotes:
-        df = df.dropna(subset=['ups'])
+        df = df.dropna(subset=['ups', 'upvote_ratio'])
     
     if drop_nan_cluster:
         df = df.dropna(subset=['source_cluster_level_1'])
         df = df.dropna(subset=['target_cluster_level_1'])
 
     if calculate_rss:
+        mask = df['upvote_ratio'] > 0
+        total_votes = pd.Series(0.0, index=df.index) # assumption: if ups = 0 or upvote_ratio = 0 we assume downs = 0
+        downs = pd.Series(0.0, index=df.index)
+    
+        total_votes.loc[mask] = df.loc[mask, 'ups'] / df.loc[mask, 'upvote_ratio']
+        downs.loc[mask] = total_votes.loc[mask] - df.loc[mask, 'ups']
+        
         subreddit_subscribers = np.maximum(df["subreddit_subscribers"], 0)
+        
         df = df.assign(
+            total_votes=total_votes,
+            downs=downs,
             subreddit_subscribers=subreddit_subscribers,
-            virality_rss=(df["score"] / (subreddit_subscribers + 1)) * 10000
+            virality_rss=((2*df["ups"] + df["downs"]) / np.sqrt(subreddit_subscribers + 1))
         )
 
     return df
