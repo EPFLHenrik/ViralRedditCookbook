@@ -10,7 +10,6 @@ from tqdm import tqdm
 from src.utils.data_utils import load_final_df
 from src.data.preprocess_text import preporcess_text
 import os
-import pickle
 
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "data")
@@ -199,6 +198,27 @@ def get_viral_words(df, n_top_words=50, alpha=1.0, min_df=5, max_df=0.95, random
     }
 
 
+def save_to_csv(positive_words, negative_words, cluster_dir):
+    export_data = []
+    for _, row in positive_words.iterrows():
+        export_data.append({
+            'word': row['word'],
+            'coefficient_up': row['coefficient'],
+            'coefficient_down': ''
+        })
+    
+    for _, row in negative_words.iterrows():
+        export_data.append({
+            'word': row['word'],
+            'coefficient_up': '',
+            'coefficient_down': row['coefficient']
+        })
+    
+    export_df = pd.DataFrame(export_data)
+    csv_path = os.path.join(cluster_dir, 'viral_words_title.csv')
+    export_df.to_csv(csv_path, index=False)
+    
+    
 if __name__ == "__main__":
     df = load_final_df()
     df = preporcess_text(df)
@@ -227,25 +247,8 @@ if __name__ == "__main__":
         positive_words = viral_words_cluster['positive']
         negative_words = viral_words_cluster['negative']
         
-        export_data = []
-        for _, row in positive_words.iterrows():
-            export_data.append({
-                'word': row['word'],
-                'coefficient_up': row['coefficient'],
-                'coefficient_down': ''
-            })
-        
-        for _, row in negative_words.iterrows():
-            export_data.append({
-                'word': row['word'],
-                'coefficient_up': '',
-                'coefficient_down': row['coefficient']
-            })
-        
-        export_df = pd.DataFrame(export_data)
-        csv_path = os.path.join(cluster_dir, 'viral_words_title.csv')
-        export_df.to_csv(csv_path, index=False)
-        
+        save_to_csv(positive_words, negative_words, cluster_dir)
+
         print(f"\nTop {len(positive_words)} positive words ({cluster}):")
         print(positive_words[['word', 'coefficient']].to_string(index=False))
         
