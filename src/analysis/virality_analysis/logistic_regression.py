@@ -68,6 +68,8 @@ def logistic_regression(df, save_to_csv=True):
         'LIWC_CogMech',
         'LIWC_Swear',
         'LINK_SENTIMENT',
+        'num_body_links',
+        'num_title_links',
     ]
     
     print(f"Viral posts: {df_model['is_viral_numeric'].sum()} ({df_model['is_viral_numeric'].mean()*100:.2f}%)")

@@ -166,14 +166,19 @@ def load_enhanced_df(pickle_file=os.path.join(DATA_FOLDER, 'enhanced_reddit_df_f
 def load_final_df(
     pickle_file=os.path.join(DATA_FOLDER, 'reddit_df_final_superclusters.pkl'), 
     drop_nan_upvotes=True, 
-    drop_nan_cluster=True, 
-    calculate_rss=True
+    drop_nan_cluster=True,
+    calculate_rss=True,
+    remove_duplicate_ids=True
 ):
     """
     Load the final dataframe from pickle file. Containing both upvotes, downvotes and cluster data.
     
     Args:
         pickle_file: Path to the pickle file containing the final dataframe. Defaults to final dataframe.
+        drop_nan_upvotes: If True, drop rows with NaN in 'ups' or 'upvote_ratio' columns (default: True)
+        drop_nan_cluster: If True, drop rows with NaN in cluster columns (default: True)
+        calculate_rss: If True, calculate virality_rss metric (default: True)
+        remove_duplicate_ids: If True, remove duplicate IDs (default: True)
     
     Returns:
         pandas.DataFrame: The loaded final dataframe with post properties and metadata.
@@ -182,6 +187,7 @@ def load_final_df(
         df = pd.read_pickle(f)
 
     df['TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'], format='mixed')
+    df['POST_ID'] = df['POST_ID'].astype(str).str[:6]
 
     numeric_cols_to_convert = [col for col in NUMERIC_FEATURES if col in df.columns]
     if numeric_cols_to_convert:
@@ -211,4 +217,61 @@ def load_final_df(
             virality_rss=((2*df["ups"] + df["downs"]) / np.sqrt(subreddit_subscribers + 1))
         )
 
+    if remove_duplicate_ids:
+        body_counts = df[df['source_type'] == 'body'].groupby('POST_ID').size()
+        title_counts = df[df['source_type'] == 'title'].groupby('POST_ID').size()
+        
+        all_post_ids = pd.DataFrame({'POST_ID': df['POST_ID'].unique()})
+        all_post_ids = all_post_ids.set_index('POST_ID')
+        all_post_ids['num_body_links'] = all_post_ids.index.map(lambda x: body_counts.get(x, 0)).astype(int)
+        all_post_ids['num_title_links'] = all_post_ids.index.map(lambda x: title_counts.get(x, 0)).astype(int)
+        all_post_ids = all_post_ids.reset_index()
+        
+        df = df.merge(all_post_ids, on='POST_ID', how='left')
+        df['num_body_links'] = df['num_body_links'].astype(int)
+        df['num_title_links'] = df['num_title_links'].astype(int)
+        
+        if 'virality_rss' in df.columns:
+            df = df.sort_values(by='virality_rss', ascending=False)
+        
+        df = df.drop_duplicates(subset=['POST_ID'], keep='first')
+
     return df
+
+
+def load_final_graph(pickle_file=os.path.join(DATA_FOLDER, 'reddit_graph_final.pkl'), remove_duplicate_edges=True):
+    """
+    Load the final graph from pickle file.
+    Removes duplicate edges that have the same POST_ID, keeping only one edge per POST_ID.
+    If virality_rss is available, keeps the edge with the highest virality_rss.
+    """
+    with open(pickle_file, 'rb') as f:
+        G = pickle.load(f)
+    
+    if remove_duplicate_edges:
+        edges_by_post_id = {}
+        edges_to_remove = []
+        
+        for u, v, key, data in G.edges(keys=True, data=True):
+            post_id = data.get('POST_ID') or data.get('post_id') or data.get('id')
+            
+            if post_id is None:
+                continue
+            
+            virality_rss = data.get('virality_rss', 0)
+            
+            if post_id not in edges_by_post_id:
+                edges_by_post_id[post_id] = (u, v, key, virality_rss)
+            else:
+                _, _, existing_key, existing_rss = edges_by_post_id[post_id]
+                if virality_rss > existing_rss:
+                    edges_to_remove.append((u, v, existing_key))
+                    edges_by_post_id[post_id] = (u, v, key, virality_rss)
+                else:
+                    edges_to_remove.append((u, v, key))
+        
+        for u, v, key in edges_to_remove:
+            if G.has_edge(u, v, key):
+                G.remove_edge(u, v, key)
+    
+    return G
