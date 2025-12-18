@@ -411,7 +411,13 @@ def plot_monthly_upvotes(df):
     plt.tight_layout()
     plt.show()
     
-def getviralpoststemplate(virality_percentile=0.9999): 
+def getviralpoststemplate(virality_percentile=0.9997): 
+    """
+    Build per-supercluster CSV files combining:
+    - sparse moving-average virality (for trend lines)
+    - individual viral posts 
+
+    """
     final_by_supercluster = {}
     dfs_by_supercluster = {}
     subsampledict={"Gaming & Interactive Entertainment": 500, 
@@ -471,6 +477,9 @@ def getviralpoststemplate(virality_percentile=0.9999):
         filename = f"final_supercluster_{supercluster}.csv" 
         df_final_cluster.to_csv(os.path.join(DATA_DIR, filename), index=False)
 def getmeanupsracetemplate(month="DEC"):
+    """
+    Build a supercluster × quarter matrix of mean upvotes and save it as CSV.
+    """
     df = load_final_df(calculate_rss=False)
     df=df[["source_supercluster","TIMESTAMP","ups"]] 
     df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"], format='mixed')
@@ -488,9 +497,39 @@ def getmeanupsracetemplate(month="DEC"):
     mat.to_csv(os.path.join(DATA_DIR, filename), index=True)
 
 
+def getviralityGeomRacetemplate(month="DEC"): 
+    """
+    Build a supercluster × quarter matrix of geometric-mean virality
+    (positive virality only) and save it as CSV.
+    
+    """
+    df= load_final_df(calculate_rss=True)
+    df=get_viral_posts(df)
+    df=df[["source_supercluster","TIMESTAMP","virality_rss"]]
+    df["TIMESTAMP"]=pd.to_datetime(df["TIMESTAMP"],format='mixed')
+    df["WINDOW"] = df["TIMESTAMP"].dt.to_period(f"Q-{month}") 
+    df = df.dropna(subset=["TIMESTAMP", "virality_rss"]) 
+    df = df[df["virality_rss"] > 0]
+    df_geo = ( df.groupby(["source_supercluster", "WINDOW"])["virality_rss"] .apply(lambda x: np.exp(np.mean(np.log(x)))) .reset_index(name="virality_rss_gmean") ) 
+    mat = df_geo.pivot(index="source_supercluster", columns="WINDOW", values="virality_rss_gmean") 
+    try: 
+        periods = pd.PeriodIndex(mat.columns, freq="Q-DEC") 
+        mat = mat.reindex(columns=periods.sort_values().astype(str)) 
+    except Exception: 
+        mat = mat.reindex(sorted(mat.columns), axis=1) 
+        mat = mat.fillna(0) 
+    mat = mat.drop(columns=mat.columns[0])
+    filename="ClustersViralityRacegeometric.csv" 
+    mat.to_csv(os.path.join(DATA_DIR, filename), index=True)
     
 
-# if __name__ == "__main__":
+
+
+
+
+    
+
+if __name__ == "__main__":
     # G = load_reddit_graph()
     # sources_by_quarter_matrix(r"reddit_negative_edges_by_quarter.csv")
     # corr_time_vs_ups()
@@ -501,3 +540,4 @@ def getmeanupsracetemplate(month="DEC"):
     # corr_time_vs_ups()
     # getmeanupsracetemplate()
     # getviralpoststemplate()
+    # getviralityracetemplate()

@@ -12,6 +12,38 @@ from src.analysis.virality_analysis.get_viral_posts import get_viral_posts
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'figures', 'logistic_regression')
 
 
+def save_to_csv(coef_df):
+    coef_no_intercept = coef_df[coef_df['Feature'] != 'Intercept'].copy()
+    top_positive = coef_no_intercept[coef_no_intercept['Coefficient'] > 0].nlargest(8, 'Coefficient')
+    top_negative = coef_no_intercept[coef_no_intercept['Coefficient'] < 0].nsmallest(8, 'Coefficient')
+    
+    export_data = []
+    
+    for _, row in top_positive.iterrows():
+        export_data.append({
+            'word': row['Feature'],
+            'coefficient_up': row['Coefficient'],
+            'coefficient_down': '',
+            'p-value': row['P-value']
+        })
+    
+    for _, row in top_negative.iterrows():
+        export_data.append({
+            'word': row['Feature'],
+            'coefficient_up': '',
+            'coefficient_down': row['Coefficient'],
+            'p-value': row['P-value']
+        })
+    
+    export_df = pd.DataFrame(export_data)
+    
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    
+    output_path = os.path.join(OUTPUT_DIR, 'viral_properties.csv')
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    export_df.to_csv(output_path, index=False)
+
+
 def logistic_regression(df, save_to_csv=True):
     """
     Train a logistic regression model to predict virality (is_viral) using selected features.
@@ -36,6 +68,8 @@ def logistic_regression(df, save_to_csv=True):
         'LIWC_CogMech',
         'LIWC_Swear',
         'LINK_SENTIMENT',
+        'num_body_links',
+        'num_title_links',
     ]
     
     print(f"Viral posts: {df_model['is_viral_numeric'].sum()} ({df_model['is_viral_numeric'].mean()*100:.2f}%)")
@@ -62,8 +96,14 @@ def logistic_regression(df, save_to_csv=True):
     print("LOGISTIC REGRESSION RESULTS")
     print(model.summary())
     
-    print("MODEL PERFORMANCE METRICS")
-    
+    return model, df_model_scaled
+
+
+if __name__ == "__main__":
+    df = load_final_df(calculate_rss=True)
+    df = get_viral_posts(df, virality_percentile=0.999, window_size='60D')
+    model, df_model_scaled = logistic_regression(df)
+
     predictions = model.predict(df_model_scaled)
     predicted_viral = (predictions >= 0.5).astype(int)
     actual_viral = df_model_scaled['is_viral_numeric'].values
@@ -93,40 +133,10 @@ def logistic_regression(df, save_to_csv=True):
         'P-value': model.pvalues.values,
         'Abs_Coefficient': np.abs(model.params.values)
     }).sort_values('Abs_Coefficient', ascending=False)
+
+    coef_df = coef_df[coef_df['P-value'] < 0.05]
     
     print(coef_df.head(20).to_string(index=False))
     
     if save_to_csv:
-        coef_no_intercept = coef_df[coef_df['Feature'] != 'Intercept'].copy()
-        top_positive = coef_no_intercept[coef_no_intercept['Coefficient'] > 0].nlargest(8, 'Coefficient')
-        top_negative = coef_no_intercept[coef_no_intercept['Coefficient'] < 0].nsmallest(8, 'Coefficient')
-        
-        export_data = []
-        
-        for _, row in top_positive.iterrows():
-            export_data.append({
-                'word': row['Feature'],
-                'coefficient_up': row['Coefficient'],
-                'coefficient_down': ''
-            })
-        
-        for _, row in top_negative.iterrows():
-            export_data.append({
-                'word': row['Feature'],
-                'coefficient_up': '',
-                'coefficient_down': row['Coefficient']
-            })
-        
-        export_df = pd.DataFrame(export_data)
-        
-        os.makedirs(OUTPUT_DIR, exist_ok=True)
-        
-        output_path = os.path.join(OUTPUT_DIR, 'viral_properties.csv')
-        os.makedirs(os.path.dirname(output_path), exist_ok=True)
-        export_df.to_csv(output_path, index=False)
-
-
-if __name__ == "__main__":
-    df = load_final_df(calculate_rss=True)
-    df = get_viral_posts(df, virality_percentile=0.999, window_size='60D')
-    model, df_model = logistic_regression(df)
+        save_to_csv(coef_df)

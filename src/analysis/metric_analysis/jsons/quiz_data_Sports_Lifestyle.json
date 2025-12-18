@@ -1,18 +1,18 @@
 {
-  "result_1": {
+  "q_1": {
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower than  8.35%",
+    "option_A": "Lower",
+    "path_A": "result_2",
+    "option_B": "Higher",
+    "path_B": "q_3",
+    "clusters": "false"
+  },
+  "result_2": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_2": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less than  5.08%",
-    "option_A": "Lower",
-    "path_A": "q_3",
-    "option_B": "Higher",
-    "path_B": "q_10",
-    "clusters": "false"
-  },
   "q_3": {
-    "question": "Should the proportion of \"she/he\" references be more or less than  0.13%",
+    "question": "Should the proportion of space-related words (locations, positions) be more or less than  3.63%",
     "option_A": "Lower",
     "path_A": "result_4",
     "option_B": "Higher",
@@ -24,24 +24,24 @@
     "is_leaf": true
   },
   "q_5": {
-    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be more or less than  5.64%",
+    "question": "Should the fraction of whitespace characters be higher or lower than  16.29%",
     "option_A": "Lower",
-    "path_A": "result_6",
-    "option_B": "Higher",
-    "path_B": "q_7",
-    "clusters": "false"
-  },
-  "result_6": {
-    "question": "Your chance to go viral is 100.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "q_7": {
-    "question": "Should the proportion of discrepancy words (e.g., \"should\", \"would\") be more or less than  0.43%",
-    "option_A": "Lower",
-    "path_A": "result_8",
+    "path_A": "q_6",
     "option_B": "Higher",
     "path_B": "result_9",
     "clusters": "false"
+  },
+  "q_6": {
+    "question": "Should the proportion of inhibition-related words (e.g., \"stop\", \"block\") be more or less than  0.5%",
+    "option_A": "Lower",
+    "path_A": "result_7",
+    "option_B": "Higher",
+    "path_B": "result_8",
+    "clusters": "false"
+  },
+  "result_7": {
+    "question": "Your chance to go viral is 13.85%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
   "result_8": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
@@ -51,28 +51,16 @@
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_10": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower than  3.29%",
-    "option_A": "Lower",
-    "path_A": "result_11",
-    "option_B": "Higher",
-    "path_B": "result_12",
-    "clusters": "false"
-  },
-  "result_11": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_12": {
+  "result_10": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the negative VADER sentiment score be higher or lower than  0.0785",
+    "question": "Should the average number of characters per sentence be higher or lower than  122.0564",
     "option_A": "Lower",
-    "path_A": "result_1",
+    "path_A": "q_1",
     "option_B": "Higher",
-    "path_B": "q_2",
+    "path_B": "result_10",
     "clusters": "false"
   }
 }

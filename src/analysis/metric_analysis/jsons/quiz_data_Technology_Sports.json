@@ -1,90 +1,66 @@
 {
-  "q_1": {
-    "question": "Should the average number of words per sentence be higher or lower than  42.6429",
-    "option_A": "Lower",
-    "path_A": "result_2",
-    "option_B": "Higher",
-    "path_B": "q_3",
-    "clusters": "false"
-  },
-  "result_2": {
+  "result_1": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_3": {
-    "question": "Should the number of sentences in the post be higher or lower than  2.5000",
+  "q_2": {
+    "question": "Should the number of sentences in the post be higher or lower than  6.5000",
     "option_A": "Lower",
-    "path_A": "result_4",
+    "path_A": "result_3",
     "option_B": "Higher",
-    "path_B": "result_5",
+    "path_B": "q_4",
     "clusters": "false"
   },
-  "result_4": {
+  "result_3": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "result_5": {
-    "question": "Your chance to go viral is 100.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
+  "q_4": {
+    "question": "Should the proportion of hearing-related words be more or less than  0.24%",
+    "option_A": "Lower",
+    "path_A": "q_5",
+    "option_B": "Higher",
+    "path_B": "result_10",
+    "clusters": "false"
+  },
+  "q_5": {
+    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be more or less than  4.07%",
+    "option_A": "Lower",
+    "path_A": "q_6",
+    "option_B": "Higher",
+    "path_B": "result_9",
+    "clusters": "false"
   },
   "q_6": {
-    "question": "Should the automated readability index be higher or lower than  9.3151",
+    "question": "Should the automated readability index be higher or lower than  14.9059",
     "option_A": "Lower",
     "path_A": "result_7",
     "option_B": "Higher",
-    "path_B": "q_8",
+    "path_B": "result_8",
     "clusters": "false"
   },
   "result_7": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_8": {
-    "question": "Should the proportion of prepositions be more or less than  3.17%",
-    "option_A": "Lower",
-    "path_A": "result_9",
-    "option_B": "Higher",
-    "path_B": "q_10",
-    "clusters": "false"
+  "result_8": {
+    "question": "Your chance to go viral is 63.64%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
   "result_9": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_10": {
-    "question": "Should the number of unique words used be higher or lower than  28.5000",
-    "option_A": "Lower",
-    "path_A": "q_11",
-    "option_B": "Higher",
-    "path_B": "result_14",
-    "clusters": "false"
-  },
-  "q_11": {
-    "question": "Should the ratio of leisure-related terms be more or less than  6.27%",
-    "option_A": "Lower",
-    "path_A": "result_12",
-    "option_B": "Higher",
-    "path_B": "result_13",
-    "clusters": "false"
-  },
-  "result_12": {
-    "question": "Your chance to go viral is 53.04%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_13": {
-    "question": "Your chance to go viral is 18.75%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_14": {
+  "result_10": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower than  6.59%",
+    "question": "Should the proportion of \"you\" references be more or less than  0.2%",
     "option_A": "Lower",
-    "path_A": "q_1",
+    "path_A": "result_1",
     "option_B": "Higher",
-    "path_B": "q_6",
+    "path_B": "q_2",
     "clusters": "false"
   }
 }

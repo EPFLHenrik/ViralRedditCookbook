@@ -1,86 +1,86 @@
 {
   "q_1": {
-    "question": "Should the proportion of prepositions be more or less than  7.02%",
+    "question": "Should the proportion of money- or finance-related words be more or less than  6.46%",
     "option_A": "Lower",
-    "path_A": "q_2",
+    "path_A": "result_2",
     "option_B": "Higher",
-    "path_B": "q_11",
+    "path_B": "q_3",
     "clusters": "false"
   },
-  "q_2": {
-    "question": "Should the ratio of leisure-related terms be more or less than  2.35%",
-    "option_A": "Lower",
-    "path_A": "result_3",
-    "option_B": "Higher",
-    "path_B": "q_4",
-    "clusters": "false"
-  },
-  "result_3": {
+  "result_2": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_4": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower than  0.3715",
+  "q_3": {
+    "question": "Should the average number of words per sentence be higher or lower than  13.5000",
     "option_A": "Lower",
-    "path_A": "q_5",
+    "path_A": "result_4",
     "option_B": "Higher",
-    "path_B": "q_8",
+    "path_B": "q_5",
     "clusters": "false"
+  },
+  "result_4": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
   "q_5": {
-    "question": "Should the proportion of present-tense verbs be more or less than  1.1%",
+    "question": "Should the proportion of cognitive mechanism terms be more or less than  2.63%",
     "option_A": "Lower",
-    "path_A": "result_6",
+    "path_A": "q_6",
     "option_B": "Higher",
-    "path_B": "result_7",
+    "path_B": "result_9",
     "clusters": "false"
   },
-  "result_6": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
+  "q_6": {
+    "question": "Should the ratio of leisure-related terms be more or less than  2.94%",
+    "option_A": "Lower",
+    "path_A": "result_7",
+    "option_B": "Higher",
+    "path_B": "result_8",
+    "clusters": "false"
   },
   "result_7": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 100.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_8": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less than  3.69%",
-    "option_A": "Lower",
-    "path_A": "result_9",
-    "option_B": "Higher",
-    "path_B": "result_10",
-    "clusters": "false"
+  "result_8": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
   "result_9": {
-    "question": "Your chance to go viral is 28.57%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_10": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_11": {
-    "question": "Should the fraction of stopwords in the text be higher or lower than  13.81%",
+  "q_10": {
+    "question": "Should the fraction of alphabetic characters be higher or lower than  71.3%",
     "option_A": "Lower",
-    "path_A": "result_12",
+    "path_A": "result_11",
     "option_B": "Higher",
-    "path_B": "q_13",
+    "path_B": "q_12",
     "clusters": "false"
   },
-  "result_12": {
+  "result_11": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
+  "q_12": {
+    "question": "Should the proportion of cognitive mechanism terms be more or less than  17.88%",
+    "option_A": "Lower",
+    "path_A": "q_13",
+    "option_B": "Higher",
+    "path_B": "result_20",
+    "clusters": "false"
+  },
   "q_13": {
-    "question": "Should the proportion of function words be more or less than  41.8%",
+    "question": "Should the proportion of space-related words (locations, positions) be more or less than  5.89%",
     "option_A": "Lower",
     "path_A": "q_14",
     "option_B": "Higher",
-    "path_B": "result_17",
+    "path_B": "q_17",
     "clusters": "false"
   },
   "q_14": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less than  17.91%",
+    "question": "Should the proportion of filler words (e.g., \"like\", \"you know\") be more or less than  0.47%",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -88,27 +88,39 @@
     "clusters": "false"
   },
   "result_15": {
-    "question": "Your chance to go viral is 3.14%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 2.28%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_16": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "result_17": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
+  "q_17": {
+    "question": "Should the proportion of home-related words be more or less than  13.89%",
+    "option_A": "Lower",
+    "path_A": "result_18",
+    "option_B": "Higher",
+    "path_B": "result_19",
+    "clusters": "false"
   },
   "result_18": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
+  "result_19": {
+    "question": "Your chance to go viral is 100.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_20": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
   "q_start": {
-    "question": "Should the number of sentences in the post be higher or lower than  2.5000",
+    "question": "Should the proportion of verbs in the text be more or less than  2.36%",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",
-    "path_B": "result_18",
+    "path_B": "q_10",
     "clusters": "false"
   }
 }

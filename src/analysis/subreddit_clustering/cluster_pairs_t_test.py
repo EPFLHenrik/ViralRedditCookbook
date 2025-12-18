@@ -133,13 +133,14 @@ def plot_pvalue_heatmap(pvalue_matrix, metric, output_dir):
     sns.heatmap(log_pvalues, 
                 annot=annot_matrix, 
                 fmt='',
-                cmap='viridis',
                 cbar_kws={'label': '-log10(p-value)'},
                 mask=mask,
                 square=True,
                 linewidths=0.5,
-                annot_kws={'fontsize': 8})
-    
+                annot_kws={'fontsize': 8},
+                cmap='Set3'
+               )
+
     plt.title(f'P-value Matrix for {metric}\n(T-tests between clusters, log scale)', fontsize=14, pad=20)
     plt.xlabel('Cluster', fontsize=12)
     plt.ylabel('Cluster', fontsize=12)
@@ -155,9 +156,6 @@ def plot_pvalue_heatmap(pvalue_matrix, metric, output_dir):
 
 def main():
     df = load_final_df()
-    df["subreddit_subscribers"] = pd.Series(np.maximum(df["subreddit_subscribers"], 0), index=df.index)
-    df["virality_rss"] = df["score"] / (df["subreddit_subscribers"]+1)
-
     
     output_dir = 'figures/cluster_analysis'
     os.makedirs(output_dir, exist_ok=True)
@@ -169,8 +167,6 @@ def main():
     else:
         cluster_names = {c: f"Cluster_{c}" for c in df[cluster_col].dropna().unique()}
 
-    # metrics = [m for m in ['ups', 'downs', 'score', 'num_comments', 'virality_rss']
-    #            if m in df.columns and df[m].notna().sum() > 0]
     metrics = [m for m in ['virality_rss']
             if m in df.columns and df[m].notna().sum() > 0]
     
