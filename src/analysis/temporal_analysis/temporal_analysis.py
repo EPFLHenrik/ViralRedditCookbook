@@ -412,6 +412,12 @@ def plot_monthly_upvotes(df):
     plt.show()
     
 def getviralpoststemplate(virality_percentile=0.9997): 
+    """
+    Build per-supercluster CSV files combining:
+    - sparse moving-average virality (for trend lines)
+    - individual viral posts 
+
+    """
     final_by_supercluster = {}
     dfs_by_supercluster = {}
     subsampledict={"Gaming & Interactive Entertainment": 500, 
@@ -471,6 +477,9 @@ def getviralpoststemplate(virality_percentile=0.9997):
         filename = f"final_supercluster_{supercluster}.csv" 
         df_final_cluster.to_csv(os.path.join(DATA_DIR, filename), index=False)
 def getmeanupsracetemplate(month="DEC"):
+    """
+    Build a supercluster × quarter matrix of mean upvotes and save it as CSV.
+    """
     df = load_final_df(calculate_rss=False)
     df=df[["source_supercluster","TIMESTAMP","ups"]] 
     df["TIMESTAMP"] = pd.to_datetime(df["TIMESTAMP"], format='mixed')
@@ -489,6 +498,11 @@ def getmeanupsracetemplate(month="DEC"):
 
 
 def getviralityGeomRacetemplate(month="DEC"): 
+    """
+    Build a supercluster × quarter matrix of geometric-mean virality
+    (positive virality only) and save it as CSV.
+    
+    """
     df= load_final_df(calculate_rss=True)
     df=get_viral_posts(df)
     df=df[["source_supercluster","TIMESTAMP","virality_rss"]]
