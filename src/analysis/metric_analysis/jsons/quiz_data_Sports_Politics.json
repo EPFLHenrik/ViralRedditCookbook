@@ -1,0 +1,150 @@
+{
+  "q_1": {
+    "question": "Should the proportion of positive emotion words be more or less than  6.56%",
+    "option_A": "Lower",
+    "path_A": "result_2",
+    "option_B": "Higher",
+    "path_B": "q_3",
+    "clusters": "false"
+  },
+  "result_2": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_3": {
+    "question": "Should the proportion of prepositions be more or less than  13.19%",
+    "option_A": "Lower",
+    "path_A": "result_4",
+    "option_B": "Higher",
+    "path_B": "q_5",
+    "clusters": "false"
+  },
+  "result_4": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_5": {
+    "question": "Should the fraction of alphabetic characters be higher or lower than  77.37%",
+    "option_A": "Lower",
+    "path_A": "q_6",
+    "option_B": "Higher",
+    "path_B": "result_9",
+    "clusters": "false"
+  },
+  "q_6": {
+    "question": "Should the fraction of alphabetic characters be higher or lower than  75.92%",
+    "option_A": "Lower",
+    "path_A": "result_7",
+    "option_B": "Higher",
+    "path_B": "result_8",
+    "clusters": "false"
+  },
+  "result_7": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_8": {
+    "question": "Your chance to go viral is 66.67%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_9": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_10": {
+    "question": "Should the fraction of alphabetic characters be higher or lower than  82.15%",
+    "option_A": "Lower",
+    "path_A": "q_11",
+    "option_B": "Higher",
+    "path_B": "q_18",
+    "clusters": "false"
+  },
+  "q_11": {
+    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less than  8.27%",
+    "option_A": "Lower",
+    "path_A": "result_12",
+    "option_B": "Higher",
+    "path_B": "q_13",
+    "clusters": "false"
+  },
+  "result_12": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_13": {
+    "question": "Should the proportion of verbs in the text be more or less than  4.06%",
+    "option_A": "Lower",
+    "path_A": "result_14",
+    "option_B": "Higher",
+    "path_B": "q_15",
+    "clusters": "false"
+  },
+  "result_14": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_15": {
+    "question": "Should the proportion of general biological process words be more or less than  2.05%",
+    "option_A": "Lower",
+    "path_A": "result_16",
+    "option_B": "Higher",
+    "path_B": "result_17",
+    "clusters": "false"
+  },
+  "result_16": {
+    "question": "Your chance to go viral is 5.24%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_17": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_18": {
+    "question": "Should the total number of characters in the post be higher or lower than  98.5000",
+    "option_A": "Lower",
+    "path_A": "result_19",
+    "option_B": "Higher",
+    "path_B": "q_20",
+    "clusters": "false"
+  },
+  "result_19": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_20": {
+    "question": "Should the average number of words per sentence be higher or lower than  18.5000",
+    "option_A": "Lower",
+    "path_A": "q_21",
+    "option_B": "Higher",
+    "path_B": "result_24",
+    "clusters": "false"
+  },
+  "q_21": {
+    "question": "Should the fraction of alphabetic characters be higher or lower than  85.35%",
+    "option_A": "Lower",
+    "path_A": "result_22",
+    "option_B": "Higher",
+    "path_B": "result_23",
+    "clusters": "false"
+  },
+  "result_22": {
+    "question": "Your chance to go viral is 87.50%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_23": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_24": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_start": {
+    "question": "Should the average number of words per sentence be higher or lower than  11.4167",
+    "option_A": "Lower",
+    "path_A": "q_1",
+    "option_B": "Higher",
+    "path_B": "q_10",
+    "clusters": "false"
+  }
+}

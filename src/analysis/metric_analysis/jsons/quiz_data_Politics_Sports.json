@@ -1,0 +1,78 @@
+{
+  "q_1": {
+    "question": "Should the fraction of alphabetic characters be higher or lower than  77.06%",
+    "option_A": "Lower",
+    "path_A": "result_2",
+    "option_B": "Higher",
+    "path_B": "q_3",
+    "clusters": "false"
+  },
+  "result_2": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_3": {
+    "question": "Should the proportion of cognitive mechanism terms be more or less than  9.05%",
+    "option_A": "Lower",
+    "path_A": "result_4",
+    "option_B": "Higher",
+    "path_B": "q_5",
+    "clusters": "false"
+  },
+  "result_4": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_5": {
+    "question": "Should the proportion of \"they\" references be more or less than  0.47%",
+    "option_A": "Lower",
+    "path_A": "q_6",
+    "option_B": "Higher",
+    "path_B": "result_9",
+    "clusters": "false"
+  },
+  "q_6": {
+    "question": "Should the proportion of first-person singular \"I\" words be more or less than  2.24%",
+    "option_A": "Lower",
+    "path_A": "result_7",
+    "option_B": "Higher",
+    "path_B": "result_8",
+    "clusters": "false"
+  },
+  "result_7": {
+    "question": "Your chance to go viral is 10.99%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_8": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_9": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_10": {
+    "question": "Should the fraction of whitespace characters be higher or lower than  0.94%",
+    "option_A": "Lower",
+    "path_A": "result_11",
+    "option_B": "Higher",
+    "path_B": "result_12",
+    "clusters": "false"
+  },
+  "result_11": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_12": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_start": {
+    "question": "Should the fraction of UPPERCASE letters be higher or lower than  7.8%",
+    "option_A": "Lower",
+    "path_A": "q_1",
+    "option_B": "Higher",
+    "path_B": "q_10",
+    "clusters": "false"
+  }
+}

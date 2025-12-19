@@ -1,0 +1,258 @@
+{
+  "q_1": {
+    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be more or less than  4.17%",
+    "option_A": "Lower",
+    "path_A": "q_2",
+    "option_B": "Higher",
+    "path_B": "q_17",
+    "clusters": "false"
+  },
+  "q_2": {
+    "question": "Should the total number of characters in the post be higher or lower than  101.5000",
+    "option_A": "Lower",
+    "path_A": "q_3",
+    "option_B": "Higher",
+    "path_B": "q_10",
+    "clusters": "false"
+  },
+  "q_3": {
+    "question": "Should the proportion of future-oriented verbs be more or less than  9.55%",
+    "option_A": "Lower",
+    "path_A": "q_4",
+    "option_B": "Higher",
+    "path_B": "q_7",
+    "clusters": "false"
+  },
+  "q_4": {
+    "question": "Should the proportion of achievement-related words be more or less than  13.81%",
+    "option_A": "Lower",
+    "path_A": "result_5",
+    "option_B": "Higher",
+    "path_B": "result_6",
+    "clusters": "false"
+  },
+  "result_5": {
+    "question": "Your chance to go viral is 0.53%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_6": {
+    "question": "Your chance to go viral is 4.55%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_7": {
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower than  2.16%",
+    "option_A": "Lower",
+    "path_A": "result_8",
+    "option_B": "Higher",
+    "path_B": "result_9",
+    "clusters": "false"
+  },
+  "result_8": {
+    "question": "Your chance to go viral is 75.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_9": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_10": {
+    "question": "Should the proportion of first-person singular \"I\" words be more or less than  1.05%",
+    "option_A": "Lower",
+    "path_A": "q_11",
+    "option_B": "Higher",
+    "path_B": "q_14",
+    "clusters": "false"
+  },
+  "q_11": {
+    "question": "Should the fraction of alphabetic characters be higher or lower than  76.94%",
+    "option_A": "Lower",
+    "path_A": "result_12",
+    "option_B": "Higher",
+    "path_B": "result_13",
+    "clusters": "false"
+  },
+  "result_12": {
+    "question": "Your chance to go viral is 4.09%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_13": {
+    "question": "Your chance to go viral is 1.36%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_14": {
+    "question": "Should the proportion of pronouns be more or less than  15.85%",
+    "option_A": "Lower",
+    "path_A": "result_15",
+    "option_B": "Higher",
+    "path_B": "result_16",
+    "clusters": "false"
+  },
+  "result_15": {
+    "question": "Your chance to go viral is 0.42%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_16": {
+    "question": "Your chance to go viral is 3.68%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_17": {
+    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be more or less than  0.75%",
+    "option_A": "Lower",
+    "path_A": "q_18",
+    "option_B": "Higher",
+    "path_B": "q_23",
+    "clusters": "false"
+  },
+  "q_18": {
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower than  6.3%",
+    "option_A": "Lower",
+    "path_A": "q_19",
+    "option_B": "Higher",
+    "path_B": "result_22",
+    "clusters": "false"
+  },
+  "q_19": {
+    "question": "Should the automated readability index be higher or lower than  11.2020",
+    "option_A": "Lower",
+    "path_A": "result_20",
+    "option_B": "Higher",
+    "path_B": "result_21",
+    "clusters": "false"
+  },
+  "result_20": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_21": {
+    "question": "Your chance to go viral is 3.40%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_22": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_23": {
+    "question": "Should the proportion of socially oriented words be more or less than  15.31%",
+    "option_A": "Lower",
+    "path_A": "q_24",
+    "option_B": "Higher",
+    "path_B": "q_27",
+    "clusters": "false"
+  },
+  "q_24": {
+    "question": "Should the number of unique stopwords be higher or lower than  0.5000",
+    "option_A": "Lower",
+    "path_A": "result_25",
+    "option_B": "Higher",
+    "path_B": "result_26",
+    "clusters": "false"
+  },
+  "result_25": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_26": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_27": {
+    "question": "Should the proportion of affective (emotion-related) words be more or less than  9.84%",
+    "option_A": "Lower",
+    "path_A": "result_28",
+    "option_B": "Higher",
+    "path_B": "result_29",
+    "clusters": "false"
+  },
+  "result_28": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_29": {
+    "question": "Your chance to go viral is 20.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_30": {
+    "question": "Should the proportion of friend-related terms be more or less than  0.17%",
+    "option_A": "Lower",
+    "path_A": "q_31",
+    "option_B": "Higher",
+    "path_B": "q_40",
+    "clusters": "false"
+  },
+  "q_31": {
+    "question": "Should the proportion of socially oriented words be more or less than  4.41%",
+    "option_A": "Lower",
+    "path_A": "q_32",
+    "option_B": "Higher",
+    "path_B": "q_35",
+    "clusters": "false"
+  },
+  "q_32": {
+    "question": "Should the positive VADER sentiment score be higher or lower than  0.2015",
+    "option_A": "Lower",
+    "path_A": "result_33",
+    "option_B": "Higher",
+    "path_B": "result_34",
+    "clusters": "false"
+  },
+  "result_33": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_34": {
+    "question": "Your chance to go viral is 100.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_35": {
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower than  4.09%",
+    "option_A": "Lower",
+    "path_A": "result_36",
+    "option_B": "Higher",
+    "path_B": "q_37",
+    "clusters": "false"
+  },
+  "result_36": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_37": {
+    "question": "Should the fraction of alphabetic characters be higher or lower than  70.05%",
+    "option_A": "Lower",
+    "path_A": "result_38",
+    "option_B": "Higher",
+    "path_B": "result_39",
+    "clusters": "false"
+  },
+  "result_38": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_39": {
+    "question": "Your chance to go viral is 16.72%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_40": {
+    "question": "Should the proportion of pronouns be more or less than  1.92%",
+    "option_A": "Lower",
+    "path_A": "result_41",
+    "option_B": "Higher",
+    "path_B": "result_42",
+    "clusters": "false"
+  },
+  "result_41": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_42": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_start": {
+    "question": "Should the number of non-space characters be higher or lower than  1676.5000",
+    "option_A": "Lower",
+    "path_A": "q_1",
+    "option_B": "Higher",
+    "path_B": "q_30",
+    "clusters": "false"
+  }
+}

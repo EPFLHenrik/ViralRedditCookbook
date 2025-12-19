@@ -1,0 +1,43 @@
+Ideas that we can do for the project:
+
+Define how "viral" a post is, based on metrics. We can say that positive outliers are viral
+Find out which LIWC factors make the most difference between viral and non-viral posts
+Find out which superclusters reference which superclusters a lot -> directional highlighted chord
+
+Make a little mini game (quiz) in flourish, where the user can
+ - Choose a supercluster that he wants to post in
+ - He gets several multiple choice questions with a few options
+    - How many words is the ideal length
+    - On which day of the week to post
+    - Reference subreddit in the own cluster or another supercluster
+    - Positive or negative sentiment
+    etc.
+ - We give feedback in a funny way, saying "5/6 correct, increased chance to go viral"
+
+Key points of the report:
+    1. Lets define Virality
+        Mention that we scraped the posts from reddit
+    2. Clusters, how did we get them
+        You can say something like "oh, btw we extended with clusters"
+    3. Virality by sentiment
+        How is someone nice to someone else (Gal's graph)
+    4. Basic statistical tests
+        Comparison of clusters, say that it makes to analyze different
+        clusters relative to their means, because they differ in average popularity.
+        "Viral" in a less popular cluster might be less upvotes than many
+        in a popular clusters-
+    5. Pearson Correlation
+        Correlation with high upvotes / the metrics
+    6. Logistic Regression if a post is viral or not (0 and 1 binary)
+    7. Text analysis (TF-IDF) (which words are important to have)
+    8. Propensity score matching
+    9. Trees for predicting (how well can we predict virality)
+    10. Given the cookbook, what are the best hints
+        (Have longer posts), (use these viral words), (post at this time), 
+        (How much will you gain), (which sentiment to use), (what else to look for)
+        Include a little minigame that quizzes users on what the right things
+        are to choose to get the best chance of going viral? Can be done 
+        with flourish quiz.
+
+Make the transitions as funny as you want. The other project introduced the
+things they did as in like "hold up, what about if we try this"
