@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less than  2.58%",
+    "question": "Should the proportion of first-person singular \"I\" words be more or less? 2.34%",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the fraction of whitespace characters be higher or lower than  14.47%",
+    "question": "Should the fraction of whitespace characters be higher or lower? 14.47%",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be more or less than  5.41%",
+    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be more or less? 5.41%",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of personal pronouns be more or less than  3.82%",
+    "question": "Should the proportion of personal pronouns be more or less? 0.66%",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -32,15 +32,15 @@
     "clusters": "false"
   },
   "result_5": {
-    "question": "Your chance to go viral is 1.42%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 1.46%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_6": {
-    "question": "Your chance to go viral is 3.56%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 3.20%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of anxiety-related words be more or less than  0.93%",
+    "question": "Should the proportion of past-tense verbs be more or less? 1.07%",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -48,15 +48,15 @@
     "clusters": "false"
   },
   "result_8": {
-    "question": "Your chance to go viral is 0.20%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 0.08%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_9": {
-    "question": "Your chance to go viral is 4.65%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 1.75%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of socially oriented words be more or less than  10.21%",
+    "question": "Should the proportion of personal pronouns be more or less? 6.65%",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of causation-related words (e.g., \"because\") be more or less than  2.28%",
+    "question": "Should the proportion of cognitive mechanism terms be more or less? 13.92%",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -72,15 +72,15 @@
     "clusters": "false"
   },
   "result_12": {
-    "question": "Your chance to go viral is 2.92%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 3.22%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_13": {
-    "question": "Your chance to go viral is 1.45%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 1.69%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the automated readability index be higher or lower than  8.9833",
+    "question": "Should the automated readability index be higher or lower? 7.6293",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -88,15 +88,15 @@
     "clusters": "false"
   },
   "result_15": {
-    "question": "Your chance to go viral is 1.03%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 0.62%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_16": {
-    "question": "Your chance to go viral is 5.79%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 6.53%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the proportion of socially oriented words be more or less than  5.52%",
+    "question": "Should the proportion of socially oriented words be more or less? 5.52%",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the proportion of function words be more or less than  34.69%",
+    "question": "Should the proportion of function words be more or less? 35.93%",
     "option_A": "Lower",
     "path_A": "q_19",
     "option_B": "Higher",
@@ -112,7 +112,7 @@
     "clusters": "false"
   },
   "q_19": {
-    "question": "Should the fraction of stopwords in the text be higher or lower than  21.98%",
+    "question": "Should the proportion of present-tense verbs be more or less? 9.45%",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -120,15 +120,15 @@
     "clusters": "false"
   },
   "result_20": {
-    "question": "Your chance to go viral is 0.62%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 1.12%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_21": {
-    "question": "Your chance to go viral is 2.77%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 6.31%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_22": {
-    "question": "Should the negative VADER sentiment score be higher or lower than  0.1735",
+    "question": "Should the proportion of \"we\" (first-person plural) words be more or less? 0.84%",
     "option_A": "Lower",
     "path_A": "result_23",
     "option_B": "Higher",
@@ -136,15 +136,15 @@
     "clusters": "false"
   },
   "result_23": {
-    "question": "Your chance to go viral is 0.21%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 0.25%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_24": {
-    "question": "Your chance to go viral is 3.30%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 4.24%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_25": {
-    "question": "Should the proportion of negative emotion words be more or less than  1.56%",
+    "question": "Should the proportion of negative emotion words be more or less? 1.56%",
     "option_A": "Lower",
     "path_A": "q_26",
     "option_B": "Higher",
@@ -152,7 +152,7 @@
     "clusters": "false"
   },
   "q_26": {
-    "question": "Should the proportion of causation-related words (e.g., \"because\") be more or less than  2.83%",
+    "question": "Should the proportion of perception-related words be more or less? 2.03%",
     "option_A": "Lower",
     "path_A": "result_27",
     "option_B": "Higher",
@@ -160,15 +160,15 @@
     "clusters": "false"
   },
   "result_27": {
-    "question": "Your chance to go viral is 0.94%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 1.74%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_28": {
-    "question": "Your chance to go viral is 2.65%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 0.32%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_29": {
-    "question": "Should the automated readability index be higher or lower than  14.7940",
+    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be more or less? 8.62%",
     "option_A": "Lower",
     "path_A": "result_30",
     "option_B": "Higher",
@@ -176,151 +176,127 @@
     "clusters": "false"
   },
   "result_30": {
-    "question": "Your chance to go viral is 1.09%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 4.84%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_31": {
-    "question": "Your chance to go viral is 5.94%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_32": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less than  6.39%",
+    "question": "Should the fraction of whitespace characters be higher or lower? 8.56%",
     "option_A": "Lower",
     "path_A": "q_33",
     "option_B": "Higher",
-    "path_B": "q_42",
+    "path_B": "q_40",
     "clusters": "false"
   },
   "q_33": {
-    "question": "Should the proportion of inhibition-related words (e.g., \"stop\", \"block\") be more or less than  0.6%",
+    "question": "Should the proportion of first-person singular \"I\" words be more or less? 0.02%",
     "option_A": "Lower",
-    "path_A": "q_34",
+    "path_A": "result_34",
     "option_B": "Higher",
-    "path_B": "q_39",
+    "path_B": "q_35",
     "clusters": "false"
   },
-  "q_34": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less than  1.61%",
-    "option_A": "Lower",
-    "path_A": "result_35",
-    "option_B": "Higher",
-    "path_B": "q_36",
-    "clusters": "false"
-  },
-  "result_35": {
+  "result_34": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_36": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower than  5.35%",
+  "q_35": {
+    "question": "Should the automated readability index be higher or lower? 29.5248",
     "option_A": "Lower",
-    "path_A": "result_37",
+    "path_A": "result_36",
     "option_B": "Higher",
-    "path_B": "result_38",
+    "path_B": "q_37",
     "clusters": "false"
   },
-  "result_37": {
-    "question": "Your chance to go viral is 25.37%\n\n                compared to 2% average chance.",
+  "result_36": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
+  },
+  "q_37": {
+    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less? 3.21%",
+    "option_A": "Lower",
+    "path_A": "result_38",
+    "option_B": "Higher",
+    "path_B": "result_39",
+    "clusters": "false"
   },
   "result_38": {
-    "question": "Your chance to go viral is 1.96%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 52.81%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_39": {
-    "question": "Should the proportion of vision-related words (seeing) be more or less than  0.07%",
+  "result_39": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_40": {
+    "question": "Should the fraction of digits in the text be higher or lower? 2.99%",
     "option_A": "Lower",
-    "path_A": "result_40",
+    "path_A": "q_41",
     "option_B": "Higher",
-    "path_B": "result_41",
+    "path_B": "q_46",
     "clusters": "false"
   },
-  "result_40": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_41": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
+  "q_41": {
+    "question": "Should the proportion of function words be more or less? 54.33%",
+    "option_A": "Lower",
+    "path_A": "q_42",
+    "option_B": "Higher",
+    "path_B": "result_45",
+    "clusters": "false"
   },
   "q_42": {
-    "question": "Should the proportion of socially oriented words be more or less than  3.34%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 4.69%",
     "option_A": "Lower",
-    "path_A": "q_43",
+    "path_A": "result_43",
     "option_B": "Higher",
-    "path_B": "q_48",
+    "path_B": "result_44",
     "clusters": "false"
   },
-  "q_43": {
-    "question": "Should the proportion of certainty words (e.g., \"always\", \"definitely\") be more or less than  0.95%",
-    "option_A": "Lower",
-    "path_A": "q_44",
-    "option_B": "Higher",
-    "path_B": "result_47",
-    "clusters": "false"
+  "result_43": {
+    "question": "Your chance to go viral is 6.25%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
-  "q_44": {
-    "question": "Should the ratio of leisure-related terms be more or less than  0.64%",
-    "option_A": "Lower",
-    "path_A": "result_45",
-    "option_B": "Higher",
-    "path_B": "result_46",
-    "clusters": "false"
+  "result_44": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
   "result_45": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "result_46": {
-    "question": "Your chance to go viral is 5.88%\n\n                compared to 2% average chance.",
-    "is_leaf": true
+  "q_46": {
+    "question": "Should the proportion of first-person singular \"I\" words be more or less? 3.72%",
+    "option_A": "Lower",
+    "path_A": "result_47",
+    "option_B": "Higher",
+    "path_B": "q_48",
+    "clusters": "false"
   },
   "result_47": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_48": {
-    "question": "Should the average word length be higher or lower than  5.3348",
+    "question": "Should the number of long words be higher or lower? 129.5000",
     "option_A": "Lower",
-    "path_A": "q_49",
+    "path_A": "result_49",
     "option_B": "Higher",
-    "path_B": "q_52",
+    "path_B": "result_50",
     "clusters": "false"
   },
-  "q_49": {
-    "question": "Should the proportion of function words be more or less than  54.33%",
-    "option_A": "Lower",
-    "path_A": "result_50",
-    "option_B": "Higher",
-    "path_B": "result_51",
-    "clusters": "false"
+  "result_49": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
   "result_50": {
-    "question": "Your chance to go viral is 6.72%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_51": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "q_52": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less than  0.05%",
-    "option_A": "Lower",
-    "path_A": "result_53",
-    "option_B": "Higher",
-    "path_B": "result_54",
-    "clusters": "false"
-  },
-  "result_53": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_54": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 25.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of non-space characters be higher or lower than  1714.5000",
+    "question": "Should the number of non-space characters be higher or lower? 1714.5000",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

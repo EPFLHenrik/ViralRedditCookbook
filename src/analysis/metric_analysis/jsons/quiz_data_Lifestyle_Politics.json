@@ -1,174 +1,162 @@
 {
   "q_1": {
-    "question": "Should the fraction of stopwords in the text be higher or lower than  34.72%",
+    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be more or less? 5.6%",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
-    "path_B": "q_15",
+    "path_B": "result_11",
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of perception-related words be more or less than  2.83%",
+    "question": "Should the automated readability index be higher or lower? 9.4666",
     "option_A": "Lower",
-    "path_A": "q_3",
+    "path_A": "result_3",
     "option_B": "Higher",
-    "path_B": "q_10",
+    "path_B": "q_4",
     "clusters": "false"
   },
-  "q_3": {
-    "question": "Should the number of unique stopwords be higher or lower than  40.5000",
-    "option_A": "Lower",
-    "path_A": "q_4",
-    "option_B": "Higher",
-    "path_B": "q_7",
-    "clusters": "false"
-  },
-  "q_4": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower than  19.67%",
-    "option_A": "Lower",
-    "path_A": "result_5",
-    "option_B": "Higher",
-    "path_B": "result_6",
-    "clusters": "false"
-  },
-  "result_5": {
-    "question": "Your chance to go viral is 0.31%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_6": {
-    "question": "Your chance to go viral is 1.85%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "q_7": {
-    "question": "Should the number of long words be higher or lower than  66.0000",
-    "option_A": "Lower",
-    "path_A": "result_8",
-    "option_B": "Higher",
-    "path_B": "result_9",
-    "clusters": "false"
-  },
-  "result_8": {
-    "question": "Your chance to go viral is 60.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_9": {
+  "result_3": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_10": {
-    "question": "Should the number of long words be higher or lower than  4.5000",
+  "q_4": {
+    "question": "Should the fraction of UPPERCASE letters be higher or lower? 19.67%",
     "option_A": "Lower",
-    "path_A": "result_11",
+    "path_A": "q_5",
     "option_B": "Higher",
-    "path_B": "q_12",
+    "path_B": "q_8",
     "clusters": "false"
+  },
+  "q_5": {
+    "question": "Should the fraction of UPPERCASE letters be higher or lower? 10.76%",
+    "option_A": "Lower",
+    "path_A": "result_6",
+    "option_B": "Higher",
+    "path_B": "result_7",
+    "clusters": "false"
+  },
+  "result_6": {
+    "question": "Your chance to go viral is 1.05%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_7": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_8": {
+    "question": "Should the proportion of socially oriented words be more or less? 9.55%",
+    "option_A": "Lower",
+    "path_A": "result_9",
+    "option_B": "Higher",
+    "path_B": "result_10",
+    "clusters": "false"
+  },
+  "result_9": {
+    "question": "Your chance to go viral is 4.43%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_10": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
   "result_11": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_12": {
-    "question": "Should the proportion of general biological process words be more or less than  3.77%",
+    "question": "Should the proportion of non-fluencies (e.g., \"um\", \"uh\") be more or less? 0.15%",
     "option_A": "Lower",
-    "path_A": "result_13",
+    "path_A": "q_13",
     "option_B": "Higher",
-    "path_B": "result_14",
+    "path_B": "q_24",
     "clusters": "false"
   },
-  "result_13": {
-    "question": "Your chance to go viral is 6.52%\n\n                compared to 2% average chance.",
-    "is_leaf": true
+  "q_13": {
+    "question": "Should the proportion of adverbs be more or less? 4.75%",
+    "option_A": "Lower",
+    "path_A": "q_14",
+    "option_B": "Higher",
+    "path_B": "q_21",
+    "clusters": "false"
   },
-  "result_14": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
+  "q_14": {
+    "question": "Should the proportion of health-related words be more or less? 0.89%",
+    "option_A": "Lower",
+    "path_A": "q_15",
+    "option_B": "Higher",
+    "path_B": "q_18",
+    "clusters": "false"
   },
   "q_15": {
-    "question": "Should the proportion of \"you\" references be more or less than  5.19%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 3.62%",
     "option_A": "Lower",
     "path_A": "result_16",
     "option_B": "Higher",
-    "path_B": "q_17",
+    "path_B": "result_17",
     "clusters": "false"
   },
   "result_16": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_17": {
-    "question": "Should the proportion of \"you\" references be more or less than  5.25%",
-    "option_A": "Lower",
-    "path_A": "result_18",
-    "option_B": "Higher",
-    "path_B": "result_19",
-    "clusters": "false"
-  },
-  "result_18": {
-    "question": "Your chance to go viral is 100.00%\n\n                compared to 2% average chance.",
+  "result_17": {
+    "question": "Your chance to go viral is 21.05%\n\n                compared to 2% average chance.",
     "is_leaf": true
+  },
+  "q_18": {
+    "question": "Should the proportion of motion-related words (moving, going) be more or less? 0.56%",
+    "option_A": "Lower",
+    "path_A": "result_19",
+    "option_B": "Higher",
+    "path_B": "result_20",
+    "clusters": "false"
   },
   "result_19": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_20": {
-    "question": "Should the proportion of adverbs be more or less than  4.74%",
-    "option_A": "Lower",
-    "path_A": "q_21",
-    "option_B": "Higher",
-    "path_B": "result_28",
-    "clusters": "false"
+  "result_20": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
   "q_21": {
-    "question": "Should the proportion of health-related words be more or less than  0.89%",
+    "question": "Should the proportion of first-person singular \"I\" words be more or less? 0.13%",
     "option_A": "Lower",
-    "path_A": "q_22",
+    "path_A": "result_22",
     "option_B": "Higher",
-    "path_B": "result_27",
+    "path_B": "result_23",
     "clusters": "false"
   },
-  "q_22": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less than  6.65%",
+  "result_22": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_23": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_24": {
+    "question": "Should the proportion of friend-related terms be more or less? 0.02%",
     "option_A": "Lower",
-    "path_A": "q_23",
+    "path_A": "result_25",
     "option_B": "Higher",
     "path_B": "result_26",
     "clusters": "false"
   },
-  "q_23": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower than  3.62%",
-    "option_A": "Lower",
-    "path_A": "result_24",
-    "option_B": "Higher",
-    "path_B": "result_25",
-    "clusters": "false"
-  },
-  "result_24": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
   "result_25": {
-    "question": "Your chance to go viral is 16.22%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_26": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "result_27": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_28": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
   "q_start": {
-    "question": "Should the number of unique words used be higher or lower than  315.5000",
+    "question": "Should the number of unique words used be higher or lower? 315.5000",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",
-    "path_B": "q_20",
+    "path_B": "q_12",
     "clusters": "false"
   }
 }

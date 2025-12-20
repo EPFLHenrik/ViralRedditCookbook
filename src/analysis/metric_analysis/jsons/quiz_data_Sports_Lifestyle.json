@@ -1,30 +1,30 @@
 {
   "q_1": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower than  8.35%",
+    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less? 19.42%",
     "option_A": "Lower",
-    "path_A": "result_2",
-    "option_B": "Higher",
-    "path_B": "q_3",
-    "clusters": "false"
-  },
-  "result_2": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "q_3": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less than  3.63%",
-    "option_A": "Lower",
-    "path_A": "result_4",
+    "path_A": "q_2",
     "option_B": "Higher",
     "path_B": "q_5",
     "clusters": "false"
+  },
+  "q_2": {
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 1.28%",
+    "option_A": "Lower",
+    "path_A": "result_3",
+    "option_B": "Higher",
+    "path_B": "result_4",
+    "clusters": "false"
+  },
+  "result_3": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
   "result_4": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_5": {
-    "question": "Should the fraction of whitespace characters be higher or lower than  16.29%",
+    "question": "Should the fraction of whitespace characters be higher or lower? 12.16%",
     "option_A": "Lower",
     "path_A": "q_6",
     "option_B": "Higher",
@@ -32,7 +32,7 @@
     "clusters": "false"
   },
   "q_6": {
-    "question": "Should the proportion of inhibition-related words (e.g., \"stop\", \"block\") be more or less than  0.5%",
+    "question": "Should the proportion of present-tense verbs be more or less? 4.44%",
     "option_A": "Lower",
     "path_A": "result_7",
     "option_B": "Higher",
@@ -40,27 +40,99 @@
     "clusters": "false"
   },
   "result_7": {
-    "question": "Your chance to go viral is 13.85%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_8": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 100.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_9": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "result_10": {
+  "q_10": {
+    "question": "Should the proportion of feeling- or touch-related words be more or less? 0.3%",
+    "option_A": "Lower",
+    "path_A": "q_11",
+    "option_B": "Higher",
+    "path_B": "q_14",
+    "clusters": "false"
+  },
+  "q_11": {
+    "question": "Should the negative VADER sentiment score be higher or lower? 0.0020",
+    "option_A": "Lower",
+    "path_A": "result_12",
+    "option_B": "Higher",
+    "path_B": "result_13",
+    "clusters": "false"
+  },
+  "result_12": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_13": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_14": {
+    "question": "Should the proportion of negative emotion words be more or less? 0.75%",
+    "option_A": "Lower",
+    "path_A": "result_15",
+    "option_B": "Higher",
+    "path_B": "q_16",
+    "clusters": "false"
+  },
+  "result_15": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_16": {
+    "question": "Should the proportion of inhibition-related words (e.g., \"stop\", \"block\") be more or less? 0.61%",
+    "option_A": "Lower",
+    "path_A": "q_17",
+    "option_B": "Higher",
+    "path_B": "q_20",
+    "clusters": "false"
+  },
+  "q_17": {
+    "question": "Should the proportion of past-tense verbs be more or less? 1.82%",
+    "option_A": "Lower",
+    "path_A": "result_18",
+    "option_B": "Higher",
+    "path_B": "result_19",
+    "clusters": "false"
+  },
+  "result_18": {
+    "question": "Your chance to go viral is 37.50%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_19": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_20": {
+    "question": "Should the proportion of causation-related words (e.g., \"because\") be more or less? 0.3%",
+    "option_A": "Lower",
+    "path_A": "result_21",
+    "option_B": "Higher",
+    "path_B": "result_22",
+    "clusters": "false"
+  },
+  "result_21": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_22": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the average number of characters per sentence be higher or lower than  122.0564",
+    "question": "Should the proportion of ingestion-related words (eating, drinking) be more or less? 0.15%",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",
-    "path_B": "result_10",
+    "path_B": "q_10",
     "clusters": "false"
   }
 }

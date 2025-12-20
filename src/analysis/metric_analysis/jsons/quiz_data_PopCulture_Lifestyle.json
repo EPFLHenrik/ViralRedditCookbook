@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower than  9.54%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower? 9.54%",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of body-related terms be more or less than  0.43%",
+    "question": "Should the proportion of body-related terms be more or less? 0.43%",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of vision-related words (seeing) be more or less than  2.13%",
+    "question": "Should the proportion of vision-related words (seeing) be more or less? 2.13%",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less than  2.16%",
+    "question": "Should the proportion of first-person singular \"I\" words be more or less? 2.16%",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -32,11 +32,11 @@
     "clusters": "false"
   },
   "result_5": {
-    "question": "Your chance to go viral is 8.84%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 8.98%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_6": {
-    "question": "Your chance to go viral is 1.18%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 1.19%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_7": {
@@ -44,7 +44,7 @@
     "is_leaf": true
   },
   "q_8": {
-    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be more or less than  1.55%",
+    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be more or less? 1.55%",
     "option_A": "Lower",
     "path_A": "q_9",
     "option_B": "Higher",
@@ -52,7 +52,7 @@
     "clusters": "false"
   },
   "q_9": {
-    "question": "Should the proportion of feeling- or touch-related words be more or less than  3.62%",
+    "question": "Should the proportion of feeling- or touch-related words be more or less? 3.62%",
     "option_A": "Lower",
     "path_A": "result_10",
     "option_B": "Higher",
@@ -68,7 +68,7 @@
     "is_leaf": true
   },
   "q_12": {
-    "question": "Should the number of unique words used be higher or lower than  230.0000",
+    "question": "Should the number of unique words used be higher or lower? 230.0000",
     "option_A": "Lower",
     "path_A": "result_13",
     "option_B": "Higher",
@@ -84,7 +84,7 @@
     "is_leaf": true
   },
   "q_15": {
-    "question": "Should the overall link sentiment score be higher or lower than  0.0000",
+    "question": "Should the overall link sentiment score be higher or lower? 0.0000",
     "option_A": "Lower",
     "path_A": "q_16",
     "option_B": "Higher",
@@ -92,7 +92,7 @@
     "clusters": "false"
   },
   "q_16": {
-    "question": "Should the number of long sentences be higher or lower than  0.5000",
+    "question": "Should the number of long sentences be higher or lower? 0.5000",
     "option_A": "Lower",
     "path_A": "result_17",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "is_leaf": true
   },
   "q_18": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less than  5.16%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 5.16%",
     "option_A": "Lower",
     "path_A": "result_19",
     "option_B": "Higher",
@@ -120,15 +120,15 @@
     "is_leaf": true
   },
   "q_21": {
-    "question": "Should the fraction of whitespace characters be higher or lower than  12.93%",
+    "question": "Should the fraction of whitespace characters be higher or lower? 12.93%",
     "option_A": "Lower",
     "path_A": "q_22",
     "option_B": "Higher",
-    "path_B": "result_25",
+    "path_B": "q_25",
     "clusters": "false"
   },
   "q_22": {
-    "question": "Should the average word length be higher or lower than  5.8606",
+    "question": "Should the average word length be higher or lower? 5.8606",
     "option_A": "Lower",
     "path_A": "result_23",
     "option_B": "Higher",
@@ -143,32 +143,32 @@
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "result_25": {
+  "q_25": {
+    "question": "Should the proportion of anxiety-related words be more or less? 2.27%",
+    "option_A": "Lower",
+    "path_A": "result_26",
+    "option_B": "Higher",
+    "path_B": "result_27",
+    "clusters": "false"
+  },
+  "result_26": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_26": {
-    "question": "Should the overall link sentiment score be higher or lower than  0.0000",
+  "result_27": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_28": {
+    "question": "Should the overall link sentiment score be higher or lower? 0.0000",
     "option_A": "Lower",
-    "path_A": "q_27",
+    "path_A": "q_29",
     "option_B": "Higher",
     "path_B": "q_34",
     "clusters": "false"
   },
-  "q_27": {
-    "question": "Should the proportion of \"they\" references be more or less than  0.35%",
-    "option_A": "Lower",
-    "path_A": "result_28",
-    "option_B": "Higher",
-    "path_B": "q_29",
-    "clusters": "false"
-  },
-  "result_28": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
   "q_29": {
-    "question": "Should the proportion of generic human-related words be more or less than  0.1%",
+    "question": "Should the proportion of \"they\" references be more or less? 1.33%",
     "option_A": "Lower",
     "path_A": "result_30",
     "option_B": "Higher",
@@ -180,7 +180,7 @@
     "is_leaf": true
   },
   "q_31": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower than  7.19%",
+    "question": "Should the proportion of health-related words be more or less? 0.1%",
     "option_A": "Lower",
     "path_A": "result_32",
     "option_B": "Higher",
@@ -196,7 +196,7 @@
     "is_leaf": true
   },
   "q_34": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less than  6.24%",
+    "question": "Should the proportion of first-person singular \"I\" words be more or less? 6.24%",
     "option_A": "Lower",
     "path_A": "q_35",
     "option_B": "Higher",
@@ -204,7 +204,7 @@
     "clusters": "false"
   },
   "q_35": {
-    "question": "Should the total number of characters in the post be higher or lower than  31.5000",
+    "question": "Should the total number of characters in the post be higher or lower? 31.5000",
     "option_A": "Lower",
     "path_A": "q_36",
     "option_B": "Higher",
@@ -212,7 +212,7 @@
     "clusters": "false"
   },
   "q_36": {
-    "question": "Should the fraction of whitespace characters be higher or lower than  12.7%",
+    "question": "Should the fraction of whitespace characters be higher or lower? 12.7%",
     "option_A": "Lower",
     "path_A": "result_37",
     "option_B": "Higher",
@@ -228,7 +228,7 @@
     "is_leaf": true
   },
   "q_39": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less than  10.91%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 10.91%",
     "option_A": "Lower",
     "path_A": "result_40",
     "option_B": "Higher",
@@ -244,51 +244,39 @@
     "is_leaf": true
   },
   "q_42": {
-    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less than  5.34%",
+    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less? 5.34%",
     "option_A": "Lower",
-    "path_A": "q_43",
+    "path_A": "result_43",
     "option_B": "Higher",
-    "path_B": "q_46",
+    "path_B": "q_44",
     "clusters": "false"
   },
-  "q_43": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less than  1.06%",
-    "option_A": "Lower",
-    "path_A": "result_44",
-    "option_B": "Higher",
-    "path_B": "result_45",
-    "clusters": "false"
-  },
-  "result_44": {
+  "result_43": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
+  },
+  "q_44": {
+    "question": "Should the proportion of socially oriented words be more or less? 6.12%",
+    "option_A": "Lower",
+    "path_A": "result_45",
+    "option_B": "Higher",
+    "path_B": "result_46",
+    "clusters": "false"
   },
   "result_45": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_46": {
-    "question": "Should the proportion of socially oriented words be more or less than  6.12%",
-    "option_A": "Lower",
-    "path_A": "result_47",
-    "option_B": "Higher",
-    "path_B": "result_48",
-    "clusters": "false"
-  },
-  "result_47": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_48": {
-    "question": "Your chance to go viral is 13.04%\n\n                compared to 2% average chance.",
+  "result_46": {
+    "question": "Your chance to go viral is 13.64%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower than  6.31%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 6.31%",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",
-    "path_B": "q_26",
+    "path_B": "q_28",
     "clusters": "false"
   }
 }
