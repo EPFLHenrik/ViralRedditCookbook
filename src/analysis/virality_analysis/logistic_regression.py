@@ -243,8 +243,7 @@ def logistic_regression(df, features_list=None):
 
     formula = "is_viral_numeric ~ "
     formula += " + ".join(selected_features)
-    formula += " + C(source_supercluster)"
-    
+
     print(f"\nFormula: {formula}\n")
     
     model = smf.logit(formula=formula, data=df_model_scaled).fit(
