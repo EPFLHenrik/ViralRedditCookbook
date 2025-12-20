@@ -4,35 +4,35 @@
     "is_leaf": true
   },
   "q_2": {
-    "question": "Should the number of sentences in the post be higher or lower than  6.5000",
+    "question": "Should the proportion of hearing-related words be more or less? 0.02%",
     "option_A": "Lower",
-    "path_A": "result_3",
-    "option_B": "Higher",
-    "path_B": "q_4",
-    "clusters": "false"
-  },
-  "result_3": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "q_4": {
-    "question": "Should the proportion of hearing-related words be more or less than  0.24%",
-    "option_A": "Lower",
-    "path_A": "q_5",
+    "path_A": "q_3",
     "option_B": "Higher",
     "path_B": "result_10",
     "clusters": "false"
   },
-  "q_5": {
-    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be more or less than  4.07%",
+  "q_3": {
+    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be more or less? 4.07%",
     "option_A": "Lower",
-    "path_A": "q_6",
+    "path_A": "q_4",
     "option_B": "Higher",
     "path_B": "result_9",
     "clusters": "false"
   },
+  "q_4": {
+    "question": "Should the automated readability index be higher or lower? 14.9059",
+    "option_A": "Lower",
+    "path_A": "result_5",
+    "option_B": "Higher",
+    "path_B": "q_6",
+    "clusters": "false"
+  },
+  "result_5": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
   "q_6": {
-    "question": "Should the automated readability index be higher or lower than  14.9059",
+    "question": "Should the proportion of work-related terms be more or less? 4.96%",
     "option_A": "Lower",
     "path_A": "result_7",
     "option_B": "Higher",
@@ -40,11 +40,11 @@
     "clusters": "false"
   },
   "result_7": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 66.67%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_8": {
-    "question": "Your chance to go viral is 63.64%\n\n                compared to 2% average chance.",
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
   "result_9": {
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of \"you\" references be more or less than  0.2%",
+    "question": "Should the number of long words be higher or lower? 24.5000",
     "option_A": "Lower",
     "path_A": "result_1",
     "option_B": "Higher",

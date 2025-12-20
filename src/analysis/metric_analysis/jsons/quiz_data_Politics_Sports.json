@@ -1,78 +1,90 @@
 {
   "q_1": {
-    "question": "Should the fraction of alphabetic characters be higher or lower than  77.06%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 8.93%",
     "option_A": "Lower",
-    "path_A": "result_2",
+    "path_A": "q_2",
     "option_B": "Higher",
-    "path_B": "q_3",
+    "path_B": "q_11",
     "clusters": "false"
   },
-  "result_2": {
+  "q_2": {
+    "question": "Should the average word length be higher or lower? 4.4365",
+    "option_A": "Lower",
+    "path_A": "result_3",
+    "option_B": "Higher",
+    "path_B": "q_4",
+    "clusters": "false"
+  },
+  "result_3": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_3": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less than  9.05%",
+  "q_4": {
+    "question": "Should the proportion of \"they\" references be more or less? 0.43%",
     "option_A": "Lower",
-    "path_A": "result_4",
+    "path_A": "q_5",
     "option_B": "Higher",
-    "path_B": "q_5",
+    "path_B": "q_8",
     "clusters": "false"
-  },
-  "result_4": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
   },
   "q_5": {
-    "question": "Should the proportion of \"they\" references be more or less than  0.47%",
+    "question": "Should the proportion of motion-related words (moving, going) be more or less? 1.73%",
     "option_A": "Lower",
-    "path_A": "q_6",
+    "path_A": "result_6",
     "option_B": "Higher",
-    "path_B": "result_9",
+    "path_B": "result_7",
     "clusters": "false"
   },
-  "q_6": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less than  2.24%",
-    "option_A": "Lower",
-    "path_A": "result_7",
-    "option_B": "Higher",
-    "path_B": "result_8",
-    "clusters": "false"
+  "result_6": {
+    "question": "Your chance to go viral is 6.76%\n\n                compared to 2% average chance.",
+    "is_leaf": true
   },
   "result_7": {
-    "question": "Your chance to go viral is 10.99%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_8": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
+  },
+  "q_8": {
+    "question": "Should the fraction of whitespace characters be higher or lower? 12.17%",
+    "option_A": "Lower",
+    "path_A": "result_9",
+    "option_B": "Higher",
+    "path_B": "result_10",
+    "clusters": "false"
   },
   "result_9": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_10": {
-    "question": "Should the fraction of whitespace characters be higher or lower than  0.94%",
-    "option_A": "Lower",
-    "path_A": "result_11",
-    "option_B": "Higher",
-    "path_B": "result_12",
-    "clusters": "false"
-  },
-  "result_11": {
+  "result_10": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
+  },
+  "q_11": {
+    "question": "Should the proportion of vision-related words (seeing) be more or less? 0.21%",
+    "option_A": "Lower",
+    "path_A": "result_12",
+    "option_B": "Higher",
+    "path_B": "result_13",
+    "clusters": "false"
   },
   "result_12": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
+  "result_13": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_14": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
   "q_start": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower than  7.8%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower? 7.8%",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",
-    "path_B": "q_10",
+    "path_B": "result_14",
     "clusters": "false"
   }
 }

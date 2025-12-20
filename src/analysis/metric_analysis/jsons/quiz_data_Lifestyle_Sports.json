@@ -1,66 +1,90 @@
 {
-  "result_1": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "q_2": {
-    "question": "Should the fraction of alphabetic characters be higher or lower than  79.76%",
+  "q_1": {
+    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be more or less? 0.05%",
     "option_A": "Lower",
-    "path_A": "q_3",
+    "path_A": "result_2",
     "option_B": "Higher",
-    "path_B": "q_6",
+    "path_B": "result_3",
     "clusters": "false"
   },
-  "q_3": {
-    "question": "Should the proportion of past-tense verbs be more or less than  0.64%",
+  "result_2": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_3": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_4": {
+    "question": "Should the proportion of verbs in the text be more or less? 2.5%",
     "option_A": "Lower",
-    "path_A": "result_4",
+    "path_A": "q_5",
     "option_B": "Higher",
-    "path_B": "result_5",
+    "path_B": "q_12",
     "clusters": "false"
   },
-  "result_4": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "result_5": {
-    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
+  "q_5": {
+    "question": "Should the fraction of alphabetic characters be higher or lower? 79.37%",
+    "option_A": "Lower",
+    "path_A": "q_6",
+    "option_B": "Higher",
+    "path_B": "q_9",
+    "clusters": "false"
   },
   "q_6": {
-    "question": "Should the fraction of alphabetic characters be higher or lower than  80.18%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 2.08%",
     "option_A": "Lower",
     "path_A": "result_7",
     "option_B": "Higher",
-    "path_B": "q_8",
+    "path_B": "result_8",
     "clusters": "false"
   },
   "result_7": {
-    "question": "Your chance to go viral is 100.00%\n\n                compared to 2% average chance.",
-    "is_leaf": true
-  },
-  "q_8": {
-    "question": "Should the proportion of perception-related words be more or less than  3.57%",
-    "option_A": "Lower",
-    "path_A": "result_9",
-    "option_B": "Higher",
-    "path_B": "result_10",
-    "clusters": "false"
-  },
-  "result_9": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
+  },
+  "result_8": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_9": {
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 4.1%",
+    "option_A": "Lower",
+    "path_A": "result_10",
+    "option_B": "Higher",
+    "path_B": "result_11",
+    "clusters": "false"
   },
   "result_10": {
     "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
     "is_leaf": true
   },
-  "q_start": {
-    "question": "Should the proportion of quantifiers (e.g., \"many\", \"few\") be more or less than  6.53%",
+  "result_11": {
+    "question": "Your chance to go viral is 100.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_12": {
+    "question": "Should the proportion of body-related terms be more or less? 1.29%",
     "option_A": "Lower",
-    "path_A": "result_1",
+    "path_A": "result_13",
     "option_B": "Higher",
-    "path_B": "q_2",
+    "path_B": "result_14",
+    "clusters": "false"
+  },
+  "result_13": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "result_14": {
+    "question": "Your chance to go viral is 0.00%\n\n                compared to 2% average chance.",
+    "is_leaf": true
+  },
+  "q_start": {
+    "question": "Should the proportion of quantifiers (e.g., \"many\", \"few\") be more or less? 6.53%",
+    "option_A": "Lower",
+    "path_A": "q_1",
+    "option_B": "Higher",
+    "path_B": "q_4",
     "clusters": "false"
   }
 }
