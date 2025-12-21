@@ -228,6 +228,8 @@ The directory structure of the project looks like this:
 │   │   ├── textual_analysis/       <- Analysis of title and body of posts
 │   │   ├── top_subreddits/         <- Analysis of most popular subreddits
 │   │   ├── upvote_analysis/        <- Upvote/engagement analysis
+│   │   ├── propensity_analysis/    <- Propensity analysis of virality
+│   │   ├── upvote_analysis/        <- Upvote/engagement analysis
 │   │   ├── virality_analysis/      <- Analysis for virality
 │   │   └── virality_graph/         <- Graphical analysis of virality
 │   │
