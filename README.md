@@ -204,7 +204,8 @@ python src/data/preprocess_graph.py
 Since the scraping process has taken several days across several devices and clustering required a large pipeline, we have made the used datasets available on Google Drive. They are required in order to reproduce the `results.ipynb` notebook. All datasets are available on our google drive. They have all been used for different steps of the pipeline.
 - [Dataset with clusters](https://drive.google.com/file/d/1zsww69--3KvZTzpohDfCLU15HBMIqDdj/view?usp=drive_link)
 - [Enhanced Scraping Dataset](https://drive.google.com/file/d/12SAFinVcxSoniVVvr1bB94gKccXn8uBg/view?usp=drive_link)
-- [Final Dataframe](https://drive.google.com/file/d/1qVLD5FblIiOlzK7Ux1mbyuu3fLP52Rd4/view?usp=drive_link)
+- [Final Dataframe](https://drive.google.com/file/d/1qVLD5FblIiOlzK7Ux1mbyuu3fLP52Rd4/view?usp=drive_link) <br>
+
  Before running the pipeline download both datasets and put them in `/data`. If you are interested in how the datasets have been obtained, check `/src/analysis/subreddit_clusters` (clustering script) and `/src/data/scraping` (scraping script).
 
 ## Project Structure
