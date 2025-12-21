@@ -121,7 +121,7 @@ def export_pvalue_matrix(df, cluster_col, cluster_names, metric, output_dir):
     
     return pvalue_matrix
 
-def plot_pvalue_heatmap(pvalue_matrix, metric, output_dir):
+def plot_pvalue_heatmap(pvalue_matrix, metric, output_dir, show=False):
     plt.figure(figsize=(10, 8))
     
     log_pvalues = -np.log10(pvalue_matrix.replace(0, 1e-300))
@@ -147,7 +147,8 @@ def plot_pvalue_heatmap(pvalue_matrix, metric, output_dir):
     plt.xticks(rotation=45, ha='right')
     plt.yticks(rotation=0)
     plt.tight_layout()
-    
+    if show:
+        plt.show()
     plt.savefig(os.path.join(output_dir, f'{metric}_pvalue_heatmap.png'), dpi=300, bbox_inches='tight')
     plt.close()
     
