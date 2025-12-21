@@ -529,7 +529,7 @@ def getviralityGeomRacetemplate(month="DEC"):
 
     
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # G = load_reddit_graph()
     # sources_by_quarter_matrix(r"reddit_negative_edges_by_quarter.csv")
     # corr_time_vs_ups()
