@@ -168,7 +168,6 @@ cython_debug/
 # Data (keep the folder but ignore the files)
 /data/*
 !/data/.gitkeep
-*.pkl
 *.csv
 *.tsv
 src/analysis/sentiment_graphs/**.png
