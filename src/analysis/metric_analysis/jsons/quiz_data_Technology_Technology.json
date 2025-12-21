@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 2.34%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 14.47%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be more or less? 5.41%",
+    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of personal pronouns be more or less? 0.66%",
+    "question": "Should the proportion of personal pronouns be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of past-tense verbs be more or less? 1.07%",
+    "question": "Should the proportion of past-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of personal pronouns be more or less? 6.65%",
+    "question": "Should the proportion of personal pronouns be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less? 13.92%",
+    "question": "Should the proportion of cognitive mechanism terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the automated readability index be higher or lower? 7.6293",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the proportion of socially oriented words be more or less? 5.52%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the proportion of function words be more or less? 35.93%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_19",
     "option_B": "Higher",
@@ -112,7 +112,7 @@
     "clusters": "false"
   },
   "q_19": {
-    "question": "Should the proportion of present-tense verbs be more or less? 9.45%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -128,7 +128,7 @@
     "is_leaf": true
   },
   "q_22": {
-    "question": "Should the proportion of \"we\" (first-person plural) words be more or less? 0.84%",
+    "question": "Should the proportion of \"we\" (first-person plural) words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_23",
     "option_B": "Higher",
@@ -144,7 +144,7 @@
     "is_leaf": true
   },
   "q_25": {
-    "question": "Should the proportion of negative emotion words be more or less? 1.56%",
+    "question": "Should the proportion of negative emotion words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_26",
     "option_B": "Higher",
@@ -152,7 +152,7 @@
     "clusters": "false"
   },
   "q_26": {
-    "question": "Should the proportion of perception-related words be more or less? 2.03%",
+    "question": "Should the proportion of perception-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_27",
     "option_B": "Higher",
@@ -168,7 +168,7 @@
     "is_leaf": true
   },
   "q_29": {
-    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be more or less? 8.62%",
+    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_30",
     "option_B": "Higher",
@@ -184,7 +184,7 @@
     "is_leaf": true
   },
   "q_32": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 8.56%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_33",
     "option_B": "Higher",
@@ -192,7 +192,7 @@
     "clusters": "false"
   },
   "q_33": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 0.02%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_34",
     "option_B": "Higher",
@@ -204,7 +204,7 @@
     "is_leaf": true
   },
   "q_35": {
-    "question": "Should the automated readability index be higher or lower? 29.5248",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_36",
     "option_B": "Higher",
@@ -216,7 +216,7 @@
     "is_leaf": true
   },
   "q_37": {
-    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less? 3.21%",
+    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_38",
     "option_B": "Higher",
@@ -232,7 +232,7 @@
     "is_leaf": true
   },
   "q_40": {
-    "question": "Should the fraction of digits in the text be higher or lower? 2.99%",
+    "question": "Should the fraction of digits in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_41",
     "option_B": "Higher",
@@ -240,7 +240,7 @@
     "clusters": "false"
   },
   "q_41": {
-    "question": "Should the proportion of function words be more or less? 54.33%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_42",
     "option_B": "Higher",
@@ -248,7 +248,7 @@
     "clusters": "false"
   },
   "q_42": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 4.69%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_43",
     "option_B": "Higher",
@@ -268,7 +268,7 @@
     "is_leaf": true
   },
   "q_46": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 3.72%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_47",
     "option_B": "Higher",
@@ -280,7 +280,7 @@
     "is_leaf": true
   },
   "q_48": {
-    "question": "Should the number of long words be higher or lower? 129.5000",
+    "question": "Should the number of long words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_49",
     "option_B": "Higher",
@@ -296,7 +296,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of non-space characters be higher or lower? 1714.5000",
+    "question": "Should the number of non-space characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be more or less? 0.56%",
+    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 72.36%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of past-tense verbs be more or less? 14.64%",
+    "question": "Should the proportion of past-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 8.96%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 16.37%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 4.55%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be more or less? 3.88%",
+    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the proportion of swear or profanity terms be more or less? 1.93%",
+    "question": "Should the proportion of swear or profanity terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the total number of words in the post be higher or lower? 17.5000",
+    "question": "Should the total number of words in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the proportion of socially oriented words be more or less? 2.78%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_19",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "is_leaf": true
   },
   "q_20": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 13.99%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_21",
     "option_B": "Higher",
@@ -132,7 +132,7 @@
     "is_leaf": true
   },
   "q_23": {
-    "question": "Should the proportion of death- or mortality-related words be more or less? 0.11%",
+    "question": "Should the proportion of death- or mortality-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_24",
     "option_B": "Higher",
@@ -148,7 +148,7 @@
     "is_leaf": true
   },
   "q_26": {
-    "question": "Should the proportion of health-related words be more or less? 0.3%",
+    "question": "Should the proportion of health-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_27",
     "option_B": "Higher",
@@ -156,7 +156,7 @@
     "clusters": "false"
   },
   "q_27": {
-    "question": "Should the proportion of \"they\" references be more or less? 0.63%",
+    "question": "Should the proportion of \"they\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_28",
     "option_B": "Higher",
@@ -164,7 +164,7 @@
     "clusters": "false"
   },
   "q_28": {
-    "question": "Should the proportion of socially oriented words be more or less? 2.62%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_29",
     "option_B": "Higher",
@@ -176,7 +176,7 @@
     "is_leaf": true
   },
   "q_30": {
-    "question": "Should the fraction of digits in the text be higher or lower? 0.53%",
+    "question": "Should the fraction of digits in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_31",
     "option_B": "Higher",
@@ -200,7 +200,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of long words be higher or lower? 70.5000",
+    "question": "Should the number of long words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

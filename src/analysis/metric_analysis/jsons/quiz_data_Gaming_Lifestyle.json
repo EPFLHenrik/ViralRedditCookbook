@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of pronouns be more or less? 4.78%",
+    "question": "Should the proportion of pronouns be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of positive emotion words be more or less? 3.91%",
+    "question": "Should the proportion of positive emotion words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of present-tense verbs be more or less? 11.81%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 82.74%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 8.63%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 11.29%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less? 10.17%",
+    "question": "Should the proportion of relativity-related words (time, space, motion) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the proportion of motion-related words (moving, going) be more or less? 9.72%",
+    "question": "Should the proportion of motion-related words (moving, going) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the proportion of function words be more or less? 24.64%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_18",
     "option_B": "Higher",
@@ -108,7 +108,7 @@
     "is_leaf": true
   },
   "q_19": {
-    "question": "Should the fraction of stopwords in the text be higher or lower? 25.12%",
+    "question": "Should the fraction of stopwords in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_20",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "clusters": "false"
   },
   "q_20": {
-    "question": "Should the proportion of adverbs be more or less? 4.49%",
+    "question": "Should the proportion of adverbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_21",
     "option_B": "Higher",
@@ -132,7 +132,7 @@
     "is_leaf": true
   },
   "q_23": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 5.25%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_24",
     "option_B": "Higher",
@@ -148,7 +148,7 @@
     "is_leaf": true
   },
   "q_26": {
-    "question": "Should the positive VADER sentiment score be higher or lower? 0.2660",
+    "question": "Should the positive VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_27",
     "option_B": "Higher",
@@ -156,7 +156,7 @@
     "clusters": "false"
   },
   "q_27": {
-    "question": "Should the proportion of sadness-related words be more or less? 0.22%",
+    "question": "Should the proportion of sadness-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_28",
     "option_B": "Higher",
@@ -164,7 +164,7 @@
     "clusters": "false"
   },
   "q_28": {
-    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be more or less? 16.82%",
+    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_29",
     "option_B": "Higher",
@@ -172,7 +172,7 @@
     "clusters": "false"
   },
   "q_29": {
-    "question": "Should the average number of words per sentence be higher or lower? 6.2240",
+    "question": "Should the average number of words per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_30",
     "option_B": "Higher",
@@ -192,7 +192,7 @@
     "is_leaf": true
   },
   "q_33": {
-    "question": "Should the proportion of health-related words be more or less? 0.23%",
+    "question": "Should the proportion of health-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_34",
     "option_B": "Higher",
@@ -200,7 +200,7 @@
     "clusters": "false"
   },
   "q_34": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 57.42%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_35",
     "option_B": "Higher",
@@ -216,7 +216,7 @@
     "is_leaf": true
   },
   "q_37": {
-    "question": "Should the ratio of leisure-related terms be more or less? 1.86%",
+    "question": "Should the ratio of leisure-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_38",
     "option_B": "Higher",
@@ -232,7 +232,7 @@
     "is_leaf": true
   },
   "q_40": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 3.87%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_41",
     "option_B": "Higher",
@@ -244,7 +244,7 @@
     "is_leaf": true
   },
   "q_42": {
-    "question": "Should the average word length be higher or lower? 4.4762",
+    "question": "Should the average word length be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_43",
     "option_B": "Higher",
@@ -256,7 +256,7 @@
     "is_leaf": true
   },
   "q_44": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 4.36%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_45",
     "option_B": "Higher",
@@ -272,7 +272,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the ratio of leisure-related terms be more or less? 0.68%",
+    "question": "Should the ratio of leisure-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

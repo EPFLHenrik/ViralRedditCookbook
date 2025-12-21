@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 9.7%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of affective (emotion-related) words be more or less? 2.5%",
+    "question": "Should the proportion of affective (emotion-related) words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the total number of characters in the post be higher or lower? 88.5000",
+    "question": "Should the total number of characters in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of verbs in the text be more or less? 7.42%",
+    "question": "Should the proportion of verbs in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of ingestion-related words (eating, drinking) be more or less? 3.57%",
+    "question": "Should the proportion of ingestion-related words (eating, drinking) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of present-tense verbs be more or less? 2.94%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_11",
     "option_B": "Higher",
@@ -72,7 +72,7 @@
     "is_leaf": true
   },
   "q_13": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less? 32.05%",
+    "question": "Should the proportion of relativity-related words (time, space, motion) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_14",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "clusters": "false"
   },
   "q_14": {
-    "question": "Should the proportion of non-fluencies (e.g., \"um\", \"uh\") be more or less? 26.67%",
+    "question": "Should the proportion of non-fluencies (e.g., \"um\", \"uh\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_15",
     "option_B": "Higher",
@@ -88,7 +88,7 @@
     "clusters": "false"
   },
   "q_15": {
-    "question": "Should the proportion of ingestion-related words (eating, drinking) be more or less? 21.11%",
+    "question": "Should the proportion of ingestion-related words (eating, drinking) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_16",
     "option_B": "Higher",
@@ -108,7 +108,7 @@
     "is_leaf": true
   },
   "q_19": {
-    "question": "Should the average number of characters per sentence be higher or lower? 63.5000",
+    "question": "Should the average number of characters per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -120,7 +120,7 @@
     "is_leaf": true
   },
   "q_21": {
-    "question": "Should the proportion of socially oriented words be more or less? 4.17%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_22",
     "option_B": "Higher",
@@ -136,7 +136,7 @@
     "is_leaf": true
   },
   "q_24": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 5.21%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_25",
     "option_B": "Higher",
@@ -144,7 +144,7 @@
     "clusters": "false"
   },
   "q_25": {
-    "question": "Should the average word length be higher or lower? 3.9459",
+    "question": "Should the average word length be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_26",
     "option_B": "Higher",
@@ -156,7 +156,7 @@
     "is_leaf": true
   },
   "q_27": {
-    "question": "Should the proportion of socially oriented words be more or less? 4.12%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_28",
     "option_B": "Higher",
@@ -164,7 +164,7 @@
     "clusters": "false"
   },
   "q_28": {
-    "question": "Should the average number of characters per sentence be higher or lower? 97.5000",
+    "question": "Should the average number of characters per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_29",
     "option_B": "Higher",
@@ -180,7 +180,7 @@
     "is_leaf": true
   },
   "q_31": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 14.35%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_32",
     "option_B": "Higher",
@@ -196,7 +196,7 @@
     "is_leaf": true
   },
   "q_34": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 75.67%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_35",
     "option_B": "Higher",
@@ -204,7 +204,7 @@
     "clusters": "false"
   },
   "q_35": {
-    "question": "Should the proportion of work-related terms be more or less? 16.69%",
+    "question": "Should the proportion of work-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_36",
     "option_B": "Higher",
@@ -212,7 +212,7 @@
     "clusters": "false"
   },
   "q_36": {
-    "question": "Should the number of sentences in the post be higher or lower? 1.5000",
+    "question": "Should the number of sentences in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_37",
     "option_B": "Higher",
@@ -228,7 +228,7 @@
     "is_leaf": true
   },
   "q_39": {
-    "question": "Should the total number of characters in the post be higher or lower? 192.5000",
+    "question": "Should the total number of characters in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_40",
     "option_B": "Higher",
@@ -244,7 +244,7 @@
     "is_leaf": true
   },
   "q_42": {
-    "question": "Should the proportion of positive emotion words be more or less? 4.85%",
+    "question": "Should the proportion of positive emotion words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_43",
     "option_B": "Higher",
@@ -252,7 +252,7 @@
     "clusters": "false"
   },
   "q_43": {
-    "question": "Should the proportion of general biological process words be more or less? 0.52%",
+    "question": "Should the proportion of general biological process words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_44",
     "option_B": "Higher",
@@ -272,7 +272,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of unique words used be higher or lower? 13.5000",
+    "question": "Should the number of unique words used be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

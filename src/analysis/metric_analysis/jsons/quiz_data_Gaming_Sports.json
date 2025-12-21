@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of socially oriented words be more or less? 17.52%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_2",
     "option_B": "Higher",
@@ -12,7 +12,7 @@
     "is_leaf": true
   },
   "q_3": {
-    "question": "Should the proportion of socially oriented words be more or less? 17.91%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -20,7 +20,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less? 8.82%",
+    "question": "Should the proportion of cognitive mechanism terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -36,7 +36,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of prepositions be more or less? 1.52%",
+    "question": "Should the proportion of prepositions be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -52,7 +52,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of certainty words (e.g., \"always\", \"definitely\") be more or less? 0.83%",
+    "question": "Should the proportion of certainty words (e.g., \"always\", \"definitely\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "is_leaf": true
   },
   "q_12": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? 0.8812",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_13",
     "option_B": "Higher",
@@ -72,7 +72,7 @@
     "clusters": "false"
   },
   "q_13": {
-    "question": "Should the proportion of achievement-related words be more or less? 0.49%",
+    "question": "Should the proportion of achievement-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_14",
     "option_B": "Higher",
@@ -84,7 +84,7 @@
     "is_leaf": true
   },
   "q_15": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? -0.8388",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_16",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of health-related words be more or less? 0.22%",
+    "question": "Should the proportion of health-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

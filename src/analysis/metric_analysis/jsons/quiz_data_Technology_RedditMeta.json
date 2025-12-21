@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 17.86%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of work-related terms be more or less? 5.01%",
+    "question": "Should the proportion of work-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less? 9.02%",
+    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 15.15%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 81.79%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of death- or mortality-related words be more or less? 8.93%",
+    "question": "Should the proportion of death- or mortality-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of present-tense verbs be more or less? 12.42%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the proportion of death- or mortality-related words be more or less? 10.32%",
+    "question": "Should the proportion of death- or mortality-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the proportion of present-tense verbs be more or less? 0.2%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the proportion of work-related terms be more or less? 8.71%",
+    "question": "Should the proportion of work-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_19",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "is_leaf": true
   },
   "q_20": {
-    "question": "Should the average word length be higher or lower? 8.4500",
+    "question": "Should the average word length be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_21",
     "option_B": "Higher",
@@ -132,7 +132,7 @@
     "is_leaf": true
   },
   "q_23": {
-    "question": "Should the proportion of general biological process words be more or less? 1.02%",
+    "question": "Should the proportion of general biological process words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_24",
     "option_B": "Higher",
@@ -140,7 +140,7 @@
     "clusters": "false"
   },
   "q_24": {
-    "question": "Should the number of sentences in the post be higher or lower? 19.0000",
+    "question": "Should the number of sentences in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_25",
     "option_B": "Higher",
@@ -160,7 +160,7 @@
     "is_leaf": true
   },
   "q_28": {
-    "question": "Should the proportion of \"they\" references be more or less? 0.9%",
+    "question": "Should the proportion of \"they\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_29",
     "option_B": "Higher",
@@ -168,7 +168,7 @@
     "clusters": "false"
   },
   "q_29": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 66.3%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_30",
     "option_B": "Higher",
@@ -180,7 +180,7 @@
     "is_leaf": true
   },
   "q_31": {
-    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be more or less? 6.82%",
+    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_32",
     "option_B": "Higher",
@@ -188,7 +188,7 @@
     "clusters": "false"
   },
   "q_32": {
-    "question": "Should the proportion of inhibition-related words (e.g., \"stop\", \"block\") be more or less? 1.36%",
+    "question": "Should the proportion of inhibition-related words (e.g., \"stop\", \"block\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_33",
     "option_B": "Higher",
@@ -204,7 +204,7 @@
     "is_leaf": true
   },
   "q_35": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 14.21%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_36",
     "option_B": "Higher",
@@ -224,7 +224,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of \"we\" (first-person plural) words be more or less? 0.05%",
+    "question": "Should the proportion of \"we\" (first-person plural) words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

@@ -4,7 +4,7 @@
     "is_leaf": true
   },
   "q_2": {
-    "question": "Should the proportion of hearing-related words be more or less? 0.02%",
+    "question": "Should the proportion of hearing-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -12,7 +12,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be more or less? 4.07%",
+    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -20,7 +20,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the automated readability index be higher or lower? 14.9059",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -32,7 +32,7 @@
     "is_leaf": true
   },
   "q_6": {
-    "question": "Should the proportion of work-related terms be more or less? 4.96%",
+    "question": "Should the proportion of work-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_7",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of long words be higher or lower? 24.5000",
+    "question": "Should the number of long words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_1",
     "option_B": "Higher",

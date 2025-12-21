@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less? 29.71%",
+    "question": "Should the proportion of relativity-related words (time, space, motion) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 1.63%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less? 8.71%",
+    "question": "Should the proportion of cognitive mechanism terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the negative VADER sentiment score be higher or lower? 0.0845",
+    "question": "Should the negative VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less? 5.9%",
+    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the fraction of digits in the text be higher or lower? 13.62%",
+    "question": "Should the fraction of digits in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of vision-related words (seeing) be more or less? 4.3%",
+    "question": "Should the proportion of vision-related words (seeing) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the number of non-space characters be higher or lower? 52.5000",
+    "question": "Should the number of non-space characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the proportion of present-tense verbs be more or less? 8.71%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 4.17%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_19",
     "option_B": "Higher",
@@ -120,7 +120,7 @@
     "is_leaf": true
   },
   "q_21": {
-    "question": "Should the number of non-space characters be higher or lower? 30.5000",
+    "question": "Should the number of non-space characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_22",
     "option_B": "Higher",
@@ -132,7 +132,7 @@
     "is_leaf": true
   },
   "q_23": {
-    "question": "Should the automated readability index be higher or lower? 5.0500",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_24",
     "option_B": "Higher",
@@ -148,7 +148,7 @@
     "is_leaf": true
   },
   "q_26": {
-    "question": "Should the positive VADER sentiment score be higher or lower? 0.1605",
+    "question": "Should the positive VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_27",
     "option_B": "Higher",
@@ -156,7 +156,7 @@
     "clusters": "false"
   },
   "q_27": {
-    "question": "Should the proportion of general biological process words be more or less? 5.63%",
+    "question": "Should the proportion of general biological process words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_28",
     "option_B": "Higher",
@@ -164,7 +164,7 @@
     "clusters": "false"
   },
   "q_28": {
-    "question": "Should the proportion of socially oriented words be more or less? 3.71%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_29",
     "option_B": "Higher",
@@ -176,7 +176,7 @@
     "is_leaf": true
   },
   "q_30": {
-    "question": "Should the proportion of quantifiers (e.g., \"many\", \"few\") be more or less? 2.71%",
+    "question": "Should the proportion of quantifiers (e.g., \"many\", \"few\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_31",
     "option_B": "Higher",
@@ -192,7 +192,7 @@
     "is_leaf": true
   },
   "q_33": {
-    "question": "Should the average number of characters per sentence be higher or lower? 22.2500",
+    "question": "Should the average number of characters per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_34",
     "option_B": "Higher",
@@ -208,7 +208,7 @@
     "is_leaf": true
   },
   "q_36": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 0.78%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_37",
     "option_B": "Higher",
@@ -224,7 +224,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of work-related terms be more or less? 2.25%",
+    "question": "Should the proportion of work-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

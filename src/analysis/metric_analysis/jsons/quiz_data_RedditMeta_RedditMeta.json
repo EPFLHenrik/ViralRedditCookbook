@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of hearing-related words be more or less? 16.23%",
+    "question": "Should the proportion of hearing-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the negative VADER sentiment score be higher or lower? 0.0395",
+    "question": "Should the negative VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 1.38%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of exclusive terms (e.g., \"but\", \"without\") be more or less? 13.48%",
+    "question": "Should the proportion of exclusive terms (e.g., \"but\", \"without\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 4.74%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 2.76%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the total number of words in the post be higher or lower? 15.5000",
+    "question": "Should the total number of words in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the number of non-space characters be higher or lower? 254.5000",
+    "question": "Should the number of non-space characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 8.25%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_18",
     "option_B": "Higher",
@@ -108,7 +108,7 @@
     "is_leaf": true
   },
   "q_19": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less? 2.63%",
+    "question": "Should the proportion of cognitive mechanism terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_20",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "clusters": "false"
   },
   "q_20": {
-    "question": "Should the proportion of perception-related words be more or less? 22.5%",
+    "question": "Should the proportion of perception-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_21",
     "option_B": "Higher",
@@ -136,7 +136,7 @@
     "is_leaf": true
   },
   "q_24": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 6.45%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_25",
     "option_B": "Higher",
@@ -144,7 +144,7 @@
     "clusters": "false"
   },
   "q_25": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 70.4%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_26",
     "option_B": "Higher",
@@ -152,7 +152,7 @@
     "clusters": "false"
   },
   "q_26": {
-    "question": "Should the proportion of death- or mortality-related words be more or less? 0.31%",
+    "question": "Should the proportion of death- or mortality-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_27",
     "option_B": "Higher",
@@ -160,7 +160,7 @@
     "clusters": "false"
   },
   "q_27": {
-    "question": "Should the proportion of body-related terms be more or less? 0.03%",
+    "question": "Should the proportion of body-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_28",
     "option_B": "Higher",
@@ -176,7 +176,7 @@
     "is_leaf": true
   },
   "q_30": {
-    "question": "Should the proportion of hearing-related words be more or less? 0.45%",
+    "question": "Should the proportion of hearing-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_31",
     "option_B": "Higher",
@@ -192,7 +192,7 @@
     "is_leaf": true
   },
   "q_33": {
-    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be more or less? 4.7%",
+    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_34",
     "option_B": "Higher",
@@ -200,7 +200,7 @@
     "clusters": "false"
   },
   "q_34": {
-    "question": "Should the proportion of socially oriented words be more or less? 5.45%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_35",
     "option_B": "Higher",
@@ -216,7 +216,7 @@
     "is_leaf": true
   },
   "q_37": {
-    "question": "Should the proportion of causation-related words (e.g., \"because\") be more or less? 0.8%",
+    "question": "Should the proportion of causation-related words (e.g., \"because\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_38",
     "option_B": "Higher",
@@ -232,7 +232,7 @@
     "is_leaf": true
   },
   "q_40": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 5.8%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_41",
     "option_B": "Higher",
@@ -240,7 +240,7 @@
     "clusters": "false"
   },
   "q_41": {
-    "question": "Should the proportion of hearing-related words be more or less? 1.46%",
+    "question": "Should the proportion of hearing-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_42",
     "option_B": "Higher",
@@ -248,7 +248,7 @@
     "clusters": "false"
   },
   "q_42": {
-    "question": "Should the proportion of ingestion-related words (eating, drinking) be more or less? 0.02%",
+    "question": "Should the proportion of ingestion-related words (eating, drinking) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_43",
     "option_B": "Higher",
@@ -264,7 +264,7 @@
     "is_leaf": true
   },
   "q_45": {
-    "question": "Should the proportion of future-oriented verbs be more or less? 0.82%",
+    "question": "Should the proportion of future-oriented verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_46",
     "option_B": "Higher",
@@ -280,7 +280,7 @@
     "is_leaf": true
   },
   "q_48": {
-    "question": "Should the proportion of sadness-related words be more or less? 0.17%",
+    "question": "Should the proportion of sadness-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_49",
     "option_B": "Higher",
@@ -292,7 +292,7 @@
     "is_leaf": true
   },
   "q_50": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 8.85%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_51",
     "option_B": "Higher",
@@ -308,7 +308,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of non-space characters be higher or lower? 2466.0000",
+    "question": "Should the number of non-space characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

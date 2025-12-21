@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of present-tense verbs be more or less? 2.56%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of \"we\" (first-person plural) words be more or less? 6.46%",
+    "question": "Should the proportion of \"we\" (first-person plural) words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of discrepancy words (e.g., \"should\", \"would\") be more or less? 6.9%",
+    "question": "Should the proportion of discrepancy words (e.g., \"should\", \"would\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of adverbs be more or less? 0.11%",
+    "question": "Should the proportion of adverbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the average number of words per sentence be higher or lower? 9.2500",
+    "question": "Should the average number of words per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of personal pronouns be more or less? 13.48%",
+    "question": "Should the proportion of personal pronouns be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less? 12.92%",
+    "question": "Should the proportion of relativity-related words (time, space, motion) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the proportion of body-related terms be more or less? 6.67%",
+    "question": "Should the proportion of body-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 1.81%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the automated readability index be higher or lower? 10.1870",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_19",
     "option_B": "Higher",
@@ -112,7 +112,7 @@
     "clusters": "false"
   },
   "q_19": {
-    "question": "Should the average word length be higher or lower? 3.9310",
+    "question": "Should the average word length be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -128,7 +128,7 @@
     "is_leaf": true
   },
   "q_22": {
-    "question": "Should the proportion of causation-related words (e.g., \"because\") be more or less? 3.55%",
+    "question": "Should the proportion of causation-related words (e.g., \"because\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_23",
     "option_B": "Higher",
@@ -144,7 +144,7 @@
     "is_leaf": true
   },
   "q_25": {
-    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be more or less? 7.19%",
+    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_26",
     "option_B": "Higher",
@@ -152,7 +152,7 @@
     "clusters": "false"
   },
   "q_26": {
-    "question": "Should the proportion of body-related terms be more or less? 0.52%",
+    "question": "Should the proportion of body-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_27",
     "option_B": "Higher",
@@ -168,7 +168,7 @@
     "is_leaf": true
   },
   "q_29": {
-    "question": "Should the proportion of body-related terms be more or less? 3.92%",
+    "question": "Should the proportion of body-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_30",
     "option_B": "Higher",
@@ -184,7 +184,7 @@
     "is_leaf": true
   },
   "q_32": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 0.11%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_33",
     "option_B": "Higher",
@@ -196,7 +196,7 @@
     "is_leaf": true
   },
   "q_34": {
-    "question": "Should the proportion of insight-related words (e.g., \"think\", \"know\") be more or less? 3.26%",
+    "question": "Should the proportion of insight-related words (e.g., \"think\", \"know\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_35",
     "option_B": "Higher",
@@ -204,7 +204,7 @@
     "clusters": "false"
   },
   "q_35": {
-    "question": "Should the proportion of socially oriented words be more or less? 4.14%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_36",
     "option_B": "Higher",
@@ -216,7 +216,7 @@
     "is_leaf": true
   },
   "q_37": {
-    "question": "Should the proportion of causation-related words (e.g., \"because\") be more or less? 2.88%",
+    "question": "Should the proportion of causation-related words (e.g., \"because\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_38",
     "option_B": "Higher",
@@ -232,7 +232,7 @@
     "is_leaf": true
   },
   "q_40": {
-    "question": "Should the average number of characters per sentence be higher or lower? 43.0269",
+    "question": "Should the average number of characters per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_41",
     "option_B": "Higher",
@@ -248,7 +248,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of sentences in the post be higher or lower? 26.5000",
+    "question": "Should the number of sentences in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

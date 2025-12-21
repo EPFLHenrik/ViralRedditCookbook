@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 13.24%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the total number of characters in the post be higher or lower? 103.5000",
+    "question": "Should the total number of characters in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the negative VADER sentiment score be higher or lower? 0.1625",
+    "question": "Should the negative VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 5.41%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of body-related terms be more or less? 2.5%",
+    "question": "Should the proportion of body-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 0.11%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of feeling- or touch-related words be more or less? 3.92%",
+    "question": "Should the proportion of feeling- or touch-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the proportion of perception-related words be more or less? 1.9%",
+    "question": "Should the proportion of perception-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the average number of words per sentence be higher or lower? 7.8750",
+    "question": "Should the average number of words per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the proportion of general biological process words be more or less? 34.29%",
+    "question": "Should the proportion of general biological process words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_19",
     "option_B": "Higher",
@@ -112,7 +112,7 @@
     "clusters": "false"
   },
   "q_19": {
-    "question": "Should the proportion of inhibition-related words (e.g., \"stop\", \"block\") be more or less? 11.25%",
+    "question": "Should the proportion of inhibition-related words (e.g., \"stop\", \"block\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -132,7 +132,7 @@
     "is_leaf": true
   },
   "q_23": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 4.26%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_24",
     "option_B": "Higher",
@@ -140,7 +140,7 @@
     "clusters": "false"
   },
   "q_24": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 15.54%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_25",
     "option_B": "Higher",
@@ -156,7 +156,7 @@
     "is_leaf": true
   },
   "q_27": {
-    "question": "Should the proportion of perception-related words be more or less? 7.42%",
+    "question": "Should the proportion of perception-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_28",
     "option_B": "Higher",
@@ -172,7 +172,7 @@
     "is_leaf": true
   },
   "q_30": {
-    "question": "Should the number of long words be higher or lower? 147.0000",
+    "question": "Should the number of long words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_31",
     "option_B": "Higher",
@@ -180,7 +180,7 @@
     "clusters": "false"
   },
   "q_31": {
-    "question": "Should the average word length be higher or lower? 5.4721",
+    "question": "Should the average word length be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_32",
     "option_B": "Higher",
@@ -188,7 +188,7 @@
     "clusters": "false"
   },
   "q_32": {
-    "question": "Should the proportion of feeling- or touch-related words be more or less? 0.5%",
+    "question": "Should the proportion of feeling- or touch-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_33",
     "option_B": "Higher",
@@ -196,7 +196,7 @@
     "clusters": "false"
   },
   "q_33": {
-    "question": "Should the proportion of filler words (e.g., \"like\", \"you know\") be more or less? 6.46%",
+    "question": "Should the proportion of filler words (e.g., \"like\", \"you know\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_34",
     "option_B": "Higher",
@@ -212,7 +212,7 @@
     "is_leaf": true
   },
   "q_36": {
-    "question": "Should the proportion of general biological process words be more or less? 1.01%",
+    "question": "Should the proportion of general biological process words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_37",
     "option_B": "Higher",
@@ -228,7 +228,7 @@
     "is_leaf": true
   },
   "q_39": {
-    "question": "Should the proportion of present-tense verbs be more or less? 4.14%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_40",
     "option_B": "Higher",
@@ -236,7 +236,7 @@
     "clusters": "false"
   },
   "q_40": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 18.72%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_41",
     "option_B": "Higher",
@@ -252,7 +252,7 @@
     "is_leaf": true
   },
   "q_43": {
-    "question": "Should the number of sentences in the post be higher or lower? 1.5000",
+    "question": "Should the number of sentences in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_44",
     "option_B": "Higher",
@@ -268,7 +268,7 @@
     "is_leaf": true
   },
   "q_46": {
-    "question": "Should the number of non-space characters be higher or lower? 4395.5000",
+    "question": "Should the number of non-space characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_47",
     "option_B": "Higher",
@@ -276,7 +276,7 @@
     "clusters": "false"
   },
   "q_47": {
-    "question": "Should the proportion of vision-related words (seeing) be more or less? 0.55%",
+    "question": "Should the proportion of vision-related words (seeing) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_48",
     "option_B": "Higher",
@@ -296,7 +296,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 7.33%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

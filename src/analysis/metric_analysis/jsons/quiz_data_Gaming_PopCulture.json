@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be more or less? 4.36%",
+    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 0.75%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_3",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "is_leaf": true
   },
   "q_5": {
-    "question": "Should the proportion of present-tense verbs be more or less? 1.16%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_6",
     "option_B": "Higher",
@@ -32,7 +32,7 @@
     "clusters": "false"
   },
   "q_6": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 81.36%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_7",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "clusters": "false"
   },
   "q_7": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 2.27%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "is_leaf": true
   },
   "q_12": {
-    "question": "Should the proportion of insight-related words (e.g., \"think\", \"know\") be more or less? 2.97%",
+    "question": "Should the proportion of insight-related words (e.g., \"think\", \"know\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_13",
     "option_B": "Higher",
@@ -72,7 +72,7 @@
     "clusters": "false"
   },
   "q_13": {
-    "question": "Should the proportion of general biological process words be more or less? 5.58%",
+    "question": "Should the proportion of general biological process words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_14",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "clusters": "false"
   },
   "q_14": {
-    "question": "Should the proportion of pronouns be more or less? 16.86%",
+    "question": "Should the proportion of pronouns be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_15",
     "option_B": "Higher",
@@ -88,7 +88,7 @@
     "clusters": "false"
   },
   "q_15": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 7.46%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_16",
     "option_B": "Higher",
@@ -108,7 +108,7 @@
     "is_leaf": true
   },
   "q_19": {
-    "question": "Should the automated readability index be higher or lower? 6.8629",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_20",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "clusters": "false"
   },
   "q_20": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 76.73%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_21",
     "option_B": "Higher",
@@ -132,7 +132,7 @@
     "is_leaf": true
   },
   "q_23": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? -0.8538",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_24",
     "option_B": "Higher",
@@ -148,7 +148,7 @@
     "is_leaf": true
   },
   "q_26": {
-    "question": "Should the fraction of stopwords in the text be higher or lower? 30.61%",
+    "question": "Should the fraction of stopwords in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_27",
     "option_B": "Higher",
@@ -156,7 +156,7 @@
     "clusters": "false"
   },
   "q_27": {
-    "question": "Should the proportion of future-oriented verbs be more or less? 0.2%",
+    "question": "Should the proportion of future-oriented verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_28",
     "option_B": "Higher",
@@ -172,7 +172,7 @@
     "is_leaf": true
   },
   "q_30": {
-    "question": "Should the proportion of insight-related words (e.g., \"think\", \"know\") be more or less? 5.96%",
+    "question": "Should the proportion of insight-related words (e.g., \"think\", \"know\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_31",
     "option_B": "Higher",
@@ -180,7 +180,7 @@
     "clusters": "false"
   },
   "q_31": {
-    "question": "Should the proportion of non-fluencies (e.g., \"um\", \"uh\") be more or less? 0.63%",
+    "question": "Should the proportion of non-fluencies (e.g., \"um\", \"uh\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_32",
     "option_B": "Higher",
@@ -196,7 +196,7 @@
     "is_leaf": true
   },
   "q_34": {
-    "question": "Should the automated readability index be higher or lower? 10.4704",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_35",
     "option_B": "Higher",
@@ -212,7 +212,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 3.3%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

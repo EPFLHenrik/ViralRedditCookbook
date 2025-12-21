@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of home-related words be more or less? 1.96%",
+    "question": "Should the proportion of home-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 13.19%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_3",
     "option_B": "Higher",
@@ -20,7 +20,7 @@
     "is_leaf": true
   },
   "q_4": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? 0.5535",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -32,7 +32,7 @@
     "is_leaf": true
   },
   "q_6": {
-    "question": "Should the automated readability index be higher or lower? 10.4011",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_7",
     "option_B": "Higher",
@@ -48,7 +48,7 @@
     "is_leaf": true
   },
   "q_9": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 13.72%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_10",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "clusters": "false"
   },
   "q_10": {
-    "question": "Should the proportion of home-related words be more or less? 7.78%",
+    "question": "Should the proportion of home-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_11",
     "option_B": "Higher",
@@ -76,7 +76,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the proportion of impersonal pronouns be more or less? 4.67%",
+    "question": "Should the proportion of impersonal pronouns be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_15",
     "option_B": "Higher",
@@ -84,7 +84,7 @@
     "clusters": "false"
   },
   "q_15": {
-    "question": "Should the proportion of general biological process words be more or less? 2.08%",
+    "question": "Should the proportion of general biological process words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_16",
     "option_B": "Higher",
@@ -92,7 +92,7 @@
     "clusters": "false"
   },
   "q_16": {
-    "question": "Should the automated readability index be higher or lower? 10.4101",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_17",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "is_leaf": true
   },
   "q_18": {
-    "question": "Should the proportion of hearing-related words be more or less? 0.29%",
+    "question": "Should the proportion of hearing-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_19",
     "option_B": "Higher",
@@ -128,7 +128,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of perception-related words be more or less? 1.79%",
+    "question": "Should the proportion of perception-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

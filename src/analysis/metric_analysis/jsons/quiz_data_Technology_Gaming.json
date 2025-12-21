@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of money- or finance-related words be more or less? 1.54%",
+    "question": "Should the proportion of money- or finance-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of causation-related words (e.g., \"because\") be more or less? 0.15%",
+    "question": "Should the proportion of causation-related words (e.g., \"because\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less? 6.59%",
+    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of positive emotion words be more or less? 0.75%",
+    "question": "Should the proportion of positive emotion words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the automated readability index be higher or lower? 16.6102",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 4.78%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of quantifiers (e.g., \"many\", \"few\") be more or less? 4.42%",
+    "question": "Should the proportion of quantifiers (e.g., \"many\", \"few\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -84,7 +84,7 @@
     "is_leaf": true
   },
   "q_15": {
-    "question": "Should the proportion of prepositions be more or less? 14.12%",
+    "question": "Should the proportion of prepositions be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_16",
     "option_B": "Higher",
@@ -92,7 +92,7 @@
     "clusters": "false"
   },
   "q_16": {
-    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less? 0.26%",
+    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_17",
     "option_B": "Higher",
@@ -108,7 +108,7 @@
     "is_leaf": true
   },
   "q_19": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 14.54%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_20",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "clusters": "false"
   },
   "q_20": {
-    "question": "Should the proportion of function words be more or less? 31.01%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_21",
     "option_B": "Higher",
@@ -132,7 +132,7 @@
     "is_leaf": true
   },
   "q_23": {
-    "question": "Should the proportion of health-related words be more or less? 0.49%",
+    "question": "Should the proportion of health-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_24",
     "option_B": "Higher",
@@ -148,7 +148,7 @@
     "is_leaf": true
   },
   "q_26": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less? 5.51%",
+    "question": "Should the proportion of cognitive mechanism terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_27",
     "option_B": "Higher",
@@ -156,7 +156,7 @@
     "clusters": "false"
   },
   "q_27": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 1.59%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_28",
     "option_B": "Higher",
@@ -168,7 +168,7 @@
     "is_leaf": true
   },
   "q_29": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 77.54%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_30",
     "option_B": "Higher",
@@ -176,7 +176,7 @@
     "clusters": "false"
   },
   "q_30": {
-    "question": "Should the proportion of past-tense verbs be more or less? 2.16%",
+    "question": "Should the proportion of past-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_31",
     "option_B": "Higher",
@@ -192,7 +192,7 @@
     "is_leaf": true
   },
   "q_33": {
-    "question": "Should the proportion of anxiety-related words be more or less? 2.08%",
+    "question": "Should the proportion of anxiety-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_34",
     "option_B": "Higher",
@@ -208,7 +208,7 @@
     "is_leaf": true
   },
   "q_36": {
-    "question": "Should the proportion of money- or finance-related words be more or less? 1.65%",
+    "question": "Should the proportion of money- or finance-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_37",
     "option_B": "Higher",
@@ -216,7 +216,7 @@
     "clusters": "false"
   },
   "q_37": {
-    "question": "Should the proportion of adverbs be more or less? 10.91%",
+    "question": "Should the proportion of adverbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_38",
     "option_B": "Higher",
@@ -224,7 +224,7 @@
     "clusters": "false"
   },
   "q_38": {
-    "question": "Should the proportion of work-related terms be more or less? 6.75%",
+    "question": "Should the proportion of work-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_39",
     "option_B": "Higher",
@@ -240,7 +240,7 @@
     "is_leaf": true
   },
   "q_41": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 8.33%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_42",
     "option_B": "Higher",
@@ -256,7 +256,7 @@
     "is_leaf": true
   },
   "q_44": {
-    "question": "Should the proportion of affective (emotion-related) words be more or less? 3.86%",
+    "question": "Should the proportion of affective (emotion-related) words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_45",
     "option_B": "Higher",
@@ -264,7 +264,7 @@
     "clusters": "false"
   },
   "q_45": {
-    "question": "Should the proportion of future-oriented verbs be more or less? 0.1%",
+    "question": "Should the proportion of future-oriented verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_46",
     "option_B": "Higher",
@@ -280,7 +280,7 @@
     "is_leaf": true
   },
   "q_48": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 4.65%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_49",
     "option_B": "Higher",
@@ -296,7 +296,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 1.46%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

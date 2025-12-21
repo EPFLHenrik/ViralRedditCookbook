@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be more or less? 0.3%",
+    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_2",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "is_leaf": true
   },
   "q_4": {
-    "question": "Should the average number of words per sentence be higher or lower? 17.3125",
+    "question": "Should the average number of words per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_5",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_5": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 77.38%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_6",
     "option_B": "Higher",
@@ -32,7 +32,7 @@
     "clusters": "false"
   },
   "q_6": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 4.23%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_7",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "clusters": "false"
   },
   "q_7": {
-    "question": "Should the proportion of past-tense verbs be more or less? 2.62%",
+    "question": "Should the proportion of past-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "is_leaf": true
   },
   "q_12": {
-    "question": "Should the proportion of sadness-related words be more or less? 0.03%",
+    "question": "Should the proportion of sadness-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_13",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the average number of characters per sentence be higher or lower? 83.9200",
+    "question": "Should the average number of characters per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of work-related terms be more or less? 4.55%",
+    "question": "Should the proportion of work-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of achievement-related words be more or less? 2.7%",
+    "question": "Should the proportion of achievement-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less? 8.42%",
+    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of vision-related words (seeing) be more or less? 1.53%",
+    "question": "Should the proportion of vision-related words (seeing) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -48,7 +48,7 @@
     "is_leaf": true
   },
   "q_9": {
-    "question": "Should the proportion of certainty words (e.g., \"always\", \"definitely\") be more or less? 5.72%",
+    "question": "Should the proportion of certainty words (e.g., \"always\", \"definitely\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_10",
     "option_B": "Higher",
@@ -60,7 +60,7 @@
     "is_leaf": true
   },
   "q_11": {
-    "question": "Should the proportion of function words be more or less? 23.53%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_12",
     "option_B": "Higher",
@@ -68,7 +68,7 @@
     "clusters": "false"
   },
   "q_12": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 9.17%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_13",
     "option_B": "Higher",
@@ -92,7 +92,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of prepositions be more or less? 13.49%",
+    "question": "Should the proportion of prepositions be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",
