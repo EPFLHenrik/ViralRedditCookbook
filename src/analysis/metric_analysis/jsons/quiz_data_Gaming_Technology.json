@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 15.35%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 13.81%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_3",
     "option_B": "Higher",
@@ -20,7 +20,7 @@
     "is_leaf": true
   },
   "q_4": {
-    "question": "Should the fraction of stopwords in the text be higher or lower? 43.33%",
+    "question": "Should the fraction of stopwords in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_5",
     "option_B": "Higher",
@@ -28,7 +28,7 @@
     "clusters": "false"
   },
   "q_5": {
-    "question": "Should the proportion of verbs in the text be more or less? 2.38%",
+    "question": "Should the proportion of verbs in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_6",
     "option_B": "Higher",
@@ -48,7 +48,7 @@
     "is_leaf": true
   },
   "q_9": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 79.45%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_10",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "clusters": "false"
   },
   "q_10": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 14.81%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less? 10.26%",
+    "question": "Should the proportion of relativity-related words (time, space, motion) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -88,7 +88,7 @@
     "is_leaf": true
   },
   "q_16": {
-    "question": "Should the proportion of motion-related words (moving, going) be more or less? 1.38%",
+    "question": "Should the proportion of motion-related words (moving, going) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_17",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "clusters": "false"
   },
   "q_17": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 11.32%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be more or less? 4.18%",
+    "question": "Should the proportion of inclusive terms (e.g., \"with\", \"include\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_19",
     "option_B": "Higher",
@@ -112,7 +112,7 @@
     "clusters": "false"
   },
   "q_19": {
-    "question": "Should the average word length be higher or lower? 4.2512",
+    "question": "Should the average word length be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -136,7 +136,7 @@
     "is_leaf": true
   },
   "q_24": {
-    "question": "Should the proportion of affective (emotion-related) words be more or less? 15.84%",
+    "question": "Should the proportion of affective (emotion-related) words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_25",
     "option_B": "Higher",
@@ -152,7 +152,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the negative VADER sentiment score be higher or lower? 0.0285",
+    "question": "Should the negative VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

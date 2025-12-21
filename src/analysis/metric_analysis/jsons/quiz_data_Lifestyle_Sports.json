@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be more or less? 0.05%",
+    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_2",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "is_leaf": true
   },
   "q_4": {
-    "question": "Should the proportion of verbs in the text be more or less? 2.5%",
+    "question": "Should the proportion of verbs in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_5",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_5": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 79.37%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_6",
     "option_B": "Higher",
@@ -32,7 +32,7 @@
     "clusters": "false"
   },
   "q_6": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 2.08%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_7",
     "option_B": "Higher",
@@ -48,7 +48,7 @@
     "is_leaf": true
   },
   "q_9": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 4.1%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_10",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "is_leaf": true
   },
   "q_12": {
-    "question": "Should the proportion of body-related terms be more or less? 1.29%",
+    "question": "Should the proportion of body-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_13",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of quantifiers (e.g., \"many\", \"few\") be more or less? 6.53%",
+    "question": "Should the proportion of quantifiers (e.g., \"many\", \"few\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

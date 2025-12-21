@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the automated readability index be higher or lower? 11.4094",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_2",
     "option_B": "Higher",
@@ -12,7 +12,7 @@
     "is_leaf": true
   },
   "q_3": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 17.76%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -20,7 +20,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 12.64%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_5",
     "option_B": "Higher",
@@ -28,7 +28,7 @@
     "clusters": "false"
   },
   "q_5": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 4.22%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_6",
     "option_B": "Higher",
@@ -44,7 +44,7 @@
     "is_leaf": true
   },
   "q_8": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 14.65%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_9",
     "option_B": "Higher",
@@ -60,7 +60,7 @@
     "is_leaf": true
   },
   "q_11": {
-    "question": "Should the average number of characters per sentence be higher or lower? 7.5000",
+    "question": "Should the average number of characters per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -76,7 +76,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 6.98%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_15",
     "option_B": "Higher",
@@ -84,7 +84,7 @@
     "clusters": "false"
   },
   "q_15": {
-    "question": "Should the proportion of certainty words (e.g., \"always\", \"definitely\") be more or less? 3.62%",
+    "question": "Should the proportion of certainty words (e.g., \"always\", \"definitely\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_16",
     "option_B": "Higher",
@@ -92,7 +92,7 @@
     "clusters": "false"
   },
   "q_16": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 5.27%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_17",
     "option_B": "Higher",
@@ -100,7 +100,7 @@
     "clusters": "false"
   },
   "q_17": {
-    "question": "Should the proportion of anxiety-related words be more or less? 0.26%",
+    "question": "Should the proportion of anxiety-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_18",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "is_leaf": true
   },
   "q_20": {
-    "question": "Should the proportion of function words be more or less? 21.11%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_21",
     "option_B": "Higher",
@@ -132,7 +132,7 @@
     "is_leaf": true
   },
   "q_23": {
-    "question": "Should the positive VADER sentiment score be higher or lower? 0.0280",
+    "question": "Should the positive VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_24",
     "option_B": "Higher",
@@ -148,7 +148,7 @@
     "is_leaf": true
   },
   "q_26": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 2.57%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_27",
     "option_B": "Higher",
@@ -156,7 +156,7 @@
     "clusters": "false"
   },
   "q_27": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 2.47%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_28",
     "option_B": "Higher",
@@ -168,7 +168,7 @@
     "is_leaf": true
   },
   "q_29": {
-    "question": "Should the proportion of discrepancy words (e.g., \"should\", \"would\") be more or less? 1.15%",
+    "question": "Should the proportion of discrepancy words (e.g., \"should\", \"would\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_30",
     "option_B": "Higher",
@@ -184,7 +184,7 @@
     "is_leaf": true
   },
   "q_32": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 10.06%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_33",
     "option_B": "Higher",
@@ -196,7 +196,7 @@
     "is_leaf": true
   },
   "q_34": {
-    "question": "Should the fraction of digits in the text be higher or lower? 1.31%",
+    "question": "Should the fraction of digits in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_35",
     "option_B": "Higher",
@@ -212,7 +212,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of unique stopwords be higher or lower? 3.5000",
+    "question": "Should the number of unique stopwords be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

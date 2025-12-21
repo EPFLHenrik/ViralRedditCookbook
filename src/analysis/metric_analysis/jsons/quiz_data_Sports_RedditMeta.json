@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of negative emotion words be more or less? 0.47%",
+    "question": "Should the proportion of negative emotion words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of present-tense verbs be more or less? 7.09%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of \"she/he\" references be more or less? 5.37%",
+    "question": "Should the proportion of \"she/he\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the total number of words in the post be higher or lower? 11.5000",
+    "question": "Should the total number of words in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be more or less? 5.46%",
+    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 17.33%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the average word length be higher or lower? 4.9944",
+    "question": "Should the average word length be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -88,7 +88,7 @@
     "is_leaf": true
   },
   "q_16": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 8.45%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_17",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "clusters": "false"
   },
   "q_17": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 14.03%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the proportion of \"they\" references be more or less? 0.7%",
+    "question": "Should the proportion of \"they\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_19",
     "option_B": "Higher",
@@ -112,7 +112,7 @@
     "clusters": "false"
   },
   "q_19": {
-    "question": "Should the proportion of insight-related words (e.g., \"think\", \"know\") be more or less? 3.28%",
+    "question": "Should the proportion of insight-related words (e.g., \"think\", \"know\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -140,7 +140,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of anger-related words be more or less? 0.43%",
+    "question": "Should the proportion of anger-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

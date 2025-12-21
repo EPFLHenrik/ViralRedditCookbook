@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? -0.0470",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of feeling- or touch-related words be more or less? 0.27%",
+    "question": "Should the proportion of feeling- or touch-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of function words be more or less? 35.63%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of hearing-related words be more or less? 0.37%",
+    "question": "Should the proportion of hearing-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of impersonal pronouns be more or less? 6.54%",
+    "question": "Should the proportion of impersonal pronouns be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -60,7 +60,7 @@
     "is_leaf": true
   },
   "q_11": {
-    "question": "Should the proportion of exclusive terms (e.g., \"but\", \"without\") be more or less? 2.62%",
+    "question": "Should the proportion of exclusive terms (e.g., \"but\", \"without\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_12",
     "option_B": "Higher",
@@ -68,7 +68,7 @@
     "clusters": "false"
   },
   "q_12": {
-    "question": "Should the proportion of generic human-related words be more or less? 0.15%",
+    "question": "Should the proportion of generic human-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_13",
     "option_B": "Higher",
@@ -76,7 +76,7 @@
     "clusters": "false"
   },
   "q_13": {
-    "question": "Should the proportion of present-tense verbs be more or less? 11.96%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_14",
     "option_B": "Higher",
@@ -92,7 +92,7 @@
     "is_leaf": true
   },
   "q_16": {
-    "question": "Should the proportion of positive emotion words be more or less? 2.88%",
+    "question": "Should the proportion of positive emotion words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_17",
     "option_B": "Higher",
@@ -108,7 +108,7 @@
     "is_leaf": true
   },
   "q_19": {
-    "question": "Should the proportion of \"you\" references be more or less? 17.69%",
+    "question": "Should the proportion of \"you\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -124,7 +124,7 @@
     "is_leaf": true
   },
   "q_22": {
-    "question": "Should the proportion of non-fluencies (e.g., \"um\", \"uh\") be more or less? 0.23%",
+    "question": "Should the proportion of non-fluencies (e.g., \"um\", \"uh\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_23",
     "option_B": "Higher",
@@ -132,7 +132,7 @@
     "clusters": "false"
   },
   "q_23": {
-    "question": "Should the proportion of certainty words (e.g., \"always\", \"definitely\") be more or less? 2.75%",
+    "question": "Should the proportion of certainty words (e.g., \"always\", \"definitely\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_24",
     "option_B": "Higher",
@@ -140,7 +140,7 @@
     "clusters": "false"
   },
   "q_24": {
-    "question": "Should the proportion of achievement-related words be more or less? 1.91%",
+    "question": "Should the proportion of achievement-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_25",
     "option_B": "Higher",
@@ -148,7 +148,7 @@
     "clusters": "false"
   },
   "q_25": {
-    "question": "Should the proportion of death- or mortality-related words be more or less? 0.36%",
+    "question": "Should the proportion of death- or mortality-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_26",
     "option_B": "Higher",
@@ -164,7 +164,7 @@
     "is_leaf": true
   },
   "q_28": {
-    "question": "Should the proportion of verbs in the text be more or less? 13.29%",
+    "question": "Should the proportion of verbs in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_29",
     "option_B": "Higher",
@@ -188,7 +188,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of \"she/he\" references be more or less? 0.04%",
+    "question": "Should the proportion of \"she/he\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

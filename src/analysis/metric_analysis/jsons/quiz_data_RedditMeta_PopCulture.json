@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the number of unique stopwords be higher or lower? 8.5000",
+    "question": "Should the number of unique stopwords be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of work-related terms be more or less? 7.95%",
+    "question": "Should the proportion of work-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of verbs in the text be more or less? 3.5%",
+    "question": "Should the proportion of verbs in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of exclusive terms (e.g., \"but\", \"without\") be more or less? 11.44%",
+    "question": "Should the proportion of exclusive terms (e.g., \"but\", \"without\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the fraction of digits in the text be higher or lower? 0.77%",
+    "question": "Should the fraction of digits in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 1.9%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 21.48%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less? 4.45%",
+    "question": "Should the proportion of cognitive mechanism terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the proportion of socially oriented words be more or less? 5.29%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the proportion of sexual-related words be more or less? 1.9%",
+    "question": "Should the proportion of sexual-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_19",
     "option_B": "Higher",
@@ -112,7 +112,7 @@
     "clusters": "false"
   },
   "q_19": {
-    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be more or less? 2.33%",
+    "question": "Should the proportion of articles (e.g., \"a\", \"the\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -128,7 +128,7 @@
     "is_leaf": true
   },
   "q_22": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 2.9%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_23",
     "option_B": "Higher",
@@ -144,7 +144,7 @@
     "is_leaf": true
   },
   "q_25": {
-    "question": "Should the proportion of body-related terms be more or less? 1.18%",
+    "question": "Should the proportion of body-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_26",
     "option_B": "Higher",
@@ -152,7 +152,7 @@
     "clusters": "false"
   },
   "q_26": {
-    "question": "Should the fraction of digits in the text be higher or lower? 0.6%",
+    "question": "Should the fraction of digits in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_27",
     "option_B": "Higher",
@@ -168,7 +168,7 @@
     "is_leaf": true
   },
   "q_29": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 15.74%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_30",
     "option_B": "Higher",
@@ -184,7 +184,7 @@
     "is_leaf": true
   },
   "q_32": {
-    "question": "Should the number of sentences in the post be higher or lower? 19.5000",
+    "question": "Should the number of sentences in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_33",
     "option_B": "Higher",
@@ -192,7 +192,7 @@
     "clusters": "false"
   },
   "q_33": {
-    "question": "Should the proportion of religion-related words be more or less? 1.04%",
+    "question": "Should the proportion of religion-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_34",
     "option_B": "Higher",
@@ -200,7 +200,7 @@
     "clusters": "false"
   },
   "q_34": {
-    "question": "Should the fraction of digits in the text be higher or lower? 0.21%",
+    "question": "Should the fraction of digits in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_35",
     "option_B": "Higher",
@@ -212,7 +212,7 @@
     "is_leaf": true
   },
   "q_36": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 1.21%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_37",
     "option_B": "Higher",
@@ -228,7 +228,7 @@
     "is_leaf": true
   },
   "q_39": {
-    "question": "Should the proportion of vision-related words (seeing) be more or less? 0.1%",
+    "question": "Should the proportion of vision-related words (seeing) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_40",
     "option_B": "Higher",
@@ -244,7 +244,7 @@
     "is_leaf": true
   },
   "q_42": {
-    "question": "Should the proportion of function words be more or less? 53.85%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_43",
     "option_B": "Higher",
@@ -252,7 +252,7 @@
     "clusters": "false"
   },
   "q_43": {
-    "question": "Should the fraction of digits in the text be higher or lower? 5.83%",
+    "question": "Should the fraction of digits in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_44",
     "option_B": "Higher",
@@ -260,7 +260,7 @@
     "clusters": "false"
   },
   "q_44": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? 0.9997",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_45",
     "option_B": "Higher",
@@ -280,7 +280,7 @@
     "is_leaf": true
   },
   "q_48": {
-    "question": "Should the proportion of \"you\" references be more or less? 0.85%",
+    "question": "Should the proportion of \"you\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_49",
     "option_B": "Higher",
@@ -288,7 +288,7 @@
     "clusters": "false"
   },
   "q_49": {
-    "question": "Should the average number of words per sentence be higher or lower? 8.8871",
+    "question": "Should the average number of words per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_50",
     "option_B": "Higher",
@@ -304,7 +304,7 @@
     "is_leaf": true
   },
   "q_52": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 17.91%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_53",
     "option_B": "Higher",
@@ -320,7 +320,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of long words be higher or lower? 40.5000",
+    "question": "Should the number of long words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

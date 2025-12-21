@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of religion-related words be more or less? 2.9%",
+    "question": "Should the proportion of religion-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the fraction of digits in the text be higher or lower? 1.66%",
+    "question": "Should the fraction of digits in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be more or less? 4.08%",
+    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less? 12.06%",
+    "question": "Should the proportion of relativity-related words (time, space, motion) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the fraction of stopwords in the text be higher or lower? 32.04%",
+    "question": "Should the fraction of stopwords in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of function words be more or less? 15.59%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 78.42%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 17.34%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be more or less? 5.8%",
+    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the fraction of stopwords in the text be higher or lower? 33.85%",
+    "question": "Should the fraction of stopwords in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_19",
     "option_B": "Higher",
@@ -112,7 +112,7 @@
     "clusters": "false"
   },
   "q_19": {
-    "question": "Should the proportion of pronouns be more or less? 3.28%",
+    "question": "Should the proportion of pronouns be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -128,7 +128,7 @@
     "is_leaf": true
   },
   "q_22": {
-    "question": "Should the proportion of quantifiers (e.g., \"many\", \"few\") be more or less? 6.16%",
+    "question": "Should the proportion of quantifiers (e.g., \"many\", \"few\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_23",
     "option_B": "Higher",
@@ -144,7 +144,7 @@
     "is_leaf": true
   },
   "q_25": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? -0.0891",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_26",
     "option_B": "Higher",
@@ -152,7 +152,7 @@
     "clusters": "false"
   },
   "q_26": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less? 10.91%",
+    "question": "Should the proportion of cognitive mechanism terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_27",
     "option_B": "Higher",
@@ -168,7 +168,7 @@
     "is_leaf": true
   },
   "q_29": {
-    "question": "Should the proportion of pronouns be more or less? 12.7%",
+    "question": "Should the proportion of pronouns be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_30",
     "option_B": "Higher",
@@ -184,7 +184,7 @@
     "is_leaf": true
   },
   "q_32": {
-    "question": "Should the number of non-space characters be higher or lower? 1847.5000",
+    "question": "Should the number of non-space characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_33",
     "option_B": "Higher",
@@ -192,7 +192,7 @@
     "clusters": "false"
   },
   "q_33": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? -0.0556",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_34",
     "option_B": "Higher",
@@ -200,7 +200,7 @@
     "clusters": "false"
   },
   "q_34": {
-    "question": "Should the fraction of digits in the text be higher or lower? 0.4%",
+    "question": "Should the fraction of digits in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_35",
     "option_B": "Higher",
@@ -208,7 +208,7 @@
     "clusters": "false"
   },
   "q_35": {
-    "question": "Should the proportion of explicit number words be more or less? 2.09%",
+    "question": "Should the proportion of explicit number words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_36",
     "option_B": "Higher",
@@ -224,7 +224,7 @@
     "is_leaf": true
   },
   "q_38": {
-    "question": "Should the proportion of sadness-related words be more or less? 0.72%",
+    "question": "Should the proportion of sadness-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_39",
     "option_B": "Higher",
@@ -240,7 +240,7 @@
     "is_leaf": true
   },
   "q_41": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 4.66%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_42",
     "option_B": "Higher",
@@ -248,7 +248,7 @@
     "clusters": "false"
   },
   "q_42": {
-    "question": "Should the fraction of stopwords in the text be higher or lower? 46.0%",
+    "question": "Should the fraction of stopwords in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_43",
     "option_B": "Higher",
@@ -264,7 +264,7 @@
     "is_leaf": true
   },
   "q_45": {
-    "question": "Should the average number of words per sentence be higher or lower? 17.0500",
+    "question": "Should the average number of words per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_46",
     "option_B": "Higher",
@@ -280,7 +280,7 @@
     "is_leaf": true
   },
   "q_48": {
-    "question": "Should the proportion of function words be more or less? 53.56%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_49",
     "option_B": "Higher",
@@ -288,7 +288,7 @@
     "clusters": "false"
   },
   "q_49": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 3.16%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_50",
     "option_B": "Higher",
@@ -300,7 +300,7 @@
     "is_leaf": true
   },
   "q_51": {
-    "question": "Should the proportion of swear or profanity terms be more or less? 0.09%",
+    "question": "Should the proportion of swear or profanity terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_52",
     "option_B": "Higher",
@@ -316,7 +316,7 @@
     "is_leaf": true
   },
   "q_54": {
-    "question": "Should the number of sentences in the post be higher or lower? 23.5000",
+    "question": "Should the number of sentences in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_55",
     "option_B": "Higher",
@@ -324,7 +324,7 @@
     "clusters": "false"
   },
   "q_55": {
-    "question": "Should the proportion of achievement-related words be more or less? 1.73%",
+    "question": "Should the proportion of achievement-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_56",
     "option_B": "Higher",
@@ -340,7 +340,7 @@
     "is_leaf": true
   },
   "q_58": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? -0.9997",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_59",
     "option_B": "Higher",
@@ -356,7 +356,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of non-space characters be higher or lower? 149.5000",
+    "question": "Should the number of non-space characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

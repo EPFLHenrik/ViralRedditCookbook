@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of anger-related words be more or less? 1.48%",
+    "question": "Should the proportion of anger-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the average number of characters per sentence be higher or lower? 190.9167",
+    "question": "Should the average number of characters per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_3",
     "option_B": "Higher",
@@ -20,7 +20,7 @@
     "is_leaf": true
   },
   "q_4": {
-    "question": "Should the number of non-space characters be higher or lower? 179.5000",
+    "question": "Should the number of non-space characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -36,7 +36,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of pronouns be more or less? 4.26%",
+    "question": "Should the proportion of pronouns be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_8",
     "option_B": "Higher",
@@ -44,7 +44,7 @@
     "clusters": "false"
   },
   "q_8": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? -0.5345",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_9",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the average number of words per sentence be higher or lower? 10.5000",
+    "question": "Should the average number of words per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_11",
     "option_B": "Higher",
@@ -76,7 +76,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the positive VADER sentiment score be higher or lower? 0.1680",
+    "question": "Should the positive VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_15",
     "option_B": "Higher",
@@ -84,7 +84,7 @@
     "clusters": "false"
   },
   "q_15": {
-    "question": "Should the proportion of exclusive terms (e.g., \"but\", \"without\") be more or less? 3.53%",
+    "question": "Should the proportion of exclusive terms (e.g., \"but\", \"without\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_16",
     "option_B": "Higher",
@@ -92,7 +92,7 @@
     "clusters": "false"
   },
   "q_16": {
-    "question": "Should the proportion of function words be more or less? 10.56%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_17",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "is_leaf": true
   },
   "q_18": {
-    "question": "Should the proportion of future-oriented verbs be more or less? 1.47%",
+    "question": "Should the proportion of future-oriented verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_19",
     "option_B": "Higher",
@@ -128,7 +128,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of socially oriented words be more or less? 6.77%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

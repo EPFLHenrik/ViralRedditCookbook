@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be more or less? 5.6%",
+    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the automated readability index be higher or lower? 9.4666",
+    "question": "Should the automated readability index be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_3",
     "option_B": "Higher",
@@ -20,7 +20,7 @@
     "is_leaf": true
   },
   "q_4": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 19.67%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_5",
     "option_B": "Higher",
@@ -28,7 +28,7 @@
     "clusters": "false"
   },
   "q_5": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 10.76%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_6",
     "option_B": "Higher",
@@ -44,7 +44,7 @@
     "is_leaf": true
   },
   "q_8": {
-    "question": "Should the proportion of socially oriented words be more or less? 9.55%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_9",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "is_leaf": true
   },
   "q_12": {
-    "question": "Should the proportion of non-fluencies (e.g., \"um\", \"uh\") be more or less? 0.15%",
+    "question": "Should the proportion of non-fluencies (e.g., \"um\", \"uh\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_13",
     "option_B": "Higher",
@@ -72,7 +72,7 @@
     "clusters": "false"
   },
   "q_13": {
-    "question": "Should the proportion of adverbs be more or less? 4.75%",
+    "question": "Should the proportion of adverbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_14",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "clusters": "false"
   },
   "q_14": {
-    "question": "Should the proportion of health-related words be more or less? 0.89%",
+    "question": "Should the proportion of health-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_15",
     "option_B": "Higher",
@@ -88,7 +88,7 @@
     "clusters": "false"
   },
   "q_15": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 3.62%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_16",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "is_leaf": true
   },
   "q_18": {
-    "question": "Should the proportion of motion-related words (moving, going) be more or less? 0.56%",
+    "question": "Should the proportion of motion-related words (moving, going) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_19",
     "option_B": "Higher",
@@ -120,7 +120,7 @@
     "is_leaf": true
   },
   "q_21": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 0.13%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_22",
     "option_B": "Higher",
@@ -136,7 +136,7 @@
     "is_leaf": true
   },
   "q_24": {
-    "question": "Should the proportion of friend-related terms be more or less? 0.02%",
+    "question": "Should the proportion of friend-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_25",
     "option_B": "Higher",
@@ -152,7 +152,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of unique words used be higher or lower? 315.5000",
+    "question": "Should the number of unique words used be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

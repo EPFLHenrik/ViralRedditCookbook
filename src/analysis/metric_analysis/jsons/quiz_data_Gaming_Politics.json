@@ -4,7 +4,7 @@
     "is_leaf": true
   },
   "q_2": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 3.74%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -12,7 +12,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 11.48%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -20,7 +20,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of adverbs be more or less? 7.47%",
+    "question": "Should the proportion of adverbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_5",
     "option_B": "Higher",
@@ -28,7 +28,7 @@
     "clusters": "false"
   },
   "q_5": {
-    "question": "Should the proportion of \"you\" references be more or less? 1.19%",
+    "question": "Should the proportion of \"you\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_6",
     "option_B": "Higher",
@@ -44,7 +44,7 @@
     "is_leaf": true
   },
   "q_8": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 6.04%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_9",
     "option_B": "Higher",
@@ -60,7 +60,7 @@
     "is_leaf": true
   },
   "q_11": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 12.06%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_12",
     "option_B": "Higher",
@@ -68,7 +68,7 @@
     "clusters": "false"
   },
   "q_12": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less? 5.41%",
+    "question": "Should the proportion of relativity-related words (time, space, motion) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_13",
     "option_B": "Higher",
@@ -84,7 +84,7 @@
     "is_leaf": true
   },
   "q_15": {
-    "question": "Should the proportion of function words be more or less? 13.39%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_16",
     "option_B": "Higher",
@@ -100,7 +100,7 @@
     "is_leaf": true
   },
   "q_18": {
-    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be more or less? 0.1%",
+    "question": "Should the proportion of conjunctions (e.g., \"and\", \"but\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_19",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 3.84%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_1",
     "option_B": "Higher",

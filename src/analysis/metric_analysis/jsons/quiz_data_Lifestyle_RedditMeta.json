@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the average number of words per sentence be higher or lower? 6.4167",
+    "question": "Should the average number of words per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less? 9.55%",
+    "question": "Should the proportion of relativity-related words (time, space, motion) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of general biological process words be more or less? 5.13%",
+    "question": "Should the proportion of general biological process words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the fraction of alphabetic characters be higher or lower? 71.81%",
+    "question": "Should the fraction of alphabetic characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -44,7 +44,7 @@
     "is_leaf": true
   },
   "q_8": {
-    "question": "Should the proportion of present-tense verbs be more or less? 7.18%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_9",
     "option_B": "Higher",
@@ -52,7 +52,7 @@
     "clusters": "false"
   },
   "q_9": {
-    "question": "Should the proportion of perception-related words be more or less? 2.63%",
+    "question": "Should the proportion of perception-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_10",
     "option_B": "Higher",
@@ -68,7 +68,7 @@
     "is_leaf": true
   },
   "q_12": {
-    "question": "Should the average number of characters per sentence be higher or lower? 30.7500",
+    "question": "Should the average number of characters per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_13",
     "option_B": "Higher",
@@ -84,7 +84,7 @@
     "is_leaf": true
   },
   "q_15": {
-    "question": "Should the proportion of money- or finance-related words be more or less? 2.45%",
+    "question": "Should the proportion of money- or finance-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_16",
     "option_B": "Higher",
@@ -92,7 +92,7 @@
     "clusters": "false"
   },
   "q_16": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 5.01%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_17",
     "option_B": "Higher",
@@ -100,7 +100,7 @@
     "clusters": "false"
   },
   "q_17": {
-    "question": "Should the proportion of affective (emotion-related) words be more or less? 2.39%",
+    "question": "Should the proportion of affective (emotion-related) words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_18",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "is_leaf": true
   },
   "q_20": {
-    "question": "Should the proportion of \"you\" references be more or less? 0.89%",
+    "question": "Should the proportion of \"you\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_21",
     "option_B": "Higher",
@@ -132,7 +132,7 @@
     "is_leaf": true
   },
   "q_23": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 13.87%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_24",
     "option_B": "Higher",
@@ -144,7 +144,7 @@
     "is_leaf": true
   },
   "q_25": {
-    "question": "Should the number of long words be higher or lower? 1.5000",
+    "question": "Should the number of long words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_26",
     "option_B": "Higher",
@@ -160,7 +160,7 @@
     "is_leaf": true
   },
   "q_28": {
-    "question": "Should the proportion of verbs in the text be more or less? 12.64%",
+    "question": "Should the proportion of verbs in the text be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_29",
     "option_B": "Higher",
@@ -168,7 +168,7 @@
     "clusters": "false"
   },
   "q_29": {
-    "question": "Should the proportion of health-related words be more or less? 0.79%",
+    "question": "Should the proportion of health-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_30",
     "option_B": "Higher",
@@ -176,7 +176,7 @@
     "clusters": "false"
   },
   "q_30": {
-    "question": "Should the proportion of feeling- or touch-related words be more or less? 0.08%",
+    "question": "Should the proportion of feeling- or touch-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_31",
     "option_B": "Higher",
@@ -188,7 +188,7 @@
     "is_leaf": true
   },
   "q_32": {
-    "question": "Should the proportion of perception-related words be more or less? 3.06%",
+    "question": "Should the proportion of perception-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_33",
     "option_B": "Higher",
@@ -212,7 +212,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the number of long words be higher or lower? 145.5000",
+    "question": "Should the number of long words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

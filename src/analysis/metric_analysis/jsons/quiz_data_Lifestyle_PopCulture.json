@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the number of sentences in the post be higher or lower? 10.5000",
+    "question": "Should the number of sentences in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of anger-related words be more or less? 1.01%",
+    "question": "Should the proportion of anger-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less? 12.36%",
+    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 42.54%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the proportion of cognitive mechanism terms be more or less? 9.43%",
+    "question": "Should the proportion of cognitive mechanism terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 3.11%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of exclusive terms (e.g., \"but\", \"without\") be more or less? 11.81%",
+    "question": "Should the proportion of exclusive terms (e.g., \"but\", \"without\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the proportion of hearing-related words be more or less? 0.52%",
+    "question": "Should the proportion of hearing-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be more or less? 7.52%",
+    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the proportion of \"you\" references be more or less? 0.65%",
+    "question": "Should the proportion of \"you\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_19",
     "option_B": "Higher",
@@ -112,7 +112,7 @@
     "clusters": "false"
   },
   "q_19": {
-    "question": "Should the proportion of swear or profanity terms be more or less? 0.08%",
+    "question": "Should the proportion of swear or profanity terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_20",
     "option_B": "Higher",
@@ -128,7 +128,7 @@
     "is_leaf": true
   },
   "q_22": {
-    "question": "Should the proportion of adverbs be more or less? 2.84%",
+    "question": "Should the proportion of adverbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_23",
     "option_B": "Higher",
@@ -148,7 +148,7 @@
     "is_leaf": true
   },
   "q_26": {
-    "question": "Should the average number of characters per sentence be higher or lower? 164.6667",
+    "question": "Should the average number of characters per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_27",
     "option_B": "Higher",
@@ -156,7 +156,7 @@
     "clusters": "false"
   },
   "q_27": {
-    "question": "Should the proportion of affective (emotion-related) words be more or less? 5.13%",
+    "question": "Should the proportion of affective (emotion-related) words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_28",
     "option_B": "Higher",
@@ -164,7 +164,7 @@
     "clusters": "false"
   },
   "q_28": {
-    "question": "Should the proportion of work-related terms be more or less? 8.45%",
+    "question": "Should the proportion of work-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_29",
     "option_B": "Higher",
@@ -172,7 +172,7 @@
     "clusters": "false"
   },
   "q_29": {
-    "question": "Should the proportion of perception-related words be more or less? 3.11%",
+    "question": "Should the proportion of perception-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_30",
     "option_B": "Higher",
@@ -188,7 +188,7 @@
     "is_leaf": true
   },
   "q_32": {
-    "question": "Should the average number of characters per sentence be higher or lower? 74.5000",
+    "question": "Should the average number of characters per sentence be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_33",
     "option_B": "Higher",
@@ -212,7 +212,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 14.28%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",

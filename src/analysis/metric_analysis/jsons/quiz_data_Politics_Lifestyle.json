@@ -4,7 +4,7 @@
     "is_leaf": true
   },
   "q_2": {
-    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be more or less? 6.69%",
+    "question": "Should the proportion of auxiliary verbs (e.g., \"is\", \"have\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -12,7 +12,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the proportion of present-tense verbs be more or less? 3.32%",
+    "question": "Should the proportion of present-tense verbs be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -20,7 +20,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the proportion of space-related words (locations, positions) be more or less? 9.06%",
+    "question": "Should the proportion of space-related words (locations, positions) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -32,7 +32,7 @@
     "is_leaf": true
   },
   "q_6": {
-    "question": "Should the proportion of prepositions be more or less? 17.03%",
+    "question": "Should the proportion of prepositions be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_7",
     "option_B": "Higher",
@@ -48,7 +48,7 @@
     "is_leaf": true
   },
   "q_9": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 8.63%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_10",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "clusters": "false"
   },
   "q_10": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 1.13%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_11",
     "option_B": "Higher",
@@ -76,7 +76,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the proportion of vision-related words (seeing) be more or less? 1.37%",
+    "question": "Should the proportion of vision-related words (seeing) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -88,7 +88,7 @@
     "is_leaf": true
   },
   "q_16": {
-    "question": "Should the proportion of first-person singular \"I\" words be more or less? 5.13%",
+    "question": "Should the proportion of first-person singular \"I\" words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_17",
     "option_B": "Higher",
@@ -100,7 +100,7 @@
     "is_leaf": true
   },
   "q_18": {
-    "question": "Should the proportion of filler words (e.g., \"like\", \"you know\") be more or less? 0.14%",
+    "question": "Should the proportion of filler words (e.g., \"like\", \"you know\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_19",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the proportion of function words be more or less? 18.15%",
+    "question": "Should the proportion of function words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_1",
     "option_B": "Higher",

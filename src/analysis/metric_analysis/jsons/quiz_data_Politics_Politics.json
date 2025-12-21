@@ -1,6 +1,6 @@
 {
   "q_1": {
-    "question": "Should the proportion of negative emotion words be more or less? 19.09%",
+    "question": "Should the proportion of negative emotion words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_2",
     "option_B": "Higher",
@@ -8,7 +8,7 @@
     "clusters": "false"
   },
   "q_2": {
-    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be more or less? 10.56%",
+    "question": "Should the proportion of time-related words (e.g., \"today\", \"soon\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_3",
     "option_B": "Higher",
@@ -16,7 +16,7 @@
     "clusters": "false"
   },
   "q_3": {
-    "question": "Should the fraction of UPPERCASE letters be higher or lower? 41.97%",
+    "question": "Should the fraction of UPPERCASE letters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_4",
     "option_B": "Higher",
@@ -24,7 +24,7 @@
     "clusters": "false"
   },
   "q_4": {
-    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower? 6.53%",
+    "question": "Should the fraction of special symbols (punctuation etc.) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_5",
     "option_B": "Higher",
@@ -40,7 +40,7 @@
     "is_leaf": true
   },
   "q_7": {
-    "question": "Should the number of non-space characters be higher or lower? 42.5000",
+    "question": "Should the number of non-space characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_8",
     "option_B": "Higher",
@@ -56,7 +56,7 @@
     "is_leaf": true
   },
   "q_10": {
-    "question": "Should the number of long words be higher or lower? 5.5000",
+    "question": "Should the number of long words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_11",
     "option_B": "Higher",
@@ -64,7 +64,7 @@
     "clusters": "false"
   },
   "q_11": {
-    "question": "Should the proportion of explicit number words be more or less? 17.42%",
+    "question": "Should the proportion of explicit number words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_12",
     "option_B": "Higher",
@@ -80,7 +80,7 @@
     "is_leaf": true
   },
   "q_14": {
-    "question": "Should the proportion of relativity-related words (time, space, motion) be more or less? 22.65%",
+    "question": "Should the proportion of relativity-related words (time, space, motion) be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_15",
     "option_B": "Higher",
@@ -96,7 +96,7 @@
     "is_leaf": true
   },
   "q_17": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 14.56%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_18",
     "option_B": "Higher",
@@ -104,7 +104,7 @@
     "clusters": "false"
   },
   "q_18": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 9.86%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_19",
     "option_B": "Higher",
@@ -116,7 +116,7 @@
     "is_leaf": true
   },
   "q_20": {
-    "question": "Should the proportion of work-related terms be more or less? 3.57%",
+    "question": "Should the proportion of work-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_21",
     "option_B": "Higher",
@@ -136,7 +136,7 @@
     "is_leaf": true
   },
   "q_24": {
-    "question": "Should the proportion of socially oriented words be more or less? 6.55%",
+    "question": "Should the proportion of socially oriented words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_25",
     "option_B": "Higher",
@@ -144,7 +144,7 @@
     "clusters": "false"
   },
   "q_25": {
-    "question": "Should the overall link sentiment score be higher or lower? 0.0000",
+    "question": "Should the overall link sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_26",
     "option_B": "Higher",
@@ -152,7 +152,7 @@
     "clusters": "false"
   },
   "q_26": {
-    "question": "Should the proportion of money- or finance-related words be more or less? 4.38%",
+    "question": "Should the proportion of money- or finance-related words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_27",
     "option_B": "Higher",
@@ -160,7 +160,7 @@
     "clusters": "false"
   },
   "q_27": {
-    "question": "Should the number of long words be higher or lower? 6.5000",
+    "question": "Should the number of long words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_28",
     "option_B": "Higher",
@@ -180,7 +180,7 @@
     "is_leaf": true
   },
   "q_31": {
-    "question": "Should the proportion of general biological process words be more or less? 4.71%",
+    "question": "Should the proportion of general biological process words be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_32",
     "option_B": "Higher",
@@ -188,7 +188,7 @@
     "clusters": "false"
   },
   "q_32": {
-    "question": "Should the positive VADER sentiment score be higher or lower? 0.0985",
+    "question": "Should the positive VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_33",
     "option_B": "Higher",
@@ -204,7 +204,7 @@
     "is_leaf": true
   },
   "q_35": {
-    "question": "Should the number of unique stopwords be higher or lower? 5.5000",
+    "question": "Should the number of unique stopwords be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_36",
     "option_B": "Higher",
@@ -220,7 +220,7 @@
     "is_leaf": true
   },
   "q_38": {
-    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be more or less? 0.72%",
+    "question": "Should the proportion of negations (e.g., \"not\", \"never\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_39",
     "option_B": "Higher",
@@ -228,7 +228,7 @@
     "clusters": "false"
   },
   "q_39": {
-    "question": "Should the proportion of \"she/he\" references be more or less? 0.15%",
+    "question": "Should the proportion of \"she/he\" references be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_40",
     "option_B": "Higher",
@@ -236,7 +236,7 @@
     "clusters": "false"
   },
   "q_40": {
-    "question": "Should the overall (compound) VADER sentiment score be higher or lower? 0.8805",
+    "question": "Should the overall (compound) VADER sentiment score be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_41",
     "option_B": "Higher",
@@ -252,7 +252,7 @@
     "is_leaf": true
   },
   "q_43": {
-    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be more or less? 4.09%",
+    "question": "Should the proportion of tentative words (e.g., \"maybe\", \"perhaps\") be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_44",
     "option_B": "Higher",
@@ -268,7 +268,7 @@
     "is_leaf": true
   },
   "q_46": {
-    "question": "Should the proportion of body-related terms be more or less? 0.19%",
+    "question": "Should the proportion of body-related terms be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_47",
     "option_B": "Higher",
@@ -276,7 +276,7 @@
     "clusters": "false"
   },
   "q_47": {
-    "question": "Should the proportion of \"we\" (first-person plural) words be more or less? 4.8%",
+    "question": "Should the proportion of \"we\" (first-person plural) words be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_48",
     "option_B": "Higher",
@@ -292,7 +292,7 @@
     "is_leaf": true
   },
   "q_50": {
-    "question": "Should the fraction of whitespace characters be higher or lower? 15.22%",
+    "question": "Should the fraction of whitespace characters be higher or lower?",
     "option_A": "Lower",
     "path_A": "result_51",
     "option_B": "Higher",
@@ -308,7 +308,7 @@
     "is_leaf": true
   },
   "q_start": {
-    "question": "Should the total number of words in the post be higher or lower? 14.5000",
+    "question": "Should the total number of words in the post be higher or lower?",
     "option_A": "Lower",
     "path_A": "q_1",
     "option_B": "Higher",
