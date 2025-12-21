@@ -110,6 +110,99 @@ NUMERIC_FEATURES_LIST = [
     ]
 
 
+FEATURE_FULL_NAMES = {
+    'Num_characters': 'Number of Characters',
+    'Num_characters_no_space': 'Number of Characters (No Spaces)',
+    'Frac_alpha': 'Fraction of Alphabetic Characters',
+    'Frac_digits': 'Fraction of Digits',
+    'Frac_uppercase': 'Fraction of Uppercase Characters',
+    'Frac_whitespace': 'Fraction of Whitespace Characters',
+    'Frac_special': 'Fraction of Special Characters',
+    'Num_words': 'Number of Words',
+    'Num_unique_words': 'Number of Unique Words',
+    'Num_long_words': 'Number of Long Words',
+    'Avg_word_length': 'Average Word Length',
+    'Num_unique_stopwords': 'Number of Unique Stopwords',
+    'Frac_stopwords': 'Fraction of Stopwords',
+    'Num_sentences': 'Number of Sentences',
+    'Num_long_sentences': 'Number of Long Sentences',
+    'Avg_chars_per_sentence': 'Average Characters per Sentence',
+    'Avg_words_per_sentence': 'Average Words per Sentence',
+    'Automated_readability_index': 'Automated Readability Index',
+    'Sentiment_pos_vader': 'Positive Sentiment (VADER)',
+    'Sentiment_neg_vader': 'Negative Sentiment (VADER)',
+    'Sentiment_compound_vader': 'Compound Sentiment (VADER)',
+    'LIWC_Funct': 'LIWC: Function Words',
+    'LIWC_Pronoun': 'LIWC: Pronouns',
+    'LIWC_Ppron': 'LIWC: Personal Pronouns',
+    'LIWC_I': 'LIWC: First Person Singular',
+    'LIWC_We': 'LIWC: First Person Plural',
+    'LIWC_You': 'LIWC: Second Person',
+    'LIWC_SheHe': 'LIWC: Third Person Singular',
+    'LIWC_They': 'LIWC: Third Person Plural',
+    'LIWC_Ipron': 'LIWC: Impersonal Pronouns',
+    'LIWC_Article': 'LIWC: Articles',
+    'LIWC_Verbs': 'LIWC: Verbs',
+    'LIWC_AuxVb': 'LIWC: Auxiliary Verbs',
+    'LIWC_Past': 'LIWC: Past Tense',
+    'LIWC_Present': 'LIWC: Present Tense',
+    'LIWC_Future': 'LIWC: Future Tense',
+    'LIWC_Adverbs': 'LIWC: Adverbs',
+    'LIWC_Prep': 'LIWC: Prepositions',
+    'LIWC_Conj': 'LIWC: Conjunctions',
+    'LIWC_Negate': 'LIWC: Negations',
+    'LIWC_Quant': 'LIWC: Quantifiers',
+    'LIWC_Numbers': 'LIWC: Numbers',
+    'LIWC_Swear': 'LIWC: Swear Words',
+    'LIWC_Social': 'LIWC: Social Words',
+    'LIWC_Family': 'LIWC: Family Words',
+    'LIWC_Friends': 'LIWC: Friends Words',
+    'LIWC_Humans': 'LIWC: Human References',
+    'LIWC_Affect': 'LIWC: Affective Processes',
+    'LIWC_Posemo': 'LIWC: Positive Emotions',
+    'LIWC_Negemo': 'LIWC: Negative Emotions',
+    'LIWC_Anx': 'LIWC: Anxiety',
+    'LIWC_Anger': 'LIWC: Anger',
+    'LIWC_Sad': 'LIWC: Sadness',
+    'LIWC_CogMech': 'LIWC: Cognitive Mechanisms',
+    'LIWC_Insight': 'LIWC: Insight',
+    'LIWC_Cause': 'LIWC: Causation',
+    'LIWC_Discrep': 'LIWC: Discrepancy',
+    'LIWC_Tentat': 'LIWC: Tentative',
+    'LIWC_Certain': 'LIWC: Certainty',
+    'LIWC_Inhib': 'LIWC: Inhibition',
+    'LIWC_Incl': 'LIWC: Inclusive',
+    'LIWC_Excl': 'LIWC: Exclusive',
+    'LIWC_Percept': 'LIWC: Perceptual Processes',
+    'LIWC_See': 'LIWC: Seeing',
+    'LIWC_Hear': 'LIWC: Hearing',
+    'LIWC_Feel': 'LIWC: Feeling',
+    'LIWC_Bio': 'LIWC: Biological Processes',
+    'LIWC_Body': 'LIWC: Body',
+    'LIWC_Health': 'LIWC: Health',
+    'LIWC_Sexual': 'LIWC: Sexual',
+    'LIWC_Ingest': 'LIWC: Ingestion',
+    'LIWC_Relativ': 'LIWC: Relativity',
+    'LIWC_Motion': 'LIWC: Motion',
+    'LIWC_Space': 'LIWC: Space',
+    'LIWC_Time': 'LIWC: Time',
+    'LIWC_Work': 'LIWC: Work',
+    'LIWC_Achiev': 'LIWC: Achievement',
+    'LIWC_Leisure': 'LIWC: Leisure',
+    'LIWC_Home': 'LIWC: Home',
+    'LIWC_Money': 'LIWC: Money',
+    'LIWC_Relig': 'LIWC: Religion',
+    'LIWC_Death': 'LIWC: Death',
+    'LIWC_Assent': 'LIWC: Assent',
+    'LIWC_Dissent': 'LIWC: Dissent',
+    'LIWC_Nonflu': 'LIWC: Nonfluencies',
+    'LIWC_Filler': 'LIWC: Fillers',
+    'LINK_SENTIMENT': 'Link Sentiment',
+    'num_body_links': 'Number of Body Links',
+    'num_title_links': 'Number of Title Links',
+}
+
+
 def save_to_csv(coef_df):
     coef_no_intercept = coef_df[coef_df['Feature'] != 'Intercept'].copy()
     top_positive = coef_no_intercept[coef_no_intercept['Coefficient'] > 0].nlargest(8, 'Coefficient')
@@ -118,16 +211,22 @@ def save_to_csv(coef_df):
     export_data = []
     
     for _, row in top_positive.iterrows():
+        feature_name = row['Feature']
+        full_name = FEATURE_FULL_NAMES.get(feature_name, feature_name)
         export_data.append({
-            'word': row['Feature'],
+            'word': feature_name,
+            'full_name': full_name,
             'coefficient_up': row['Coefficient'],
             'coefficient_down': '',
             'p-value': row['P-value']
         })
     
     for _, row in top_negative.iterrows():
+        feature_name = row['Feature']
+        full_name = FEATURE_FULL_NAMES.get(feature_name, feature_name)
         export_data.append({
-            'word': row['Feature'],
+            'word': feature_name,
+            'full_name': full_name,
             'coefficient_up': '',
             'coefficient_down': row['Coefficient'],
             'p-value': row['P-value']
