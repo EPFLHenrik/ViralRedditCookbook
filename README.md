@@ -202,6 +202,7 @@ The directory structure of the project looks like this:
 │   │   ├── subreddit_clustering/   <- Subreddit clustering
 │   │   ├── temporal_analysis/      <- Temporal patterns analysis
 │   │   ├── top_subreddits/         <- Analysis of most popular subreddits
+│   │   ├── propensity_analysis/    <- Propensity analysis of virality
 │   │   └── upvote_analysis/        <- Upvote/engagement analysis
 │   │
 │   ├── data/                   <- Data and scraping utils
