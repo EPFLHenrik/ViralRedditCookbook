@@ -1,8 +1,10 @@
 # Toxicstew: a cookbook on how to go viral on Reddit
 
+# Find our [Datastory](https://galgantar.github.io/standard-deviants/) here 
+
 ## Abstract
 
-Virality on Reddit is often seen as luck-based, but patterns of language, timing, and community interaction shape what captures attention. <ins>ToxicStew: A Cookbook on How to Go Viral on Reddit</ins> will explore the underlying “recipe” for success by analyzing over 850k crosslinking posts, enriched with engagement metrics such as upvotes, downvotes, and comment counts. The project will aim to uncover which combinations of factors (what subreddits to post in, which communities to crosslink, what tone or sentiment to adopt, and when to post) most strongly suggest viral outcomes. By modeling these relationships and extracting interpretable patterns, it will reveal not only how virality emerges, but also how toxicity and controversy may serve as hidden ingredients in Reddit’s attention economy. Additionally, through new language processing possibilities like LLMs, an analysis on  patterns hidden to the human eye can be performed. Ultimately, the project will tell the story of how popularity can be engineered in online communities.
+Sometimes becoming viral happens by accident — a single post can transform an unknown user into a household name, launch careers, or even make you a Millionarie. Reddit, with its 430+ million monthly active users, has become a breeding ground for viral content that shapes public discourse, from GameStop’s stock surge to political movements and cultural phenomena. We can see that there is plenty of reasons for wanting to author a viral post but how does one do that? The first thing you should probably do is talk about something interesting and add your original view of the matter - in the contex of Reddit this means posting a so-called cross-linking post in which you refer to another post and add your own context to it. But just posting any corss-linking post will not be enough, a good viral post mixes a number of imprtant characteristics to stand out from hundreads thousands of posts posted each day. To help you make sense of all this we assembled <ins>Toxic Stew</ins> - a cookbook containing all the ingredients you need to cook up the perfect cross-linking post and become the next Reddit sensation.
 
 ## Research questions
 
@@ -60,6 +62,20 @@ Raw data is uploaded to `/data` folder, the data preprocessing can be found in `
 - **Formula**: Find best $\beta_0, \ldots, \beta_K$ such that the $P(Y_i=1|X_i) = \frac{1}{1 + e^{-(\beta_0 + \beta_1X_{i1} + ... + \beta_K X_{ik})}}$ minimizes binary cross entropy loss.
 - **Implementation**: `smf.logit()`
 - **Application in dataset**: Predict post sentiment, interpret relationships between features. Logistic regression is also a key ingredient in calculating the propensity score for matching.
+
+
+### Trees
+#### Decision Trees
+- **Purpose**: Fit a decision tree to the data
+- **Formula**: Binary tree which splits the data again repeatedly. Chosses the feature and splitting value with the highest information gain at each split
+- **Implementation**: `sklearn.tree.DecisionTreeClassifier`
+- **Application in dataset**: Predicting virality, introducing game which traverses Decision Tree
+
+#### Random Forests
+- **Purpose**: Fitting a number of trees together to the data
+- **Formula**: Group of binary trees which work together with majority votes and randomness to get better results
+- **Implementation**: `sklearn.tree.RandomForestClassifier`
+- **Application in dataset**: Predicting virality, finding feature importances
 
 ### Clustering
 
@@ -134,11 +150,14 @@ Raw data is uploaded to `/data` folder, the data preprocessing can be found in `
 - Extract the handbook of rules for virality from our experiments
 
 **December 2025**
-- Utilizing LLMs to analyze post contents and titles
+- Defining Metrics for Virality
+- Doing textual analysis
 - Matching to verify effect of certain features on the upvotes
 - Website creation
 - Finalization of the experiments
 - Interactive Flourish visualizations for the experiments
+- Adding minigames
+- Polishing story
 - Finishing up with all the experiments
 - Polishing website
 
@@ -153,8 +172,8 @@ Raw data is uploaded to `/data` folder, the data preprocessing can be found in `
 - [x] Sentiment graph structure analysis (Gal)
 - [x] Analyze correlations in the data with pearsonr and methods we learned at the tutorials
 - [x] Further t-tests and analyses
-- [ ] Matching to test the effect on the number of upvotes (Jack)
-- [ ] Per cluster correlations analysis (analyze if there are some cluster specific virality patterens)
+- [x] Matching to test the effect on the number of upvotes (Jack)
+- [x] Per cluster correlations analysis (analyze if there are some cluster specific virality patterens)
 
 
 ## How to use
@@ -181,7 +200,11 @@ python src/data/preprocess_graph.py
 
 ### Download preprocessed datasets
 
-Since the scraping process has taken several days across several devices and clustering required a large pipeline, we have made the used datasets available on Google Drive. They are required in order to reproduce the `results.ipynb` notebook. The two datasets are available as pickle files on our google drive at [Dataset with clusters](https://drive.google.com/file/d/1zsww69--3KvZTzpohDfCLU15HBMIqDdj/view?usp=drive_link) and [Enhanced Scraping Dataset](https://drive.google.com/file/d/12SAFinVcxSoniVVvr1bB94gKccXn8uBg/view?usp=drive_link). Before running the pipeline download both datasets and put them in `/data`. If you are interested in how the datasets have been obtained, check `/src/analysis/subreddit_clusters` (clustering script) and `/src/data/scraping` (scraping script).
+Since the scraping process has taken several days across several devices and clustering required a large pipeline, we have made the used datasets available on Google Drive. They are required in order to reproduce the `results.ipynb` notebook. All datasets are available on our google drive. They have all been used for different steps of the pipeline.
+- [Dataset with clusters](https://drive.google.com/file/d/1zsww69--3KvZTzpohDfCLU15HBMIqDdj/view?usp=drive_link)
+- [Enhanced Scraping Dataset](https://drive.google.com/file/d/12SAFinVcxSoniVVvr1bB94gKccXn8uBg/view?usp=drive_link)
+- [Final Dataframe](https://drive.google.com/file/d/1qVLD5FblIiOlzK7Ux1mbyuu3fLP52Rd4/view?usp=drive_link)
+ Before running the pipeline download both datasets and put them in `/data`. If you are interested in how the datasets have been obtained, check `/src/analysis/subreddit_clusters` (clustering script) and `/src/data/scraping` (scraping script).
 
 ## Project Structure
 
@@ -197,12 +220,16 @@ The directory structure of the project looks like this:
 │   │   ├── init_analysis/          <- Initial exploratory analysis
 │   │   ├── init_analysis_enhanced/ <- Initial analysis with API enhanced data
 │   │   ├── macro_analysis/         <- Macro-level analysis
+│   │   ├── metric_analysis/        <- Metric analysis with Decision Trees and Random Forests
 │   │   ├── sentiment_analysis/     <- Sentiment-specific analysis
 │   │   ├── sentiment_graphs/       <- Sentiment graph creation and metrics
 │   │   ├── subreddit_clustering/   <- Subreddit clustering
 │   │   ├── temporal_analysis/      <- Temporal patterns analysis
+│   │   ├── textual_analysis/       <- Analysis of title and body of posts
 │   │   ├── top_subreddits/         <- Analysis of most popular subreddits
-│   │   └── upvote_analysis/        <- Upvote/engagement analysis
+│   │   ├── upvote_analysis/        <- Upvote/engagement analysis
+│   │   ├── virality_analysis/      <- Analysis for virality
+│   │   └── virality_graph/         <- Graphical analysis of virality
 │   │
 │   ├── data/                   <- Data and scraping utils
 │   │
@@ -211,3 +238,9 @@ The directory structure of the project looks like this:
 └── results.ipynb               <- Main results notebook
 ```
 
+## Contributions of Team Members
+- Aziz Hamza: Temporal analysis and real life events linking
+- Gal Gantar: Logistic regression for vitality prediction, Sentiment graphs, Centrality graphs, TF-IDF title analysis
+- Jane Klavir: T-Testing and Data Story
+- Jack Naimer: Clustering and Propensity Analysis of Virality
+- Henrik Gruber: Data Scraping, Metric Creation and Analysis, Decision Trees, Random Forests and Minigames
