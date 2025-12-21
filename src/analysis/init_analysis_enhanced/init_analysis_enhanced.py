@@ -135,7 +135,7 @@ def create_enhanced_dataset_overview_plot(cleaned_df, save_path=None, show=False
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         plt.close()
 
-def create_all_enhanced_analysis_plots(show=False):
+def create_all_enhanced_analysis_plots(show=False, create_enhanced_dataset_overview_plot=True):
     """
     Create all enhanced analysis plots.
     
@@ -157,7 +157,8 @@ def create_all_enhanced_analysis_plots(show=False):
     
     create_comparison_plot(reddit_ids, cleaned_ids, reddit_cleaned_matching_ids, 'Scraped data vs original data comparison', show=show)
     
-    create_enhanced_dataset_overview_plot(enhanced_df_cleaned, show=show)
+    if create_enhanced_dataset_overview_plot:
+        create_enhanced_dataset_overview_plot(enhanced_df_cleaned, show=show)
     
     return enhanced_df, reddit_df, enhanced_df_cleaned, reddit_ids, enhanced_ids, matching_ids, reddit_cleaned_matching_ids
 
