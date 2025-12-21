@@ -1,6 +1,7 @@
 # Toxicstew: a cookbook on how to go viral on Reddit
 
-# Find our [Datastory](https://galgantar.github.io/standard-deviants/) here 
+# Find our [Datastory here](https://galgantar.github.io/standard-deviants/) 
+## This is the [Repository for the Datastory](https://github.com/galgantar/standard-deviants)
 
 ## Abstract
 
